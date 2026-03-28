@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382967_94a54c4b",
+  "type": "semantic",
+  "content": "// ── Route Module: Projects ───────────────────────────────────────────────────\r\n//\r\n// This module manages the \"project archive\" — a collection of projects that\r\n// MA has worked on.  Each project has a name, status, and timestamps.\r\n//\r\n// Think of it like a filing cabinet:\r\n//   • You can list all the folders in the cabinet\r\n//   • You can \"resume\" a project (pull it out and work on it again)\r\n//   • You can \"close\" a project (put it back, mark it done)\r\n//\r\n// Projects are sorted newest-first so the most recent work shows up on top.\r\n//\r\n// ── Endpoints ───────────────────────────────────────────────────────────────\r\n//   GET  /api/projects       — List all projects (newest first)\r\n//   POST /api/projects/state — Change a project's state (close or resume)\r\n//\r\n// ── What this module needs ──────────────────────────────────────────────────\r\n//   deps.core — MA-core (core.projectArchive for listing, closing, resuming)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n\n// json()     — send a JSON response with a status code\r\n// readBody() — read the full body of a POST request\r\nconst { json, readBody } = require('../infra/infra-http-utils');",
+  "topics": [
+    "MA Memory Architect",
+    "route-projects.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Route Module: Projects ───────────────────────────────────────────────────\r\n//\r\n// This module manages the \"project archive\" — a collection of projects that\r\n// MA has worked on.  Each project h",
+  "importance": 0.6,
+  "createdAt": 1774646382967,
+  "createdAtISO": "2026-03-27T21:19:42.967Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-projects.js",
+  "accessCount": 0
+}

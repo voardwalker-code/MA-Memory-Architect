@@ -1,0 +1,44 @@
+let currentPhrase = [];
+    for (const word of words) {
+      const clean = word.replace(/[^a-z0-9]/g, '');
+      if (!clean || clean.length < 2) {
+        if (currentPhrase.length > 0) { candidates.push(currentPhrase); currentPhrase = []; }
+        continue;
+      }
+      if (STOPWORDS.has(clean)) {
+        if (currentPhrase.length > 0) { candidates.push(currentPhrase); currentPhrase = []; }
+      } else {
+        currentPhrase.push(clean);
+      }
+    }
+    if (currentPhrase.length > 0) candidates.push(currentPhrase);
+  }
+
+  return candidates.filter(p => p.length >= 1 && p.length <= 4 && p.every(w => w.length >= 3));
+}
+
+function computeWordScores(candidates) {
+  const freq = {}, degree = {};
+  for (const phrase of candidates) {
+    for (const word of phrase) {
+      freq[word] = (freq[word] || 0) + 1;
+      degree[word] = (degree[word] || 0) + phrase.length;
+    }
+  }
+  const scores = {};
+  for (const word of Object.keys(freq)) scores[word] = degree[word] / freq[word];
+  return scores;
+}
+
+function scorePhrases(candidates, wordScores) {
+  const seen = new Set(), results = [];
+  for (const phrase of candidates) {
+    const phraseStr = phrase.join(' ');
+    if (seen.has(phraseStr)) continue;
+    seen.add(phraseStr);
+    let score = 0;
+    for (const word of phrase) score += wordScores[word] || 0;
+    results.push({ phrase: phraseStr, score });
+  }
+  return results.sort((a, b) => b.score - a.score);
+}

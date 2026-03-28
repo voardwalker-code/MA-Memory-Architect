@@ -1,0 +1,21 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// cmdRun(wp, cmd)
+//
+// Runs a terminal command inside the workspace directory.
+// The command must be on the whitelist (enforced by MA-cmd-executor).
+// Returns stdout, stderr, exit code, and any error info.
+//
+//   wp  — workspace path (used as the working directory)
+//   cmd — the command string to execute
+//   Returns: formatted string with stdout/stderr/exit code
+// ─────────────────────────────────────────────────────────────────────────────
+async function cmdRun(wp, cmd) {
+  const result = await cmdExecModule.execCommand(cmd, wp);
+  let out = '';
+  if (result.stdout) out += `STDOUT:\n${result.stdout}\n`;
+  if (result.stderr) out += `STDERR:\n${result.stderr}\n`;
+  out += `Exit: ${result.exitCode ?? 'N/A'}`;
+  if (result.timedOut) out += ' (TIMED OUT)';
+  if (result.error) out += `\nError: ${result.error}`;
+  return out;
+}

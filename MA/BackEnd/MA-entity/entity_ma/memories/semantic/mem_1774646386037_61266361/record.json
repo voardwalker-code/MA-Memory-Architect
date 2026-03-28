@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386037_61266361",
+  "type": "semantic",
+  "content": "### Exports\r\n- `functionA(param1, param2)` → returns `{type}`\r\n- `functionB(param1)` → returns `{type}`\r\n\n### Algorithm: functionA\r\n1. Validate input against {CONTRACT}_SHAPE\r\n2. {Specific operation with data types}\r\n3. {Formula or logic — e.g. score = weight × 0.6 + recency × 0.4}\r\n4. Return { field1, field2 }\r\n\n### Algorithm: functionB\r\n1. Read {resource} from {path}\r\n2. {Transform step with specifics}\r\n3. Write result to {destination}\r\n4. Return boolean success\r\n\n## {Module 2}: {file2.js}\r\n{Same structure}\r\n\n## Done When\r\n`npm run test:{N}` passes with 0 failures.\r\n\n## Manifest Update\r\nAfter passing tests, update each module's status in PROJECT-MANIFEST.json from \"stub\" to \"implemented\".\r\n```\r\n\nKey rules for blueprints:\r\n- Algorithms are PSEUDOCODE with specific data types and operations\r\n- Formulas are MATH with actual coefficients (e.g., `score = importance × 0.6 + freshness × 0.4`)\r\n- Error handling is SPECIFIED (what to catch, what to return on failure)\r\n- Reference implementations are POINTED AT when they exist (e.g., \"Adapt logic from ../../server/MA-rake.js\")\r\n\n### Step 6: Module Stubs\r\n\nOne file per module. Write to the path specified in the manifest:\r\n\n```javascript\r\n'use strict';\r\nconst { validate{Type}, DEFAULTS } = require('../{prefix}-contracts/{contract}');\r\n\n// ── {Module Name} ───────────────────────────────────────────\r\n// Blueprint: blueprints/layer-{N}-{name}.md",
+  "topics": [
+    "MA Memory Architect",
+    "architect.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "### Exports\r\n- `functionA(param1, param2)` → returns `{type}`\r\n- `functionB(param1)` → returns `{type}`\r\n\n### Algorithm: functionA\r\n1. Validate input against {CONTRACT}_SHAPE\r\n2. {Specific operation w",
+  "importance": 0.6,
+  "createdAt": 1774646386038,
+  "createdAtISO": "2026-03-27T21:19:46.038Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\architect.md",
+  "accessCount": 0
+}

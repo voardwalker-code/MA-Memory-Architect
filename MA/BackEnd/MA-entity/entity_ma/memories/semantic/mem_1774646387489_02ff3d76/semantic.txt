@@ -1,0 +1,41 @@
+# Layer 3 — Entity Identity
+
+## Pre-Requisite
+- Layer 2 tests pass: `node tests/test-runner.js 2`
+
+## Scope
+Fill in all NOT_IMPLEMENTED stubs in:
+1. `server/entity/entity-state.js` — Entity CRUD + lifecycle
+2. `server/entity/context-builder.js` — LLM context assembly
+
+## Instructions Per Module
+
+### entity-state.js — `createEntityState(entitiesDir)`
+- **createEntity(opts)**:
+  1. Validate name not in RESERVED_NAMES (case-insensitive)
+  2. Generate ID via `entitySchema.generateEntityId(opts.name)`
+  3. Create directory: `entitiesDir/entity_<name>/`
+  4. Write three files:
+     - `entity.json`: { id, name, creationMode, created, ... }
+     - `persona.json`: { voice, traits, boundaries, origin_story, ... }
+     - `system-prompt.txt`: Generated from persona
+  5. Validate entity with `entitySchema.validateEntity(entity)`
+  6. Return entity object
+
+- **loadEntity(entityId)**:
+  1. Read `entity.json` from entity directory
+  2. Read `persona.json`
+  3. Read `system-prompt.txt`
+  4. Return combined { entity, persona, systemPrompt }
+
+- **updatePersona(entityId, patch)**:
+  1. Load current persona
+  2. Deep merge patch (don't overwrite arrays, merge them)
+  3. Atomic write back
+  4. Regenerate system-prompt.txt if voice or traits changed
+  5. Return updated persona
+
+- **listEntities()**:
+  1. readdir entitiesDir
+  2. Filter directories starting with `entity_`
+  3. For each: read entity.json, return summary { id, name, creationMode }

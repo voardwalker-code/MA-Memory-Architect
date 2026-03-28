@@ -1,0 +1,33 @@
+// Update chore record
+    const data = getChores();
+    const idx = data.chores.findIndex(c => c.id === chore.id);
+    if (idx >= 0) {
+      data.chores[idx].lastRun = new Date().toISOString();
+      data.chores[idx].lastResult = reply.slice(0, 500);
+      data.chores[idx].lastGrade = grade;
+      data.chores[idx].runCount = (data.chores[idx].runCount || 0) + 1;
+      saveChores(data);
+    }
+
+    // Log
+    const logEntry = {
+      choreId: chore.id,
+      choreName: chore.name,
+      agent: agentName,
+      agentId,
+      grade,
+      resultPreview: reply.slice(0, 300),
+      timestamp: new Date().toISOString()
+    };
+    _log('pulse-chores.log', logEntry);
+
+    // Record in agent prompt history
+    if (agentId && _deps.agentCatalog) {
+      _deps.agentCatalog.recordPrompt(agentId, {
+        task: `Chore: ${chore.name}`,
+        prompt: chore.description || chore.name,
+        result: reply.slice(0, 500),
+        success: !grade.startsWith('F'),
+        tags: ['chore', chore.id]
+      });
+    }

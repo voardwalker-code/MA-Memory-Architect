@@ -1,0 +1,13 @@
+// ── Follow-up LLM call: incorporate tool results into the response
+    reply = await callLLM(config, [
+      { role: 'system', content: `You are ${entityName}. Incorporate tool results into your response. Be concise. Do NOT output [TOOL: ...] blocks — tools have already been executed.${writtenFiles.length ? '\n\nFiles were written and auto-verified. Check the verification results — if the file looks incomplete or has errors, tell the user what needs to be fixed and offer to continue.' : ''}` },
+      { role: 'user', content: `${clean}\n\n${toolBlock}${verifyBlock}\n\nRespond naturally:` }
+    ], { temperature: 0.6, maxTokens: responseReserve, ...(autoPilot ? { timeout: 0 } : {}) });
+  }
+
+  // ── Check for continuation marker ──────────────────────────────────
+  const continueMatch = reply && reply.match(/\[CONTINUE_FROM:\s*([^\]]+)\]/);
+  const continuationPoint = continueMatch ? continueMatch[1].trim() : null;
+
+  // ── Store memory + return ──────────────────────────────────────────
+  if (memory) memory.store('episodic', `Chat: ${message}\nReply: ${(reply || '').slice(0, 300)}`, { topics: ['conversation'], chainId });

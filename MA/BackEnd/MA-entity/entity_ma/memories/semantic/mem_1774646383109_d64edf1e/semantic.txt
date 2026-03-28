@@ -1,0 +1,34 @@
+const wsRoot = path.resolve(core.WORKSPACE_DIR);
+      const safe   = path.resolve(wsRoot, body.path);
+      if (!safe.startsWith(wsRoot + path.sep) && safe !== wsRoot) {
+        json(res, 403, { error: 'Path outside workspace' });
+        return true;
+      }
+
+      fs.mkdirSync(safe, { recursive: true });
+      json(res, 200, {
+        ok:   true,
+        path: path.relative(wsRoot, safe).replace(/\\/g, '/')
+      });
+      return true;
+    }
+
+    // ── Serve a raw file ─────────────────────────────────────────────
+    // Query: ?path=assets/logo.png
+    // Unlike /api/workspace/read which returns JSON, this serves the
+    // actual file with the correct MIME type — so the browser can
+    // display images, play audio, render HTML, etc.
+    if (url.pathname === '/api/workspace/file' && method === 'GET') {
+      const reqPath = url.searchParams.get('path');
+      if (!reqPath) { json(res, 400, { error: 'Need path param' }); return true; }
+
+      const wsRoot = path.resolve(core.WORKSPACE_DIR);
+      const safe   = path.resolve(wsRoot, reqPath);
+      if (!safe.startsWith(wsRoot + path.sep) && safe !== wsRoot) {
+        json(res, 403, { error: 'Path outside workspace' });
+        return true;
+      }
+      if (!fs.existsSync(safe) || !fs.statSync(safe).isFile()) {
+        json(res, 404, { error: 'File not found' });
+        return true;
+      }

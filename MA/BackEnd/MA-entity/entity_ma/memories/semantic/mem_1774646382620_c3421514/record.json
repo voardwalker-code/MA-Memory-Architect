@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382620_c3421514",
+  "type": "semantic",
+  "content": "// Penalize models that have failed badly (F average)\r\n      if (gradeScore < 1) {\r\n        score -= 40;  // hard penalty — avoid this model for this task\r\n        reason.push('POOR HISTORY — avoiding');\r\n      }\r\n    } else {\r\n      // No history — neutral, slight bonus for trying new combos\r\n      score += 5;\r\n      reason.push('no history (exploring)');\r\n    }\r\n\n    // 3. Strength/weakness matching\r\n    const strengths = (m.strengths || []).map(s => s.toLowerCase());\r\n    const weaknesses = (m.weaknesses || []).map(s => s.toLowerCase());\r\n\n    if (strengths.includes(jobReqs.language) || strengths.includes(jobReqs.taskType)) {\r\n      score += 15;\r\n      reason.push('known strength');\r\n    }\r\n    if (weaknesses.includes(jobReqs.language) || weaknesses.includes(jobReqs.taskType)) {\r\n      score -= 20;\r\n      reason.push('known weakness');\r\n    }\r\n\n    // 4. Context window headroom\r\n    const headroom = ((m.contextWindow || 8192) - jobReqs.minContextWindow) / 1000;\r\n    score += Math.min(10, headroom);  // up to 10 points for spare context\r\n\n    // 5. Cost efficiency (prefer cheaper when quality is similar)\r\n    const cost = (m.costPer1kIn || 0) + (m.costPer1kOut || 0);\r\n    if (cost === 0) {\r\n      score += 10;  // free model bonus\r\n      reason.push('free');\r\n    } else if (cost < 0.01) {\r\n      score += 5;\r\n      reason.push('low cost');\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "llm-router.js",
+    "BackEnd llm"
+  ],
+  "summary": "// Penalize models that have failed badly (F average)\r\n      if (gradeScore < 1) {\r\n        score -= 40;  // hard penalty — avoid this model for this task\r\n        reason.push('POOR HISTORY — avoiding",
+  "importance": 0.6,
+  "createdAt": 1774646382621,
+  "createdAtISO": "2026-03-27T21:19:42.621Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-router.js",
+  "accessCount": 0
+}

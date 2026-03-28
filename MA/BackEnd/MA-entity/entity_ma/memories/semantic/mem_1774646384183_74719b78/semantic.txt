@@ -1,0 +1,33 @@
+```javascript
+// ── Services · Notification Queue ────────────────────────────────────────────
+//
+// HOW NOTIFICATIONS WORK:
+// When something important happens (task completed, error detected,
+// chore finished), the system queues a notification.  The front end
+// polls for pending notifications and displays them to the user.
+//
+// This is a simple in-memory queue with optional persistence to disk.
+// Notifications auto-expire after 24 hours.
+//
+// WHAT USES THIS:
+//   core-chat.js  — queues "task completed" notifications
+//   svc-pulse.js  — queues "chore finished" notifications
+//   route-system.js — serves pending notifications to the front end
+//
+// EXPORTS:
+//   queue(type, message, meta?)  — add a notification
+//   poll(since?)                 — get notifications since timestamp
+//   dismiss(id)                  — mark as read
+//   clear()                      — remove all notifications
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';
+
+const fs   = require('fs');
+const path = require('path');
+
+// ... implementation
+```
+
+---
+
+## Quick Reference Card

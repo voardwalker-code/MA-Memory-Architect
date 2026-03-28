@@ -1,0 +1,13 @@
+{
+  "id": "prompt_1774647158490_7syt",
+  "agentId": "senior-coder",
+  "task": "What have you already tried?",
+  "prompt": "ORIGINAL REQUEST: \"No I want you to tell me whats not working and how to fix it\"\n\n► Step 4 of 8: What have you already tried?\n\nCOMPLETED:\n  ✓ 1. **Gather Context** - Request details about your issue: — I need more context to help you. Please provide:\n\n1. **What are you working on?** (project name, framework, or codebase)\n2. **What's the error or issu\n  ✓ 2. What code/project are you working on? — To help you identify what's not working and how to fix it, I need you to provide:\n\n1. **The error me",
+  "result": "I need the actual code or error you're encountering to diagnose what's not working.\n\n**Please provide:**\n\n1. **The error message** (full text)\n2. **The relevant code** that's causing the issue\n3. **What you expected** to happen vs what actually happened\n\nOnce you share those, I can tell you exactly what's wrong and how to fix it.",
+  "success": true,
+  "project": "",
+  "timestamp": "2026-03-27T21:32:38.490Z",
+  "tags": [
+    "code"
+  ]
+}

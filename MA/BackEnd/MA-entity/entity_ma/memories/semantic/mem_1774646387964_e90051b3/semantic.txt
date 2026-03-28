@@ -1,0 +1,36 @@
+**LLM calls per message:** 4 synchronous (1A, 1D, 1C, Final) + optional chatlog reconstruction + up to 2 async post-turn.
+
+---
+
+## Contributor Phases
+
+### 1A — Subconscious
+- Memory retrieval scoring: `relevanceScore = baseWeight × (0.35 + importance × decay)`
+- Assembles: activated memories + conversation recall + relationship context
+- Filters doc_* entries and boilerplate markers
+- Outputs: emotion signals, topic signals, memory observations
+
+### 1D — Dream-Intuition
+- Receives turn signals (subject, event, emotion, tension — extracted deterministically, no LLM)
+- Generates abstract associations, lateral links, creative metaphors
+- Runs parallel with 1A. Has NO memory write access — intuition only
+
+### 1C — Conscious
+- Waits for both 1A and 1D to complete
+- Full cognitive context: memories + relationships + creative associations
+- Produces primary reasoned response draft
+- Can request tools via `[TOOL: ...]` tags
+- MUST NOT generate `[TASK_PLAN]` when a single `[TOOL:]` call suffices
+
+### Final — Orchestrator
+- Receives: user message + full 1A/1D context + Conscious draft
+- Reviews for coherence and fit, delivers in entity's authentic voice
+- Does NOT re-synthesize — shapes HOW it's said, not WHAT
+- Passes through tool and task tags unchanged
+
+---
+
+## Orchestration Policy
+
+### O2 Escalation
+Triggers: high-tension, error-constraint-combo, planning-implementation-combo, user-requested-depth.

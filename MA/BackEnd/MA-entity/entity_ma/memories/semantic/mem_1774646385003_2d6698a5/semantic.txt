@@ -1,0 +1,18 @@
+function _openIngestProgress(label) {
+  const overlay = document.getElementById('ingest-progress-overlay');
+  overlay.classList.add('show');
+  document.getElementById('ingest-prog-label').textContent = label;
+  document.getElementById('ingest-prog-pct').textContent = '';
+  const fill = document.getElementById('ingest-prog-fill');
+  fill.style.width = '0%';
+  fill.className = 'ingest-prog-fill';
+  document.getElementById('ingest-prog-detail').textContent = '';
+  document.getElementById('ingest-prog-log').innerHTML = '';
+  const errEl = document.getElementById('ingest-prog-error');
+  errEl.textContent = '';
+  errEl.classList.add('hidden');
+  document.getElementById('ingest-kill-btn').classList.remove('hidden');
+  document.getElementById('ingest-close-btn').classList.add('hidden');
+  // hide the ingest setup panel behind the progress overlay
+  document.getElementById('ingest-panel').classList.remove('show');
+}

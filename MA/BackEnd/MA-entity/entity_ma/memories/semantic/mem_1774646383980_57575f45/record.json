@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383980_57575f45",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// webSearch(query)\r\n//\r\n// Searches the internet using the web fetch module's search function.\r\n// Returns formatted search results.\r\n//\r\n//   query — what to search for\r\n//   Returns: formatted string of search results\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nasync function webSearch(query) {\r\n  const results = await webFetchModule.webSearch(query);\r\n  return webFetchModule.formatSearchResults(results, query);\r\n}\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// webFetch(url)\r\n//\r\n// Downloads a web page, extracts the main text content, and returns it\r\n// wrapped in [WEB CONTENT] tags so the AI knows where the content came from.\r\n//\r\n//   url — the web page URL to fetch\r\n//   Returns: the page's text content wrapped in markers\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nasync function webFetch(url) {\r\n  const result = await webFetchModule.fetchAndExtract(url);\r\n  return `[WEB CONTENT: ${result.url}]\\n${result.text}\\n[/WEB CONTENT]`;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "tools-web.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// webSearch(query)\r\n//\r\n// Searches the internet using the web fetch module's search function.\r\n// Returns formatted ",
+  "importance": 0.6,
+  "createdAt": 1774646383982,
+  "createdAtISO": "2026-03-27T21:19:43.982Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-web.js",
+  "accessCount": 0
+}

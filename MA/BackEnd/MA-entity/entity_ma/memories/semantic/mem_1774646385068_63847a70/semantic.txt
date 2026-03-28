@@ -1,0 +1,17 @@
+// ── Workspace File Tree ───────────────────────────────────────────────────
+async function loadWorkspaceTree() {
+  if (!explorerBodyEl) return;
+  explorerBodyEl.innerHTML = '<div class="side-empty">Loading workspace...</div>';
+  try {
+    const r = await fetch('/api/workspace/tree');
+    const d = await r.json();
+    const items = d.items || [];
+    if (!items.length) {
+      explorerBodyEl.innerHTML = '<div class="side-empty">Workspace is empty.</div>';
+      return;
+    }
+    explorerBodyEl.innerHTML = renderTreeNodes(items, 0);
+  } catch (e) {
+    explorerBodyEl.innerHTML = '<div class="side-empty">Could not load workspace: ' + escHtml(e.message) + '</div>';
+  }
+}

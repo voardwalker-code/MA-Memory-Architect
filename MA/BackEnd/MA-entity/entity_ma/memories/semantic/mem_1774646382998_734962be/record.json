@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382998_734962be",
+  "type": "semantic",
+  "content": "// ── Read pulse logs ──────────────────────────────────────────────\r\n    // Query params:\r\n    //   ?type=health  — which log to read (default: \"health\")\r\n    //   ?lines=50     — how many lines to return (default: 50)\r\n    if (url.pathname === '/api/pulse/logs' && method === 'GET') {\r\n      const type  = url.searchParams.get('type') || 'health';\r\n      const lines = parseInt(url.searchParams.get('lines') || '50', 10);\r\n      json(res, 200, { lines: pulse.readLog(`pulse-${type}.log`, lines) });\r\n      return true;\r\n    }\r\n\n    // ═════════════════════════════════════════════════════════════════\r\n    // CHORES — Recurring tasks that Pulse runs on schedule\r\n    // ═════════════════════════════════════════════════════════════════\r\n\n    // ── List all chores ──────────────────────────────────────────────\r\n    if (url.pathname === '/api/chores' && method === 'GET') {\r\n      json(res, 200, pulse.getChores());\r\n      return true;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "route-pulse.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Read pulse logs ──────────────────────────────────────────────\r\n    // Query params:\r\n    //   ?type=health  — which log to read (default: \"health\")\r\n    //   ?lines=50     — how many lines to r",
+  "importance": 0.6,
+  "createdAt": 1774646382999,
+  "createdAtISO": "2026-03-27T21:19:42.999Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-pulse.js",
+  "accessCount": 0
+}

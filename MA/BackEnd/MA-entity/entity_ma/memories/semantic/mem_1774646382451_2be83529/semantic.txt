@@ -1,0 +1,32 @@
+let config = null;
+  let workspacePath = null;
+
+  try {
+    // Try the local config file first
+    if (fs.existsSync(CONFIG_PATH)) {
+      const localRaw = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+      const localRuntime = normalizeRuntime(localRaw);
+      if (localRuntime) {
+        config = { ...localRuntime };
+        if (localRaw.capabilities && typeof localRaw.capabilities === 'object') {
+          config.capabilities = localRaw.capabilities;
+        }
+        if (localRaw.memoryLimit !== undefined) config.memoryLimit = localRaw.memoryLimit;
+        if (localRaw.memoryRecall !== undefined) config.memoryRecall = localRaw.memoryRecall;
+        config.integrationMode = (localRaw.integrationMode === 'nekocore') ? 'nekocore' : 'off';
+        console.log(`  Config loaded from local MA-Config: ${config.type}/${config.model}`);
+      } else {
+        console.log('  Config file exists but needs API key — configure via GUI or CLI');
+      }
+    }
+
+    // If local didn't work, try migrating from legacy location
+    if (!config) {
+      const legacy = _extractLegacyRuntimeConfig(_readLegacyGlobalConfig(LEGACY_CONFIG_PATH));
+      if (legacy) {
+        config = { ...legacy };
+        config.integrationMode = 'off';
+        fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2));
+        console.log(`  Config migrated from legacy parent profile to local MA-Config: ${config.type}/${config.model}`);
+      }
+    }

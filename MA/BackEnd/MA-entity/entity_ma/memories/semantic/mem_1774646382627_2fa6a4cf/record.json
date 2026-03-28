@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382627_2fa6a4cf",
+  "type": "semantic",
+  "content": "// Use MA's own LLM to research the model\r\n  try {\r\n    const prompt = `You are a helpful AI model expert. For the model \"${modelName}\", provide a JSON object with these fields:\r\n- contextWindow: number (context window size in tokens, best estimate)\r\n- costPer1kIn: number (USD per 1000 input tokens, 0 if free/local)\r\n- costPer1kOut: number (USD per 1000 output tokens, 0 if free/local)\r\n- strengths: string[] (what this model is good at, e.g. [\"coding\", \"python\", \"reasoning\"])\r\n- weaknesses: string[] (what this model struggles with, e.g. [\"long-code\", \"math\"])\r\n- tier: \"local\" | \"cheap\" | \"mid\" | \"premium\"\r\n- summary: string (one-sentence description)\r\n\nRespond with ONLY the JSON object, no markdown fences.`;\r\n\n    const result = await _deps.callLLM(\r\n      [{ role: 'system', content: 'Respond with only valid JSON.' }, { role: 'user', content: prompt }],\r\n      { temperature: 0.3, maxTokens: 512, responseFormat: 'json' }\r\n    );",
+  "topics": [
+    "MA Memory Architect",
+    "llm-router.js",
+    "BackEnd llm"
+  ],
+  "summary": "// Use MA's own LLM to research the model\r\n  try {\r\n    const prompt = `You are a helpful AI model expert. For the model \"${modelName}\", provide a JSON object with these fields:\r\n- contextWindow: numb",
+  "importance": 0.6,
+  "createdAt": 1774646382628,
+  "createdAtISO": "2026-03-27T21:19:42.628Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-router.js",
+  "accessCount": 0
+}

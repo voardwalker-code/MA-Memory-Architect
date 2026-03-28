@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389226_86e3b4d4",
+  "type": "semantic",
+  "content": "| Command | Description |\r\n|---------|-------------|\r\n| `/models` | List all models in the roster with tier, context, cost, and strengths. |\r\n| `/models add <provider> <model> [endpoint]` | Add a model. Provider: ollama or openrouter. |\r\n| `/models remove <id>` | Remove a model from the roster. |\r\n| `/models perf` | Show performance tracking data for all roster models. |\r\n| `/models route <test message>` | Test which model would be selected for a given task. |\r\n| `/models research <model>` | Research a model's capabilities, pricing, and strengths via LLM. |\r\n\n### CLI-Only\r\n\n| Command | Description |\r\n|---------|-------------|\r\n| `/help` | Show the command help banner. |\r\n| `/exit` or `/quit` | Quit the CLI. |\r\n\n---\r\n\n## Chatting with MA\r\n\nJust type naturally. MA classifies your message and routes it:\r\n\n### Conversation Mode\r\nSimple questions, greetings, opinions → MA responds conversationally.\r\n\n```\r\nYou: Hey, how does the memory system work?\r\nMA:  The memory system uses two stores...\r\n```\r\n\n### Task Mode\r\nCoding, research, writing, analysis requests → MA activates the task engine with planning and multi-step execution.\r\n\n```\r\nYou: Build a REST API in Python with Flask that has CRUD endpoints for a todo list\r\nMA:  I'll write this in parts...\r\n     [Creates project structure, writes files, runs tests]\r\n     Task: code (5 steps)\r\n```\r\n\n**Task types and what triggers them:**",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "| Command | Description |\r\n|---------|-------------|\r\n| `/models` | List all models in the roster with tier, context, cost, and strengths. |\r\n| `/models add <provider> <model> [endpoint]` | Add a mode",
+  "importance": 0.6,
+  "createdAt": 1774646389228,
+  "createdAtISO": "2026-03-27T21:19:49.228Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

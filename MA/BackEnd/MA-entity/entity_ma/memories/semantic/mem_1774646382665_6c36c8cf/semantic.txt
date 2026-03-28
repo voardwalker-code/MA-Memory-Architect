@@ -1,0 +1,18 @@
+// ── Paths ───────────────────────────────────────────────────────────────────
+// These are the important folder locations that MA uses.
+// WORKSPACE_DIR is a `let` because the user can change it in config.
+const MA_ROOT       = path.join(__dirname, '..');
+const CONFIG_PATH   = path.join(MA_ROOT, 'MA-Config', 'ma-config.json');
+const LEGACY_GLOBAL_CONFIG_PATH = path.join(MA_ROOT, '..', 'Config', 'ma-config.json');
+const ENTITY_DIR    = path.join(MA_ROOT, 'MA-entity', 'entity_ma');
+let   WORKSPACE_DIR = path.join(MA_ROOT, 'MA-workspace');
+const KNOWLEDGE_DIR = path.join(MA_ROOT, 'MA-knowledge');
+
+// ── State ───────────────────────────────────────────────────────────────────
+// These variables hold MA's runtime state.  They start empty and get
+// filled in during boot().
+let config = null;    // { type, endpoint, apiKey, model, vision?, capabilities? }
+let memory = null;    // memory store instance
+let entity = null;    // entity.json contents
+let skills = [];      // loaded skill contents [{ name, content }]
+let maMode = 'work';  // 'work' (full tool access) or 'chat' (read-only)

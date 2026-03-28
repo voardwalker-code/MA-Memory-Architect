@@ -1,0 +1,16 @@
+### rem-server.js startup changes
+- After `getEntityState()` initializes, call `seedMA(ENTITIES_DIR)` if state loaded
+- Add the `POST /api/entities` route to the request router
+
+## Done When
+```bash
+node tests/test-runner.js 6
+# All tests pass
+# AND: Launch server → entity dropdown shows "MA" → can chat with MA
+```
+
+## After Completion
+Update `PROJECT-MANIFEST.json`:
+- Add layer 6 entry with status "complete"
+- Increment totalModules and completedModules
+- Update CHANGELOG.md

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382840_5c49d16b",
+  "type": "semantic",
+  "content": "// Progress callback — fires once per task step\r\n          onStep: async (stepInfo) => {\r\n            sendEvent('step', {\r\n              stepIndex:   stepInfo.stepIndex,\r\n              stepTotal:   stepInfo.stepTotal,\r\n              description: stepInfo.description,\r\n              summary:     (stepInfo.output || '').slice(0, 300)\r\n            });\r\n          },\r\n\n          // Activity callback — fires for classifier, tool use, search, etc.\r\n          onActivity: async (category, detail, data) => {\r\n            sendEvent('activity', {\r\n              category, detail, data,\r\n              ts: new Date().toISOString()\r\n            });\r\n          }\r\n        });\r\n\n        // Send the completed result\r\n        sendEvent('done', result);\r\n      } catch (e) {\r\n        sendEvent('error', { error: e.message });\r\n      }\r\n\n      // Always close the stream cleanly\r\n      res.write('event: close\\ndata: {}\\n\\n');\r\n      res.end();\r\n      return true;\r\n    }\r\n\n    // ── 2. Non-streaming chat ────────────────────────────────────────\r\n    // Simpler version: send a message, wait, get the full answer back.\r\n    if (url.pathname === '/api/chat' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      const result = await core.handleChat({\r\n        message:     body.message,\r\n        history:     body.history,\r\n        attachments: body.attachments\r\n      });\r\n      json(res, 200, result);\r\n      return true;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "route-chat.js",
+    "BackEnd routes"
+  ],
+  "summary": "// Progress callback — fires once per task step\r\n          onStep: async (stepInfo) => {\r\n            sendEvent('step', {\r\n              stepIndex:   stepInfo.stepIndex,\r\n              stepTotal:   st",
+  "importance": 0.6,
+  "createdAt": 1774646382841,
+  "createdAtISO": "2026-03-27T21:19:42.841Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-chat.js",
+  "accessCount": 0
+}

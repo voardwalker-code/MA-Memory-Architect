@@ -1,0 +1,26 @@
+if (writtenFiles.length > 0 && llmCalls < limits.maxLLM) {
+        const uniqueFiles = [...new Set(writtenFiles)];
+        for (const fp of uniqueFiles.slice(0, 3)) {
+          try {
+            const rel = path.relative(workspacePath, fp);
+            const vr = await execTools(`[TOOL:ws_read ${JSON.stringify({path: rel})}]`, { workspacePath, webFetchEnabled: false, cmdRunEnabled: false, integrationMode });
+            if (vr.length > 0) results.push(...vr);
+          } catch { /* skip */ }
+        }
+      }
+
+      if (results.length > 0 && formatResults && stripTools) {
+        const cleanResp = stripTools(resp);
+        const toolBlock = formatResults(results);
+
+        if (llmCalls < limits.maxLLM) {
+          resp = await callLLM([
+            { role: 'system', content: `You are ${entityName}. Summarize what step ${i + 1} accomplished. Be brief. No [TOOL:] tags.${writtenFiles.length ? ' Files were auto-verified — if any look incomplete, note what needs continuation.' : ''}` },
+            { role: 'user', content: `Step: ${step.description}\n\nAction:\n${cleanResp}\n\n${toolBlock}\n\nBrief summary:` }
+          ], { temperature: 0.5 });
+          llmCalls++;
+        } else {
+          resp = cleanResp;
+        }
+      }
+    }

@@ -1,0 +1,33 @@
+// ── Command catalog ──────────────────────────────────────────────
+    // Returns a big array of { cmd, desc, usage } objects that the
+    // client uses to show autocomplete suggestions and help text.
+    if (url.pathname === '/api/commands' && method === 'GET') {
+      json(res, 200, [
+        { cmd: '/health',           desc: 'Run system health scan',           usage: '/health' },
+        { cmd: '/memory stats',     desc: 'Show memory statistics',           usage: '/memory stats' },
+        { cmd: '/memory search',    desc: 'Search memories',                  usage: '/memory search <query>' },
+        { cmd: '/knowledge',        desc: 'List knowledge docs',              usage: '/knowledge' },
+        { cmd: '/knowledge',        desc: 'Show a knowledge doc',             usage: '/knowledge <name>' },
+        { cmd: '/ingest',           desc: 'Ingest a file into memory',        usage: '/ingest <filepath>' },
+        { cmd: '/config',           desc: 'Show current LLM config',          usage: '/config' },
+        { cmd: '/projects',         desc: 'List all projects',                usage: '/projects' },
+        { cmd: '/project open',     desc: 'Resume a project',                 usage: '/project open <id>' },
+        { cmd: '/project close',    desc: 'Close a project',                  usage: '/project close <id>' },
+        { cmd: '/project status',   desc: 'Show project status',              usage: '/project status <id>' },
+        { cmd: '/whitelist',        desc: 'Show allowed commands',            usage: '/whitelist' },
+        { cmd: '/whitelist add',    desc: 'Allow a command',                  usage: '/whitelist add <binary> [sub1,sub2,...]' },
+        { cmd: '/whitelist remove', desc: 'Remove a command',                 usage: '/whitelist remove <binary>' },
+        { cmd: '/whitelist reset',  desc: 'Reset to defaults',               usage: '/whitelist reset' },
+        { cmd: '/pulse',            desc: 'Pulse timer status',               usage: '/pulse [status|start|stop|log]' },
+        { cmd: '/chores',           desc: 'View/manage chores',              usage: '/chores [list|add|remove|run]' },
+        { cmd: '/chores add',       desc: 'Add a recurring chore',           usage: '/chores add <name> | <description>' },
+        { cmd: '/chores remove',    desc: 'Remove a chore',                  usage: '/chores remove <id>' },
+        { cmd: '/models',           desc: 'View model roster',               usage: '/models [list|add|remove|perf|route|research]' },
+        { cmd: '/models add',       desc: 'Add a model to roster',           usage: '/models add <provider> <model> [endpoint]' },
+        { cmd: '/models remove',    desc: 'Remove a model',                  usage: '/models remove <id>' },
+        { cmd: '/models perf',      desc: 'Show model performance',          usage: '/models perf' },
+        { cmd: '/models research',  desc: 'Research a model\'s capabilities', usage: '/models research <model>' },
+        { cmd: '/worklog',          desc: 'Show MA session worklog',          usage: '/worklog' }
+      ]);
+      return true;
+    }

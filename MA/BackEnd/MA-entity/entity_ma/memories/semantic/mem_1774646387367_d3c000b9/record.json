@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387367_d3c000b9",
+  "type": "semantic",
+  "content": "## Scope — Utils (1)\r\n\n| Module | File | What to Build |\r\n|--------|------|---------------|\r\n| Model Router | `server/utils/model-router.js` | Route LLM calls by task type + fallback chain |\r\n\n## Scope — Routes (12)\r\n\nAll in `server/routes/`. Each exports a factory that returns an Express Router.\r\n\nauth-routes, brain-routes, chat-routes, memory-routes, entity-routes, config-routes,\r\narchive-routes, cognitive-routes, sse-routes, entity-chat-routes, document-routes, nekocore-routes\r\n\n## Scope — Transport (3)\r\n\n| File | What |\r\n|------|------|\r\n| `nekocore-server.js` | Express server on port 3870 — wire all services + mount routes |\r\n| `nekocore-cli.js` | Interactive CLI REPL with diagnostic commands |\r\n| `client/index.html` | Chat GUI with SSE event stream |\r\n\n## Build Steps\r\n\n1. Fill services bottom-up: config → auth → preflight → entity-checkout → entity-runtime → memory-service → etc.\r\n2. Fill model-router\r\n3. Fill routes (they just wire HTTP to service methods)\r\n4. Wire `nekocore-server.js` — instantiate all deps, mount routes\r\n5. Wire `nekocore-cli.js` — HTTP client calls\r\n6. Wire `client/index.html` — SSE + POST /chat/turn\r\n\n## Done When\r\n\n```\r\nnode tests/test-runner.js 5\r\n→ 49 passed, 0 failed\r\n```\r\n\nFull suite:\r\n```\r\nnode tests/test-runner.js\r\n→ 176 passed, 0 failed (Parts 1-5)\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "part-5-services-transport.md",
+    "MA-blueprints nekocore"
+  ],
+  "summary": "## Scope — Utils (1)\r\n\n| Module | File | What to Build |\r\n|--------|------|---------------|\r\n| Model Router | `server/utils/model-router.js` | Route LLM calls by task type + fallback chain |\r\n\n## Scop",
+  "importance": 0.6,
+  "createdAt": 1774646387369,
+  "createdAtISO": "2026-03-27T21:19:47.369Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\nekocore\\part-5-services-transport.md",
+  "accessCount": 0
+}

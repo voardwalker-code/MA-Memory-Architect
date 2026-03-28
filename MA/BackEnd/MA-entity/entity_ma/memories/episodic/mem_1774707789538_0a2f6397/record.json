@@ -1,0 +1,27 @@
+{
+  "id": "mem_1774707789538_0a2f6397",
+  "type": "episodic",
+  "content": "Chat: This is just a test chat after refactor to make sure you are still working correctly\nReply: Hey there! 👋 All systems go! ✅\n\nEverything's working perfectly on my end — reading you loud and clear.\n\nHere's a quick status check:\n\n- **Chat Mode**: ✅ Active\n- **Memory Search**: ✅ Available\n- **File Reading**: ✅ Available\n- **Web Search/Fetch**: ✅ Available\n- **Workspace Access**: ✅ Available\n\nR",
+  "topics": [
+    "conversation",
+    "quick status check",
+    "still working correctly",
+    "working perfectly",
+    "make sure",
+    "memory search",
+    "web searchfetch",
+    "workspace access",
+    "test chat",
+    "available",
+    "refactor make",
+    "search** available"
+  ],
+  "summary": "Chat: This is just a test chat after refactor to make sure you are still working correctly\nReply: Hey there! 👋 All systems go! ✅\n\nEverything's working perfectly on my end — reading you loud and clear",
+  "importance": 0.5,
+  "createdAt": 1774707789541,
+  "createdAtISO": "2026-03-28T14:23:09.541Z",
+  "chainId": "chain_1774707780512_t3w7o0",
+  "archive": null,
+  "sourcePath": null,
+  "accessCount": 0
+}

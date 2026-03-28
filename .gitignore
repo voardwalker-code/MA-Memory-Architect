@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.log
+
+# Application (see MA/)
+MA/node_modules/
+MA/MA-logs/
+MA/MA-Config/ma-config.json
+MA/MA-Config/chat-sessions/

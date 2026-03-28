@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384850_bcbdb1f1",
+  "type": "semantic",
+  "content": "_clearLongRequestTimer();\r\n    // If no events came through at all, handle gracefully\r\n    if (!gotSteps) hideTyping();\r\n\n  } catch (e) {\r\n    _clearLongRequestTimer();\r\n    dismissLongRequest();\r\n    hideTyping();\r\n    if (e.name !== 'AbortError') addSystem('Network error: ' + e.message);\r\n  }\r\n\n  sending = false;\r\n  sendBtn.disabled = false;\r\n  inputEl.focus();\r\n}\r\n\nfunction handleChatResult(d) {\r\n  const reply = d.reply || '(empty response)';\r\n  const msgDiv = addMsg('ma', reply);\r\n  history.push({ role: 'assistant', content: reply });",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-chat.js",
+    "FrontEnd js"
+  ],
+  "summary": "_clearLongRequestTimer();\r\n    // If no events came through at all, handle gracefully\r\n    if (!gotSteps) hideTyping();\r\n\n  } catch (e) {\r\n    _clearLongRequestTimer();\r\n    dismissLongRequest();\r\n   ",
+  "importance": 0.6,
+  "createdAt": 1774646384851,
+  "createdAtISO": "2026-03-27T21:19:44.851Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-chat.js",
+  "accessCount": 0
+}

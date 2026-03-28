@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382777_d9ef722c",
+  "type": "semantic",
+  "content": "// ── NLP · Markdown to HTML Renderer ──────────────────────────────────────────\r\n//\r\n// HOW MARKDOWN RENDERING WORKS:\r\n// Markdown is a simple way to format text — # for headings, ** for bold,\r\n// ``` for code blocks, etc.  This tiny renderer turns those markers into\r\n// actual HTML so the browser can display them as a nice-looking page.\r\n//\r\n// It's NOT a full Markdown parser (those are huge libraries).  It handles\r\n// just enough for the User Guide endpoint:\r\n//   - Headings (#, ##, ###)\r\n//   - Bold (**text**) and inline code (`code`)\r\n//   - Bullet lists (- item)\r\n//   - Tables (| col | col |)\r\n//   - Code blocks (```)\r\n//   - Horizontal rules (---)\r\n//\r\n// The output is a complete HTML page with dark-theme styling baked in,\r\n// so it looks good in MA's web interface without needing external CSS.\r\n//\r\n// WHAT USES THIS:\r\n//   MA-Server-standalone.js — renders USER-GUIDE.md at the /guide endpoint\r\n//\r\n// EXPORTS:\r\n//   renderMarkdownToHtml(md)  → string (complete HTML document)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "nlp-markdown.js",
+    "BackEnd nlp"
+  ],
+  "summary": "// ── NLP · Markdown to HTML Renderer ──────────────────────────────────────────\r\n//\r\n// HOW MARKDOWN RENDERING WORKS:\r\n// Markdown is a simple way to format text — # for headings, ** for bold,\r\n// ``",
+  "importance": 0.6,
+  "createdAt": 1774646382777,
+  "createdAtISO": "2026-03-27T21:19:42.777Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\nlp\\nlp-markdown.js",
+  "accessCount": 0
+}

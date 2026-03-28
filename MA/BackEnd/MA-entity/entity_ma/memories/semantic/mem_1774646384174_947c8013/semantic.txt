@@ -1,0 +1,22 @@
+// ── Constants ───────────────────────────────────────────────────────────────
+
+const POSITIVE_WORDS = new Set(['good', 'great', 'excellent', ...]);
+const NEGATIVE_WORDS = new Set(['bad', 'terrible', 'broken', ...]);
+
+// ── Core Logic ──────────────────────────────────────────────────────────────
+
+/**
+ * Analyze the sentiment of a text string.
+ * @param {string} text
+ * @returns {{ score: number, label: string }}
+ */
+function analyzeSentiment(text) {
+  // ... implementation
+}
+
+// ── Exports ─────────────────────────────────────────────────────────────────
+
+module.exports = { analyzeSentiment };
+```
+
+### Starting a new service module

@@ -1,0 +1,24 @@
+- **runConsolidationPhase(memoryOps)**:
+  1. List all memories
+  2. `findConsolidationGroups(memories)` → groups
+  3. For each group:
+     a. Concatenate summaries
+     b. Extract common themes via `yake.extractKeywords(combined, 5)`
+     c. Create new semantic memory: `memoryOps.createSemanticKnowledge({ topic, summary: compressed })`
+     d. Mark original episodic memories as `consolidated: true`
+  4. Return { groupsFound, memoriesConsolidated, semanticCreated }
+
+### dream-engine.js — `runDreamPhase(memoryOps, llm, entityState, entityId)`
+- **selectDreamSeeds(memories, count)**:
+  1. Score each: `importance × 0.6 + recency × 0.4` (recency = normalize last_accessed)
+  2. Add randomness: multiply by `0.8 + Math.random() * 0.4`
+  3. Sort descending, take top `count` (default 5)
+
+- **runDreamPhase(...)**:
+  1. List memories, select 5 dream seeds
+  2. Load entity persona for voice constraints
+  3. Build dream prompt: "Given these memory fragments, generate creative connections..."
+  4. Call LLM with **temperature 0.95** (maximum creativity)
+  5. Parse dream output: extract new connections/associations
+  6. Store dream as a new memory: `memoryOps.createCoreMemory({ type: 'dream', ... })`
+  7. Return { dreamSeeds, dreamContent, stored: true }

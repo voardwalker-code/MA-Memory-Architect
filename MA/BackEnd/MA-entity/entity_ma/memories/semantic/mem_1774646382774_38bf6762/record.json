@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382774_38bf6762",
+  "type": "semantic",
+  "content": "/**\r\n * BM25 relevance score for topic arrays.\r\n * @param {string[]} queryTopics\r\n * @param {string[]} docTopics\r\n * @param {object}  [opts] - { k1, b, avgDL }\r\n * @returns {number}\r\n */\r\nfunction bm25Score(queryTopics, docTopics, opts = {}) {\r\n  if (!queryTopics?.length || !docTopics?.length) return 0;\r\n\n  const k1    = opts.k1    ?? K1;\r\n  const b     = opts.b     ?? B;\r\n  const avgDL = opts.avgDL ?? AVG_DL;\r\n\n  const docFreq = {};\r\n  for (const t of docTopics) docFreq[t] = (docFreq[t] || 0) + 1;\r\n\n  const docLen     = docTopics.length;\r\n  const normFactor = 1 - b + b * (docLen / avgDL);\r\n\n  let score = 0;\r\n  for (const qt of queryTopics) {\r\n    const tf = docFreq[qt] || 0;\r\n    if (tf === 0) continue;\r\n    const tfNorm = (tf * (k1 + 1)) / (tf + k1 * normFactor);\r\n    score += IDF_CONST * tfNorm;\r\n  }\r\n  return score;\r\n}\r\n\n/**\r\n * BM25 + importance/decay blend.\r\n * Score = bm25Base × (0.40 + importance×0.35 + decay×0.25)\r\n */\r\nfunction bm25ScoreWithImportance(queryTopics, docTopics, importance, decay, opts = {}) {\r\n  const base = bm25Score(queryTopics, docTopics, opts);\r\n  if (base === 0) return 0;\r\n  return base * (0.40 + (importance * 0.35) + (decay * 0.25));\r\n}\r\n\nmodule.exports = { bm25Score, bm25ScoreWithImportance, K1, B, AVG_DL };",
+  "topics": [
+    "MA Memory Architect",
+    "nlp-bm25.js",
+    "BackEnd nlp"
+  ],
+  "summary": "/**\r\n * BM25 relevance score for topic arrays.\r\n * @param {string[]} queryTopics\r\n * @param {string[]} docTopics\r\n * @param {object}  [opts] - { k1, b, avgDL }\r\n * @returns {number}\r\n */\r\nfunction bm2",
+  "importance": 0.6,
+  "createdAt": 1774646382774,
+  "createdAtISO": "2026-03-27T21:19:42.774Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\nlp\\nlp-bm25.js",
+  "accessCount": 0
+}

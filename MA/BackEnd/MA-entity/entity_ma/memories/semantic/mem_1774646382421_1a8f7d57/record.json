@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382421_1a8f7d57",
+  "type": "semantic",
+  "content": "// ── Task path ───────────────────────────────────────────────────────\r\n  // If the message looks like a task (coding, research, writing, etc.),\r\n  // hand it off to the task runner which can do multi-step work with tools.\r\n  if (intent.intent === 'task' && intent.confidence >= 0.2) {\r\n    const routed = modelRouter.routeModel(message, intent.taskType, null, config);\r\n    const taskLLMConfig = routed.config;\r\n\n    worklog.setActiveTask(message.slice(0, 100), null, null);\r\n    if (onActivity) await onActivity('llm_call', `Starting ${intent.taskType} task...`);\r\n\n    // Check if the model supports native function calling (tool use)\r\n    const taskUseNativeTools = hasCapability(taskLLMConfig, 'nativeToolUse');\r\n    const taskToolSchemas = taskUseNativeTools ? buildToolSchemas(taskLLMConfig.type) : null;\r\n\n    const result = await tasks.runTask({\r\n      taskType: intent.taskType,\r\n      message,\r\n      entityName,\r\n      callLLM: (msgs, opts) => callLLM(taskLLMConfig, msgs, autoPilot ? { ...opts, timeout: 0 } : opts),\r\n      execTools: wsTools.executeToolCalls,\r\n      execNativeTools: taskUseNativeTools ? wsTools.executeNativeToolCalls : null,\r\n      nativeToolSchemas: taskToolSchemas,\r\n      formatResults: wsTools.formatToolResults,\r\n      stripTools: wsTools.stripToolCalls,\r\n      workspacePath: WORKSPACE_DIR,\r\n      integrationMode,\r\n      memorySearch: memory ? (q, l) => memory.search(q, l) : null,\r\n      onStep,\r\n      onActivity,\r\n      agentCatalog\r\n    });",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// ── Task path ───────────────────────────────────────────────────────\r\n  // If the message looks like a task (coding, research, writing, etc.),\r\n  // hand it off to the task runner which can do mult",
+  "importance": 0.6,
+  "createdAt": 1774646382422,
+  "createdAtISO": "2026-03-27T21:19:42.422Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383356_fe324e2f",
+  "type": "semantic",
+  "content": "for (const f of files) {\r\n    try {\r\n      const rec = JSON.parse(fs.readFileSync(path.join(nodesDir, f), 'utf8'));\r\n      nodes.push({\r\n        memory_id: rec.memory_id,\r\n        sourceType: rec.sourceType,\r\n        summary: rec.summary,\r\n        importance: rec.importance,\r\n        decay: rec.decay,\r\n        topics: rec.topics,\r\n        stepNumber: rec.stepNumber,\r\n        agentId: rec.agentId,\r\n        created: rec.created\r\n      });\r\n    } catch { /* skip corrupt */ }\r\n  }\r\n\n  // Sort by stepNumber or creation time\r\n  nodes.sort((a, b) => (a.stepNumber || 0) - (b.stepNumber || 0));\r\n\n  if (opts.sourceType) return nodes.filter(n => n.sourceType === opts.sourceType);\r\n  if (opts.limit) return nodes.slice(0, opts.limit);\r\n  return nodes;\r\n}\r\n\n// ── Edge Operations (Connection Graph) ──────────────────────────────────────",
+  "topics": [
+    "MA Memory Architect",
+    "svc-project-archive.js",
+    "BackEnd services"
+  ],
+  "summary": "for (const f of files) {\r\n    try {\r\n      const rec = JSON.parse(fs.readFileSync(path.join(nodesDir, f), 'utf8'));\r\n      nodes.push({\r\n        memory_id: rec.memory_id,\r\n        sourceType: rec.sour",
+  "importance": 0.6,
+  "createdAt": 1774646383357,
+  "createdAtISO": "2026-03-27T21:19:43.357Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-project-archive.js",
+  "accessCount": 0
+}

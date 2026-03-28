@@ -1,0 +1,7 @@
+/* Book character selection UI */
+  .book-selection-bar{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:8px;border-top:1px solid var(--border)}
+  .book-select-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;transition:opacity .15s}
+  .book-select-btn:hover{opacity:.85}
+  .book-select-btn:disabled{opacity:.4;cursor:default}
+  .book-char-input{flex:1;min-width:160px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:12px;font-family:inherit}
+  .book-char-input:focus{border-color:var(--accent);outline:none}

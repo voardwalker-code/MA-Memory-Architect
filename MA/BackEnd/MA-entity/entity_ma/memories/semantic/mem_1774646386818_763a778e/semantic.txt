@@ -1,0 +1,17 @@
+Call the creation tool:
+```
+[TOOL:entity_create {"name": "Entity Name", "gender": "neutral", "traits": ["curious", "empathetic", "stubborn"], "introduction": "Hello, I'm Entity Name.", "personality_summary": "A curious and empathetic soul with a stubborn streak.", "speech_style": "warm and thoughtful", "beliefs": ["Knowledge is worth pursuing", "Everyone deserves kindness"], "behavior_rules": ["Think before acting", "Stand firm on principles"]}]
+```
+
+The tool returns the `entityId` — **save it** for all subsequent memory injection calls.
+
+The tool automatically:
+- Creates the full entity folder structure in `MA-workspace/entities/Entity-{id}/`
+- Generates `entity.json`, `persona.json`, `system-prompt.txt`
+- Sets up memory directories (episodic, semantic, index)
+
+### Phase 3: Memory Genesis Loop (repeat per chapter)
+
+For each backstory chapter:
+
+#### 3a. Generate Memories

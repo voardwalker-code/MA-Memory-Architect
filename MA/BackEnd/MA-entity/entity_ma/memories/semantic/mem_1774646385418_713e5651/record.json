@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385418_713e5651",
+  "type": "semantic",
+  "content": "function renderTodos() {\r\n  const list = document.getElementById('todo-list');\r\n  if (!list) return;\r\n  const todos = getTodos();\r\n  if (!todos.length) {\r\n    list.innerHTML = '<div class=\"side-empty\">No todos yet.</div>';\r\n    return;\r\n  }\r\n  list.innerHTML = todos.map(function(todo, idx) {\r\n    return '<div class=\"todo-item' + (todo.done ? ' done' : '') + '\">' +\r\n      '<input type=\"checkbox\" ' + (todo.done ? 'checked ' : '') + 'onchange=\"toggleTodo(' + idx + ', this.checked)\">' +\r\n      '<div class=\"body\"><textarea oninput=\"updateTodoText(' + idx + ', this.value)\">' + escHtml(todo.text || '') + '</textarea><div class=\"meta\">Updated ' + escHtml(todo.updatedAt || 'just now') + '</div></div>' +\r\n      '<button class=\"tiny-btn danger\" onclick=\"deleteTodo(' + idx + ')\">Delete</button>' +\r\n    '</div>';\r\n  }).join('');\r\n}\r\n\nfunction addTodo() {\r\n  const input = document.getElementById('todo-new');\r\n  const text = input.value.trim();\r\n  if (!text) return;\r\n  const todos = getTodos();\r\n  todos.unshift({ text, done: false, updatedAt: new Date().toISOString() });\r\n  saveTodos(todos);\r\n  input.value = '';\r\n  renderTodos();\r\n}\r\n\nfunction toggleTodo(index, done) {\r\n  const todos = getTodos();\r\n  if (!todos[index]) return;\r\n  todos[index].done = done;\r\n  todos[index].updatedAt = new Date().toISOString();\r\n  saveTodos(todos);\r\n  renderTodos();\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "function renderTodos() {\r\n  const list = document.getElementById('todo-list');\r\n  if (!list) return;\r\n  const todos = getTodos();\r\n  if (!todos.length) {\r\n    list.innerHTML = '<div class=\"side-empty\"",
+  "importance": 0.6,
+  "createdAt": 1774646385419,
+  "createdAtISO": "2026-03-27T21:19:45.419Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

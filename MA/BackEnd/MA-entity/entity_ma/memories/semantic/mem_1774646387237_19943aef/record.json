@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387237_19943aef",
+  "type": "semantic",
+  "content": "If the user did not specify these, infer from context. If you truly cannot tell, default to: general audience, informative purpose, clear neutral tone.\r\n\n### While Writing\r\n1. First sentence of each section does the heavy lifting — state the main point immediately.\r\n2. One idea per paragraph. If you are covering two ideas, make two paragraphs.\r\n3. Vary sentence length. Short sentences create impact. Longer sentences work for explanation and nuance. Mixing them creates readable rhythm.\r\n4. Use concrete words over abstract ones. \"The team shipped 3 features in 2 weeks\" is stronger than \"The team made significant progress.\"\r\n5. Cut filler words: \"very\", \"really\", \"basically\", \"actually\", \"just\" — remove them unless they genuinely add meaning.\r\n\n### After Writing\r\nRead what you wrote and check:\r\n- Does the opening sentence hook the reader or bore them?\r\n- Does each section flow into the next?\r\n- Could any paragraph be cut without losing meaning? (If yes, cut it.)\r\n- Are there any sections that repeat the same point in different words? (Merge them.)\r\n\n## File Structure for Written Content\r\n\n```markdown\r\n# {Title}\r\n\n{Opening paragraph that sets context — 2-3 sentences.}\r\n\n## {Section 1 heading}\r\n\n{Body content. Each paragraph covers one idea.}\r\n\n## {Section 2 heading}\r\n\n{Body content continues.}\r\n\n## {Conclusion heading — if applicable}\r\n\n{Wrap-up. 1-2 sentences summarizing the key takeaway.}\r\n```\r\n\n## Writing Rules",
+  "topics": [
+    "MA Memory Architect",
+    "writing.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "If the user did not specify these, infer from context. If you truly cannot tell, default to: general audience, informative purpose, clear neutral tone.\r\n\n### While Writing\r\n1. First sentence of each s",
+  "importance": 0.6,
+  "createdAt": 1774646387237,
+  "createdAtISO": "2026-03-27T21:19:47.237Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\writing.md",
+  "accessCount": 0
+}

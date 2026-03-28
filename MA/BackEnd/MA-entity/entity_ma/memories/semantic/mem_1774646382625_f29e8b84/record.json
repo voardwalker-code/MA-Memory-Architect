@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382625_f29e8b84",
+  "type": "semantic",
+  "content": "/**\r\n * Full pipeline: evaluate job → select model → return config.\r\n * Falls back to MA's primary config if no roster models match.\r\n */\r\nfunction routeModel(message, taskType, agentRole, fallbackConfig) {\r\n  const roster = getRoster();\r\n  if (!roster.models.length) return { config: fallbackConfig, routed: false, reason: 'no models in roster' };\r\n\n  const jobReqs = evaluateJob(message, taskType, agentRole);\r\n  const selection = selectModel(jobReqs);\r\n\n  if (!selection) return { config: fallbackConfig, routed: false, reason: 'no suitable model found' };\r\n\n  return {\r\n    config: selection.config,\r\n    routed: true,\r\n    modelId: selection.model.id,\r\n    reason: selection.reason,\r\n    score: selection.score,\r\n    jobReqs,\r\n    alternatives: selection.alternatives\r\n  };\r\n}\r\n\n// ── Model Research ──────────────────────────────────────────────────────────\r\n\n/**\r\n * Research a model via web to get capabilities, context window, pricing.\r\n * Returns a summary object (or null if web fetch isn't available).\r\n */\r\nasync function researchModel(modelName) {\r\n  if (!_deps || !_deps.callLLM) return null;",
+  "topics": [
+    "MA Memory Architect",
+    "llm-router.js",
+    "BackEnd llm"
+  ],
+  "summary": "/**\r\n * Full pipeline: evaluate job → select model → return config.\r\n * Falls back to MA's primary config if no roster models match.\r\n */\r\nfunction routeModel(message, taskType, agentRole, fallbackCon",
+  "importance": 0.6,
+  "createdAt": 1774646382625,
+  "createdAtISO": "2026-03-27T21:19:42.625Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-router.js",
+  "accessCount": 0
+}

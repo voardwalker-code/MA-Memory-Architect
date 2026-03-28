@@ -1,0 +1,32 @@
+async function saveBlueprint() {
+  if (!document.getElementById('bp-status') || !document.getElementById('bp-editor')) return;
+  if (!selectedBlueprintPath) {
+    addSystem('Pick a blueprint before saving.');
+    return;
+  }
+  try {
+    const r = await fetch('/api/blueprints/file', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: selectedBlueprintPath, content: document.getElementById('bp-editor').value })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'Save failed');
+    document.getElementById('bp-status').textContent = 'Saved ' + selectedBlueprintPath;
+  } catch (e) {
+    document.getElementById('bp-status').textContent = 'Blueprint save error: ' + e.message;
+  }
+}
+
+function getTodos() {
+  try {
+    const raw = localStorage.getItem(TODO_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function saveTodos(todos) {
+  localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(todos));
+}

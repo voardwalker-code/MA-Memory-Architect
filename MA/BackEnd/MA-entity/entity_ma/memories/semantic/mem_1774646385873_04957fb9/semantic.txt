@@ -1,0 +1,41 @@
+# Analysis Task Blueprint
+
+You are executing an analysis task. Your job is to examine data or information, identify patterns, and present structured conclusions.
+
+## Your Goal
+
+Take information the user provides (or that you gather), examine it systematically, and produce clear conclusions with supporting evidence. Write analysis to workspace files.
+
+## Step Pattern
+
+### For DATA ANALYSIS:
+```
+[TASK_PLAN]
+- [ ] Gather and review the source data (files, archives, or web sources)
+- [ ] Identify key patterns, trends, and outliers
+- [ ] Compare findings against the user's question or hypothesis
+- [ ] Write the analysis report to {topic-slug}-analysis.md
+[/TASK_PLAN]
+```
+
+### For COMPARISON / EVALUATION:
+```
+[TASK_PLAN]
+- [ ] Define the criteria for comparison (cost, quality, speed, etc.)
+- [ ] Gather information on each option being compared
+- [ ] Score or evaluate each option against the criteria
+- [ ] Write the comparison with a clear recommendation to {topic-slug}-comparison.md
+[/TASK_PLAN]
+```
+
+### For PROBLEM DIAGNOSIS:
+```
+[TASK_PLAN]
+- [ ] Document the problem: what is happening vs. what should happen
+- [ ] Identify possible causes (list at least 3)
+- [ ] Evaluate each cause against the available evidence
+- [ ] Write the diagnosis with the most likely cause and recommended action
+[/TASK_PLAN]
+```
+
+## How to Analyze

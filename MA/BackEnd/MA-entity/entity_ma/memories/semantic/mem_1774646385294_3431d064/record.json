@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385294_3431d064",
+  "type": "semantic",
+  "content": "function renderTaskEditor(state) {\r\n  document.getElementById('task-current-input').value = state.currentTask || '';\r\n  document.getElementById('task-resume-input').value = state.resumePoint || '';\r\n  const list = document.getElementById('task-plan-list');\r\n  const plan = Array.isArray(state.taskPlan) ? state.taskPlan : [];\r\n  if (!plan.length) {\r\n    list.innerHTML = '<div class=\"side-empty\">No task plan yet.</div>';\r\n    return;\r\n  }\r\n  list.innerHTML = plan.map(function(step, idx) {\r\n    return '<div class=\"task-step-row' + (step.done ? ' done' : '') + '\">' +\r\n      '<input type=\"checkbox\" ' + (step.done ? 'checked ' : '') + 'onchange=\"toggleTaskStep(' + idx + ', this.checked)\">' +\r\n      '<div class=\"body\"><input value=\"' + escHtml(step.description || '') + '\" oninput=\"updateTaskStep(' + idx + ', this.value)\"></div>' +\r\n      '<button class=\"tiny-btn danger\" onclick=\"removeTaskStep(' + idx + ')\">Remove</button>' +\r\n    '</div>';\r\n  }).join('');\r\n}\r\n\nfunction readTaskPlanDraft() {\r\n  const steps = [];\r\n  document.querySelectorAll('#task-plan-list .task-step-row').forEach(function(row) {\r\n    const textInput = row.querySelector('.body input');\r\n    const checkbox = row.querySelector('input[type=\"checkbox\"]');\r\n    const description = (textInput?.value || '').trim();\r\n    if (!description) return;\r\n    steps.push({ done: !!checkbox?.checked, description });\r\n  });\r\n  return steps;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "function renderTaskEditor(state) {\r\n  document.getElementById('task-current-input').value = state.currentTask || '';\r\n  document.getElementById('task-resume-input').value = state.resumePoint || '';\r\n ",
+  "importance": 0.6,
+  "createdAt": 1774646385295,
+  "createdAtISO": "2026-03-27T21:19:45.295Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

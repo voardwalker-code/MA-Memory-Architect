@@ -1,0 +1,21 @@
+// Extracted from ma-ui.js: activity, session, projects, blueprints, todos, chores.
+function addActivity(category, detail, data) {
+  if (!actFeed) return;
+  const iconMap = {
+    memory_search: '\u{1F50D}', knowledge_load: '\u{1F4D6}', workspace_scan: '\u{1F4C2}',
+    tool_call: '\u{1F527}', tool_result: '\u2705', llm_call: '\u{1F916}',
+    plan: '\u{1F4CB}', step_start: '\u25B6', step_done: '\u2713',
+    file_verify: '\u{1F4C4}', agent_dispatch: '\u{1F464}', worklog: '\u{1F4DD}', error: '\u274C'
+  };
+  const classMap = {
+    tool_call: 'tool-call', tool_result: 'tool-result',
+    llm_call: 'llm-call', error: 'error'
+  };
+  const now = new Date();
+  const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const entry = document.createElement('div');
+  entry.className = 'act-entry ' + (classMap[category] || '');
+  entry.innerHTML = '<span class="act-time">' + time + '</span><span class="act-icon">' + (iconMap[category] || '\u00B7') + '</span><span class="act-text">' + escHtml(detail || '') + '</span>';
+  actFeed.appendChild(entry);
+  actFeed.scrollTop = actFeed.scrollHeight;
+}

@@ -1,0 +1,43 @@
+### Phase 7: Final State + Summary
+
+Read the final cognitive state:
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/cognitive/state", "method": "GET"}]
+```
+
+Report to user:
+- Entity ID
+- Tutor name and subject
+- Teaching style summary
+- Final mood and personality state
+- "Your tutor is ready! Start chatting with them about [subject]."
+
+---
+
+## TA MODE
+
+### Phase 1: Course Material Intake
+
+The user provides course-specific information. Extract or **ASK** for:
+- **Subject / Course name** (e.g., "CS 201 — Data Structures", "BIO 110 — Intro Biology")
+- **Textbook** (title, author, edition — if known)
+- **Weekly topics** (syllabus schedule)
+- **Assignment types** (problem sets, labs, essays, projects)
+- **Exam format** (multiple choice, short answer, essays, problem solving)
+- **Grading criteria** (if available)
+
+If user pastes a syllabus as text → analyze it to extract all of the above.
+If user provides a file path → attempt to read via workspace tools.
+
+### Phase 2: Curriculum Analysis
+
+LLM extracts from the course information:
+- Week-by-week topic list
+- Assignment descriptions + requirements per assignment
+- Exam structure and timing
+- Key textbook concepts per week
+- Prerequisite knowledge assumptions
+
+### Phase 3: Persona Design
+
+Same as Tutor Mode but oriented to THIS specific course:

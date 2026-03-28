@@ -1,0 +1,32 @@
+# Layer 4 — Dream / Brain Loop / Beliefs
+
+## Pre-Requisite
+- Layer 3 tests pass: `node tests/test-runner.js 3`
+
+## Scope
+Fill in all NOT_IMPLEMENTED stubs in:
+1. `server/cognition/brain-loop.js` — 5-phase sleep cycle orchestrator
+2. `server/cognition/decay.js` — Memory decay with importance shielding
+3. `server/cognition/consolidation.js` — Episodic → semantic compression
+4. `server/cognition/dream-engine.js` — Dream generation from memory seeds
+5. `server/cognition/belief-graph.js` — Emergent belief discovery
+
+## Instructions Per Module
+
+### decay.js — `runDecayPhase(memoryOps)`
+- Walk all memories via `memoryOps` underlying storage
+- For each non-exempt memory:
+  ```
+  newDecay = currentDecay × (1 - 0.01 × (1 - importance × 0.7))
+  newDecay = Math.max(newDecay, 0.1)  // floor
+  ```
+- Skip memories where `semantic_exempt === true`
+- Update each record with new decay value
+- Return { processed: N, decayed: N, exempt: N, belowFloor: N }
+
+### consolidation.js — `runConsolidationPhase(memoryOps)`
+- **findConsolidationGroups(memories)**:
+  1. Filter memories with decay < 0.3 (heavily decayed)
+  2. Group by shared topics (2+ topics in common = same group)
+  3. Each group needs 3+ memories to be worth consolidating
+  4. Return array of groups

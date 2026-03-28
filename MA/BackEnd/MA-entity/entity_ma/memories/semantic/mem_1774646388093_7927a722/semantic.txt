@@ -1,0 +1,25 @@
+### In the project workspace (`MA-workspace/{project}/`)
+- **BUILD-ORDER.md** — Vision, pillars, layer dependency map, build rules
+- **PROJECT-MANIFEST.json** — Structured tracker: all modules, layers, dependencies, status
+- **{prefix}-contracts/** — Data shape definitions with validators and factory functions
+- **{prefix}-tests/** — Layer-based contract test harness + per-layer test files
+- **{prefix}-scripts/project-status.js** — Reads manifest, reports per-layer completion
+- **Module stubs** — Every export defined, algorithm in comments, NOT_IMPLEMENTED throws
+- **package.json** — Scripts: test:0–N, status, start
+
+### In MA's blueprint folder (`MA-blueprints/{project-name}/`)
+- **INDEX.md** — Blueprint master index: layer table, how-to-use, rules
+- **layer-{N}-{name}.md** — One per layer: scope, algorithm pseudocode, done-when criteria
+
+Blueprints are stored in MA's own blueprint folder — NOT inside the project workspace.
+This allows MA to reference them during future build tasks across sessions.
+
+### Optional (if project has browser/API interface)
+- **{prefix}-server.js** — HTTP server with transport endpoint
+- **client/index.html** — Minimal GUI for testing at every build stage
+
+## Namespace Prefix Rule (NON-NEGOTIABLE)
+
+Every folder in a generated project MUST use a project-level prefix to prevent namespace collisions when multiple projects coexist.
+
+**Pattern**: `{PREFIX}-{folder-purpose}`

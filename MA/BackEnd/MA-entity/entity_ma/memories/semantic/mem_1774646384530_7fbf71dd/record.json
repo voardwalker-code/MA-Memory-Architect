@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384530_7fbf71dd",
+  "type": "semantic",
+  "content": "/* Chat area */\r\n  #chat{flex:1;overflow-y:auto;padding:8px 12px;display:flex;flex-direction:column;gap:8px;min-height:0}\r\n  .msg{max-width:85%;padding:8px 12px;border-radius:10px;font-size:13px;line-height:1.45;word-wrap:break-word;white-space:pre-wrap}\r\n  .msg.user{align-self:flex-end;background:var(--user);color:#fff;border-bottom-right-radius:4px}\r\n  .msg.ma{align-self:flex-start;background:var(--surface);border:1px solid var(--border);border-bottom-left-radius:4px}\r\n  .msg.system{align-self:center;font-size:12px;color:var(--dim);background:transparent;padding:4px 0}\r\n  .msg .meta{font-size:11px;color:var(--dim);margin-top:4px}\r\n  .typing{align-self:flex-start;color:var(--dim);font-size:13px;font-style:italic;padding:4px 14px}\r\n\n  /* Input bar */\r\n  #input-bar{background:var(--surface);border-top:1px solid var(--border);padding:6px 12px;display:flex;gap:8px;position:relative;flex-shrink:0}\r\n  #input-bar textarea{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px;font-size:13px;font-family:inherit;resize:none;min-height:36px;max-height:80px}\r\n  #input-bar textarea:focus{outline:none;border-color:var(--accent)}\r\n  #input-bar button{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:0 20px;font-size:14px;cursor:pointer;font-weight:600}\r\n  #input-bar button:hover{opacity:.9}\r\n  #input-bar button:disabled{opacity:.4;cursor:default}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.css",
+    "FrontEnd css"
+  ],
+  "summary": "/* Chat area */\r\n  #chat{flex:1;overflow-y:auto;padding:8px 12px;display:flex;flex-direction:column;gap:8px;min-height:0}\r\n  .msg{max-width:85%;padding:8px 12px;border-radius:10px;font-size:13px;line-",
+  "importance": 0.6,
+  "createdAt": 1774646384531,
+  "createdAtISO": "2026-03-27T21:19:44.531Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\css\\ma-ui.css",
+  "accessCount": 0
+}

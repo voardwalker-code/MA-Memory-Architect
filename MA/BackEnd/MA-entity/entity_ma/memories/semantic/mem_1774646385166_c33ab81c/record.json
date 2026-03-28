@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385166_c33ab81c",
+  "type": "semantic",
+  "content": "// HTML tags\r\n  if (lang === 'html' || lang === 'htm' || lang === 'xml' || lang === 'svg') {\r\n    line = line.replace(/(&lt;\\/?)([\\w-]+)/g, '$1<span class=\"tok-tag\">$2</span>');\r\n    line = line.replace(/\\b([\\w-]+)(=)/g, '<span class=\"tok-attr\">$1</span>$2');\r\n  }\r\n\n  // CSS selectors / properties\r\n  if (lang === 'css') {\r\n    line = line.replace(/\\b([\\w-]+)\\s*(?=:)/g, '<span class=\"tok-attr\">$1</span>');\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-editor.js",
+    "FrontEnd js"
+  ],
+  "summary": "// HTML tags\r\n  if (lang === 'html' || lang === 'htm' || lang === 'xml' || lang === 'svg') {\r\n    line = line.replace(/(&lt;\\/?)([\\w-]+)/g, '$1<span class=\"tok-tag\">$2</span>');\r\n    line = line.repla",
+  "importance": 0.6,
+  "createdAt": 1774646385166,
+  "createdAtISO": "2026-03-27T21:19:45.166Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-editor.js",
+  "accessCount": 0
+}

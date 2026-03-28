@@ -1,0 +1,11 @@
+// Group by date
+    const groups = {};
+    const today = new Date().toISOString().slice(0, 10);
+    for (const s of sessions) {
+      const day = (s.updatedAt || s.createdAt || '').slice(0, 10) || 'Unknown';
+      if (!groups[day]) groups[day] = [];
+      groups[day].push(s);
+    }
+
+    // Sort dates newest first
+    const sortedDays = Object.keys(groups).sort((a, b) => b.localeCompare(a));

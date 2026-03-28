@@ -1,0 +1,25 @@
+if (type === 'anthropic') {
+    return {
+      type: 'anthropic',
+      endpoint: String(raw.endpoint || 'https://api.anthropic.com/v1/messages').trim(),
+      apiKey: key,
+      model: String(raw.model || '').trim(),
+      workspacePath: String(raw.workspacePath || '').trim() || undefined,
+      ...(maxTokens > 0 ? { maxTokens } : {}),
+      ...(vision ? { vision: true } : {}),
+      ...(raw.capabilities && typeof raw.capabilities === 'object' ? { capabilities: raw.capabilities } : {})
+    };
+  }
+
+  // Default: OpenRouter (catch-all for other providers)
+  return {
+    type: 'openrouter',
+    endpoint: String(raw.endpoint || 'https://openrouter.ai/api/v1/chat/completions').trim(),
+    apiKey: key,
+    model: String(raw.model || '').trim(),
+    workspacePath: String(raw.workspacePath || '').trim() || undefined,
+    ...(maxTokens > 0 ? { maxTokens } : {}),
+    ...(vision ? { vision: true } : {}),
+    ...(raw.capabilities && typeof raw.capabilities === 'object' ? { capabilities: raw.capabilities } : {})
+  };
+}

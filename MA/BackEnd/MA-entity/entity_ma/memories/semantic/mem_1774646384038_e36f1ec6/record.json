@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384038_e36f1ec6",
+  "type": "semantic",
+  "content": "**What we did:**\r\n1. **Mapped the 6 logical groups:**\r\n   - Zod schemas for parameter validation\r\n   - Three-pass regex parser for extracting tool calls from text\r\n   - File system operations (list, read, write, append, delete, mkdir, move)\r\n   - Entity creation and memory injection\r\n   - Book chunk listing and reading\r\n   - Web search, fetch, and command execution\r\n\n2. **Created `tools/` subfolder** with 6 modules:\r\n\n| Module | Responsibility |\r\n|--------|----------------|\r\n| `tools-schemas.js` | Zod validation schemas for all 15 tools |\r\n| `tools-parser.js` | Three-pass regex parser + extractToolCalls + stripToolCalls |\r\n| `tools-fs.js` | File operations + path security boundary |\r\n| `tools-entity.js` | Entity creation + memory injection |\r\n| `tools-book.js` | Book chunk listing and reading |\r\n| `tools-web.js` | Web search, fetch, command execution |\r\n\n3. **Rewrote MA-workspace-tools.js** as a 256-line orchestrator\r\n\n---\r\n\n## Phase 6 — Folder Organization\r\n\n**Problem:** After modularization, MA-server/ still had 22 loose `.js`\r\nfiles sitting at the root level — hard to navigate, hard to understand\r\nwhat belongs together.\r\n\n**What we did:**\r\n1. **Mapped every require() dependency** in the entire project\r\n   (who imports what, from where)\r\n\n2. **Identified 4 natural groups:**",
+  "topics": [
+    "MA Memory Architect",
+    "01-CLEANUP-PROCESS.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "**What we did:**\r\n1. **Mapped the 6 logical groups:**\r\n   - Zod schemas for parameter validation\r\n   - Three-pass regex parser for extracting tool calls from text\r\n   - File system operations (list, r",
+  "importance": 0.6,
+  "createdAt": 1774646384039,
+  "createdAtISO": "2026-03-27T21:19:44.039Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\01-CLEANUP-PROCESS.md",
+  "accessCount": 0
+}

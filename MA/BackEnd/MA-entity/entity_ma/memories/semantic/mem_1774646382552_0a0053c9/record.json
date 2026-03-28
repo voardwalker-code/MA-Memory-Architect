@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382552_0a0053c9",
+  "type": "semantic",
+  "content": "const chunks = [];\r\n      let size = 0;\r\n      res.on('data', c => { size += c.length; if (size <= MAX_BODY) chunks.push(c); });\r\n      res.on('end', () => resolve({\r\n        body: Buffer.concat(chunks).toString('utf8'),\r\n        contentType: res.headers['content-type'] || '',\r\n        url: urlStr\r\n      }));\r\n    });\r\n    req.on('error', reject);\r\n    req.on('timeout', () => { req.destroy(); reject(new Error('Fetch timeout')); });\r\n  });\r\n}\r\n\n// ── Extract readable text from HTML ─────────────────────────────────────────\r\nfunction extractText(html) {\r\n  let text = html\r\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, '')\r\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, '')\r\n    .replace(/<nav[\\s\\S]*?<\\/nav>/gi, '')\r\n    .replace(/<footer[\\s\\S]*?<\\/footer>/gi, '')\r\n    .replace(/<header[\\s\\S]*?<\\/header>/gi, '')\r\n    .replace(/<[^>]+>/g, ' ')\r\n    .replace(/&nbsp;/g, ' ')\r\n    .replace(/&amp;/g, '&')\r\n    .replace(/&lt;/g, '<')\r\n    .replace(/&gt;/g, '>')\r\n    .replace(/&quot;/g, '\"')\r\n    .replace(/&#39;/g, \"'\")\r\n    .replace(/\\s+/g, ' ')\r\n    .trim();\r\n  return text.slice(0, 8000);\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "infra-web-fetch.js",
+    "BackEnd infra"
+  ],
+  "summary": "const chunks = [];\r\n      let size = 0;\r\n      res.on('data', c => { size += c.length; if (size <= MAX_BODY) chunks.push(c); });\r\n      res.on('end', () => resolve({\r\n        body: Buffer.concat(chunk",
+  "importance": 0.6,
+  "createdAt": 1774646382552,
+  "createdAtISO": "2026-03-27T21:19:42.552Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-web-fetch.js",
+  "accessCount": 0
+}

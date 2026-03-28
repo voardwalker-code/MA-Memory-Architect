@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386239_6be4ebef",
+  "type": "semantic",
+  "content": "> \"Analyze these passages exhaustively. For every named character that appears, record:\r\n> - Full name and ALL aliases (nicknames, titles, last names, honorifics, pet names)\r\n> - Gender and approximate age if mentioned\r\n> - Role: protagonist / antagonist / love-interest / mentor / rival / supporting / minor / background\r\n> - Personality traits observed in this batch — be SPECIFIC: not 'kind' but 'spontaneously generous despite own hardship'\r\n> - Speech patterns: formal/informal, dialect, verbal tics, vocabulary level, sentence rhythm\r\n> - Which chunk indices they appear in and what they DO in each\r\n> - Dialog count (approximate number of speaking lines)\r\n> - Internal thoughts or narrator commentary about them\r\n> - Relationships with other characters mentioned — include the NATURE of each (hostile, warm, fearful, admiring, etc.)\r\n> - Key actions, decisions, or events involving them\r\n> - Emotional states observed across the batch — track how they change\r\n> - Physical descriptions, mannerisms, habits mentioned\r\n> - Beliefs, values, or moral positions expressed or implied\"\r\n\n### 2c. Build running character registry\r\n\nAfter each batch, merge new findings into your running registry:\r\n- Unify aliases (e.g., \"Elizabeth\", \"Lizzy\", \"Miss Bennet\" → same character)\r\n- Accumulate scene appearances across batches\r\n- Update trait observations as character develops\r\n- Track relationships discovered",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "> \"Analyze these passages exhaustively. For every named character that appears, record:\r\n> - Full name and ALL aliases (nicknames, titles, last names, honorifics, pet names)\r\n> - Gender and approximat",
+  "importance": 0.6,
+  "createdAt": 1774646386240,
+  "createdAtISO": "2026-03-27T21:19:46.240Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

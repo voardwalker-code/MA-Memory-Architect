@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386130_2e18e16f",
+  "type": "semantic",
+  "content": "{2-4 sentences. What are you trying to produce? What makes a good result vs a bad one?\r\nBe specific about quality — not just \"create X\" but \"create X that is [quality criteria]\".}\r\n\n## Mode Detection (if multi-mode)\r\n\n{Table mapping user signals to modes. Include a default mode and an ASK fallback.}\r\n\n## Architecture (if API-dependent)\r\n\n{Table of API endpoints. Only include if the task uses external APIs.}\r\n\n## Step Pattern\r\n\n{The [TASK_PLAN] template with checkbox steps.}\r\n\n---\r\n\n## {MODE NAME} MODE (one section per mode)\r\n\n### Phase N: {Phase Name}\r\n\n{Detailed instructions for each phase within each mode.}\r\n\n---\r\n\n## Guidelines\r\n\n**DO:**\r\n- {Positive instructions — what to include, quality standards}\r\n\n**DON'T:**\r\n- {Negative instructions — common mistakes, anti-patterns}\r\n```\r\n\n### Quality Standards for Blueprints\r\n\nYour blueprint MUST meet these criteria:\r\n\n1. **Actionable, not vague.** Every phase must tell the LLM exactly what to do. \"Research the topic\" is bad. \"Search web for 3-5 sources on {topic}, extract key findings, write to research-notes.md\" is good.\r\n\n2. **Tool calls are explicit.** Show the exact `[TOOL:...]` syntax with parameter examples. The LLM executing your blueprint has never seen it before — spell it out.\r\n\n3. **Modes have clear triggers.** If your blueprint has modes, the mode detection table must be unambiguous. Include a default mode and an \"if ambiguous, ASK\" instruction.",
+  "topics": [
+    "MA Memory Architect",
+    "blueprint_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "{2-4 sentences. What are you trying to produce? What makes a good result vs a bad one?\r\nBe specific about quality — not just \"create X\" but \"create X that is [quality criteria]\".}\r\n\n## Mode Detection ",
+  "importance": 0.6,
+  "createdAt": 1774646386131,
+  "createdAtISO": "2026-03-27T21:19:46.131Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\blueprint_builder.md",
+  "accessCount": 0
+}

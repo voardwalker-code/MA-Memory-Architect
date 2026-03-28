@@ -1,0 +1,29 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// executeToolCalls(text, opts)
+//
+// The main tool execution pipeline:
+//   1. Parse the LLM's text to find [TOOL:...] calls
+//   2. For each call, validate and dispatch to the right handler
+//   3. Collect and return all results
+//
+// If a tool call has a parse/validation error, the error is reported
+// without crashing.  If a tool throws at runtime, the error is caught
+// and reported gracefully.
+//
+//   text — the raw LLM response text containing tool calls
+//   opts — execution options:
+//     .workspacePath    — where workspace files live
+//     .webFetchEnabled  — allow web tools? (default: true)
+//     .cmdRunEnabled    — allow command execution? (default: true)
+//     .integrationMode  — 'nekocore' or 'off'
+//     .memorySearch     — function to search memories (optional)
+//     .blockedTools     — Set of tool names blocked in current mode
+//
+//   Returns: array of { tool, result, ok }
+// ─────────────────────────────────────────────────────────────────────────────
+async function executeToolCalls(text, opts = {}) {
+  const calls = extractToolCalls(text);
+  if (!calls.length) return [];
+
+  const wp = opts.workspacePath || '';
+  const results = [];

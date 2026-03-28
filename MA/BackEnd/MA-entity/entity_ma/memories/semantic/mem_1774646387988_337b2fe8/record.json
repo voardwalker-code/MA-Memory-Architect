@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387988_337b2fe8",
+  "type": "semantic",
+  "content": "# REM System — Contracts and Schemas\r\n\nReference doc for MA when building or extending contracts and data validation.\r\n\n---\r\n\n## Why Contracts\r\n\nREM is a multi-LLM pipeline with many modules writing to disk. Without explicit contracts:\r\n- Refactors in one module silently break another's expectations\r\n- LLM outputs with unexpected shapes propagate pipeline failures\r\n- Memory records in one format can't be read after schema changes\r\n\nContracts enforce shapes at boundaries. Internal refactors are safe as long as boundary shapes are preserved.\r\n\n---\r\n\n## Memory Schema (v1)\r\n\nCanonical module: `server/contracts/memory-schema.js`\r\n\nRequired fields:\r\n- `memorySchemaVersion` — always 1\r\n- `memory_id` — unique identifier\r\n- `type` — episodic | semantic | ltm | core\r\n- `created` — ISO timestamp\r\n- `last_accessed` — ISO timestamp\r\n- `access_count` — integer\r\n- `access_events` — array of access timestamps\r\n- `decay` — float 0.0–1.0 (1.0 = fully fresh)\r\n- `importance` — float 0.0–1.0\r\n- `topics` — string array\r\n- `emotionalTag` — string\r\n\nRoute payloads may carry extra fields, but persisted metadata normalizes to this schema.\r\n\n---\r\n\n## Contributor Output Contracts\r\n\nEach pipeline phase (1A, 1D, 1C, Final) has an expected output shape. The orchestrator validates before passing results downstream.\r\n\n---\r\n\n## Worker Output Contract\r\n\nWorkers bound to contributor aspects must return the same shape as the phase they override. No additional fields allowed at the boundary.\r\n\n---",
+  "topics": [
+    "MA Memory Architect",
+    "contracts-schemas.md",
+    "MA-knowledge"
+  ],
+  "summary": "# REM System — Contracts and Schemas\r\n\nReference doc for MA when building or extending contracts and data validation.\r\n\n---\r\n\n## Why Contracts\r\n\nREM is a multi-LLM pipeline with many modules writing t",
+  "importance": 0.6,
+  "createdAt": 1774646387989,
+  "createdAtISO": "2026-03-27T21:19:47.989Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\contracts-schemas.md",
+  "accessCount": 0
+}

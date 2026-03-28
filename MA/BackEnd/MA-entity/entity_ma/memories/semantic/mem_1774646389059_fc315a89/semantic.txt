@@ -1,0 +1,32 @@
+it('returns ollama defaults for unknown provider type', () => {
+    const caps = getCapabilities('unknown-provider');
+    assert.equal(caps.promptCaching, false);
+    assert.equal(caps.nativeToolUse, false);
+  });
+
+  it('returns a copy (not a reference to the original)', () => {
+    const caps1 = getCapabilities('anthropic');
+    const caps2 = getCapabilities('anthropic');
+    caps1.promptCaching = false;
+    assert.equal(caps2.promptCaching, true);
+  });
+});
+
+describe('hasCapability()', () => {
+  it('returns true for supported anthropic capabilities', () => {
+    const config = { type: 'anthropic' };
+    assert.equal(hasCapability(config, 'promptCaching'), true);
+    assert.equal(hasCapability(config, 'extendedThinking'), true);
+  });
+
+  it('returns false for unsupported ollama capabilities', () => {
+    const config = { type: 'ollama' };
+    assert.equal(hasCapability(config, 'promptCaching'), false);
+    assert.equal(hasCapability(config, 'extendedThinking'), false);
+    assert.equal(hasCapability(config, 'nativeToolUse'), false);
+  });
+
+  it('returns capability mode/default for compaction', () => {
+    assert.equal(hasCapability({ type: 'anthropic' }, 'compaction'), false);
+    assert.equal(hasCapability({ type: 'ollama' }, 'compaction'), 'prompt');
+  });

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386571_e17995e1",
+  "type": "semantic",
+  "content": "| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `http://localhost:3847/api/entities/create` | POST | Create key NPCs as entities |\r\n| `http://localhost:3847/api/entities/{id}/memories/inject` | POST | Inject NPC memories |\r\n| `http://localhost:3847/api/entities/{id}/cognitive/tick` | POST | Run cognitive processing |\r\n| `http://localhost:3847/api/entities/{id}/cognitive/state` | GET | Read NPC state |\r\n\n## Step Pattern\r\n\n```\r\n[TASK_PLAN]\r\n- [ ] Detect mode from user message (campaign / session prep / recap / world lore)\r\n- [ ] Gather parameters (setting, party, session state — from message or ASK)\r\n- [ ] Generate content (campaign arc, session package, narrative recap, or lore document)\r\n- [ ] For modes with key NPCs: create entities + inject backstory memories\r\n- [ ] Write all output documents to MA workspace\r\n- [ ] Present summary with file locations\r\n[/TASK_PLAN]\r\n```\r\n\n---\r\n\n## CAMPAIGN BUILDER MODE\r\n\n### Phase 1: Setup\r\n\nExtract from user message or **ASK** if missing:\r\n- **Theme/Setting** — dark fantasy, high fantasy, horror, steampunk, political intrigue, etc.\r\n- **Level Range** — starting and ending level (e.g., 1-10, 5-15)\r\n- **Party Size** — default 4\r\n- **Tone** — dark / heroic / comedic / sandbox / mystery\r\n- **Campaign Length** — one-shot / 3-5 sessions / 10+ sessions / full arc\r\n\n### Phase 2: Campaign Arc Generation\r\n\nGenerate the overarching story:",
+  "topics": [
+    "MA Memory Architect",
+    "dnd_campaign.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `http://localhost:3847/api/entities/create` | POST | Create key NPCs as entities |\r\n| `http://localhost:3847/api/entities/{id}/memor",
+  "importance": 0.6,
+  "createdAt": 1774646386571,
+  "createdAtISO": "2026-03-27T21:19:46.571Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\dnd_campaign.md",
+  "accessCount": 0
+}

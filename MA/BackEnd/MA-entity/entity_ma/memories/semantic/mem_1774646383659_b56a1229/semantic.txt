@@ -1,0 +1,4 @@
+return { finalResponse, steps: stepOutputs, llmCalls, filesChanged: allWrittenFiles };
+}
+
+module.exports = { classify, runTask, TASK_TYPES, parsePlan, getBlueprint };

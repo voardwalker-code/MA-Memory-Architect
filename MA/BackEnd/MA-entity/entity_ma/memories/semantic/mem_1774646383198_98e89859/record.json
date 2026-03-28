@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383198_98e89859",
+  "type": "semantic",
+  "content": "const fs   = require('fs');\r\nconst path = require('path');\r\nconst crypto = require('crypto');\r\nconst { extractPhrases }  = require('../nlp/nlp-rake');\r\nconst { extractKeywords }  = require('../nlp/nlp-yake');\r\nconst { bm25ScoreWithImportance } = require('../nlp/nlp-bm25');\r\n\nconst MA_ROOT = path.join(__dirname, '..');\r\n\n// ── Memory Storage ──────────────────────────────────────────────────────────\r\n\n/**\r\n * Create a memory store scoped to an entity.\r\n * @param {string} entityId - Entity folder name (e.g. 'ma')\r\n * @returns {object} Memory API\r\n */\r\nfunction createMemoryStore(entityId) {\r\n  const entityRoot  = path.join(MA_ROOT, 'MA-entity', `entity_${entityId}`);\r\n  const memRoot     = path.join(entityRoot, 'memories');\r\n  const episodicDir = path.join(memRoot, 'episodic');\r\n  const semanticDir = path.join(memRoot, 'semantic');\r\n  const indexFile   = path.join(entityRoot, 'index', 'memoryIndex.json');\r\n\n  // Ensure dirs exist\r\n  [episodicDir, semanticDir, path.dirname(indexFile)].forEach(d => {\r\n    if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });\r\n  });\r\n\n  // ── Index (fast topic lookup) ────────────────────────────────────────────\r\n  let _index = _loadIndex();\r\n\n  function _loadIndex() {\r\n    try { return JSON.parse(fs.readFileSync(indexFile, 'utf8')); }\r\n    catch { return { episodic: [], semantic: [] }; }\r\n  }\r\n\n  function _saveIndex() {\r\n    fs.writeFileSync(indexFile, JSON.stringify(_index, null, 2), 'utf8');\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "const fs   = require('fs');\r\nconst path = require('path');\r\nconst crypto = require('crypto');\r\nconst { extractPhrases }  = require('../nlp/nlp-rake');\r\nconst { extractKeywords }  = require('../nlp/nlp",
+  "importance": 0.6,
+  "createdAt": 1774646383199,
+  "createdAtISO": "2026-03-27T21:19:43.199Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

@@ -1,0 +1,9 @@
+- **Do NOT write code in chat** — use `ws_write` to save it as a file
+- **Do NOT write partial files** — always write the complete `.py` file
+- **Do NOT guess what's in a file** — always `ws_read` first
+- **Do NOT install packages without requirements.txt** — keep it reproducible
+- **Do NOT use `os.system()` in code** — use `subprocess.run()` instead
+- **Do NOT add features the user didn't ask for** — keep it focused
+- **Do NOT skip the `if __name__ == "__main__":` guard** — always include it for scripts
+- **Do NOT chain commands** — one `cmd_run` call per command
+- **Do NOT hardcode file paths** — use `pathlib.Path` and relative paths

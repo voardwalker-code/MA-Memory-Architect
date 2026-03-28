@@ -1,0 +1,5 @@
+Now begin your conversation.`;
+  fs.writeFileSync(path.join(memDir, 'system-prompt.txt'), systemPrompt, 'utf8');
+
+  return `Entity created: ${name} (ID: ${canonicalId}, folder: entities/${folderName}). Use entity_inject_memory with entityId "${canonicalId}" to add memories.`;
+}

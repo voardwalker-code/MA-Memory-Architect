@@ -1,0 +1,33 @@
+// Merge the incoming fields with the current state
+      const next = {
+        ...current,
+        activeProject:       body.activeProject       ?? current.activeProject,
+        activeProjectStatus: body.activeProjectStatus ?? current.activeProjectStatus,
+        currentTask:         body.currentTask         ?? current.currentTask,
+
+        // If a new taskPlan array was sent, clean it up:
+        //   • Each step must have { done: bool, description: string }
+        //   • Skip any steps with blank descriptions
+        taskPlan: Array.isArray(body.taskPlan)
+          ? body.taskPlan
+              .map(step => ({
+                done:        !!step.done,
+                description: String(step.description || '').trim()
+              }))
+              .filter(step => step.description)
+          : current.taskPlan,
+
+        recentWork:   Array.isArray(body.recentWork) ? body.recentWork : current.recentWork,
+        resumePoint:  body.resumePoint ?? current.resumePoint,
+        lastActivity: new Date().toISOString()
+      };
+
+      core.worklog.write(next);
+      json(res, 200, { ok: true, state: core.worklog.getState() });
+      return true;
+    }
+
+    // None of our routes matched
+    return false;
+  };
+};

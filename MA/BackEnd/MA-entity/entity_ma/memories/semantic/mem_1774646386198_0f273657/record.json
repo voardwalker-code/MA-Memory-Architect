@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386198_0f273657",
+  "type": "semantic",
+  "content": "**DON'T:**\r\n- Create thin blueprints under 150 lines — they don't provide enough guidance for the executing LLM\r\n- Create bloated blueprints over 400 lines — they waste context window\r\n- Use vague instructions (\"research the topic\", \"make it good\") — every step must be specific\r\n- Forget the mode detection ASK fallback — ambiguity happens\r\n- Create keywords that collide with common task types (e.g., \"write\" collides with writing, \"code\" collides with code)\r\n- Skip the tool syntax examples — the executing LLM needs to see exact `[TOOL:...]` format\r\n- Create a new task type when extending an existing blueprint with a new mode would suffice\r\n- Put long content in chat instead of files — anything over 2 sentences goes in a `ws_write`\r\n- Hardcode values that should be user-configurable — use ASK when in doubt\r\n- Forget the entity integration pattern if the task involves creating NekoCore entities\r\n\n**Existing task types to avoid collisions with:**\r\narchitect, delegate, code, research, deep_research, writing, analysis, project, memory_query, entity_genesis, book_ingestion, study_guide, dnd_create, tutor_entity, dnd_campaign, course_creator, blueprint_builder",
+  "topics": [
+    "MA Memory Architect",
+    "blueprint_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "**DON'T:**\r\n- Create thin blueprints under 150 lines — they don't provide enough guidance for the executing LLM\r\n- Create bloated blueprints over 400 lines — they waste context window\r\n- Use vague ins",
+  "importance": 0.6,
+  "createdAt": 1774646386198,
+  "createdAtISO": "2026-03-27T21:19:46.198Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\blueprint_builder.md",
+  "accessCount": 0
+}

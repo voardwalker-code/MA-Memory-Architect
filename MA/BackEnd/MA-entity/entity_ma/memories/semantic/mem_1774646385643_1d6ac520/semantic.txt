@@ -1,0 +1,48 @@
+# Change Ledger: MA Standalone Migration
+
+## Instructions
+- Add one entry per meaningful change set.
+- Keep entries chronological.
+- Link each entry to phase and validation evidence.
+- Do not skip failed attempts; mark them and resolution.
+
+## Status Snapshot
+- Current Phase: Phase 6 Complete
+- Overall Progress: 100%
+- Last Updated: 2026-03-27
+
+## Entry Template
+Copy this block for each change set:
+
+```md
+### Entry <ID>
+- Date:
+- Phase:
+- Owner/Agent:
+- Change Summary:
+- Files Changed:
+- Reason:
+- Validation Performed:
+- Result:
+- Risks/Notes:
+- Follow-up:
+```
+
+---
+
+## Ledger Entries
+
+### Entry 001
+- Date: 2026-03-27
+- Phase: Planning Setup
+- Owner/Agent: GitHub Copilot
+- Change Summary: Created standalone planning workspace documents.
+- Files Changed:
+  - MA Standalone Plan/MA-Standalone-Implementation-Plan.md
+  - MA Standalone Plan/SOURCE-OF-TRUTH.md
+  - MA Standalone Plan/CHANGE-LEDGER.md
+- Reason: Establish execution plan, standards baseline, and traceability mechanism before migration implementation.
+- Validation Performed: Verified files created in target folder with expected structure.
+- Result: Success.
+- Risks/Notes: None.
+- Follow-up: Begin Phase 0 baseline capture and append new ledger entries.

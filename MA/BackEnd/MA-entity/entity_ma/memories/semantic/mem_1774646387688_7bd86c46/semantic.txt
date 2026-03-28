@@ -1,0 +1,33 @@
+// ── Slash command handler ───────────────────────────────────────────────────
+async function handleSlash(line) {
+  const parts = line.slice(1).split(/\s+/);
+  const cmd = parts[0].toLowerCase();
+  const arg = parts.slice(1).join(' ').trim();
+
+  switch (cmd) {
+    case 'health': {
+      const result = core.health.scan();
+      console.log(core.health.formatReport(result));
+      return;
+    }
+
+    case 'memory': {
+      const sub = (parts[1] || '').toLowerCase();
+      if (sub === 'stats') {
+        const mem = core.getMemory();
+        console.log(mem ? mem.stats() : 'No memory store');
+      } else if (sub === 'search') {
+        const q = parts.slice(2).join(' ');
+        if (!q) { console.log('  Usage: /memory search <query>'); return; }
+        const mem = core.getMemory();
+        const results = mem ? mem.search(q, 5) : [];
+        if (!results.length) { console.log('  No results.'); return; }
+        for (const r of results) {
+          console.log(`  [${r.score.toFixed(2)}] ${(r.summary || '').slice(0, 120)}`);
+          if (r.topics?.length) console.log(`         topics: ${r.topics.slice(0, 6).join(', ')}`);
+        }
+      } else {
+        console.log('  /memory stats | /memory search <query>');
+      }
+      return;
+    }

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383526_40e4075d",
+  "type": "semantic",
+  "content": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// ── Task types (no planning/orchestration — MA is single-entity) ────────────\r\nconst TASK_TYPES = {\r\n  architect:    { maxSteps: 10, maxLLM: 50, timeout: 300000 },\r\n  delegate:     { maxSteps: 8,  maxLLM: 30 },\r\n  code:         { maxSteps: 8,  maxLLM: 25, timeout: 240000 },\r\n  research:      { maxSteps: 6,  maxLLM: 20 },\r\n  deep_research: { maxSteps: 10, maxLLM: 40, timeout: 300000 },\r\n  writing:       { maxSteps: 6,  maxLLM: 20 },\r\n  analysis:     { maxSteps: 6,  maxLLM: 20 },\r\n  project:      { maxSteps: 10, maxLLM: 40, timeout: 300000 },\r\n  memory_query: { maxSteps: 3,  maxLLM: 10 },\r\n  entity_genesis: { maxSteps: 10, maxLLM: 50, timeout: 300000 },\r\n  book_ingestion: { maxSteps: 50, maxLLM: 300, timeout: 1800000 },\r\n  study_guide:    { maxSteps: 8,  maxLLM: 30, timeout: 300000 },\r\n  dnd_create:     { maxSteps: 10, maxLLM: 50, timeout: 300000 },\r\n  tutor_entity:   { maxSteps: 10, maxLLM: 50, timeout: 300000 },\r\n  dnd_campaign:   { maxSteps: 12, maxLLM: 60, timeout: 480000 },\r\n  course_creator: { maxSteps: 12, maxLLM: 60, timeout: 480000 },\r\n  blueprint_builder: { maxSteps: 10, maxLLM: 40, timeout: 300000 },\r\n  prompt_engineering: { maxSteps: 8,  maxLLM: 30, timeout: 300000 },\r\n  app_builder:        { maxSteps: 10, maxLLM: 40, timeout: 300000 }\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "svc-tasks.js",
+    "BackEnd services"
+  ],
+  "summary": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// ── Task types (no planning/orchestration — MA is single-entity) ────────────\r\nconst TASK_TYPES = {\r\n  architect:    { maxSteps: 10, maxL",
+  "importance": 0.6,
+  "createdAt": 1774646383527,
+  "createdAtISO": "2026-03-27T21:19:43.527Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-tasks.js",
+  "accessCount": 0
+}

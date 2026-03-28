@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385143_44a27c1e",
+  "type": "semantic",
+  "content": "async function saveEditorTab() {\r\n  const tab = openTabs.find(t => t.id === activeTabId);\r\n  if (!tab) return;\r\n  // Capture textarea content if in source mode\r\n  const ta = editorContent.querySelector('.editor-textarea');\r\n  if (ta) tab.content = ta.value;\r\n  try {\r\n    const r = await fetch('/api/workspace/save', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({ path: tab.path, content: tab.content })\r\n    });\r\n    const d = await r.json();\r\n    if (!d.ok) throw new Error(d.error || 'Save failed');\r\n    tab.originalContent = tab.content;\r\n    tab.dirty = false;\r\n    renderEditorTabs();\r\n    renderEditorContent();\r\n    addSystem('Saved ' + tab.name);\r\n  } catch (e) {\r\n    addSystem('Save error: ' + e.message);\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-editor.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function saveEditorTab() {\r\n  const tab = openTabs.find(t => t.id === activeTabId);\r\n  if (!tab) return;\r\n  // Capture textarea content if in source mode\r\n  const ta = editorContent.querySelecto",
+  "importance": 0.6,
+  "createdAt": 1774646385143,
+  "createdAtISO": "2026-03-27T21:19:45.143Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-editor.js",
+  "accessCount": 0
+}

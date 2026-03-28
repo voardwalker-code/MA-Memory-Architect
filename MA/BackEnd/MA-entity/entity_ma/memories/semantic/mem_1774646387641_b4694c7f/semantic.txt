@@ -1,0 +1,29 @@
+### client/index.html — Entity Creator Modal
+- Add a "+" button next to the entity-select dropdown
+- Clicking "+" opens a creation modal overlay (same styling as config panel)
+- Form fields:
+  - **Name** (required) — text input
+  - **Gender** — text input (they/them, she/her, he/him, or custom)
+  - **Personality Traits** — comma-separated text input → split into array
+  - **Backstory / Origin** — textarea
+  - **Creation Mode** — select: "guided" (default), "character", "legacy"
+  - **Unbreakable** — checkbox (default: unchecked = evolving)
+- On submit: POST to `/api/entities`, on success reload entity list and auto-select
+- On error: show alert with error message
+
+### server/entity/seed-ma.js — `seedMAEntity(entitiesDir)`
+- Check if any entities exist in `entitiesDir`
+- If zero entities, create MA:
+  ```
+  name: 'MA'
+  gender: 'they/them'
+  personality_traits: ['helpful', 'analytical', 'creative', 'memory-focused']
+  emotional_baseline: { curiosity: 0.9, confidence: 0.8, openness: 0.85, stability: 0.7 }
+  introduction: 'I am MA — Memory Architect.'
+  backstory: 'I was created to help build, organize, and remember. I excel at code, research, and memory management.'
+  creation_mode: 'guided'
+  unbreakable: false
+  ```
+- Called from `rem-server.js` at startup AFTER entity state loads
+- Idempotent — does nothing if entities already exist
+- Console log if seeded: `  MA entity seeded (first boot)`

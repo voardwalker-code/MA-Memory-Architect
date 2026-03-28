@@ -1,0 +1,18 @@
+// ── Remove a chore ───────────────────────────────────────────────
+    // Body must include { id: "..." }.
+    if (url.pathname === '/api/chores/remove' && method === 'POST') {
+      const body = JSON.parse(await readBody(req));
+      if (!body.id) { json(res, 400, { error: 'Need chore id' }); return true; }
+      try {
+        pulse.removeChore(body.id);
+        json(res, 200, { ok: true });
+      } catch (e) {
+        json(res, 400, { error: e.message });
+      }
+      return true;
+    }
+
+    // None of our routes matched
+    return false;
+  };
+};

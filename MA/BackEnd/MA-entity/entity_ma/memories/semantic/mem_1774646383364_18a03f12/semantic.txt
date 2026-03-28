@@ -1,0 +1,33 @@
+/**
+ * Add a weighted edge between two nodes.
+ * This is the connection graph the predictive system will traverse.
+ *
+ * @param {string} projectId
+ * @param {object} edge
+ * @param {string} edge.sourceId — source node memory_id
+ * @param {string} edge.targetId — target node memory_id
+ * @param {string} edge.type — one of EDGE_TYPES
+ * @param {number} [edge.strength] — 0.0–1.0 (default 0.5)
+ * @param {string} [edge.label] — human-readable label
+ * @returns {object} the edge record
+ */
+function addEdge(projectId, edge = {}) {
+  if (!edge.sourceId || !edge.targetId) throw new Error('sourceId and targetId required');
+  if (!EDGE_TYPES.includes(edge.type)) throw new Error(`Invalid edge type: ${edge.type}. Must be one of: ${EDGE_TYPES.join(', ')}`);
+
+  const graphPath = path.join(_projectDir(projectId), 'graph', 'edges.json');
+  const graph = fs.existsSync(graphPath) ? JSON.parse(fs.readFileSync(graphPath, 'utf8')) : { edges: [], count: 0 };
+
+  const edgeRecord = {
+    id: `edge_${Date.now()}_${crypto.randomBytes(3).toString('hex')}`,
+    sourceId: edge.sourceId,
+    targetId: edge.targetId,
+    type: edge.type,
+    strength: typeof edge.strength === 'number' ? Math.max(0, Math.min(1, edge.strength)) : 0.5,
+    label: edge.label || '',
+    created: new Date().toISOString()
+  };
+
+  graph.edges.push(edgeRecord);
+  graph.count = graph.edges.length;
+  _atomicWrite(graphPath, graph);

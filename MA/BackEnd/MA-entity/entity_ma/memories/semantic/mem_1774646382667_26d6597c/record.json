@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382667_26d6597c",
+  "type": "semantic",
+  "content": "// ── Mode getters/setters ────────────────────────────────────────────────────\n// MA has two modes:\n//   'work'  — full access to all tools (read, write, execute)\n//   'chat'  — read-only mode (can search and read, but can't change things)\nfunction getMode()  { return maMode; }\nfunction setMode(m) { maMode = (m === 'chat') ? 'chat' : 'work'; }\nfunction getIntegrationMode() {\n  return (config && config.integrationMode) ? config.integrationMode : 'off';\n}\n\n// ── Bootstrap functions ─────────────────────────────────────────────────────\n// These are called during boot() to set everything up.\n\n/** Create required folders if they don't exist yet. */\nfunction ensureDirs() {\n  if (!coreBoot) return;\n  coreBoot.ensureDirs([\n    WORKSPACE_DIR,\n    path.join(ENTITY_DIR, 'memories', 'episodic'),\n    path.join(ENTITY_DIR, 'memories', 'semantic'),\n    path.join(ENTITY_DIR, 'index')\n  ]);\n}\n\n/** Load the LLM config from disk (delegates to core-config module). */\nfunction loadConfig() {\n  if (!coreConfig) return;\n  const result = coreConfig.loadConfig({\n    CONFIG_PATH,\n    LEGACY_CONFIG_PATH: LEGACY_GLOBAL_CONFIG_PATH,\n    MA_ROOT\n  });\n  if (result.config) config = result.config;\n  if (result.workspacePath) WORKSPACE_DIR = result.workspacePath;\n}\n\n/** Load the entity identity from disk (delegates to core-bootstrap). */\nfunction loadEntity() {\n  if (!coreBoot) return;\n  entity = coreBoot.loadEntity(ENTITY_DIR);\n}",
+  "topics": [
+    "MA Memory Architect",
+    "MA-core.js",
+    "BackEnd"
+  ],
+  "summary": "// ── Mode getters/setters ────────────────────────────────────────────────────\n// MA has two modes:\n//   'work'  — full access to all tools (read, write, execute)\n//   'chat'  — read-only mode (can s",
+  "importance": 0.6,
+  "createdAt": 1774646382667,
+  "createdAtISO": "2026-03-27T21:19:42.667Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-core.js",
+  "accessCount": 0
+}

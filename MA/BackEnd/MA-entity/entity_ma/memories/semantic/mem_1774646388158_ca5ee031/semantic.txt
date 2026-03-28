@@ -1,0 +1,46 @@
+function deleteDir(dirPath) {
+  if (!fs.existsSync(dirPath)) return 0;
+  let count = 0;
+  for (const entry of fs.readdirSync(dirPath)) {
+    const full = path.join(dirPath, entry);
+    const stat = fs.statSync(full);
+    if (stat.isDirectory()) {
+      count += deleteDir(full);
+      fs.rmdirSync(full);
+    } else {
+      fs.unlinkSync(full);
+      count++;
+    }
+  }
+  return count;
+}
+
+// Delete only loose files and non-project subdirs (preserves dirs with PROJECT-MANIFEST.json)
+function deleteDirShallow(dirPath) {
+  if (!fs.existsSync(dirPath)) return { deleted: 0, preserved: [] };
+  let deleted = 0;
+  const preserved = [];
+  for (const entry of fs.readdirSync(dirPath)) {
+    const full = path.join(dirPath, entry);
+    const stat = fs.statSync(full);
+    if (stat.isDirectory()) {
+      const manifest = path.join(full, 'PROJECT-MANIFEST.json');
+      if (fs.existsSync(manifest)) {
+        preserved.push(entry);
+        continue;
+      }
+      deleted += deleteDir(full);
+      fs.rmdirSync(full);
+    } else {
+      fs.unlinkSync(full);
+      deleted++;
+    }
+  }
+  return { deleted, preserved };
+}
+
+function deleteFile(filePath) {
+  if (!fs.existsSync(filePath)) return false;
+  fs.unlinkSync(filePath);
+  return true;
+}

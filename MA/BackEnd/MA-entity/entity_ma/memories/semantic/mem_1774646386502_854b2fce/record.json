@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386502_854b2fce",
+  "type": "semantic",
+  "content": "{YOUR synthesis — what does all this evidence add up to? What are the\r\nkey takeaways? What questions remain unanswered?}\r\n\n---\r\n\n## Sources\r\n\n1. {Full URL or source name} — {what this source contributed to the report}\r\n2. {Full URL or source name} — {what this source contributed to the report}\r\n(List ALL sources. Every claim in the report must trace back to a source here.)\r\n\n---\r\n\n## Research Notes\r\n\n- Total searches conducted: {N}\r\n- Sources read in full: {N}\r\n- Key contradictions found: {list}\r\n- Gaps in available information: {list}\r\n```\r\n\nAdapt this structure to the topic — some sections may not apply, others may\r\nneed sub-sections. The structure serves the content, not the other way around.\r\n\n## Deep Research Rules",
+  "topics": [
+    "MA Memory Architect",
+    "deep_research.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "{YOUR synthesis — what does all this evidence add up to? What are the\r\nkey takeaways? What questions remain unanswered?}\r\n\n---\r\n\n## Sources\r\n\n1. {Full URL or source name} — {what this source contribut",
+  "importance": 0.6,
+  "createdAt": 1774646386504,
+  "createdAtISO": "2026-03-27T21:19:46.504Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\deep_research.md",
+  "accessCount": 0
+}

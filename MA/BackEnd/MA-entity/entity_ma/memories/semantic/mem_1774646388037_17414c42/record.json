@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388037_17414c42",
+  "type": "semantic",
+  "content": "`entity-runtime.js` manages entity state lifecycle: load, activate, deactivate, state persistence. Entity checkout system prevents concurrent multi-user access to same entity.\r\n\n---\r\n\n## Reserved Names\r\n\nSystem-identity namespace protection: NekoCore, Neko, Echo, AgentEcho are blocked for entity creation. Security hardening to prevent impersonation.\r\n\n---\r\n\n## Best Practices\r\n\n1. Evolving mode default — only use Unbreakable for intentionally fixed characters\r\n2. Origin story goes LAST in context — lived experience takes precedence\r\n3. Entity state on disk must be atomic (temp + rename) — prevent corruption\r\n4. persona.json updates only from sleep cycle — not from individual turns\r\n5. Voice profile derived from personality traits — don't hardcode\r\n6. Entity checkout prevents concurrent modification — respect the lock\r\n7. Reserved names are security-enforced — never bypass",
+  "topics": [
+    "MA Memory Architect",
+    "entity-identity.md",
+    "MA-knowledge"
+  ],
+  "summary": "`entity-runtime.js` manages entity state lifecycle: load, activate, deactivate, state persistence. Entity checkout system prevents concurrent multi-user access to same entity.\r\n\n---\r\n\n## Reserved Name",
+  "importance": 0.6,
+  "createdAt": 1774646388037,
+  "createdAtISO": "2026-03-27T21:19:48.037Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\entity-identity.md",
+  "accessCount": 0
+}

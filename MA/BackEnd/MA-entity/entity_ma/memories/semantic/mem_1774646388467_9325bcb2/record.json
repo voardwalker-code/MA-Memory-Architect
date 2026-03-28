@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388467_9325bcb2",
+  "type": "semantic",
+  "content": "---\r\nname: course-creator\r\ndescription: Create structured courses, curricula, lesson plans, and exam prep materials from topics or books\r\n---\r\n\n# Course Creator Skill\r\n\n## Triggers\r\n\n- \"create a course\", \"build a course\", \"design a course\"\r\n- \"curriculum\", \"syllabus\", \"lesson plan\"\r\n- \"book to course\", \"turn this book into a course\"\r\n- \"exam prep\", \"prepare for exam\", \"study for test\", \"mock exam\"\r\n- \"midterm\", \"final exam\", \"assessment\"\r\n\n## Mode Detection\r\n\n| Signal | Mode |\r\n|--------|------|\r\n| \"book to course\" / \"textbook\" + \"course\" / \"turn this book\" | BOOK-TO-COURSE |\r\n| \"exam\" / \"test\" / \"midterm\" / \"final\" + \"prep\" / \"prepare\" / \"study\" | EXAM PREP |\r\n| Default (course / curriculum / syllabus / lesson plan) | COURSE CREATOR |\r\n\n## Workflow\r\n\n### Course Creator\r\n1. Requirements — subject, audience, depth, optional source material\r\n2. Research — web_search for standard curriculum, key concepts, prerequisites\r\n3. Course structure — 4-12 modules, prerequisite mapping, lesson sequence, time estimates\r\n4. INTERACTIVE PAUSE — present outline, get user feedback\r\n5. Lesson content — objectives (Bloom's), explanations, examples, vocabulary, practice\r\n6. Assessments — per-module quizzes, midterm, final (all with answer keys)\r\n7. Syllabus — week-by-week schedule, grading weights, study tips\r\n8. Output all to `course-{subject}/`",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills course-creator"
+  ],
+  "summary": "---\r\nname: course-creator\r\ndescription: Create structured courses, curricula, lesson plans, and exam prep materials from topics or books\r\n---\r\n\n# Course Creator Skill\r\n\n## Triggers\r\n\n- \"create a cours",
+  "importance": 0.6,
+  "createdAt": 1774646388468,
+  "createdAtISO": "2026-03-27T21:19:48.468Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\course-creator\\SKILL.md",
+  "accessCount": 0
+}

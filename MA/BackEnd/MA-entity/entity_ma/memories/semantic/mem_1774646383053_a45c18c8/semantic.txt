@@ -1,0 +1,24 @@
+// ── Route Module: Worklog ────────────────────────────────────────────────────
+//
+// This module manages MA's "worklog" — a small file that tracks what the AI
+// is currently working on.  It's like a sticky note on the server's desk:
+//   • Which project is active right now?
+//   • What's the current task?
+//   • What steps are planned, and which are done?
+//   • What was the last thing we worked on?
+//
+// The worklog helps MA pick up where it left off if the server restarts,
+// and it lets the browser UI show progress to the user.
+//
+// ── Endpoints ───────────────────────────────────────────────────────────────
+//   GET  /api/worklog — Read the current work state
+//   POST /api/worklog — Update the work state (partial updates OK)
+//
+// ── What this module needs ──────────────────────────────────────────────────
+//   deps.core — MA-core (core.worklog for reading and writing the state file)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';
+
+// json()     — send a JSON response with a status code
+// readBody() — read the full body of a POST request
+const { json, readBody } = require('../infra/infra-http-utils');

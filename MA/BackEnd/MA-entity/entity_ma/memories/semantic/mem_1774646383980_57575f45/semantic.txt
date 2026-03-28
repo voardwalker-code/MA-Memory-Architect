@@ -1,0 +1,27 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// webSearch(query)
+//
+// Searches the internet using the web fetch module's search function.
+// Returns formatted search results.
+//
+//   query — what to search for
+//   Returns: formatted string of search results
+// ─────────────────────────────────────────────────────────────────────────────
+async function webSearch(query) {
+  const results = await webFetchModule.webSearch(query);
+  return webFetchModule.formatSearchResults(results, query);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// webFetch(url)
+//
+// Downloads a web page, extracts the main text content, and returns it
+// wrapped in [WEB CONTENT] tags so the AI knows where the content came from.
+//
+//   url — the web page URL to fetch
+//   Returns: the page's text content wrapped in markers
+// ─────────────────────────────────────────────────────────────────────────────
+async function webFetch(url) {
+  const result = await webFetchModule.fetchAndExtract(url);
+  return `[WEB CONTENT: ${result.url}]\n${result.text}\n[/WEB CONTENT]`;
+}

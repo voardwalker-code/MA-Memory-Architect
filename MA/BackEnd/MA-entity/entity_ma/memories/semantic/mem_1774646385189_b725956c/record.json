@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385189_b725956c",
+  "type": "semantic",
+  "content": "// Extracted from ma-ui.js: slash commands, token bar, continuation, drag/drop attachments.\r\nconst cmdPopup = document.getElementById('cmd-popup');\r\nlet slashCommands = [];\r\nlet cmdActiveIdx = -1;\r\n\n// Load commands from server\r\nfetch('/api/commands').then(r => r.json()).then(cmds => { slashCommands = cmds; }).catch(() => {});\r\n\nfunction handleInput() {\r\n  const val = inputEl.value;\r\n  if (val.startsWith('/')) {\r\n    const filter = val.slice(1).toLowerCase();\r\n    const matches = slashCommands.filter(c => c.cmd.slice(1).toLowerCase().startsWith(filter) || c.usage.toLowerCase().includes(filter));\r\n    if (matches.length > 0) {\r\n      cmdPopup.innerHTML = matches.map((c, i) =>\r\n        `<div class=\"cmd-item${i === cmdActiveIdx ? ' active' : ''}\" data-idx=\"${i}\" onclick=\"pickCmd('${c.usage}')\">`\r\n        + `<span class=\"cmd-name\">${c.usage}</span><span class=\"cmd-desc\">${c.desc}</span></div>`\r\n      ).join('');\r\n      cmdPopup.classList.add('show');\r\n      return;\r\n    }\r\n  }\r\n  cmdPopup.classList.remove('show');\r\n  cmdActiveIdx = -1;\r\n}\r\n\nfunction pickCmd(usage) {\r\n  inputEl.value = usage;\r\n  cmdPopup.classList.remove('show');\r\n  cmdActiveIdx = -1;\r\n  inputEl.focus();\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-input.js",
+    "FrontEnd js"
+  ],
+  "summary": "// Extracted from ma-ui.js: slash commands, token bar, continuation, drag/drop attachments.\r\nconst cmdPopup = document.getElementById('cmd-popup');\r\nlet slashCommands = [];\r\nlet cmdActiveIdx = -1;\r\n\n/",
+  "importance": 0.6,
+  "createdAt": 1774646385189,
+  "createdAtISO": "2026-03-27T21:19:45.189Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-input.js",
+  "accessCount": 0
+}

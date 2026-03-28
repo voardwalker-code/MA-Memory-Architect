@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388131_f8022605",
+  "type": "semantic",
+  "content": "The predictive system traverses this graph to predict what knowledge, patterns, and approaches are most relevant for new tasks based on past project experience.\r\n\n## Key Rules\r\n\n- **Always archive.** If MA did it, it goes in the archive. No exceptions.\r\n- **Always link.** Every node should have at least one edge connecting it to the project's graph.\r\n- **Use `previousNodeId`** to maintain the temporal chain — this is the backbone of the graph.\r\n- **Override importance** when a step is unusually important or trivial.\r\n- **Add semantic nodes** for any insight or lesson learned during the project.\r\n- **Close projects** when complete — this freezes them for predictive consumption.",
+  "topics": [
+    "MA Memory Architect",
+    "project-archive.md",
+    "MA-knowledge"
+  ],
+  "summary": "The predictive system traverses this graph to predict what knowledge, patterns, and approaches are most relevant for new tasks based on past project experience.\r\n\n## Key Rules\r\n\n- **Always archive.** ",
+  "importance": 0.6,
+  "createdAt": 1774646388132,
+  "createdAtISO": "2026-03-27T21:19:48.132Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\project-archive.md",
+  "accessCount": 0
+}

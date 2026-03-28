@@ -1,0 +1,34 @@
+// ── LLM · Provider Capability Registry ───────────────────────────────────────
+//
+// HOW CAPABILITY DETECTION WORKS:
+// Different AI providers support different features.  Instead of having
+// if/else checks scattered everywhere ("if anthropic, do X"), this file
+// declares a clean registry of what each provider can do.
+//
+// Think of it like a features chart on a product comparison page:
+//
+//   Feature              | Anthropic | OpenRouter | Ollama
+//   ---------------------|-----------|------------|-------
+//   Native tool use      |    ✓      |     ✓      |   ✗
+//   Extended thinking    |    ✓      |     ✗      |   ✗
+//   Prompt caching       |    ✓      |     ✗      |   ✗
+//   Vision (images)      |    ✓      |  depends   |   ✓
+//   JSON mode            |    ✗      |     ✓      |   ✓
+//
+// Other modules just ask: "does this config support native tools?"
+// and this registry gives the answer.
+//
+// Users can override defaults in their config (e.g. enable vision
+// for a specific OpenRouter model that supports it).
+//
+// WHAT USES THIS:
+//   core-config.js — resolves capabilities when loading/saving config
+//   MA-core.js     — checks capabilities for feature gates
+//
+// EXPORTS:
+//   getCapabilities(config)       → {nativeTools, vision, ...}
+//   hasCapability(config, name)   → boolean
+//   resolveCapabilities(config)   → config with .capabilities merged
+//   PROVIDER_CAPS                 — the raw defaults table
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

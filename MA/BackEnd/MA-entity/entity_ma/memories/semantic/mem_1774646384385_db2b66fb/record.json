@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384385_db2b66fb",
+  "type": "semantic",
+  "content": "| Binary | Allowed Subcommands |\r\n|--------|-------------------|\r\n| `cargo` | build, run, test, check, clippy, fmt, init, new, add, remove, update, doc |\r\n| `rustc`, `rustfmt` | all |\r\n| `python`, `python3` | all |\r\n| `pip`, `pip3` | install, list, show, freeze, uninstall |\r\n| `node` | all |\r\n| `npm` | init, install, test, run, start, build, ls, outdated, update, ci |\r\n| `npx` | all |\r\n| `gcc`, `g++`, `make`, `cmake` | all |\r\n| `go` | build, run, test, fmt, vet, mod, get |\r\n| `git` | init, status, add, commit, log, diff, branch, checkout, tag |\r\n| `cat`, `head`, `tail`, `wc` | all |\r\n| `ls`, `dir`, `find`, `grep`, `type` | all |\r\n\n### Always Blocked\r\nThese are **never** allowed, even if you try to add them:\r\n`rm`, `del`, `format`, `shutdown`, `kill`, `curl`, `wget`, `powershell`, `cmd.exe`, `bash`, `sh`\r\n\n### Security\r\n- Commands run with `shell: false` (no shell metacharacters)\r\n- Working directory locked to `MA-workspace/`\r\n- 60-second timeout (max 300s)\r\n- Output capped at 16KB per stream\r\n- Shell operators (`; & | > <`) are rejected\r\n\n---\r\n\n## Managing the Whitelist\r\n\n### Via GUI\r\n1. Click ⚙ → Command Whitelist tab\r\n2. View, add, or remove commands\r\n3. Click \"Reset Defaults\" to restore factory settings",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "| Binary | Allowed Subcommands |\r\n|--------|-------------------|\r\n| `cargo` | build, run, test, check, clippy, fmt, init, new, add, remove, update, doc |\r\n| `rustc`, `rustfmt` | all |\r\n| `python`, `py",
+  "importance": 0.6,
+  "createdAt": 1774646384387,
+  "createdAtISO": "2026-03-27T21:19:44.387Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

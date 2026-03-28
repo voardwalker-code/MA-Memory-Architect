@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382788_39bf4833",
+  "type": "semantic",
+  "content": "const STOPWORDS = new Set([\r\n  'a', 'about', 'above', 'after', 'again', 'against', 'all', 'am', 'an', 'and',\r\n  'any', 'are', 'as', 'at', 'be', 'because', 'been', 'before', 'being', 'below',\r\n  'between', 'both', 'but', 'by', 'can', 'could', 'did', 'do', 'does', 'doing',\r\n  'down', 'during', 'each', 'few', 'for', 'from', 'further', 'get', 'got', 'had',\r\n  'has', 'have', 'having', 'he', 'her', 'here', 'hers', 'herself', 'him',\r\n  'himself', 'his', 'how', 'i', 'if', 'in', 'into', 'is', 'it', 'its', 'itself',\r\n  'just', 'like', 'me', 'more', 'most', 'my', 'myself', 'no', 'not', 'now', 'of',\r\n  'off', 'on', 'once', 'only', 'or', 'other', 'our', 'out', 'over', 'own', 's',\r\n  'same', 'she', 'should', 'so', 'some', 'such', 't', 'than', 'that', 'the',\r\n  'their', 'theirs', 'them', 'themselves', 'then', 'there', 'these', 'they',\r\n  'this', 'those', 'through', 'to', 'too', 'under', 'until', 'up', 'us', 'very',\r\n  'was', 'we', 'were', 'what', 'when', 'where', 'which', 'while', 'who', 'whom',\r\n  'why', 'will', 'with', 'would', 'you', 'your', 'yours', 'yourself',\r\n  'also', 'about', 'into', 'than', 'then', 'them', 'they', 'been',\r\n]);\r\n\nconst PHRASE_DELIMITERS = /[.!?,;:()\\[\\]{}\"'\\n\\t]+/;\r\n\nfunction buildCandidatePhrases(text) {\r\n  const sentenceChunks = text.toLowerCase().split(PHRASE_DELIMITERS);\r\n  const candidates = [];\r\n\n  for (const chunk of sentenceChunks) {\r\n    const words = chunk.trim().split(/\\s+/).filter(w => w.length > 0);\r\n    if (words.length === 0) continue;",
+  "topics": [
+    "MA Memory Architect",
+    "nlp-rake.js",
+    "BackEnd nlp"
+  ],
+  "summary": "const STOPWORDS = new Set([\r\n  'a', 'about', 'above', 'after', 'again', 'against', 'all', 'am', 'an', 'and',\r\n  'any', 'are', 'as', 'at', 'be', 'because', 'been', 'before', 'being', 'below',\r\n  'betwe",
+  "importance": 0.6,
+  "createdAt": 1774646382788,
+  "createdAtISO": "2026-03-27T21:19:42.788Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\nlp\\nlp-rake.js",
+  "accessCount": 0
+}

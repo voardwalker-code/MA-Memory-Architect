@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382416_cc5b79dd",
+  "type": "semantic",
+  "content": "// ── FAST PATH: \"Brief is ready\" ────────────────────────────────────\r\n  // If the user says something like \"the brief is ready\" or \"start building\",\r\n  // find the most recent project with a PROJECT-BRIEF.md and start building.\r\n  let briefLoaded = false;\r\n  const briefReadyRe = /\\b(?:brief\\s+is\\s+ready|start\\s+building|build\\s+(?:it|the\\s+project|this)|ready\\s+to\\s+build)\\b/i;\r\n  if (briefReadyRe.test(message)) {\r\n    try {\r\n      const entries = fs.readdirSync(WORKSPACE_DIR).filter(f => {\r\n        const bp = path.join(WORKSPACE_DIR, f, 'PROJECT-BRIEF.md');\r\n        return fs.statSync(path.join(WORKSPACE_DIR, f)).isDirectory() && fs.existsSync(bp);\r\n      });\r\n      if (entries.length > 0) {\r\n        // Pick the most recently modified brief\r\n        entries.sort((a, b) => {\r\n          const ta = fs.statSync(path.join(WORKSPACE_DIR, a, 'PROJECT-BRIEF.md')).mtimeMs;\r\n          const tb = fs.statSync(path.join(WORKSPACE_DIR, b, 'PROJECT-BRIEF.md')).mtimeMs;\r\n          return tb - ta;\r\n        });\r\n        const projSlug = entries[0];\r\n        const briefContent = fs.readFileSync(path.join(WORKSPACE_DIR, projSlug, 'PROJECT-BRIEF.md'), 'utf8');\r\n        message = `Build the project described in this brief. Project folder: ${projSlug}/\\n\\n---\\n\\n${briefContent}`;\r\n        intent.intent = 'task';\r\n        intent.taskType = 'project';\r\n        intent.confidence = 1.0;\r\n        if (onActivity) await onActivity('brief_loaded', `Loaded brief from ${projSlug}/PROJECT-BRIEF.md`);\r\n        briefLoaded = true;\r\n      }\r\n    } catch { /* fall through to normal handling */ }\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// ── FAST PATH: \"Brief is ready\" ────────────────────────────────────\r\n  // If the user says something like \"the brief is ready\" or \"start building\",\r\n  // find the most recent project with a PROJECT",
+  "importance": 0.6,
+  "createdAt": 1774646382416,
+  "createdAtISO": "2026-03-27T21:19:42.416Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

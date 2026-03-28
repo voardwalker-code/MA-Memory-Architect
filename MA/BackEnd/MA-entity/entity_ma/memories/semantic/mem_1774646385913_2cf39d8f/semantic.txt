@@ -1,0 +1,46 @@
+For API-connected apps, identify:
+- Which NekoCore OS API endpoints to call
+- Request/response shapes
+- Error handling strategy
+
+---
+
+## Phase 3 — Build HTML Payload
+
+Write the complete HTML payload file.
+
+### HTML Structure Template
+
+```html
+<div class="tab-content" id="tab-{appId}">
+  <section class="card" style="height:100%;display:flex;flex-direction:column;gap:12px;">
+    <div class="card-hd" style="display:flex;justify-content:space-between;align-items:center;">
+      <h3 style="margin:0;">{App Name}</h3>
+      <div class="text-xs-c text-tertiary-c">{Subtitle}</div>
+    </div>
+
+    <!-- App content sections go here -->
+
+  </section>
+</div>
+
+<script>
+(function () {
+  // Idempotent guard — prevent double-init on tab reload
+  if (window.__{appIdCamel}Init) return;
+  window.__{appIdCamel}Init = true;
+
+  // App logic here — all variables are function-scoped
+
+  // Cleanup function for tab reload
+  window.__{appIdCamel}State = {
+    dispose: function () {
+      window.__{appIdCamel}Init = false;
+      // Cancel any intervals, listeners, etc.
+    }
+  };
+})();
+</script>
+```
+
+### CRITICAL Rules for HTML Payloads

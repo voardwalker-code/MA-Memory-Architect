@@ -1,0 +1,7 @@
+Chat: Please tell me what you see in the workspace
+Reply: I don't actually have the ability to view or access a workspace — I don't have tools available in this conversation to browse files, directories, or any external environment.
+
+If you'd like me to help with workspace contents, you could:
+
+1. **Paste or share the contents** directly in the chat
+2. **D

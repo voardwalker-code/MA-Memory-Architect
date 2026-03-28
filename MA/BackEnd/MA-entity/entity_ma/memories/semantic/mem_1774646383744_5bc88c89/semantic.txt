@@ -1,0 +1,21 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// bookReadChunk(wp, bookId, index)
+//
+// Reads a single chunk from a book by its index number.
+//
+//   wp     — absolute path to the workspace
+//   bookId — the book's unique identifier
+//   index  — the chunk number (0-based)
+//   Returns: the chunk text, or error message
+// ─────────────────────────────────────────────────────────────────────────────
+function bookReadChunk(wp, bookId, index) {
+  const bookDir = _findBookDir(wp, bookId);
+  if (!bookDir) return `Error: Book "${bookId}" not found in workspace.`;
+
+  const chunkPath = path.join(bookDir, 'chunks', `chunk_${String(index).padStart(4, '0')}.txt`);
+  if (!fs.existsSync(chunkPath)) return `Error: Chunk ${index} not found for book "${bookId}".`;
+
+  return fs.readFileSync(chunkPath, 'utf8');
+}
+
+module.exports = { bookListChunks, bookReadChunk };

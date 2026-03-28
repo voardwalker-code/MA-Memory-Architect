@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383988_1106518d",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// cmdRun(wp, cmd)\r\n//\r\n// Runs a terminal command inside the workspace directory.\r\n// The command must be on the whitelist (enforced by MA-cmd-executor).\r\n// Returns stdout, stderr, exit code, and any error info.\r\n//\r\n//   wp  — workspace path (used as the working directory)\r\n//   cmd — the command string to execute\r\n//   Returns: formatted string with stdout/stderr/exit code\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nasync function cmdRun(wp, cmd) {\r\n  const result = await cmdExecModule.execCommand(cmd, wp);\r\n  let out = '';\r\n  if (result.stdout) out += `STDOUT:\\n${result.stdout}\\n`;\r\n  if (result.stderr) out += `STDERR:\\n${result.stderr}\\n`;\r\n  out += `Exit: ${result.exitCode ?? 'N/A'}`;\r\n  if (result.timedOut) out += ' (TIMED OUT)';\r\n  if (result.error) out += `\\nError: ${result.error}`;\r\n  return out;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "tools-web.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// cmdRun(wp, cmd)\r\n//\r\n// Runs a terminal command inside the workspace directory.\r\n// The command must be on the whit",
+  "importance": 0.6,
+  "createdAt": 1774646383989,
+  "createdAtISO": "2026-03-27T21:19:43.989Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-web.js",
+  "accessCount": 0
+}

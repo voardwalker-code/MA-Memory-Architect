@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382605_1961eede",
+  "type": "semantic",
+  "content": "function addModel(entry) {\r\n  const roster = getRoster();\r\n  if (!entry.id) {\r\n    entry.id = `${entry.provider || 'unknown'}/${entry.model || 'unnamed'}`;\r\n  }\r\n  if (roster.models.find(m => m.id === entry.id)) {\r\n    return { ok: false, error: 'Model already in roster: ' + entry.id };\r\n  }\r\n  const model = {\r\n    id:            entry.id,\r\n    provider:      entry.provider || 'ollama',\r\n    model:         entry.model || '',\r\n    endpoint:      entry.endpoint || '',\r\n    apiKey:        entry.apiKey || '',\r\n    contextWindow: entry.contextWindow || 8192,\r\n    costPer1kIn:   entry.costPer1kIn || 0,\r\n    costPer1kOut:  entry.costPer1kOut || 0,\r\n    strengths:     entry.strengths || [],\r\n    weaknesses:    entry.weaknesses || [],\r\n    capabilities:  entry.capabilities || [],\r\n    tier:          entry.tier || (entry.provider === 'ollama' ? 'local' : 'mid'),\r\n    vision:        entry.vision === true,\r\n    enabled:       entry.enabled !== false,\r\n    notes:         entry.notes || '',\r\n    addedAt:       new Date().toISOString()\r\n  };\r\n  roster.models.push(model);\r\n  saveRoster(roster);\r\n  return { ok: true, model };\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "llm-router.js",
+    "BackEnd llm"
+  ],
+  "summary": "function addModel(entry) {\r\n  const roster = getRoster();\r\n  if (!entry.id) {\r\n    entry.id = `${entry.provider || 'unknown'}/${entry.model || 'unnamed'}`;\r\n  }\r\n  if (roster.models.find(m => m.id ===",
+  "importance": 0.6,
+  "createdAt": 1774646382605,
+  "createdAtISO": "2026-03-27T21:19:42.605Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-router.js",
+  "accessCount": 0
+}

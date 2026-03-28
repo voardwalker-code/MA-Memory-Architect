@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384595_ca5f3e3d",
+  "type": "semantic",
+  "content": "/* Ollama model management */\r\n  .model-row{display:flex;gap:8px;align-items:center}\r\n  .model-row select{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 12px;font-size:14px}\r\n  .model-row select:focus{outline:none;border-color:var(--accent)}\r\n  .model-row button{background:var(--border);color:var(--text);border:none;border-radius:6px;padding:8px 12px;font-size:14px;cursor:pointer}\r\n  .model-row button:hover{background:var(--accent);color:#fff}\r\n  .pull-row{display:flex;gap:8px;margin-top:8px}\r\n  .pull-row input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:6px 10px;font-size:13px}\r\n  .pull-row input:focus{outline:none;border-color:var(--accent)}\r\n  .pull-row button{background:var(--ma);color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;white-space:nowrap}\r\n  .pull-row button:hover{opacity:.9}\r\n  #pull-status{font-size:12px;color:var(--dim);margin-top:4px;min-height:16px}\r\n  #model-info{font-size:12px;color:var(--dim);margin-top:4px}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.css",
+    "FrontEnd css"
+  ],
+  "summary": "/* Ollama model management */\r\n  .model-row{display:flex;gap:8px;align-items:center}\r\n  .model-row select{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text)",
+  "importance": 0.6,
+  "createdAt": 1774646384595,
+  "createdAtISO": "2026-03-27T21:19:44.595Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\css\\ma-ui.css",
+  "accessCount": 0
+}

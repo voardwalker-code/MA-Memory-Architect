@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388306_89b0ccf6",
+  "type": "semantic",
+  "content": "// 6. Create and listen\r\n  const server = http.createServer(handleRequest);\r\n  server.listen(port, '127.0.0.1', () => {\r\n    const url = `http://127.0.0.1:${port}`;\r\n    console.log(`\\n  \\u2713 Running at ${url}`);\r\n    console.log(`  \\u2713 Workspace: ${core.WORKSPACE_DIR}`);\r\n    if (!core.isConfigured()) console.log('  \\u26A0 No LLM configured \\u2014 the GUI will open for setup');\r\n\n    // Auto-open browser unless suppressed by env var\r\n    if (!process.env.MA_NO_OPEN_BROWSER) {\r\n      console.log('\\n  Opening browser...\\n');\r\n      openBrowser(url);\r\n    } else {\r\n      console.log('\\n  (browser open suppressed)\\n');\r\n    }\r\n  });\r\n}\r\n\n// ── Entry point ─────────────────────────────────────────────────────────────\r\nstart().catch(e => { console.error('Fatal:', e); process.exit(1); });",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Server-standalone.js",
+    "."
+  ],
+  "summary": "// 6. Create and listen\r\n  const server = http.createServer(handleRequest);\r\n  server.listen(port, '127.0.0.1', () => {\r\n    const url = `http://127.0.0.1:${port}`;\r\n    console.log(`\\n  \\u2713 Runnin",
+  "importance": 0.6,
+  "createdAt": 1774646388307,
+  "createdAtISO": "2026-03-27T21:19:48.307Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-Server-standalone.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385308_e4eaeb16",
+  "type": "semantic",
+  "content": "async function saveTaskWorkspace() {\r\n  try {\r\n    const r = await fetch('/api/worklog', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({\r\n        currentTask: document.getElementById('task-current-input').value.trim(),\r\n        resumePoint: document.getElementById('task-resume-input').value.trim(),\r\n        taskPlan: readTaskPlanDraft()\r\n      })\r\n    });\r\n    const d = await r.json();\r\n    if (!d.ok) throw new Error(d.error || 'Could not save task workspace');\r\n    addSystem('Task workspace updated.');\r\n    loadWorklog();\r\n  } catch (e) {\r\n    addSystem('Task workspace error: ' + e.message);\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function saveTaskWorkspace() {\r\n  try {\r\n    const r = await fetch('/api/worklog', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({\r",
+  "importance": 0.6,
+  "createdAt": 1774646385309,
+  "createdAtISO": "2026-03-27T21:19:45.309Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

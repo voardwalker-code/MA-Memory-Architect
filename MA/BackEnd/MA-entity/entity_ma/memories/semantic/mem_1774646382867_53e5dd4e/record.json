@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382867_53e5dd4e",
+  "type": "semantic",
+  "content": "// ── Execute a slash command ───────────────────────────────────────\r\n    // Body: { command: \"/health\" }\r\n    // The handleSlashCommand function parses the command and runs it.\r\n    if (url.pathname === '/api/slash' && method === 'POST') {\r\n      const body   = JSON.parse(await readBody(req));\r\n      const result = await handleSlashCommand(body.command || '');\r\n      json(res, 200, result);\r\n      return true;\r\n    }\r\n\n    // ═════════════════════════════════════════════════════════════════\r\n    // WHITELIST — Security controls for terminal commands\r\n    // ═════════════════════════════════════════════════════════════════\r\n\n    // ── View the whitelist ───────────────────────────────────────────\r\n    // Returns the full whitelist object: { \"git\": [\"status\",\"log\"], \"ls\": true, ... }\r\n    if (url.pathname === '/api/whitelist' && method === 'GET') {\r\n      json(res, 200, cmdExec.getWhitelist());\r\n      return true;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "route-commands.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Execute a slash command ───────────────────────────────────────\r\n    // Body: { command: \"/health\" }\r\n    // The handleSlashCommand function parses the command and runs it.\r\n    if (url.pathname",
+  "importance": 0.6,
+  "createdAt": 1774646382867,
+  "createdAtISO": "2026-03-27T21:19:42.867Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-commands.js",
+  "accessCount": 0
+}

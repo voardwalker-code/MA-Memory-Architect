@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386818_763a778e",
+  "type": "semantic",
+  "content": "Call the creation tool:\r\n```\r\n[TOOL:entity_create {\"name\": \"Entity Name\", \"gender\": \"neutral\", \"traits\": [\"curious\", \"empathetic\", \"stubborn\"], \"introduction\": \"Hello, I'm Entity Name.\", \"personality_summary\": \"A curious and empathetic soul with a stubborn streak.\", \"speech_style\": \"warm and thoughtful\", \"beliefs\": [\"Knowledge is worth pursuing\", \"Everyone deserves kindness\"], \"behavior_rules\": [\"Think before acting\", \"Stand firm on principles\"]}]\r\n```\r\n\nThe tool returns the `entityId` — **save it** for all subsequent memory injection calls.\r\n\nThe tool automatically:\r\n- Creates the full entity folder structure in `MA-workspace/entities/Entity-{id}/`\r\n- Generates `entity.json`, `persona.json`, `system-prompt.txt`\r\n- Sets up memory directories (episodic, semantic, index)\r\n\n### Phase 3: Memory Genesis Loop (repeat per chapter)\r\n\nFor each backstory chapter:\r\n\n#### 3a. Generate Memories",
+  "topics": [
+    "MA Memory Architect",
+    "entity_genesis.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Call the creation tool:\r\n```\r\n[TOOL:entity_create {\"name\": \"Entity Name\", \"gender\": \"neutral\", \"traits\": [\"curious\", \"empathetic\", \"stubborn\"], \"introduction\": \"Hello, I'm Entity Name.\", \"personality_",
+  "importance": 0.6,
+  "createdAt": 1774646386818,
+  "createdAtISO": "2026-03-27T21:19:46.818Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\entity_genesis.md",
+  "accessCount": 0
+}

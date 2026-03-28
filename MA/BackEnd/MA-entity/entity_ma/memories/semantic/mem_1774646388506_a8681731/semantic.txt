@@ -1,0 +1,37 @@
+### Session Prep
+1. Load existing campaign files
+2. Plan 2-3 possible session directions
+3. Generate session package (recap text, encounters, dialog, random table, loot, hooks)
+4. Update existing NPC entities with new memories if needed
+5. Write session prep document
+
+### Session Recap
+1. Accept rough session notes from user
+2. Expand into narrative prose (third person, past tense, 500-1500 words)
+3. Create mechanical summary (XP, loot, NPCs, quests, conditions)
+4. Update NPC entity memories for appearing characters
+5. Track unresolved threads, new hooks, faction reputation, consequences
+6. Generate next-session opener ("Previously on...")
+
+### World Lore
+1. Identify target (region, faction, deity, culture, organization)
+2. Generate lore per target type
+3. Cross-reference existing campaign bible if available
+4. Optionally create key figures as lightweight entities
+5. Write lore document
+
+## API Endpoints
+
+- `POST /api/entities/create` — Create NPC entities
+- `POST /api/entities/{id}/memories/inject` — Inject NPC memories
+- `POST /api/entities/{id}/cognitive/tick` — Process cognitive state
+- `GET /api/entities/{id}/cognitive/state` — Read cognitive state
+
+## Tools Used
+
+- `web_fetch` — API calls to NekoCore OS (entity creation, memories, cognitive)
+- `web_search` — Reference material lookup (D&D SRD, setting info)
+- `ws_write` — Output campaign documents to workspace
+- `ws_read` — Load existing campaign context
+
+## Memory Quality Rules

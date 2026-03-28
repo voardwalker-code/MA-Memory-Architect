@@ -1,0 +1,63 @@
+### Common error patterns
+
+| Error | Meaning | Fix |
+|-------|---------|-----|
+| `NameError` | Variable/function not defined | Check spelling, add import |
+| `TypeError` | Wrong type passed | Check function signature |
+| `KeyError` | Dict key missing | Use `.get()` with default |
+| `IndexError` | List index out of range | Check length before access |
+| `ImportError` | Module not found | `pip install` the package |
+| `FileNotFoundError` | File doesn't exist | Check path, create if needed |
+| `AttributeError` | Object doesn't have that method | Check type, wrong variable |
+| `IndentationError` | Wrong whitespace | Fix indentation (4 spaces) |
+
+## Project Scaffolding Patterns
+
+### Script
+```
+my-script/
+  main.py
+  requirements.txt
+```
+
+### CLI tool
+```
+my-tool/
+  main.py
+  requirements.txt          (click)
+  src/
+    __init__.py
+    commands.py
+    utils.py
+```
+
+### Web API (Flask)
+```
+my-api/
+  requirements.txt          (flask)
+  app.py
+  routes/
+    __init__.py
+    health.py
+    users.py
+  models/
+    __init__.py
+    user.py
+```
+
+### Data pipeline
+```
+my-pipeline/
+  requirements.txt          (pandas, numpy)
+  main.py
+  src/
+    __init__.py
+    extract.py
+    transform.py
+    load.py
+  data/
+    input/
+    output/
+```
+
+## What NOT to Do

@@ -1,0 +1,4 @@
+Chat: I want you to wrige a js script following the peramiters in the attached message. 
+
+I want the js file to be a simple hellow world but I need it really over enginred. I want to have to have the Hello World go thru 3 seperate scripts to be called. I need each script to have good error and warrnging logs
+Reply: It looks like that conventions file doesn't exist at the path specified — the file wasn't found. Could you double-check the filename or provide the correct path? It's possible it's named slightly differently (maybe "Writing-And-Commenting-Guide.md" or similar) or located in a different folder.

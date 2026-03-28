@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384319_35153fda",
+  "type": "semantic",
+  "content": "The Workspace section in the left sidebar loads the real directory tree from `MA-workspace/`:\r\n- Collapsible folders with expand/collapse icons\r\n- File-type icons for common extensions\r\n- Click a file to open it in the built-in editor\r\n- Use **File → New File** or **File → New Folder** to create new items\r\n\n### Center Chat Stage\r\n- The chat is isolated in a centered conversation stage instead of stretching edge-to-edge across large screens\r\n- The inspector stays visible beside the conversation\r\n\n### Chat Area\r\n- Your messages appear on the right (blue)\r\n- MA's responses appear on the left (dark)\r\n- System messages appear centered (gray)\r\n\n### Input Bar\r\n- Type messages and press **Enter** to send\r\n- Press **Shift+Enter** for a new line\r\n- Type `/` to see the slash command autocomplete popup\r\n- Use **↑/↓** arrow keys to navigate the command popup, **Tab** or **Enter** to select\r\n\n### Token Usage Bar\r\nAfter each response, a thin bar below the chat shows context usage:\r\n- **Blue** — Under 65% used, plenty of room\r\n- **Yellow** — 65–85% used, getting close\r\n- **Red** — Over 85% used, MA may need to use continuation\r\n\nText below shows: `Context: ~X / Y tokens (Z%) · Response reserve: W`\r\n\n### Activity Monitor (Right Sidebar)\r\n\nA persistent inspector pane on the right side of the screen showing real-time LLM activity:",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "The Workspace section in the left sidebar loads the real directory tree from `MA-workspace/`:\r\n- Collapsible folders with expand/collapse icons\r\n- File-type icons for common extensions\r\n- Click a file",
+  "importance": 0.6,
+  "createdAt": 1774646384320,
+  "createdAtISO": "2026-03-27T21:19:44.320Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382631_c5dcbe96",
+  "type": "semantic",
+  "content": "if (existing) {\r\n    // Merge research into existing entry (don't overwrite user fields)\r\n    const updates = {};\r\n    if (info.contextWindow && !existing.contextWindow) updates.contextWindow = info.contextWindow;\r\n    if (info.costPer1kIn !== undefined) updates.costPer1kIn = info.costPer1kIn;\r\n    if (info.costPer1kOut !== undefined) updates.costPer1kOut = info.costPer1kOut;\r\n    if (info.strengths?.length && !existing.strengths?.length) updates.strengths = info.strengths;\r\n    if (info.weaknesses?.length && !existing.weaknesses?.length) updates.weaknesses = info.weaknesses;\r\n    if (info.tier && !existing.tier) updates.tier = info.tier;\r\n    if (Object.keys(updates).length) updateModel(modelId, updates);\r\n    return { ok: true, info, updated: Object.keys(updates) };\r\n  }\r\n\n  return { ok: true, info, updated: [] };\r\n}\r\n\n// ── Performance Summary ─────────────────────────────────────────────────────\r\n\nfunction getPerformanceSummary() {\r\n  const perf = _loadPerf();\r\n  const roster = getRoster();\r\n  const lines = [];\r\n\n  for (const m of roster.models) {\r\n    const rec = perf.records[m.id];\r\n    if (!rec || !Object.keys(rec).length) {\r\n      lines.push(`${m.id} (${m.tier}) — no performance data yet`);\r\n      continue;\r\n    }\r\n    const tasks = Object.entries(rec).map(([key, r]) => `${key}: ${r.avgGrade} (${r.attempts} runs)`);\r\n    lines.push(`${m.id} (${m.tier}) — ${tasks.join(', ')}`);\r\n  }\r\n\n  return lines.join('\\n') || 'No models in roster.';\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "llm-router.js",
+    "BackEnd llm"
+  ],
+  "summary": "if (existing) {\r\n    // Merge research into existing entry (don't overwrite user fields)\r\n    const updates = {};\r\n    if (info.contextWindow && !existing.contextWindow) updates.contextWindow = info.c",
+  "importance": 0.6,
+  "createdAt": 1774646382632,
+  "createdAtISO": "2026-03-27T21:19:42.632Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-router.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384145_41469ada",
+  "type": "semantic",
+  "content": "```javascript\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n// _dispatch(name, params, wp, opts)\r\n//\r\n// Routes a single tool call to the correct module function.\r\n// This is the central switch that connects tool names to implementations.\r\n//\r\n// Think of it like a phone operator — when someone calls \"ws_read\",\r\n// the operator connects them to the file-reading department.\r\n//\r\n//   name   — normalised tool name (e.g. \"ws_read\", \"web_search\")\r\n//   params — validated parameters for the tool\r\n//   wp     — workspace path (for file tools)\r\n//   opts   — execution options (webFetchEnabled, cmdRunEnabled, etc.)\r\n//   Returns: the tool's result string\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nasync function _dispatch(name, params, wp, opts) {\r\n```\r\n\n### For simple functions, a one-liner is fine:\r\n\n```javascript\r\n/** BM25 relevance score for topic arrays. */\r\nfunction bm25Score(queryTopics, docTopics, opts = {}) {\r\n```\r\n\n### Rule of thumb:\r\n- **Under 10 lines:** one-line JSDoc comment\r\n- **10-30 lines:** 2-3 line comment explaining purpose\r\n- **Over 30 lines:** full bordered comment block with params\r\n\n---\r\n\n## 8. Section Dividers\r\n\nUse these to visually separate logical sections within a file:\r\n\n```javascript\r\n// ── Section Name ────────────────────────────────────────────────────────────\r\n```\r\n\nThe line should be exactly 78-80 characters wide. Use a consistent\r\ncharacter (─) for the fill.",
+  "topics": [
+    "MA Memory Architect",
+    "02-WRITING-AND-COMMENTING-GUIDE.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "```javascript\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n// _dispatch(name, params, wp, opts)\r\n//\r\n// Routes a single tool call to the correct module function.\r",
+  "importance": 0.6,
+  "createdAt": 1774646384147,
+  "createdAtISO": "2026-03-27T21:19:44.147Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\02-WRITING-AND-COMMENTING-GUIDE.md",
+  "accessCount": 0
+}

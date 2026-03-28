@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386026_7ec88aa3",
+  "type": "semantic",
+  "content": "This folder contains MA's build blueprints for {Project Name}.\r\nEach layer has its own blueprint. Layers must be built IN ORDER.\r\n\n## Build Order\r\n\n| Blueprint | Layer | What | Pre-Requisite |\r\n|-----------|-------|------|---------------|\r\n| `layer-0-{name}.md` | 0 | {description} | Contracts pass validation |\r\n| `layer-1-{name}.md` | 1 | {description} | Layer 0 tests pass |\r\n{...one row per layer...}\r\n\n## How to Use\r\n\n1. Open the project at `workspace/{project}/`\r\n2. Run `node tests/test-runner.js 0` — if contracts load, proceed\r\n3. Execute `layer-0-{name}.md` blueprint\r\n4. Run `node tests/test-runner.js 0` — must pass before proceeding\r\n5. Continue through all layers\r\n\n## Rules\r\n\n- **NEVER skip a layer**. Layer N tests must pass before Layer N+1 begins.\r\n- **NEVER modify contracts** unless a bug is found (document the change).\r\n- **Every stub has algorithm comments** — follow them exactly.\r\n- **Update PROJECT-MANIFEST.json** after completing each module.\r\n```\r\n\n**Per-layer blueprints** — Write to `MA-blueprints/{project-name}/layer-{N}-{name}.md`:\r\n\n```markdown\r\n# Layer {N}: {Name} — Build Blueprint\r\n\n## Prerequisites\r\n- Layer {N-1} tests must pass: `npm run test:{N-1}`\r\n\n## Scope\r\nFiles to implement:\r\n- `{path/file1.js}` — {purpose}\r\n- `{path/file2.js}` — {purpose}\r\n\nUse prefixed folder names for all paths (e.g., `{prefix}-server/module.js`, NOT `server/module.js`).\r\n\n## {Module 1}: {file1.js}",
+  "topics": [
+    "MA Memory Architect",
+    "architect.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "This folder contains MA's build blueprints for {Project Name}.\r\nEach layer has its own blueprint. Layers must be built IN ORDER.\r\n\n## Build Order\r\n\n| Blueprint | Layer | What | Pre-Requisite |\r\n|-----",
+  "importance": 0.6,
+  "createdAt": 1774646386028,
+  "createdAtISO": "2026-03-27T21:19:46.028Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\architect.md",
+  "accessCount": 0
+}

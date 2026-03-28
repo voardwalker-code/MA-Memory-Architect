@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382731_675950bf",
+  "type": "semantic",
+  "content": "const { json } = require('./infra/infra-http-utils');\n\n// ─────────────────────────────────────────────────────────────────────────────\n// safeRequire(modulePath, label)\n//\n// Like require(), but if the module is missing or broken it returns null\n// instead of crashing.  This is the key to our resilience — if someone\n// accidentally breaks route-memory.js, the server still starts and all\n// the OTHER routes still work.\n//\n//   modulePath — the path to require (e.g. './routes/route-chat')\n//   label      — a friendly name for log messages (e.g. 'chat')\n// ─────────────────────────────────────────────────────────────────────────────\nfunction safeRequire(modulePath, label) {\n  try {\n    return require(modulePath);\n  } catch (err) {\n    console.warn(`[MA-routes] ⚠ Could not load route module \"${label}\": ${err.message}`);\n    return null;\n  }\n}",
+  "topics": [
+    "MA Memory Architect",
+    "MA-routes.js",
+    "BackEnd"
+  ],
+  "summary": "const { json } = require('./infra/infra-http-utils');\n\n// ─────────────────────────────────────────────────────────────────────────────\n// safeRequire(modulePath, label)\n//\n// Like require(), but if t",
+  "importance": 0.6,
+  "createdAt": 1774646382732,
+  "createdAtISO": "2026-03-27T21:19:42.732Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-routes.js",
+  "accessCount": 0
+}

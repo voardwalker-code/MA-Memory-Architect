@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383892_73d8c081",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _preCleanToolText(text)\r\n//\r\n// Sometimes the AI wraps tool calls in code fences like:\r\n//   ```json\r\n//   [TOOL:ws_read {\"path\":\"f\"}]\r\n//   ```\r\n// This strips those code fences so the real parser can find the tools.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction _preCleanToolText(text) {\r\n  if (!text) return text;\r\n  return text.replace(/```[\\w]*\\s*(\\[\\s*TOOL[\\s\\S]*?(?:\\[\\s*\\/\\s*TOOL\\s*\\]|\\]))\\s*```/gi, '$1');\r\n}\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// _normName(n)\r\n//\r\n// Normalises a tool name: lowercase and replace dashes with underscores.\r\n// So \"ws-read\" and \"WS_READ\" both become \"ws_read\".\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction _normName(n) { return n.toLowerCase().replace(/-/g, '_'); }\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// _parseJSON(raw)\r\n//\r\n// Tries to parse a JSON string.  Returns the parsed object, or null\r\n// if parsing fails (instead of throwing an error).\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction _parseJSON(raw) {\r\n  if (!raw) return {};\r\n  try { return JSON.parse(raw); } catch { return null; }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "tools-parser.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _preCleanToolText(text)\r\n//\r\n// Sometimes the AI wraps tool calls in code fences like:\r\n//   ```json\r\n//   [TOOL:ws",
+  "importance": 0.6,
+  "createdAt": 1774646383893,
+  "createdAtISO": "2026-03-27T21:19:43.893Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-parser.js",
+  "accessCount": 0
+}

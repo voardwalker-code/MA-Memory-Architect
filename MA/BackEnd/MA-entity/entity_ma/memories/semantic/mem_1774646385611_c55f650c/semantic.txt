@@ -1,0 +1,40 @@
+## Phase 2: Dead Script Removal and Cleanup
+Goal: Remove unused and temporary scripts safely.
+
+Tasks:
+- Remove confirmed dead scripts from root/client folders.
+- Update any stale references in docs and npm scripts.
+- Move historical but non-runtime experiments to `MA-archive/scripts/` only if retention is needed.
+- Remove commented-out code blocks that are no longer relevant.
+
+Initial removal candidates (pending inventory confirmation):
+- `tmp-diag.js`
+- `tmp-search-test.js`
+- `test-zod-tools.js`
+- `_test_tools.js`
+- `_health-check.js`
+- `MA-client/js/_test-load.js`
+
+Validation Gate:
+- `npm start`, `npm run start:bg`, `npm run status`, `npm run smoke:standalone`, and `npm run guardrails:standalone` pass.
+
+---
+
+## Phase 3: Backend Modular Refactor
+Goal: Make server code intuitive by extracting cohesive functions/modules.
+
+Targets:
+- `MA-server/MA-core.js`:
+  - extract boot/config orchestration helpers,
+  - separate prompt-building from execution flow,
+  - isolate mode and integration policy logic.
+- `MA-server/MA-workspace-tools.js`:
+  - split parser, schema, and executor concerns,
+  - isolate tool-specific handlers into dedicated modules.
+- `MA-Server-standalone.js`:
+  - split route handlers by domain (config/chat/models/worklog/health).
+
+Tasks:
+- Introduce module boundaries under `MA-server/core/` and `MA-server/routes/`.
+- Keep public API stable while reducing per-file complexity.
+- Replace duplicated snippets with shared utility functions.

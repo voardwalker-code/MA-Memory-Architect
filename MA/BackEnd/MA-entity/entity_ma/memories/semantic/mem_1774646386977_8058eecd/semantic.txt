@@ -1,0 +1,49 @@
+### Phase 3 — Changelog
+
+Write a brief changelog explaining each change:
+```
+## Changes Made
+1. [Line/Section]: [What changed] — [Why]
+2. ...
+```
+
+---
+
+## FEW-SHOT TEMPLATE MODE
+
+Build a prompt with curated input-output examples that teach the model the exact pattern.
+
+[TASK_PLAN]
+- [ ] Understand the task and desired output format
+- [ ] Design 3-5 examples covering normal + edge cases
+- [ ] Write template with examples to file
+- [ ] Verify examples are consistent and unambiguous
+[/TASK_PLAN]
+
+### Phase 1 — Task Analysis
+
+ASK:
+1. What is the input format? (free text, structured data, code, question)
+2. What is the desired output format? (JSON, markdown, plain text, classification label)
+3. What are the tricky edge cases? (ambiguous input, missing fields, adversarial input)
+
+### Phase 2 — Example Design
+
+Design exactly 3-5 examples:
+- **Example 1-2:** Happy path — clear input, ideal output.
+- **Example 3:** Edge case — ambiguous or unusual input, still correct output.
+- **Example 4:** Boundary — near the constraint limits, shows where to stop.
+- **Example 5 (optional):** Error case — bad input, graceful handling.
+
+Each example must be self-consistent. If example 1 formats dates as "March 24, 2026" then ALL examples must use the same format.
+
+### Phase 3 — Write Template
+
+```
+[TOOL:ws_write {"path":"prompts/{slug}-few-shot.md"}]
+You are a [role]. Given [input type], produce [output type].
+
+## Examples
+
+### Input:
+{example 1 input}

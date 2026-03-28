@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383061_62160dee",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// createWorklogRoutes(deps)\r\n//\r\n// Called once when the server starts.  Returns a handler that checks every\r\n// incoming request.  Returns true if handled, false if not ours.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nmodule.exports = function createWorklogRoutes(deps) {\r\n  const { core } = deps;\r\n\n  return async function handle(url, method, req, res) {\r\n\n    // ── Read the worklog ─────────────────────────────────────────────\r\n    // Returns the full work state: activeProject, currentTask,\r\n    // taskPlan (array of steps), recentWork, resumePoint, etc.\r\n    if (url.pathname === '/api/worklog' && method === 'GET') {\r\n      json(res, 200, core.worklog.getState());\r\n      return true;\r\n    }\r\n\n    // ── Update the worklog ───────────────────────────────────────────\r\n    // You only need to send the fields you want to change.\r\n    // Fields you don't send keep their current values.\r\n    //\r\n    // Example body:\r\n    //   { currentTask: \"Fix the login bug\", taskPlan: [\r\n    //       { done: true,  description: \"Found the bug\" },\r\n    //       { done: false, description: \"Write the fix\" }\r\n    //   ]}\r\n    if (url.pathname === '/api/worklog' && method === 'POST') {\r\n      const body    = JSON.parse(await readBody(req));\r\n      const current = core.worklog.getState();",
+  "topics": [
+    "MA Memory Architect",
+    "route-worklog.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// createWorklogRoutes(deps)\r\n//\r\n// Called once when the server starts.  Returns a handler that checks every\r\n// inco",
+  "importance": 0.6,
+  "createdAt": 1774646383062,
+  "createdAtISO": "2026-03-27T21:19:43.062Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-worklog.js",
+  "accessCount": 0
+}

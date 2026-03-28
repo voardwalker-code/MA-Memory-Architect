@@ -1,0 +1,29 @@
+if (data.error) throw new Error(data.error);
+  return (data.message?.content || '').trim();
+}
+
+// ── Anthropic Messages API ───────────────────────────────────────────────────
+async function _callAnthropic(config, messages, opts) {
+  const endpoint = config.endpoint || ANTHROPIC_DEFAULT_ENDPOINT;
+  const url = new URL(endpoint);
+
+  // Extract system messages into a separate system parameter (Anthropic requirement)
+  const systemMessages = messages.filter(m => m.role === 'system');
+  const nonSystemMessages = messages.filter(m => m.role !== 'system');
+
+  // Determine if extended cache (1-hour TTL) is active
+  const useExtendedCache = !!(config.capabilities && config.capabilities.extendedCache);
+
+  // Build system content blocks with cache_control on the last block
+  const systemBlocks = systemMessages.map((msg, idx) => {
+    const block = { type: 'text', text: msg.content };
+    if (idx === systemMessages.length - 1) {
+      block.cache_control = useExtendedCache
+        ? { type: 'ephemeral', ttl: '1h' }
+        : { type: 'ephemeral' };
+    }
+    return block;
+  });
+
+  // Ensure alternating user/assistant roles (Anthropic requirement)
+  const anthropicMessages = _enforceAlternatingRoles(nonSystemMessages);

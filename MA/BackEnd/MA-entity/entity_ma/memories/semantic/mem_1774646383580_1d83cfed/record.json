@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383580_1d83cfed",
+  "type": "semantic",
+  "content": "const plan = parsePlan(planResp, limits.maxSteps);\r\n  if (!plan) {\r\n    // Single-step direct response\r\n    if (onStep) await onStep({ stepIndex: 0, stepTotal: 1, description: 'Execute task', output: planResp });\r\n    if (onActivity) await onActivity('step_done', 'Single-step task completed');\r\n    return { finalResponse: planResp, steps: [{ step: 1, description: 'Execute task', output: planResp }], llmCalls };\r\n  }\r\n\n  // Fire plan activity with step list for the activity monitor\r\n  if (onActivity) await onActivity('plan', `Task plan: ${plan.steps.length} steps`, { steps: plan.steps.map(s => s.description) });\r\n\n  // Phase 2: Execute steps\r\n  const execBP = getBlueprint(taskType, 'execute');\r\n  const stepOutputs = [];",
+  "topics": [
+    "MA Memory Architect",
+    "svc-tasks.js",
+    "BackEnd services"
+  ],
+  "summary": "const plan = parsePlan(planResp, limits.maxSteps);\r\n  if (!plan) {\r\n    // Single-step direct response\r\n    if (onStep) await onStep({ stepIndex: 0, stepTotal: 1, description: 'Execute task', output: ",
+  "importance": 0.6,
+  "createdAt": 1774646383583,
+  "createdAtISO": "2026-03-27T21:19:43.583Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-tasks.js",
+  "accessCount": 0
+}

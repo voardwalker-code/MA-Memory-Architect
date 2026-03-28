@@ -1,0 +1,53 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// handleChat(chatOpts, state, deps)
+//
+// The main entry point for processing a user chat message.
+//
+//   chatOpts — what the user sent:
+//     .message      — the user's text message (required)
+//     .history      — previous messages in this conversation [{role,content}]
+//     .attachments  — files/images the user dragged in [{name,content,type}]
+//     .autoPilot    — if true, remove timeout limits
+//     .onStep       — callback for task progress steps (optional)
+//     .onActivity   — callback for activity events (optional)
+//
+//   state — current MA state (from the orchestrator):
+//     .config          — current LLM config
+//     .memory          — memory store instance
+//     .entity          — entity.json contents
+//     .skills          — loaded skill contents [{name,content}]
+//     .maMode          — 'work' or 'chat'
+//     .WORKSPACE_DIR   — absolute path to workspace
+//     .KNOWLEDGE_DIR   — absolute path to knowledge folder
+//
+//   deps — module dependencies (from the orchestrator):
+//     .callLLM            — function to call the AI
+//     .tasks              — MA-tasks module (classify, runTask, getBlueprint)
+//     .wsTools            — MA-workspace-tools module
+//     .modelRouter        — MA-model-router module
+//     .worklog            — MA-worklog module
+//     .projectArchive     — MA-project-archive module
+//     .agentCatalog       — MA-agents module
+//     .hasCapability      — function to check if model supports a feature
+//     .buildToolSchemas   — function to build native tool schemas
+//     .gatherContext      — from core-context.js
+//     .buildSystemPrompt  — from core-context.js
+//     .compressHistory    — from core-tokens.js
+//     .estimateTokens     — from core-tokens.js
+//     .estimateMessagesTokens — from core-tokens.js
+//     .stripThinkingTags  — from core-tokens.js
+//     .listKnowledge      — function to list knowledge docs
+//     .loadKnowledge      — function to load a knowledge doc
+//
+//   Returns: { reply, taskType?, steps?, filesChanged?, routedModel?,
+//              routeReason?, continuationPoint?, contextUsage? }
+// ─────────────────────────────────────────────────────────────────────────────
+async function handleChat(chatOpts, state, deps) {
+  let { message, history = [], attachments = [], autoPilot = false, onStep, onActivity } = chatOpts;
+  const { config, memory, entity, skills, maMode, WORKSPACE_DIR, KNOWLEDGE_DIR, MA_ROOT } = state;
+  const {
+    callLLM, tasks, wsTools, modelRouter, worklog, projectArchive, agentCatalog,
+    hasCapability, buildToolSchemas, gatherContext, buildSystemPrompt,
+    compressHistory, estimateTokens, estimateMessagesTokens, stripThinkingTags,
+    listKnowledge, loadKnowledge
+  } = deps;

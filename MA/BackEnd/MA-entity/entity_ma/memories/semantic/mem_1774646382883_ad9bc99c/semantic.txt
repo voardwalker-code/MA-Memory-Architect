@@ -1,0 +1,23 @@
+const fs = require('fs');
+
+// json()     — send a JSON response with a status code
+// readBody() — read the full body of a POST request
+const { json, readBody } = require('../infra/infra-http-utils');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// createConfigRoutes(deps)
+//
+// Called once when the server starts.  Returns a handler that checks every
+// incoming request.  Returns true if handled, false if not ours.
+// ─────────────────────────────────────────────────────────────────────────────
+module.exports = function createConfigRoutes(deps) {
+  const { core } = deps;
+
+  return async function handle(url, method, req, res) {
+
+    // ── Mode: read ───────────────────────────────────────────────────
+    // Returns { mode: "chat" } or { mode: "work" }
+    if (url.pathname === '/api/mode' && method === 'GET') {
+      json(res, 200, { mode: core.getMode() });
+      return true;
+    }

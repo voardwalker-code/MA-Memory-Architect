@@ -1,0 +1,40 @@
+// ── 1. File path detection ──────────────────────────────────────────
+  // Scan the user's message for things that look like file paths.
+  // If we find files that exist in the workspace, read them and include
+  // their contents so the AI can see what the user is talking about.
+  try {
+    // Match paths like "src/components/App.js" or "config/settings.json"
+    const pathPatterns = /(?:^|\s|["'`(])(\/?(?:[\w.-]+\/)+[\w.-]+\.\w{1,10})(?=[\s"'`),;:?!]|$)/gm;
+    const detected = new Set();
+    let pm;
+    while ((pm = pathPatterns.exec(message))) {
+      const raw = pm[1].replace(/^\//, '');
+      if (raw.length > 2 && raw.includes('/')) detected.add(raw);
+    }
+    // Also check for bare filenames like "package.json" at workspace root
+    const bareFile = /(?:^|\s)([\w.-]+\.\w{1,10})(?=[\s,;:]|$)/g;
+    while ((pm = bareFile.exec(message))) {
+      const name = pm[1];
+      if (name.includes('.') && fs.existsSync(path.join(workspacePath, name))) {
+        detected.add(name);
+      }
+    }
+    const fileContents = [];
+    for (const rel of detected) {
+      try {
+        const abs = path.resolve(workspacePath, rel);
+        // Safety check: don't read files outside the workspace
+        if (!abs.startsWith(path.resolve(workspacePath))) continue;
+        if (!fs.existsSync(abs) || !fs.statSync(abs).isFile()) continue;
+        const size = fs.statSync(abs).size;
+        if (size > 32768) {
+          fileContents.push(`[File: ${rel}] (${(size/1024).toFixed(1)}KB — too large, showing first 32KB)\n${fs.readFileSync(abs, 'utf8').slice(0, 32768)}`);
+        } else {
+          fileContents.push(`[File: ${rel}]\n${fs.readFileSync(abs, 'utf8')}`);
+        }
+      } catch { /* skip unreadable files */ }
+    }
+    if (fileContents.length) {
+      result.fileCtx = '\n[Referenced Files]\n' + fileContents.join('\n\n');
+    }
+  } catch { /* ignore detection errors */ }

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385081_5313777c",
+  "type": "semantic",
+  "content": "function fileIcon(ext) {\r\n  const icons = { js: '📜', ts: '📜', json: '📋', md: '📖', html: '🌐', css: '🎨', py: '🐍', rs: '⚙', cs: '🔷', txt: '📄', svg: '🖼', png: '🖼', jpg: '🖼', gif: '🖼', yaml: '📋', yml: '📋', toml: '📋', xml: '🌐' };\r\n  return icons[ext.toLowerCase()] || '📄';\r\n}\r\n\n// ── Editor Tab Management ─────────────────────────────────────────────────\r\nasync function openFileInEditor(filePath) {\r\n  // Reuse existing tab if already open\r\n  const existing = openTabs.find(t => t.path === filePath);\r\n  if (existing) return activateTab(existing.id);\r\n\n  try {\r\n    const r = await fetch('/api/workspace/read?path=' + encodeURIComponent(filePath));\r\n    const d = await r.json();\r\n    if (d.error) { addSystem('Error: ' + d.error); return; }\r\n\n    const name = filePath.split('/').pop();\r\n    const ext = (name.match(/\\.([^.]+)$/) || [])[1] || '';\r\n    const mode = detectEditorMode(ext);\r\n    const tab = {\r\n      id: 'tab-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),\r\n      path: filePath,\r\n      name: name,\r\n      content: d.content,\r\n      originalContent: d.content,\r\n      ext: ext,\r\n      mode: mode,\r\n      viewMode: mode === 'markdown' ? 'preview' : mode === 'html' ? 'preview' : 'source',\r\n      dirty: false\r\n    };\r\n    openTabs.push(tab);\r\n    renderEditorTabs();\r\n    activateTab(tab.id);\r\n  } catch (e) {\r\n    addSystem('Could not open file: ' + e.message);\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-editor.js",
+    "FrontEnd js"
+  ],
+  "summary": "function fileIcon(ext) {\r\n  const icons = { js: '📜', ts: '📜', json: '📋', md: '📖', html: '🌐', css: '🎨', py: '🐍', rs: '⚙', cs: '🔷', txt: '📄', svg: '🖼', png: '🖼', jpg: '🖼', gif: '🖼', yaml: '",
+  "importance": 0.6,
+  "createdAt": 1774646385082,
+  "createdAtISO": "2026-03-27T21:19:45.082Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-editor.js",
+  "accessCount": 0
+}

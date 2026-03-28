@@ -1,0 +1,32 @@
+// Extracted from ma-ui.js: slash commands, token bar, continuation, drag/drop attachments.
+const cmdPopup = document.getElementById('cmd-popup');
+let slashCommands = [];
+let cmdActiveIdx = -1;
+
+// Load commands from server
+fetch('/api/commands').then(r => r.json()).then(cmds => { slashCommands = cmds; }).catch(() => {});
+
+function handleInput() {
+  const val = inputEl.value;
+  if (val.startsWith('/')) {
+    const filter = val.slice(1).toLowerCase();
+    const matches = slashCommands.filter(c => c.cmd.slice(1).toLowerCase().startsWith(filter) || c.usage.toLowerCase().includes(filter));
+    if (matches.length > 0) {
+      cmdPopup.innerHTML = matches.map((c, i) =>
+        `<div class="cmd-item${i === cmdActiveIdx ? ' active' : ''}" data-idx="${i}" onclick="pickCmd('${c.usage}')">`
+        + `<span class="cmd-name">${c.usage}</span><span class="cmd-desc">${c.desc}</span></div>`
+      ).join('');
+      cmdPopup.classList.add('show');
+      return;
+    }
+  }
+  cmdPopup.classList.remove('show');
+  cmdActiveIdx = -1;
+}
+
+function pickCmd(usage) {
+  inputEl.value = usage;
+  cmdPopup.classList.remove('show');
+  cmdActiveIdx = -1;
+  inputEl.focus();
+}

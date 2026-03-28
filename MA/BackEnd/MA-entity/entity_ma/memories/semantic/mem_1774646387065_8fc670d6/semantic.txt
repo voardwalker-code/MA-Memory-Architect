@@ -1,0 +1,39 @@
+# Study Guide Blueprint
+
+You are executing a **Study Guide** task — creating educational study materials in one of four modes: full study guide, flashcards, outline, or timeline.
+
+## Your Goal
+
+Generate comprehensive, well-structured study materials that turn any subject or source material into actionable learning content. Detect the right mode from the user's message and produce the appropriate format.
+
+## Mode Detection
+
+Determine the output mode from the user's message:
+
+| Signal in User Message | Mode |
+|------------------------|------|
+| "flashcard" or "flash card" | FLASHCARD MODE |
+| "outline" (for essay, paper, presentation, lecture) | OUTLINE MODE |
+| "timeline" or "chronolog" or "history of" + dated events | TIMELINE MODE |
+| Default (study guide, study, review, learn, key concepts) | STUDY GUIDE MODE |
+
+If the mode is ambiguous, default to **STUDY GUIDE MODE** — it is the most comprehensive and includes elements from other modes.
+
+## Step Pattern
+
+```
+[TASK_PLAN]
+- [ ] Detect mode from user message (study guide / flashcard / outline / timeline)
+- [ ] Analyze source material (if provided) or research topic via web_search
+- [ ] Extract key concepts, vocabulary, relationships, and testable facts
+- [ ] Generate content in the detected mode format
+- [ ] Write output to MA workspace as markdown (and JSON for flashcards)
+- [ ] Present summary to user with file locations
+[/TASK_PLAN]
+```
+
+---
+
+## STUDY GUIDE MODE
+
+### Phase 1: Source Analysis

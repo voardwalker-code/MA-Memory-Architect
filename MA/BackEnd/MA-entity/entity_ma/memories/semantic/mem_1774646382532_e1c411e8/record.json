@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382532_e1c411e8",
+  "type": "semantic",
+  "content": "// Summary\r\n  const critical = issues.filter(i => i.severity === 'critical').length;\r\n  const warnings = issues.filter(i => i.severity === 'warning').length;\r\n  return {\r\n    issues,\r\n    summary: {\r\n      total: Object.keys(CORE_REGISTRY).length,\r\n      critical,\r\n      warnings,\r\n      healthy: critical === 0 && warnings === 0\r\n    }\r\n  };\r\n}\r\n\nfunction _validateJS(rel, content, issues) {\r\n  try {\r\n    new vm.Script(content, { filename: rel });\r\n  } catch (e) {\r\n    issues.push({ file: rel, severity: 'critical', type: 'syntax_error', detail: e.message });\r\n  }\r\n}\r\n\nfunction _validateJSON(rel, content, issues) {\r\n  try {\r\n    JSON.parse(content);\r\n  } catch (e) {\r\n    issues.push({ file: rel, severity: 'critical', type: 'json_error', detail: e.message });\r\n  }\r\n}\r\n\nfunction _validateHTML(rel, content, issues) {\r\n  // Simple tag balance check\r\n  const opens = (content.match(/<[a-z][^/>]*>/gi) || []).length;\r\n  const closes = (content.match(/<\\/[a-z][^>]*>/gi) || []).length;\r\n  if (Math.abs(opens - closes) > 3) {\r\n    issues.push({ file: rel, severity: 'warning', type: 'html_imbalance', detail: `open=${opens} close=${closes}` });\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "infra-health.js",
+    "BackEnd infra"
+  ],
+  "summary": "// Summary\r\n  const critical = issues.filter(i => i.severity === 'critical').length;\r\n  const warnings = issues.filter(i => i.severity === 'warning').length;\r\n  return {\r\n    issues,\r\n    summary: {\r\n",
+  "importance": 0.6,
+  "createdAt": 1774646382532,
+  "createdAtISO": "2026-03-27T21:19:42.532Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-health.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385651_92a86cf7",
+  "type": "semantic",
+  "content": "### Entry 002\r\n- Date: 2026-03-27\r\n- Phase: Phase 1 (Runtime Decoupling)\r\n- Owner/Agent: GitHub Copilot\r\n- Change Summary: Made standalone server the canonical runtime path; converted legacy server file to compatibility shim.\r\n- Files Changed:\r\n  - package.json\r\n  - ma-start.js\r\n  - MA-Server.js\r\n- Reason: Remove hard dependency on external port-guard and eliminate dual-server maintenance risk.\r\n- Validation Performed:\r\n  - `node MA-Server.js` (shim) boots and delegates correctly.\r\n  - `cmd /c npm run start` boots `MA-Server-standalone.js` successfully.\r\n  - `node ma-start.js --stop`, `node ma-start.js`, and `node ma-start.js --status` work with standalone target.\r\n  - No `MODULE_NOT_FOUND` for `../server/services/port-guard` after migration.\r\n- Result: Success (implementation and runtime validation complete).\r\n- Risks/Notes: Existing consumers using MA-Server.js now see a deprecation warning but continue to work.\r\n- Follow-up: Proceed to Phase 2 (config ownership isolation).",
+  "topics": [
+    "MA Memory Architect",
+    "CHANGE-LEDGER.md",
+    "MA Standalone Plan"
+  ],
+  "summary": "### Entry 002\r\n- Date: 2026-03-27\r\n- Phase: Phase 1 (Runtime Decoupling)\r\n- Owner/Agent: GitHub Copilot\r\n- Change Summary: Made standalone server the canonical runtime path; converted legacy server fi",
+  "importance": 0.6,
+  "createdAt": 1774646385651,
+  "createdAtISO": "2026-03-27T21:19:45.651Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Standalone Plan\\CHANGE-LEDGER.md",
+  "accessCount": 0
+}

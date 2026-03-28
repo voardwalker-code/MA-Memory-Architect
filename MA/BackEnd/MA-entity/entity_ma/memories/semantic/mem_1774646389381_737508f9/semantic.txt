@@ -1,0 +1,47 @@
+MA can research a model's capabilities, pricing, and strengths using its own LLM:
+```
+/models research llama3.1:8b
+/models research claude-sonnet-4
+```
+
+If the model is in the roster, MA auto-updates its entry with the research results (context window, strengths, weaknesses, tier, pricing).
+
+### Roster File
+
+The roster is stored in `MA-Config/model-roster.json`. Performance data is in `MA-Config/model-performance.json`. Both are auto-created on first run.
+
+---
+
+## Health Diagnostics
+
+Run a health scan to check all MA modules:
+
+```
+/health
+```
+
+Output:
+```
+MA Health Scan
+========================================
+Files: 18 | Critical: 0 | Warnings: 1
+
+  [WARNING] MA-client/MA-index.html — html_imbalance: open=65 close=60
+```
+
+**Severity levels:**
+- **Critical** — Module won't load. Needs immediate fix.
+- **Warning** — Minor issue. Usually cosmetic (e.g., HTML void element counting).
+
+You can also run health from the terminal without starting the server:
+```bash
+node -e "const h=require('./BackEnd/infra/infra-health');console.log(h.formatReport(h.scan()))"
+```
+
+---
+
+## Activity Monitor
+
+The activity monitor is a real-time sidebar panel in the browser GUI that shows everything MA is doing.
+
+### What It Shows

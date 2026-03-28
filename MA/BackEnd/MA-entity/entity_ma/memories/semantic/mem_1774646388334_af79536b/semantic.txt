@@ -1,0 +1,24 @@
+- **appId** must match across ALL surfaces: contract, loader tabId, WINDOW_APPS tab, category map key
+- **Container ID** must be `tab-<appId>`
+- **Script logic** wrapped in IIFE with idempotent guard
+- **No `<link>` or `<style>` tags** — inline styles or system classes only
+- **Use CSS variables** for theme compatibility: `var(--ac)`, `var(--tm)`, `var(--sf2)`, etc.
+- **Dispose function** required for apps with intervals/listeners
+- **Relative API URLs** only — never hardcode ports
+
+## Tools Used
+
+```
+[TOOL:ws_write path="client/apps/non-core/core/tab-{appId}.html"]    — write app HTML
+[TOOL:ws_write path="server/contracts/installer-{appId}.contract.example.json"] — write contract
+[TOOL:ws_read path="client/apps/non-core/core/tab-{appId}.html"]     — verify payload
+[TOOL:cmd_run cmd="node server/tools/installer-cli.js install --contract ... --root . --dry"] — dry-run
+[TOOL:cmd_run cmd="node server/tools/installer-cli.js install --contract ... --root . --log ..."] — install
+[TOOL:cmd_run cmd="node server/tools/installer-cli.js uninstall --contract ... --root ."] — uninstall
+```
+
+## App Categories
+
+`tools` (default), `browse`, `mind`, `journal`, `appearance`, `system`
+
+## Quality Checklist

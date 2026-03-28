@@ -1,0 +1,23 @@
+// Strategy 2: Wikipedia search API (reliable, broad coverage)
+  if (results.length < 4) {
+    try {
+      const wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&srlimit=6&format=json&utf8=1`;
+      const res = await fetchUrl(wikiUrl);
+      const data = JSON.parse(res.body);
+      const seen = new Set(results.map(r => r.url));
+
+      if (data.query && data.query.search) {
+        for (const item of data.query.search) {
+          if (results.length >= 8) break;
+          const wikiUrl2 = `https://en.wikipedia.org/wiki/${encodeURIComponent(item.title.replace(/ /g, '_'))}`;
+          if (seen.has(wikiUrl2)) continue;
+          seen.add(wikiUrl2);
+          results.push({
+            title: item.title,
+            url: wikiUrl2,
+            snippet: (item.snippet || '').replace(/<[^>]+>/g, '').slice(0, 300)
+          });
+        }
+      }
+    } catch { /* Wikipedia API failed */ }
+  }

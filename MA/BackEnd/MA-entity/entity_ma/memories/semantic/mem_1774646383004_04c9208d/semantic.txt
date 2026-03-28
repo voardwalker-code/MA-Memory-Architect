@@ -1,0 +1,27 @@
+// ── Add a new chore ──────────────────────────────────────────────
+    // Body must include { name: "..." }.  Other fields are optional.
+    if (url.pathname === '/api/chores/add' && method === 'POST') {
+      const body = JSON.parse(await readBody(req));
+      if (!body.name) { json(res, 400, { error: 'Need chore name' }); return true; }
+      try {
+        const chore = pulse.addChore(body);
+        json(res, 200, { ok: true, chore });
+      } catch (e) {
+        json(res, 400, { error: e.message });
+      }
+      return true;
+    }
+
+    // ── Update an existing chore ─────────────────────────────────────
+    // Body must include { id: "..." } plus any fields to change.
+    if (url.pathname === '/api/chores/update' && method === 'POST') {
+      const body = JSON.parse(await readBody(req));
+      if (!body.id) { json(res, 400, { error: 'Need chore id' }); return true; }
+      try {
+        const chore = pulse.updateChore(body.id, body);
+        json(res, 200, { ok: true, chore });
+      } catch (e) {
+        json(res, 400, { error: e.message });
+      }
+      return true;
+    }

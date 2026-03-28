@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386374_f5ee3556",
+  "type": "semantic",
+  "content": "| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `http://localhost:3847/api/book/upload` | POST | Upload and chunk book for Book-to-Course mode |\r\n| `http://localhost:3847/api/entities/create` | POST | Create tutor entities (optional) |\r\n| `http://localhost:3847/api/entities/{id}/memories/inject` | POST | Inject subject knowledge |\r\n| `http://localhost:3847/api/entities/{id}/cognitive/tick` | POST | Process cognitive state |\r\n\n## Step Pattern\r\n\n```\r\n[TASK_PLAN]\r\n- [ ] Detect mode from user message (course creator / book-to-course / exam prep)\r\n- [ ] Gather requirements (subject, audience, depth, materials — from message or ASK)\r\n- [ ] Research or analyze source material\r\n- [ ] Generate structure (modules, lessons, or study plan)\r\n- [ ] INTERACTIVE PAUSE for structure review\r\n- [ ] Generate content (lessons, reviews, practice, assessments)\r\n- [ ] Write all output documents to MA workspace\r\n- [ ] Present summary with file locations\r\n[/TASK_PLAN]\r\n```\r\n\n---\r\n\n## COURSE CREATOR MODE\r\n\n### Phase 1: Requirements\r\n\nExtract from user message or **ASK** if missing:\r\n- **Subject** — what the course covers\r\n- **Target Audience** — beginner / student / professional / general\r\n- **Depth** — introductory / intermediate / advanced\r\n- **Optional Source Material** — books, notes, existing syllabus, or none\r\n\n### Phase 2: Research\r\n\nIf topic only (no source material):\r\n```\r\n[TOOL:web_search {\"query\": \"standard curriculum {subject} {level} key concepts prerequisites\"}]\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "course_creator.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `http://localhost:3847/api/book/upload` | POST | Upload and chunk book for Book-to-Course mode |\r\n| `http://localhost:3847/api/entit",
+  "importance": 0.6,
+  "createdAt": 1774646386375,
+  "createdAtISO": "2026-03-27T21:19:46.375Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\course_creator.md",
+  "accessCount": 0
+}

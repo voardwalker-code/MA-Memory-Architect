@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385791_f858f154",
+  "type": "semantic",
+  "content": "# Error Recovery Patterns\r\n\nWhen something goes wrong during a task, follow these rules. Do not panic. Do not retry the same action more than once.\r\n\n## Decision Tree\r\n\n```\r\nSomething failed\r\n  ├── Tool call failed?\r\n  │   ├── File not found → List the folder first, then use the correct path\r\n  │   ├── Write failed → Check if the folder exists, create it if needed\r\n  │   ├── Web search returned nothing → Rephrase with different keywords\r\n  │   └── Web fetch failed → Skip this source, note it, move on\r\n  │\r\n  ├── LLM step produced garbage?\r\n  │   ├── Output is empty → Re-read the step description and try once more\r\n  │   ├── Output is off-topic → Check if the step description is clear enough\r\n  │   └── Output repeats previous steps → Move to the next step\r\n  │\r\n  ├── Task is stuck in a loop?\r\n  │   ├── Same output twice → Stop the loop, summarize what you have so far\r\n  │   └── No progress after 2 attempts → Ask the user for clarification\r\n  │\r\n  └── Cannot complete the task at all?\r\n      └── State clearly: what you tried, what failed, what the user could do instead\r\n```\r\n\n## Core Rules\r\n\n1. NEVER retry the exact same action more than once. If it failed, change something.\r\n2. NEVER silently skip a failure. Always note what happened.\r\n3. NEVER invent results to cover a failure. Say \"I could not find X\" honestly.\r\n4. If a web search fails, try ONE rephrased search. If that fails too, move on.\r\n5. If a tool is broken, work around it. Write content directly if file tools fail.",
+  "topics": [
+    "MA Memory Architect",
+    "error-recovery.md",
+    "MA-blueprints core"
+  ],
+  "summary": "# Error Recovery Patterns\r\n\nWhen something goes wrong during a task, follow these rules. Do not panic. Do not retry the same action more than once.\r\n\n## Decision Tree\r\n\n```\r\nSomething failed\r\n  ├── To",
+  "importance": 0.6,
+  "createdAt": 1774646385792,
+  "createdAtISO": "2026-03-27T21:19:45.792Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\core\\error-recovery.md",
+  "accessCount": 0
+}

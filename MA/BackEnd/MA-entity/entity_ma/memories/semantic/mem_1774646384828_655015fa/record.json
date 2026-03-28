@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384828_655015fa",
+  "type": "semantic",
+  "content": "function finalizeProgress(widget) {\r\n  const spinner = widget.querySelector('.tp-spinner');\r\n  if (spinner) spinner.remove();\r\n  const header = widget.querySelector('.tp-header span');\r\n  header.textContent = 'Complete';\r\n  const active = widget.querySelectorAll('.tp-step.active');\r\n  active.forEach(el => { el.classList.remove('active'); el.classList.add('done'); el.querySelector('.tp-icon').textContent = '✓'; });\r\n  const fill = widget.querySelector('.tp-fill');\r\n  fill.style.width = '100%';\r\n}\r\n\nfunction escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }\r\n\nasync function send() {\r\n  const text = inputEl.value.trim();\r\n  if (!text && !pendingFiles.length) return;\r\n  if (sending) return;\r\n\n  sending = true;\r\n  sendBtn.disabled = true;",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-chat.js",
+    "FrontEnd js"
+  ],
+  "summary": "function finalizeProgress(widget) {\r\n  const spinner = widget.querySelector('.tp-spinner');\r\n  if (spinner) spinner.remove();\r\n  const header = widget.querySelector('.tp-header span');\r\n  header.textC",
+  "importance": 0.6,
+  "createdAt": 1774646384829,
+  "createdAtISO": "2026-03-27T21:19:44.829Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-chat.js",
+  "accessCount": 0
+}

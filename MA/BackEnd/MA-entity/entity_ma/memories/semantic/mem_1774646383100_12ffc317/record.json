@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383100_12ffc317",
+  "type": "semantic",
+  "content": "// ── Save a file ──────────────────────────────────────────────────\r\n    // Body: { path: \"src/app.js\", content: \"const x = 1;\" }\r\n    // Creates parent directories automatically if they don't exist.\r\n    if (url.pathname === '/api/workspace/save' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      if (!body.path || typeof body.content !== 'string') {\r\n        json(res, 400, { error: 'Need path and content' });\r\n        return true;\r\n      }\r\n\n      const wsRoot = path.resolve(core.WORKSPACE_DIR);\r\n      const safe   = path.resolve(wsRoot, body.path);\r\n      if (!safe.startsWith(wsRoot + path.sep) && safe !== wsRoot) {\r\n        json(res, 403, { error: 'Path outside workspace' });\r\n        return true;\r\n      }\r\n\n      // Create parent folders if needed (like \"mkdir -p\")\r\n      fs.mkdirSync(path.dirname(safe), { recursive: true });\r\n      fs.writeFileSync(safe, body.content, 'utf8');\r\n\n      json(res, 200, {\r\n        ok:   true,\r\n        path: path.relative(wsRoot, safe).replace(/\\\\/g, '/')\r\n      });\r\n      return true;\r\n    }\r\n\n    // ── Create a directory ───────────────────────────────────────────\r\n    // Body: { path: \"src/components\" }\r\n    // Creates all parent directories too (recursive).\r\n    if (url.pathname === '/api/workspace/mkdir' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      if (!body.path) { json(res, 400, { error: 'Need path' }); return true; }",
+  "topics": [
+    "MA Memory Architect",
+    "route-workspace.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Save a file ──────────────────────────────────────────────────\r\n    // Body: { path: \"src/app.js\", content: \"const x = 1;\" }\r\n    // Creates parent directories automatically if they don't exist.",
+  "importance": 0.6,
+  "createdAt": 1774646383100,
+  "createdAtISO": "2026-03-27T21:19:43.100Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-workspace.js",
+  "accessCount": 0
+}

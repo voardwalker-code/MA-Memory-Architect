@@ -1,0 +1,10 @@
+// ── 8. Worklog ──────────────────────────────────────────────────────
+  // Load the session worklog so the AI knows what it's been working on.
+  const wlSummary = worklog.getSummaryForPrompt();
+  if (wlSummary) {
+    result.worklogCtx = '\n[Session Worklog — your work history]\n' + wlSummary;
+    if (onActivity) await onActivity('worklog', 'Loaded session worklog');
+  }
+
+  return result;
+}

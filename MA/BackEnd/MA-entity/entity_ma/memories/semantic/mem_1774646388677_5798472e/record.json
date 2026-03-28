@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388677_5798472e",
+  "type": "semantic",
+  "content": "---\r\nname: rust\r\ndescription: Rust systems programmer — write, compile, test, and debug Rust projects. Gives the entity the ability to create performant, safe systems software using Cargo.\r\n---\r\n\n# Rust Skill\r\n\nYou can write Rust code, compile it, run it, and read compiler errors — all within the workspace. You have access to `cargo` and `rustc` via the `cmd_run` tool.\r\n\n## What You Can Do\r\n\n1. **Create Rust projects** — scaffold with `cargo init` or `cargo new`\r\n2. **Write Rust source files** — create `.rs` files with `ws_write`\r\n3. **Compile and check** — run `cargo build`, `cargo check`, `cargo clippy`\r\n4. **Run programs** — execute with `cargo run`\r\n5. **Run tests** — validate with `cargo test`\r\n6. **Format code** — auto-format with `cargo fmt`\r\n7. **Manage dependencies** — add crates with `cargo add`, remove with `cargo remove`\r\n8. **Debug compiler errors** — read error output, fix the code, recompile\r\n\n## Your Tools\r\n\n### File tools (write code)\r\n```\r\n[TOOL:ws_mkdir path=\"my-project/src\"]\r\n[TOOL:ws_write path=\"my-project/src/main.rs\" content=\"fn main() {\\n    println!(\\\"Hello, world!\\\");\\n}\"]\r\n[TOOL:ws_read path=\"my-project/src/main.rs\"]\r\n[TOOL:ws_list path=\"my-project/src\"]\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills rust"
+  ],
+  "summary": "---\r\nname: rust\r\ndescription: Rust systems programmer — write, compile, test, and debug Rust projects. Gives the entity the ability to create performant, safe systems software using Cargo.\r\n---\r\n\n# Ru",
+  "importance": 0.6,
+  "createdAt": 1774646388678,
+  "createdAtISO": "2026-03-27T21:19:48.678Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\rust\\SKILL.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382554_93e89821",
+  "type": "semantic",
+  "content": "// ── Fetch URL and return clean text ─────────────────────────────────────────\r\nasync function fetchAndExtract(urlStr) {\r\n  const res = await fetchUrl(urlStr);\r\n  const ct = res.contentType.toLowerCase();\r\n  if (ct.includes('json')) {\r\n    try { return { url: urlStr, text: JSON.stringify(JSON.parse(res.body), null, 2).slice(0, 8000), type: 'json' }; }\r\n    catch { return { url: urlStr, text: res.body.slice(0, 8000), type: 'text' }; }\r\n  }\r\n  if (ct.includes('html')) {\r\n    return { url: urlStr, text: extractText(res.body), type: 'html' };\r\n  }\r\n  return { url: urlStr, text: res.body.slice(0, 8000), type: 'text' };\r\n}\r\n\n// ── Web search (DDG Instant Answer API + Wikipedia — no key needed) ──────────\r\nasync function webSearch(query) {\r\n  if (!query) return [];\r\n  const results = [];\r\n\n  // Strategy 1: DDG Instant Answer API (entity lookups, encyclopedic answers)\r\n  try {\r\n    const apiUrl = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1`;\r\n    const res = await fetchUrl(apiUrl);\r\n    const data = JSON.parse(res.body);\r\n\n    if (data.AbstractText && data.AbstractURL) {\r\n      results.push({\r\n        title: data.Heading || query,\r\n        url: data.AbstractURL,\r\n        snippet: data.AbstractText.slice(0, 300)\r\n      });\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "infra-web-fetch.js",
+    "BackEnd infra"
+  ],
+  "summary": "// ── Fetch URL and return clean text ─────────────────────────────────────────\r\nasync function fetchAndExtract(urlStr) {\r\n  const res = await fetchUrl(urlStr);\r\n  const ct = res.contentType.toLowerCa",
+  "importance": 0.6,
+  "createdAt": 1774646382554,
+  "createdAtISO": "2026-03-27T21:19:42.554Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-web-fetch.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384950_8526808e",
+  "type": "semantic",
+  "content": "// ── Ollama Model Management ─────────────────────────────────────────────\r\ndocument.getElementById('cfg-type').addEventListener('change', function() {\r\n  const type = this.value;\r\n  const isOllama = type === 'ollama';\r\n  const isAnthropic = type === 'anthropic';\r\n  document.getElementById('model-text-wrap').style.display = isOllama ? 'none' : '';\r\n  document.getElementById('model-ollama-wrap').style.display = isOllama ? '' : 'none';\r\n\n  // Capabilities section visibility\r\n  const capsSection = document.getElementById('caps-section');\r\n  const capsToggles = document.getElementById('caps-toggles');\r\n  const capsNotice = document.getElementById('caps-notice');",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-config.js",
+    "FrontEnd js"
+  ],
+  "summary": "// ── Ollama Model Management ─────────────────────────────────────────────\r\ndocument.getElementById('cfg-type').addEventListener('change', function() {\r\n  const type = this.value;\r\n  const isOllama =",
+  "importance": 0.6,
+  "createdAt": 1774646384951,
+  "createdAtISO": "2026-03-27T21:19:44.951Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-config.js",
+  "accessCount": 0
+}

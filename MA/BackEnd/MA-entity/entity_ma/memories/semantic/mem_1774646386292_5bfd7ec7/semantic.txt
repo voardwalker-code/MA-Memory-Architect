@@ -1,0 +1,36 @@
+**Elizabeth's memory** (she overheard it — formative insult):
+```json
+{
+  "content": "At the Meryton ball, I overheard Mr. Darcy refuse to dance with me. He told Mr. Bingley I was merely 'tolerable' and 'not handsome enough to tempt' him. The arrogance! I laughed it off with my friends, but the sting of his dismissal lingered.",
+  "emotion": "anger",
+  "topics": ["meryton-ball", "mr-darcy", "insult", "first-impression"],
+  "importance": 0.8,
+  "phase": "chapter_3"
+}
+```
+
+**Darcy's memory** (unremarkable social obligation for him):
+```json
+{
+  "content": "Bingley tried to persuade me to dance at the Meryton assembly. I was in no humor for it. The local society fell short of my expectations. I declined his suggestion regarding one of the Bennet girls.",
+  "emotion": "neutral",
+  "topics": ["meryton-ball", "bingley", "social-obligation"],
+  "importance": 0.4,
+  "phase": "chapter_3"
+}
+```
+
+Note: Different importance, different emotional framing, different level of detail.
+
+---
+
+## Phase 4: Entity Creation + Memory Injection
+
+> ⚠️ **MANDATORY: You MUST use `entity_create` and `entity_inject_memory` tools in this phase.**
+> **DO NOT use `ws_mkdir` or `ws_write` to create entity folders or memory files.**
+> The `entity_create` tool generates a unique hex ID required by NekoCore OS.
+> Manual folder creation produces BROKEN entities that NekoCore cannot load.
+
+For each selected character:
+
+### 4a. Create Entity (MUST use entity_create tool)

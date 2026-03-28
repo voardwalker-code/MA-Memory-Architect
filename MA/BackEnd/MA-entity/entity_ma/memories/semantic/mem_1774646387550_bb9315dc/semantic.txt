@@ -1,0 +1,22 @@
+### belief-graph.js — `createBeliefGraph(entityDir)`
+- **Data structure**: Topic co-occurrence matrix
+  - `beliefs`: Map<topic, { strength, evidence: string[], firstSeen, lastSeen }>
+  - Stored as `beliefs.json` in entity directory
+
+- **discoverBeliefs(memories)**:
+  1. Build topic co-occurrence matrix from all memories
+  2. For topic pairs appearing in 3+ memories: generate candidate belief
+  3. Score belief strength by evidence count
+  4. Beliefs are emergent — they come FROM the memories, not predefined
+  5. Return new beliefs discovered
+
+- **getBeliefs()**: Return all beliefs from in-memory cache
+- **getBeliefsByTopic(topic)**: Filter beliefs containing given topic
+- **loadBeliefs()**: Read beliefs.json from entity dir
+- **saveBeliefs()**: Write beliefs.json to entity dir
+
+### brain-loop.js — `createBrainLoop(deps)`
+- **isSleepDue(entityId)**:
+  1. Check last sleep timestamp for entity
+  2. If > threshold (e.g. 6 hours or 50 turns), return true
+  3. Return { due: boolean, reason, lastSleep, turnsSince }

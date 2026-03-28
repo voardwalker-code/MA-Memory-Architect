@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383226_57da7e25",
+  "type": "semantic",
+  "content": "// Chain expansion: for top results with a chainId, pull in chain siblings\r\n    const seenIds = new Set(results.map(r => r.id));\r\n    const chainIds = new Set(results.filter(r => r.chainId).map(r => r.chainId));\r\n    if (chainIds.size > 0) {\r\n      const all = [..._index.episodic, ..._index.semantic];\r\n      for (const entry of all) {\r\n        if (entry.chainId && chainIds.has(entry.chainId) && !seenIds.has(entry.id)) {\r\n          results.push({ ...entry, score: 0.05, chainLinked: true });\r\n          seenIds.add(entry.id);\r\n        }\r\n      }\r\n    }\r\n\n    return results;\r\n  }\r\n\n  // ── List ─────────────────────────────────────────────────────────────────\r\n  function list(type, limit = 50) {\r\n    const arr = type === 'semantic' ? _index.semantic : type === 'episodic' ? _index.episodic : [..._index.episodic, ..._index.semantic];\r\n    return arr.slice(-limit);\r\n  }\r\n\n  // ── Stats ────────────────────────────────────────────────────────────────\r\n  function stats() {\r\n    return {\r\n      episodic: _index.episodic.length,\r\n      semantic: _index.semantic.length,\r\n      total: _index.episodic.length + _index.semantic.length\r\n    };\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// Chain expansion: for top results with a chainId, pull in chain siblings\r\n    const seenIds = new Set(results.map(r => r.id));\r\n    const chainIds = new Set(results.filter(r => r.chainId).map(r => r",
+  "importance": 0.6,
+  "createdAt": 1774646383227,
+  "createdAtISO": "2026-03-27T21:19:43.227Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388686_7ac0ccf2",
+  "type": "semantic",
+  "content": "### Command tools (compile and run)\r\n```\r\n[TOOL:cmd_run cmd=\"cargo init my-project\"]\r\n[TOOL:cmd_run cmd=\"cargo build\"]\r\n[TOOL:cmd_run cmd=\"cargo run\"]\r\n[TOOL:cmd_run cmd=\"cargo test\"]\r\n[TOOL:cmd_run cmd=\"cargo check\"]\r\n[TOOL:cmd_run cmd=\"cargo clippy\"]\r\n[TOOL:cmd_run cmd=\"cargo fmt\"]\r\n[TOOL:cmd_run cmd=\"cargo add serde\"]\r\n[TOOL:cmd_run cmd=\"cargo add serde --features derive\"]\r\n[TOOL:cmd_run cmd=\"cargo remove some-crate\"]\r\n```\r\n\n## CRITICAL RULES — Read These First\r\n\n### Rule 1: Always write COMPLETE files\r\nNever write partial `.rs` files. Write the full source code every time with `ws_write`.\r\n\n### Rule 2: Read before editing\r\nBefore modifying any existing file:\r\n```\r\n[TOOL:ws_read path=\"src/main.rs\"]\r\n```\r\nThen write the complete modified version back.\r\n\n### Rule 3: Use cargo for everything\r\nDo NOT call `rustc` directly unless the user specifically asks. Always prefer `cargo build`, `cargo run`, `cargo test`. Cargo handles dependencies, build profiles, and linking.\r\n\n### Rule 4: Read compiler errors carefully\r\nRust's compiler gives excellent error messages. When a build fails:\r\n1. Read the error output line by line\r\n2. The error tells you the file, line number, and what's wrong\r\n3. It often suggests the fix — follow the suggestion\r\n4. Fix the code, then recompile\r\n\n### Rule 5: One command per cmd_run call\r\nEach `cmd_run` runs one command. Do NOT chain commands with `&&` or `;`.\r\n\n## How to Build a Rust Project — Step by Step",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills rust"
+  ],
+  "summary": "### Command tools (compile and run)\r\n```\r\n[TOOL:cmd_run cmd=\"cargo init my-project\"]\r\n[TOOL:cmd_run cmd=\"cargo build\"]\r\n[TOOL:cmd_run cmd=\"cargo run\"]\r\n[TOOL:cmd_run cmd=\"cargo test\"]\r\n[TOOL:cmd_run c",
+  "importance": 0.6,
+  "createdAt": 1774646388686,
+  "createdAtISO": "2026-03-27T21:19:48.686Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\rust\\SKILL.md",
+  "accessCount": 0
+}

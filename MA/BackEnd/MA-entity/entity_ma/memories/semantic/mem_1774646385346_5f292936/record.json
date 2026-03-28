@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385346_5f292936",
+  "type": "semantic",
+  "content": "async function loadProjects() {\r\n  const list = document.getElementById('proj-list');\r\n  if (!list) return;\r\n  list.innerHTML = '<div class=\"side-empty\">Loading project archives...</div>';\r\n  try {\r\n    const r = await fetch('/api/projects');\r\n    const d = await r.json();\r\n    const projects = d.projects || [];\r\n    if (!projects.length) {\r\n      list.innerHTML = '<div class=\"side-empty\">No project archives yet.</div>';\r\n      return;\r\n    }\r\n    list.innerHTML = projects.map(function(project) {\r\n      const isClosed = project.status === 'closed';\r\n      return '<div class=\"project-card\">' +\r\n        '<div class=\"split-row\"><div><h4>' + escHtml(project.name || project.id) + '</h4><div class=\"meta\">' + escHtml(project.id || '') + '</div></div><span class=\"status-pill' + (isClosed ? ' closed' : '') + '\">' + escHtml(project.status || 'active') + '</span></div>' +\r\n        '<div class=\"meta\" style=\"margin-top:8px\">Updated: ' + escHtml(project.updatedAt || project.createdAt || 'unknown') + '<br>Nodes: ' + escHtml(String(project.nodeCount || 0)) + ' · Edges: ' + escHtml(String(project.edgeCount || 0)) + '</div>' +\r\n        '<div class=\"pane-actions\"><button class=\"secondary\" onclick=\"setProjectState(\\'' + project.id.replace(/'/g, '\\\\&#39;') + '\\', \\'' + (isClosed ? 'resume' : 'close') + '\\')\">' + (isClosed ? 'Resume Project' : 'Close Project') + '</button></div>' +\r\n      '</div>';\r\n    }).join('');\r\n  } catch (e) {\r\n    list.innerHTML = '<div class=\"side-empty\">Could not load projects: ' + escHtml(e.message) + '</div>';\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function loadProjects() {\r\n  const list = document.getElementById('proj-list');\r\n  if (!list) return;\r\n  list.innerHTML = '<div class=\"side-empty\">Loading project archives...</div>';\r\n  try {\r\n ",
+  "importance": 0.6,
+  "createdAt": 1774646385347,
+  "createdAtISO": "2026-03-27T21:19:45.347Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

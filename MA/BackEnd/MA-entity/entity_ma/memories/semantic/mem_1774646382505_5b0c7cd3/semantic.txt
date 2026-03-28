@@ -1,0 +1,22 @@
+// Slow path: ask the AI to summarise (for really long histories)
+  try {
+    const compressPrompt = older.map(m => `${m.role}: ${(m.content || '').slice(0, 300)}`).join('\n');
+    const summary = await callLLMFn(llmConfig, [
+      { role: 'system', content: 'Summarize this conversation history preserving: key decisions made, files created or modified, current task state, error context and workarounds, the user\'s goals and preferences. Use structured bullet points. Be concise but complete — this summary replaces the original messages.' },
+      { role: 'user', content: compressPrompt }
+    ], { temperature: 0.3, maxTokens: 768 });
+    return [
+      { role: 'system', content: `[Compressed Earlier Conversation]\n${summary}` },
+      ...recent
+    ];
+  } catch {
+    // Last resort: just truncate older messages and keep the last 2
+    const trimmed = older.map(m => ({
+      role: m.role,
+      content: (m.content || '').slice(0, 100) + '...'
+    }));
+    return [...trimmed.slice(-2), ...recent];
+  }
+}
+
+module.exports = { stripThinkingTags, estimateTokens, estimateMessagesTokens, compressHistory };

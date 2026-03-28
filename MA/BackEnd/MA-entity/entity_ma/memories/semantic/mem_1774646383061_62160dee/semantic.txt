@@ -1,0 +1,31 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// createWorklogRoutes(deps)
+//
+// Called once when the server starts.  Returns a handler that checks every
+// incoming request.  Returns true if handled, false if not ours.
+// ─────────────────────────────────────────────────────────────────────────────
+module.exports = function createWorklogRoutes(deps) {
+  const { core } = deps;
+
+  return async function handle(url, method, req, res) {
+
+    // ── Read the worklog ─────────────────────────────────────────────
+    // Returns the full work state: activeProject, currentTask,
+    // taskPlan (array of steps), recentWork, resumePoint, etc.
+    if (url.pathname === '/api/worklog' && method === 'GET') {
+      json(res, 200, core.worklog.getState());
+      return true;
+    }
+
+    // ── Update the worklog ───────────────────────────────────────────
+    // You only need to send the fields you want to change.
+    // Fields you don't send keep their current values.
+    //
+    // Example body:
+    //   { currentTask: "Fix the login bug", taskPlan: [
+    //       { done: true,  description: "Found the bug" },
+    //       { done: false, description: "Write the fix" }
+    //   ]}
+    if (url.pathname === '/api/worklog' && method === 'POST') {
+      const body    = JSON.parse(await readBody(req));
+      const current = core.worklog.getState();

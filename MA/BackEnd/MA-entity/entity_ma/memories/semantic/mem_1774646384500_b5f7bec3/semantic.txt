@@ -1,0 +1,24 @@
+| Mode | Behavior |
+|------|----------|
+| **Dark** | Dark background with light text (default) |
+| **Light** | Light background with dark text |
+| **System** | Follows your OS/browser preferred color scheme |
+
+### Configuring
+Go to **File → Settings** (or **⚙** in the rail), then find the **Theme** selector. Your choice persists in localStorage and applies immediately.
+
+When set to **System**, a live media-query listener keeps the theme in sync if your OS appearance changes while MA is open.
+
+---
+
+## Tips & Best Practices
+
+### For Coding Tasks
+- **Be specific:** "Build a Flask REST API with /users CRUD endpoints and SQLite" works better than "build something"
+- **Reference files:** "Fix the error in myproject/src/api.js" — MA will read the file automatically
+- **Large files:** MA writes in chunks and verifies each one. If it says "I'll write this in parts," let it finish
+- **Review:** MA auto-reads files after writing to check completeness. If something was truncated, it will continue
+
+### For Research
+- **Use web search:** "Research the latest Node.js 22 features" — MA uses `web_search` and `web_fetch`
+- **Ingest results:** After research, ingest important findings with `/ingest filepath`

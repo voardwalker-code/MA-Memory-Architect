@@ -1,0 +1,30 @@
+/**
+ * {Brief description}
+ * @param {type} param1 — {description}
+ * @returns {type}
+ */
+function {functionName}({params}) {
+  // 1. Validate input against {CONTRACT}
+  // 2. {Algorithm step from blueprint}
+  // 3. {Algorithm step from blueprint}
+  // 4. Return { ... }
+  throw new Error('NOT_IMPLEMENTED: {functionName}');
+}
+
+module.exports = { {functionName} };
+```
+
+Every exported function:
+- Has algorithm steps as comments (copied from blueprint)
+- Throws NOT_IMPLEMENTED
+- Imports its contract
+
+### Step 7: Test Harness + Layer Tests
+
+**test-runner.js** — Write to `workspace/{project}/{prefix}-tests/test-runner.js`:
+- Minimal assert/assertEqual/assertThrows/assertAsyncThrows functions
+- Run layer tests in dependency order (0→N)
+- Stop on first layer failure
+- Report: passed, failed, skipped per layer
+- CLI: `node tests/test-runner.js [N]` (optional layer argument)
+- Export harness functions so layer test files can use them

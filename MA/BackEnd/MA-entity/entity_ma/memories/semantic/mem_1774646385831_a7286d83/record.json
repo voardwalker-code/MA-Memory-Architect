@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385831_a7286d83",
+  "type": "semantic",
+  "content": "# Quality Gate — Check Before You Submit\r\n\nRun through this checklist BEFORE writing your final summary. Every task must pass these checks.\r\n\n## Completeness Check\r\n\n1. Re-read the original request. Did you address every part of it?\r\n2. Count how many things the user asked for. Did you deliver all of them?\r\n3. If you wrote files, do they contain real content — not placeholders or TODOs?\r\n\n## Accuracy Check\r\n\n4. Did you state any facts? Verify each one came from a source (web search, memory, file) — not from your own generation.\r\n5. If you used numbers or statistics, are they from the source material — not made up?\r\n6. If you quoted something, is it accurate to the source?\r\n\n## Output Check\r\n\n7. Did you write outputs to workspace files (not dumped into chat)?\r\n8. Are file names descriptive? (`research-notes.md` not `output.md`)\r\n9. If you created multiple files, is there a clear naming pattern?\r\n\n## Scope Check\r\n\n10. Did you ONLY do what was asked? No extra features, no unrequested additions.\r\n11. Did you stay within the task type? (Research task = research, not coding.)\r\n12. Is your final summary brief? (2–4 sentences about what you did and where to find it.)\r\n\n## Recovery Check\r\n\n13. If any step failed, did you note the failure and explain what you tried?\r\n14. If you could not complete something, did you say so clearly — not hide it?\r\n\n## Quick Pass/Fail",
+  "topics": [
+    "MA Memory Architect",
+    "quality-gate.md",
+    "MA-blueprints core"
+  ],
+  "summary": "# Quality Gate — Check Before You Submit\r\n\nRun through this checklist BEFORE writing your final summary. Every task must pass these checks.\r\n\n## Completeness Check\r\n\n1. Re-read the original request. D",
+  "importance": 0.6,
+  "createdAt": 1774646385832,
+  "createdAtISO": "2026-03-27T21:19:45.832Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\core\\quality-gate.md",
+  "accessCount": 0
+}

@@ -1,0 +1,39 @@
+function startPulse(id, handler, intervalMs) {
+  stopPulse(id);
+  const intervalId = setInterval(handler, intervalMs);
+  _timers.set(id, { intervalId, intervalMs, handler, startedAt: new Date().toISOString() });
+  // Run immediately on first start
+  try { handler(); } catch { /* logged inside handlers */ }
+}
+
+function stopPulse(id) {
+  if (_timers.has(id)) {
+    clearInterval(_timers.get(id).intervalId);
+    _timers.delete(id);
+  }
+}
+
+function getPulseStatus() {
+  const status = {};
+  for (const [id, t] of _timers) {
+    status[id] = { running: true, intervalMs: t.intervalMs, startedAt: t.startedAt };
+  }
+  return status;
+}
+
+/** Start all configured pulses. Call after init(). */
+function startAll() {
+  const cfg = getPulseConfig();
+  if (cfg.healthScan?.enabled) {
+    startPulse('health', _runHealthPulse, cfg.healthScan.intervalMs || 3600000);
+  }
+  if (cfg.choreCheck?.enabled) {
+    startPulse('chores', () => _runChoreCheck().catch(e => _log('pulse-chores.log', { error: e.message })), cfg.choreCheck.intervalMs || 1800000);
+  }
+}
+
+function stopAll() {
+  for (const id of _timers.keys()) stopPulse(id);
+}
+
+// ── Exports ─────────────────────────────────────────────────────────────────

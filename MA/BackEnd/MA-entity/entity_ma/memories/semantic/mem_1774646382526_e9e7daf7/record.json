@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382526_e9e7daf7",
+  "type": "semantic",
+  "content": "const fs   = require('fs');\r\nconst path = require('path');\r\nconst vm   = require('vm');\r\n\nconst MA_ROOT = path.resolve(__dirname, '..', '..');",
+  "topics": [
+    "MA Memory Architect",
+    "infra-health.js",
+    "BackEnd infra"
+  ],
+  "summary": "const fs   = require('fs');\r\nconst path = require('path');\r\nconst vm   = require('vm');\r\n\nconst MA_ROOT = path.resolve(__dirname, '..', '..');",
+  "importance": 0.6,
+  "createdAt": 1774646382526,
+  "createdAtISO": "2026-03-27T21:19:42.526Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-health.js",
+  "accessCount": 0
+}

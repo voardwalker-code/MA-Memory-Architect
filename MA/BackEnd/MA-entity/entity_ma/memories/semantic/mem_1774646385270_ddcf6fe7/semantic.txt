@@ -1,0 +1,40 @@
+async function switchMode(mode) {
+  if (mode !== 'chat' && mode !== 'work') return;
+  try {
+    const r = await fetch('/api/mode', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ mode })
+    });
+    const d = await r.json();
+    if (d.ok) {
+      currentMode = d.mode;
+      localStorage.setItem('ma-mode', currentMode);
+      updateModeUI();
+    }
+  } catch (e) {
+    console.error('Mode switch failed:', e);
+  }
+}
+
+function updateModeUI() {
+  const btns = document.querySelectorAll('.mode-btn');
+  btns.forEach(b => {
+    b.classList.remove('active', 'chat-active');
+    if (b.dataset.mode === currentMode) {
+      b.classList.add('active');
+      if (currentMode === 'chat') b.classList.add('chat-active');
+    }
+  });
+  syncRailMode();
+}
+
+async function syncMode() {
+  try {
+    const r = await fetch('/api/mode');
+    const d = await r.json();
+    currentMode = d.mode || 'work';
+    localStorage.setItem('ma-mode', currentMode);
+    updateModeUI();
+  } catch { /* ignore — will default to work */ }
+};

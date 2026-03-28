@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384633_f18822a6",
+  "type": "semantic",
+  "content": "/* Mode toggle */\r\n  .mode-toggle{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-left:8px;font-size:11px;font-weight:600}\r\n  .mode-btn{cursor:pointer;padding:3px 10px;background:none;border:none;color:var(--dim);transition:all .15s}\r\n  .mode-btn:hover{color:var(--text)}\r\n  .mode-btn.active{background:var(--accent);color:#fff}\r\n  .mode-btn.active.chat-active{background:var(--ma)}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.css",
+    "FrontEnd css"
+  ],
+  "summary": "/* Mode toggle */\r\n  .mode-toggle{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-left:8px;font-size:11px;font-weight:600}\r\n  .mode-btn{cursor:pointer;padding:3px ",
+  "importance": 0.6,
+  "createdAt": 1774646384634,
+  "createdAtISO": "2026-03-27T21:19:44.634Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\css\\ma-ui.css",
+  "accessCount": 0
+}

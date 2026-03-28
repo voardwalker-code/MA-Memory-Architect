@@ -1,0 +1,21 @@
+// Book ingestion: render character selection UI when MA presents the list
+  if (reply.includes('Selection options') || reply.includes('Which would you like')) {
+    _renderCharacterSelectionButtons(msgDiv);
+  }
+
+  loadWorklog();
+  if (currentInspector === 'projects') loadProjects();
+  saveSession();
+}
+
+/** Render quick-select buttons for book character selection below the MA message. */
+function _renderCharacterSelectionButtons(msgDiv) {
+  const container = msgDiv.querySelector('.bubble') || msgDiv;
+  const bar = document.createElement('div');
+  bar.className = 'book-selection-bar';
+
+  const modes = [
+    { label: '★ Main Characters Only', value: 'main' },
+    { label: '● All Characters', value: 'all' },
+    { label: '✎ Select Specific...', value: 'specific' }
+  ];

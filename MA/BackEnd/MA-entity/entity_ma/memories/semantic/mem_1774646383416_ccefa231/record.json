@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383416_ccefa231",
+  "type": "semantic",
+  "content": "module.exports = {\r\n  // Project lifecycle\r\n  createProject,\r\n  getProject,\r\n  listProjects,\r\n  closeProject,\r\n  resumeProject,\r\n\n  // Node operations\r\n  recordNode,\r\n  getNode,\r\n  listNodes,\r\n\n  // Edge operations\r\n  addEdge,\r\n  getGraph,\r\n  getNodeEdges,\r\n  reinforceEdge,\r\n\n  // Convenience (auto-edges)\r\n  recordStep,\r\n  recordStepWithKnowledge,\r\n\n  // Predictive export\r\n  exportForPredictive,\r\n\n  // Index/stats\r\n  lookupByTopic,\r\n  getArchiveStats,\r\n\n  // Constants\r\n  NODE_TYPES,\r\n  EDGE_TYPES,\r\n  IMPORTANCE_MAP,\r\n  MEMORY_SCHEMA_VERSION,\r\n  ARCHIVES_DIR\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "svc-project-archive.js",
+    "BackEnd services"
+  ],
+  "summary": "module.exports = {\r\n  // Project lifecycle\r\n  createProject,\r\n  getProject,\r\n  listProjects,\r\n  closeProject,\r\n  resumeProject,\r\n\n  // Node operations\r\n  recordNode,\r\n  getNode,\r\n  listNodes,\r\n\n  // E",
+  "importance": 0.6,
+  "createdAt": 1774646383417,
+  "createdAtISO": "2026-03-27T21:19:43.417Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-project-archive.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382578_e02b3f82",
+  "type": "semantic",
+  "content": "// Resolve thinking mode: only for Anthropic when capability + opts signal it\r\n  const caps = config.capabilities || {};\r\n  const useThinking = !!(opts.thinking && caps.extendedThinking);\r\n  let thinkingParam;\r\n  if (useThinking) {\r\n    if (/opus/i.test(config.model)) {\r\n      thinkingParam = { type: 'enabled', budget_tokens: caps.thinkingBudget || 10000 };\r\n    } else if (/sonnet/i.test(config.model)) {\r\n      thinkingParam = { type: 'enabled', budget_tokens: caps.thinkingBudget || 8192 };\r\n    }\r\n    // Haiku: skip thinking (speed-optimized)\r\n  }\r\n\n  const effectiveMaxTokens = thinkingParam\r\n    ? Math.max(opts.maxTokens, thinkingParam.budget_tokens)\r\n    : opts.maxTokens;\r\n\n  const reqBody = {\r\n    model:      config.model,\r\n    system:     systemBlocks.length ? systemBlocks : undefined,\r\n    messages:   anthropicMessages,\r\n    max_tokens: effectiveMaxTokens\r\n  };\r\n\n  // Native tool use: include tools array in request\r\n  if (opts.tools && opts.tools.length) {\r\n    reqBody.tools = opts.tools;\r\n  }\r\n\n  // Temperature is incompatible with thinking — only include when not thinking\r\n  if (thinkingParam) {\r\n    reqBody.thinking = thinkingParam;\r\n    console.log(`  ⟐ MA: Extended thinking active (budget: ${thinkingParam.budget_tokens})`);\r\n    if (effectiveMaxTokens !== opts.maxTokens) {\r\n      console.log(`  ⟐ MA: Raised max_tokens to ${effectiveMaxTokens} to satisfy thinking budget`);\r\n    }\r\n  } else {\r\n    reqBody.temperature = opts.temperature;\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "llm-api.js",
+    "BackEnd llm"
+  ],
+  "summary": "// Resolve thinking mode: only for Anthropic when capability + opts signal it\r\n  const caps = config.capabilities || {};\r\n  const useThinking = !!(opts.thinking && caps.extendedThinking);\r\n  let think",
+  "importance": 0.6,
+  "createdAt": 1774646382578,
+  "createdAtISO": "2026-03-27T21:19:42.578Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-api.js",
+  "accessCount": 0
+}

@@ -1,0 +1,40 @@
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `http://localhost:3847/api/book/upload` | POST | Upload and chunk book for Book-to-Course mode |
+| `http://localhost:3847/api/entities/create` | POST | Create tutor entities (optional) |
+| `http://localhost:3847/api/entities/{id}/memories/inject` | POST | Inject subject knowledge |
+| `http://localhost:3847/api/entities/{id}/cognitive/tick` | POST | Process cognitive state |
+
+## Step Pattern
+
+```
+[TASK_PLAN]
+- [ ] Detect mode from user message (course creator / book-to-course / exam prep)
+- [ ] Gather requirements (subject, audience, depth, materials — from message or ASK)
+- [ ] Research or analyze source material
+- [ ] Generate structure (modules, lessons, or study plan)
+- [ ] INTERACTIVE PAUSE for structure review
+- [ ] Generate content (lessons, reviews, practice, assessments)
+- [ ] Write all output documents to MA workspace
+- [ ] Present summary with file locations
+[/TASK_PLAN]
+```
+
+---
+
+## COURSE CREATOR MODE
+
+### Phase 1: Requirements
+
+Extract from user message or **ASK** if missing:
+- **Subject** — what the course covers
+- **Target Audience** — beginner / student / professional / general
+- **Depth** — introductory / intermediate / advanced
+- **Optional Source Material** — books, notes, existing syllabus, or none
+
+### Phase 2: Research
+
+If topic only (no source material):
+```
+[TOOL:web_search {"query": "standard curriculum {subject} {level} key concepts prerequisites"}]
+```

@@ -1,0 +1,32 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// bookListChunks(wp, bookId)
+//
+// Lists all chunks in a book.  Returns a JSON string with the book's
+// metadata, total chunk count, and a preview of each chunk.
+//
+//   wp     — absolute path to the workspace
+//   bookId — the book's unique identifier
+//   Returns: JSON string with chunk info, or error message
+// ─────────────────────────────────────────────────────────────────────────────
+function bookListChunks(wp, bookId) {
+  const bookDir = _findBookDir(wp, bookId);
+  if (!bookDir) return `Error: Book "${bookId}" not found in workspace.`;
+
+  const meta = JSON.parse(fs.readFileSync(path.join(bookDir, 'meta.json'), 'utf8'));
+  const chunkDir = path.join(bookDir, 'chunks');
+  if (!fs.existsSync(chunkDir)) return `Error: No chunks directory for book "${bookId}".`;
+
+  const chunkFiles = fs.readdirSync(chunkDir).filter(f => f.endsWith('.txt')).sort();
+  const chunks = chunkFiles.map((f, i) => {
+    const text = fs.readFileSync(path.join(chunkDir, f), 'utf8');
+    return { index: i, preview: text.substring(0, 120), charCount: text.length };
+  });
+
+  return JSON.stringify({
+    bookId: meta.bookId,
+    title: meta.title,
+    totalChunks: chunks.length,
+    projectFolder: meta.projectFolder || null,
+    chunks
+  });
+}

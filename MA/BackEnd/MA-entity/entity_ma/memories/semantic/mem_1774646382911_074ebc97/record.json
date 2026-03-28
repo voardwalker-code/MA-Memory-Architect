@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382911_074ebc97",
+  "type": "semantic",
+  "content": "// ── Store a new memory ───────────────────────────────────────────\r\n    // Body: { content: \"The thing I learned\", type?: \"semantic\", meta?: {} }\r\n    // Returns { id: \"mem_...\" } — the ID of the stored memory.\r\n    if (url.pathname === '/api/memory/store' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      if (!body.content) { json(res, 400, { error: 'Need content' }); return true; }\r\n      const mem = core.getMemory();\r\n      const id  = mem.store(body.type || 'semantic', body.content, body.meta || {});\r\n      json(res, 200, { id });\r\n      return true;\r\n    }\r\n\n    // ── Memory statistics ────────────────────────────────────────────\r\n    // Returns counts, sizes, and other stats about the memory database.\r\n    if (url.pathname === '/api/memory/stats' && method === 'GET') {\r\n      const mem = core.getMemory();\r\n      json(res, 200, mem ? mem.stats() : {});\r\n      return true;\r\n    }\r\n\n    // ── Ingest a single file ─────────────────────────────────────────\r\n    // Body: { filePath: \"src/app.js\", meta?: {} }\r\n    // Reads the file, breaks it into chunks, and stores each chunk as\r\n    // a memory entry.  The filePath must be inside the workspace.\r\n    if (url.pathname === '/api/memory/ingest' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      if (!body.filePath) { json(res, 400, { error: 'Need filePath' }); return true; }",
+  "topics": [
+    "MA Memory Architect",
+    "route-memory.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Store a new memory ───────────────────────────────────────────\r\n    // Body: { content: \"The thing I learned\", type?: \"semantic\", meta?: {} }\r\n    // Returns { id: \"mem_...\" } — the ID of the st",
+  "importance": 0.6,
+  "createdAt": 1774646382911,
+  "createdAtISO": "2026-03-27T21:19:42.911Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-memory.js",
+  "accessCount": 0
+}

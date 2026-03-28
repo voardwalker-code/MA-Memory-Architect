@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387599_50738152",
+  "type": "semantic",
+  "content": "- **MA_DEFAULTS**: `{ host: 'localhost', port: 3850, basePath: '/api' }`\r\n- **parseMACommand(message)** — Already implemented. Extracts `/MA` prefix + command + args.\r\n\n- **callMA(path, method, body)**:\r\n  1. Build URL: `http://${MA_DEFAULTS.host}:${MA_DEFAULTS.port}${MA_DEFAULTS.basePath}${path}`\r\n  2. Use built-in `http.request` (no external deps)\r\n  3. Set headers: `Content-Type: application/json`\r\n  4. 10 second timeout (setTimeout on req, call `req.destroy()`)\r\n  5. Collect response chunks, JSON.parse on end\r\n  6. On error: return `{ ok: false, error: err.message }`\r\n  7. On success: return `{ ok: true, data: parsed }`\r\n\n- **chatWithMA(message)**:\r\n  1. Call `callMA('/chat', 'POST', { message })`\r\n  2. If `result.ok` → return `result.data.reply` (or `.response`)\r\n  3. If not → return fallback: `\"MA is not available right now.\"`\r\n\n- **checkMAStatus()**:\r\n  1. Call `callMA('/health', 'GET', null)`\r\n  2. If `result.ok` → return `{ available: true, health: result.data }`\r\n  3. If not → return `{ available: false, error: result.error }`",
+  "topics": [
+    "MA Memory Architect",
+    "layer-5-integration.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "- **MA_DEFAULTS**: `{ host: 'localhost', port: 3850, basePath: '/api' }`\r\n- **parseMACommand(message)** — Already implemented. Extracts `/MA` prefix + command + args.\r\n\n- **callMA(path, method, body)*",
+  "importance": 0.6,
+  "createdAt": 1774646387601,
+  "createdAtISO": "2026-03-27T21:19:47.601Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-5-integration.md",
+  "accessCount": 0
+}

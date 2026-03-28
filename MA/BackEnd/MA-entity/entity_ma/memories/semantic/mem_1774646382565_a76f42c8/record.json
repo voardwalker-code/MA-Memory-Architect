@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382565_a76f42c8",
+  "type": "semantic",
+  "content": "// ── LLM · Unified API Caller ─────────────────────────────────────────────────\r\n//\r\n// HOW TALKING TO AI MODELS WORKS:\r\n// MA can talk to AI models from three different providers:\r\n//   • OpenRouter — a hub that gives access to hundreds of models\r\n//   • Ollama     — runs models locally on your own computer\r\n//   • Anthropic  — Claude models directly from Anthropic's API\r\n//\r\n// Each provider has a slightly different way of accepting requests\r\n// and returning responses.  This file hides those differences behind\r\n// a single function: callLLM(config, messages, opts).\r\n//\r\n// THE FLOW:\r\n//   1. You pass in your config (which provider, API key, model name)\r\n//   2. You pass in the conversation messages [{role, content}]\r\n//   3. callLLM routes to the right provider function internally\r\n//   4. The raw HTTP request is sent, response parsed, text returned\r\n//\r\n// SPECIAL FEATURES:\r\n//   • Native tool use — Anthropic and OpenRouter can return structured\r\n//     tool calls instead of plain text (for function calling)\r\n//   • Extended thinking — Anthropic can think step-by-step internally\r\n//   • Prompt caching — Anthropic caches system prompts for speed\r\n//   • Image support — Ollama can process image attachments\r\n//   • Unicode safety — sanitizes broken surrogate pairs before sending\r\n//\r\n// WHAT USES THIS:\r\n//   core-chat.js — The main chat loop calls callLLM for every AI turn\r\n//   MA-Server-standalone.js — Passes callLLM to route handlers\r\n//\r\n// EXPORTS:\r\n//   callLLM(config, messages, opts)  → string | {content, toolCalls}\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "llm-api.js",
+    "BackEnd llm"
+  ],
+  "summary": "// ── LLM · Unified API Caller ─────────────────────────────────────────────────\r\n//\r\n// HOW TALKING TO AI MODELS WORKS:\r\n// MA can talk to AI models from three different providers:\r\n//   • OpenRouter",
+  "importance": 0.6,
+  "createdAt": 1774646382565,
+  "createdAtISO": "2026-03-27T21:19:42.565Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-api.js",
+  "accessCount": 0
+}

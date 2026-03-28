@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386047_2efccdc7",
+  "type": "semantic",
+  "content": "/**\r\n * {Brief description}\r\n * @param {type} param1 — {description}\r\n * @returns {type}\r\n */\r\nfunction {functionName}({params}) {\r\n  // 1. Validate input against {CONTRACT}\r\n  // 2. {Algorithm step from blueprint}\r\n  // 3. {Algorithm step from blueprint}\r\n  // 4. Return { ... }\r\n  throw new Error('NOT_IMPLEMENTED: {functionName}');\r\n}\r\n\nmodule.exports = { {functionName} };\r\n```\r\n\nEvery exported function:\r\n- Has algorithm steps as comments (copied from blueprint)\r\n- Throws NOT_IMPLEMENTED\r\n- Imports its contract\r\n\n### Step 7: Test Harness + Layer Tests\r\n\n**test-runner.js** — Write to `workspace/{project}/{prefix}-tests/test-runner.js`:\r\n- Minimal assert/assertEqual/assertThrows/assertAsyncThrows functions\r\n- Run layer tests in dependency order (0→N)\r\n- Stop on first layer failure\r\n- Report: passed, failed, skipped per layer\r\n- CLI: `node tests/test-runner.js [N]` (optional layer argument)\r\n- Export harness functions so layer test files can use them",
+  "topics": [
+    "MA Memory Architect",
+    "architect.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "/**\r\n * {Brief description}\r\n * @param {type} param1 — {description}\r\n * @returns {type}\r\n */\r\nfunction {functionName}({params}) {\r\n  // 1. Validate input against {CONTRACT}\r\n  // 2. {Algorithm step f",
+  "importance": 0.6,
+  "createdAt": 1774646386047,
+  "createdAtISO": "2026-03-27T21:19:46.047Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\architect.md",
+  "accessCount": 0
+}

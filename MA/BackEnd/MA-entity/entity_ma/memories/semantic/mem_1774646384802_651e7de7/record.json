@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384802_651e7de7",
+  "type": "semantic",
+  "content": "function renderSessionDropdown() {\r\n  const dd = document.getElementById('session-dropdown');\r\n  if (!dd) return;\r\n  dd.innerHTML = '';\r\n  if (!allSessions.length) {\r\n    dd.innerHTML = '<div class=\"sp-dd-empty\">No sessions yet</div>';\r\n    return;\r\n  }\r\n  // Group by date\r\n  const groups = {};\r\n  for (const s of allSessions) {\r\n    const day = (s.updatedAt || s.createdAt || '').slice(0, 10);\r\n    if (!groups[day]) groups[day] = [];\r\n    groups[day].push(s);\r\n  }\r\n  for (const [day, items] of Object.entries(groups)) {\r\n    const label = document.createElement('div');\r\n    label.className = 'sp-dd-date';\r\n    label.textContent = day;\r\n    dd.appendChild(label);\r\n    for (const s of items) {\r\n      const row = document.createElement('button');\r\n      row.className = 'sp-dd-item' + (s.id === activeSessionId ? ' active' : '');\r\n      row.textContent = s.preview || 'Session';\r\n      row.onclick = () => { loadSession(s.id); dd.classList.add('hidden'); };\r\n      dd.appendChild(row);\r\n    }\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-chat.js",
+    "FrontEnd js"
+  ],
+  "summary": "function renderSessionDropdown() {\r\n  const dd = document.getElementById('session-dropdown');\r\n  if (!dd) return;\r\n  dd.innerHTML = '';\r\n  if (!allSessions.length) {\r\n    dd.innerHTML = '<div class=\"s",
+  "importance": 0.6,
+  "createdAt": 1774646384803,
+  "createdAtISO": "2026-03-27T21:19:44.803Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-chat.js",
+  "accessCount": 0
+}

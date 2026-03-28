@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382763_c4b9a098",
+  "type": "semantic",
+  "content": "for (const call of calls) {\n    // If the parser found an error (bad JSON, schema mismatch), report it\n    if (call.error) {\n      results.push({ tool: call.name, result: call.error, ok: false });\n      continue;\n    }\n    // Block tools restricted by current mode (e.g. Chat Mode)\n    if (opts.blockedTools && opts.blockedTools.has(call.name)) {\n      results.push({ tool: call.name, result: `I'm currently in Chat Mode and can't use ${call.name}. Please switch to Work Mode to use this tool.`, ok: false });\n      continue;\n    }\n    try {\n      const result = await _dispatch(call.name, call.params, wp, opts);\n      results.push({ tool: call.name, result, ok: true });\n    } catch (e) {\n      results.push({ tool: call.name, result: `Error: ${e.message}`, ok: false });\n    }\n  }\n  return results;\n}\n\n// ─────────────────────────────────────────────────────────────────────────────\n// executeNativeToolCalls(toolCalls, opts)\n//\n// Same as executeToolCalls but for pre-parsed native function calls\n// (from APIs that support structured tool use, like Anthropic).\n// Instead of parsing text, it takes an array of { id, name, input }.\n//\n//   toolCalls — array of { id, name, input } from the API\n//   opts      — same options as executeToolCalls\n//   Returns: array of { id, tool, result, ok }\n// ─────────────────────────────────────────────────────────────────────────────\nasync function executeNativeToolCalls(toolCalls, opts = {}) {\n  if (!toolCalls || !toolCalls.length) return [];",
+  "topics": [
+    "MA Memory Architect",
+    "MA-workspace-tools.js",
+    "BackEnd"
+  ],
+  "summary": "for (const call of calls) {\n    // If the parser found an error (bad JSON, schema mismatch), report it\n    if (call.error) {\n      results.push({ tool: call.name, result: call.error, ok: false });\n   ",
+  "importance": 0.6,
+  "createdAt": 1774646382764,
+  "createdAtISO": "2026-03-27T21:19:42.764Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-workspace-tools.js",
+  "accessCount": 0
+}

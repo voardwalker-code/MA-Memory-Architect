@@ -1,0 +1,42 @@
+// Set up the SSE stream
+      res.writeHead(200, {
+        'Content-Type':  'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection':    'keep-alive'
+      });
+
+      // Helper: write one SSE frame (only if the connection is still open)
+      const sse = (event, data) => {
+        if (!res.writableEnded) {
+          res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
+        }
+      };
+
+      // Track if the client closes the connection early
+      const abortState = { aborted: false };
+      req.on('close', () => { abortState.aborted = true; });
+
+      try {
+        const mem    = core.getMemory();
+        const result = mem.ingestFolder(resolved, {
+          archive:    body.archive || path.basename(resolved),
+          onProgress: (info) => sse('progress', info),
+          abort:      abortState
+        });
+
+        if (abortState.aborted) {
+          sse('error', { error: 'Ingest stopped by user' });
+        } else {
+          sse('done', result);
+        }
+      } catch (e) {
+        sse('error', { error: e.message });
+      }
+
+      // Close the stream cleanly
+      if (!res.writableEnded) {
+        res.write('event: close\ndata: {}\n\n');
+        res.end();
+      }
+      return true;
+    }

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386206_edc9d0d4",
+  "type": "semantic",
+  "content": "# Book-to-Entity Ingestion Blueprint\r\n\nYou are executing a **Book Ingestion** task — extracting characters from a book and creating them as NekoCore OS entities with POV-isolated memories.\r\n\n## Your Goal\r\n\nRead a book, discover all characters, let the user select which to extract, then create each selected character as a NekoCore OS entity with memories derived ONLY from scenes they personally appear in. Characters must not know about events they weren't present for.\r\n\n## CRITICAL RULES — READ BEFORE ANYTHING ELSE\r\n\n1. **ALL output files go inside a project folder:** `projects/{book-slug}/` (e.g. `projects/a-christmas-carol/`). NEVER write files to the workspace root.\r\n2. **You MUST use `entity_create` to create entities.** NEVER use `ws_mkdir` or `ws_write` to create entity folders manually. The `entity_create` tool generates a required unique hex ID and the correct NekoCore folder structure.\r\n3. **You MUST use `entity_inject_memory` to add memories.** NEVER write memory files manually with `ws_write`.\r\n\nIf you use `ws_mkdir` or `ws_write` to create entity folders or memory files, the entities will be BROKEN and unusable. Only the dedicated tools produce valid NekoCore entities.\r\n\n## Project Folder Structure\r\n\nEverything for this book goes into one organized project folder:",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "# Book-to-Entity Ingestion Blueprint\r\n\nYou are executing a **Book Ingestion** task — extracting characters from a book and creating them as NekoCore OS entities with POV-isolated memories.\r\n\n## Your G",
+  "importance": 0.6,
+  "createdAt": 1774646386206,
+  "createdAtISO": "2026-03-27T21:19:46.206Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

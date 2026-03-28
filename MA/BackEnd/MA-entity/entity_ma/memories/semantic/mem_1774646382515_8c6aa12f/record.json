@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382515_8c6aa12f",
+  "type": "semantic",
+  "content": "/**\r\n * Remove a command from the whitelist.\r\n * @param {string} binary — command name to remove\r\n */\r\nfunction whitelistRemove(binary) {\r\n  if (!binary || typeof binary !== 'string') throw new Error('binary required');\r\n  const key = binary.toLowerCase().trim();\r\n  if (!(key in WHITELIST)) throw new Error(`Not in whitelist: ${key}`);\r\n  delete WHITELIST[key];\r\n  _saveWhitelist();\r\n  return { removed: key };\r\n}\r\n\n/** Reset whitelist to defaults. */\r\nfunction whitelistReset() {\r\n  WHITELIST = { ...DEFAULT_WHITELIST };\r\n  _saveWhitelist();\r\n  return { reset: true, count: Object.keys(WHITELIST).length };\r\n}\r\n\n// Timeout overrides per binary (ms)\r\nconst TIMEOUT_MAP = { cargo: 120000, gcc: 120000, 'g++': 120000, make: 120000, cmake: 120000, go: 120000 };\r\n\n// ── Blocked patterns — security fence ───────────────────────────────────────\r\nconst BLOCKED = [\r\n  /[;&|`$]/,       // shell metacharacters\r\n  /\\.\\.\\//,        // directory traversal\r\n  /[<>]/,          // redirects\r\n  /\\brm\\b/i, /\\bdel\\b/i, /\\bformat\\b/i, /\\bshutdown\\b/i, /\\bkill\\b/i, /\\btaskkill\\b/i,\r\n  /\\bcurl\\b/i, /\\bwget\\b/i, /\\bpowershell\\b/i, /\\bcmd\\.exe\\b/i, /\\bbash\\b/i, /\\bsh\\b/i\r\n];\r\n\n/**\r\n * Parse and validate a command string.\r\n * @returns {{ ok, binary, args, error, config }}\r\n */\r\nfunction parseCommand(cmdStr) {\r\n  if (!cmdStr || typeof cmdStr !== 'string') return { ok: false, error: 'Empty command' };\r\n  const trimmed = cmdStr.trim();",
+  "topics": [
+    "MA Memory Architect",
+    "infra-cmd-executor.js",
+    "BackEnd infra"
+  ],
+  "summary": "/**\r\n * Remove a command from the whitelist.\r\n * @param {string} binary — command name to remove\r\n */\r\nfunction whitelistRemove(binary) {\r\n  if (!binary || typeof binary !== 'string') throw new Error(",
+  "importance": 0.6,
+  "createdAt": 1774646382515,
+  "createdAtISO": "2026-03-27T21:19:42.515Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-cmd-executor.js",
+  "accessCount": 0
+}

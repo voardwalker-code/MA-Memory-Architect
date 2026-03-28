@@ -1,0 +1,35 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// createSystemRoutes(deps)
+//
+// Called once when the server starts.  Returns a handler that checks every
+// incoming request.  Returns true if handled, false if not ours.
+// ─────────────────────────────────────────────────────────────────────────────
+module.exports = function createSystemRoutes(deps) {
+  const { core } = deps;
+
+  return async function handle(url, method, _req, _res) {
+
+    // ── Entity identity ──────────────────────────────────────────────
+    // Returns something like: { name: "MA", id: "ma" }
+    // If no custom entity is configured, we fall back to the defaults.
+    if (url.pathname === '/api/entity' && method === 'GET') {
+      json(_res, 200, core.getEntity() || { name: 'MA', id: 'ma' });
+      return true;
+    }
+
+    // ── Health scan ──────────────────────────────────────────────────
+    // Checks all the important parts of the system:
+    //   • Are required files present?
+    //   • Is memory working?
+    //   • Can we reach the LLM?
+    //   • Are there any config errors?
+    // Returns a report with "critical" problems and "warnings".
+    if (url.pathname === '/api/health' && method === 'GET') {
+      json(_res, 200, core.health.scan());
+      return true;
+    }
+
+    // None of our routes matched
+    return false;
+  };
+};

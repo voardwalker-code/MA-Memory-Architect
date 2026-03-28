@@ -1,0 +1,42 @@
+// ── LLM · Model Router ─────────────────────────────────────────────────────
+//
+// HOW SMART MODEL SELECTION WORKS:
+// MA doesn't just use one AI model — it picks the BEST model for each
+// job from a user-configured roster.  Think of it like a coach choosing
+// the right player for each position:
+//
+//   • Simple chat → fast, cheap model (like Haiku)
+//   • Code generation → strong coding model (like Claude Sonnet)
+//   • Deep research → powerful reasoning model (like Claude Opus)
+//   • Quick tasks → local Ollama model (free, instant)
+//
+// THE SELECTION PROCESS:
+//   1. Evaluate the job — what tier (fast/balanced/quality/max)?  
+//      What capabilities needed (tool use, vision, thinking)?
+//   2. Filter the roster — which models match the requirements?
+//   3. Score candidates — prefer local models, consider performance history
+//   4. Pick the winner — best score wins
+//
+// PERFORMANCE TRACKING:
+// After each job completes, the router records how well the model did
+// (speed, quality, token usage).  Over time it learns which models
+// work best for which kinds of tasks.
+//
+// ROSTER MANAGEMENT:
+// Users configure their model roster in model-roster.json.
+// The router provides CRUD operations to add, update, and remove models.
+//
+// WHAT USES THIS:
+//   MA-core.js     — passes the router to modules during boot
+//   svc-pulse.js   — uses router for model research tasks
+//   svc-slash-commands.js — exposes /model commands
+//   MA-Server-standalone.js — initializes the router on startup
+//
+// EXPORTS:
+//   init, getRoster, saveRoster, addModel, updateModel, removeModel,
+//   listModels, evaluateJob, selectModel, routeModel,
+//   recordPerformance, getPerformance, getAllPerformance,
+//   getPerformanceSummary, researchModel, researchAndUpdate,
+//   TIER_PRIORITY, COMPLEXITY_SIGNALS, LANGUAGE_KEYWORDS
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

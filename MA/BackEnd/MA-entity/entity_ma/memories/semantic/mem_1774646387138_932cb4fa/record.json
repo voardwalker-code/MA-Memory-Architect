@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387138_932cb4fa",
+  "type": "semantic",
+  "content": "```\r\n[TASK_PLAN]\r\n- [ ] Detect mode (tutor / TA) from user message\r\n- [ ] Identify subject area or course details\r\n- [ ] Design persona (name, teaching style, personality, expertise)\r\n- [ ] Create entity via NekoCore OS API\r\n- [ ] Inject subject knowledge memories (semantic)\r\n- [ ] Inject teaching strategy memories (semantic)\r\n- [ ] Inject pedagogical experience memories (episodic)\r\n- [ ] Run cognitive ticks + read evolved state\r\n- [ ] Report entity summary to user\r\n[/TASK_PLAN]\r\n```\r\n\n---\r\n\n## TUTOR MODE\r\n\n### Phase 1: Subject Identification\r\n\nExtract the subject area from the user's message.\r\n\nIf vague or missing, **ASK**: \"What subject should this tutor specialize in? For example: Calculus, Spanish, Music Theory, Python Programming, Organic Chemistry\"\r\n\nIf broad (e.g., \"math\"), ask for specificity: \"Math is a wide field — should this tutor focus on algebra, geometry, calculus, statistics, or general math?\"\r\n\n### Phase 2: Persona Design\r\n\nGenerate the tutor's identity:\r\n\n1. **Name + Background**: A name and brief background that justifies deep expertise. NOT generic — give them a story.\r\n   - Example: \"Dr. Sofia Reyes — former MIT physics professor who left academia to teach one-on-one because she loved watching students' eyes light up more than publishing papers\"\r\n   - Example: \"Marcus Chen — self-taught programmer who built three startups, now teaches coding because every bootcamp he attended was terrible\"",
+  "topics": [
+    "MA Memory Architect",
+    "tutor_entity.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "```\r\n[TASK_PLAN]\r\n- [ ] Detect mode (tutor / TA) from user message\r\n- [ ] Identify subject area or course details\r\n- [ ] Design persona (name, teaching style, personality, expertise)\r\n- [ ] Create ent",
+  "importance": 0.6,
+  "createdAt": 1774646387138,
+  "createdAtISO": "2026-03-27T21:19:47.138Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\tutor_entity.md",
+  "accessCount": 0
+}

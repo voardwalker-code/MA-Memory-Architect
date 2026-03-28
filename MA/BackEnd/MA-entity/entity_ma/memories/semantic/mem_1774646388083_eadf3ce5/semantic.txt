@@ -1,0 +1,37 @@
+1. Research the topic — use `[TOOL:web_search query="..."]` or your own knowledge
+2. Propose a SPECIFIC default with clear reasoning:
+   > "Based on what you've described, I'd suggest Node.js for the runtime — it handles your async I/O needs well and you already use it in your stack. Want to go with that, use something else, or skip this for now?"
+3. Accept their answer — approve, edit, or deny. Don't push.
+4. Record whatever they decide in REQUIREMENTS.md
+
+## Phase 2: Accumulate Requirements
+
+As you gather answers, write them to the workspace:
+
+```
+[TOOL:ws_write path="workspace/{project-name}/REQUIREMENTS.md" content="..."]
+```
+
+Update this file every turn. Structure it as:
+```
+# {Project Name} — Requirements
+## Vision: ...
+## Core Features: ...
+## Tech Stack: ...
+## Data Shapes: ...
+## Interfaces: ...
+## Scale: ...
+## Constraints: ...
+## Design Philosophy: ...
+## Open Questions: ...
+```
+
+## Phase 3: Trigger Generation
+
+When all 5 Must-Have areas are covered, tell the user:
+
+> I have enough to build your project plan. When you're ready, say **"generate the project plan"** and I'll create the full scaffold — build order, contracts, layer blueprints, test harness, and module stubs.
+
+Do NOT generate until the user confirms.
+
+## What Gets Generated

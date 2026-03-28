@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385322_d67d1a47",
+  "type": "semantic",
+  "content": "const recent = Array.isArray(d.recentWork) ? d.recentWork.slice().reverse().slice(0, 6) : [];\r\n    recentEl.innerHTML = recent.length\r\n      ? recent.map(function(item) {\r\n          return '<div class=\"stack-card\"><strong>' + escHtml(item.task || 'Untitled work') + '</strong><div class=\"meta\">' + escHtml(item.date || '') + ' · ' + escHtml(item.status || '') + (item.files ? ' · ' + escHtml(item.files) : '') + '</div></div>';\r\n        }).join('')\r\n      : '<div class=\"side-empty\">No recent work yet.</div>';\r\n\n    renderTaskEditor(d);\r\n    setTaskPlan(d.taskPlan || []);\r\n  } catch (e) {\r\n    summaryEl.innerHTML = '<div class=\"side-empty\">Could not load session worklog.</div>';\r\n    recentEl.innerHTML = '<div class=\"side-empty\">Retry from the Refresh button.</div>';\r\n  }\r\n}\r\n\nasync function loadConversationHistory() {\r\n  const container = document.getElementById('session-conversations');\r\n  if (!container) return;\r\n  container.innerHTML = '<div class=\"side-empty\">Loading conversations...</div>';\r\n  try {\r\n    const r = await fetch('/api/chat/sessions');\r\n    const d = await r.json();\r\n    const sessions = d.sessions || [];\r\n    if (!sessions.length) {\r\n      container.innerHTML = '<div class=\"side-empty\">No conversations yet. Start chatting to create history.</div>';\r\n      return;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "const recent = Array.isArray(d.recentWork) ? d.recentWork.slice().reverse().slice(0, 6) : [];\r\n    recentEl.innerHTML = recent.length\r\n      ? recent.map(function(item) {\r\n          return '<div class",
+  "importance": 0.6,
+  "createdAt": 1774646385323,
+  "createdAtISO": "2026-03-27T21:19:45.323Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387911_740715f2",
+  "type": "semantic",
+  "content": "---\r\n\n## Key Design Principles\r\n\n### Evolution Over Origin\r\nOrigin story is placed LAST in LLM context, after current emotional state and memories. Lived experience > starting description. Exception: Unbreakable Mode locks origin as permanently authoritative.\r\n\n### Parallel Contributors\r\nSubconscious (1A) and Dream-Intuition (1D) run via `Promise.all`. Conscious (1C) starts after both. Final Orchestrator voices/reviews.\r\n\n### Modular Decomposition\r\nserver.js is bootstrap-only. Business logic in service and brain modules. No module above 800 lines receives new feature blocks without extraction plan.\r\n\n---\r\n\n## File Organization",
+  "topics": [
+    "MA Memory Architect",
+    "architecture-patterns.md",
+    "MA-knowledge"
+  ],
+  "summary": "---\r\n\n## Key Design Principles\r\n\n### Evolution Over Origin\r\nOrigin story is placed LAST in LLM context, after current emotional state and memories. Lived experience > starting description. Exception: ",
+  "importance": 0.6,
+  "createdAt": 1774646387912,
+  "createdAtISO": "2026-03-27T21:19:47.912Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\architecture-patterns.md",
+  "accessCount": 0
+}

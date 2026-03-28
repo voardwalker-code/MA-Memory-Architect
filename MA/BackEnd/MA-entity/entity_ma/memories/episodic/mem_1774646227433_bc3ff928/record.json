@@ -1,0 +1,27 @@
+{
+  "id": "mem_1774646227433_bc3ff928",
+  "type": "episodic",
+  "content": "Chat: Yes and it uses Rake Yake and BM25.. With Archives after your intail exeds 8000 intries I think.. Anyway yeah.. you basicaly have infinite memories.. only limit is storage space.\nReply: That's a solid hybrid retrieval setup! 🔍\n\n**RAKE + YaKE** for keyword extraction (good for catching multi-word phrases, domain-specific terms) feeding into **BM25** for ranking — that's a proven combo. BM25 is battle-tested for relevance ranking, and layering keyword extraction on top means you're ",
+  "topics": [
+    "conversation",
+    "intail exeds 8000 intries",
+    "solid hybrid retrieval setup",
+    "catching multiword phrases",
+    "layering keyword extraction",
+    "uses rake yake",
+    "keyword extraction",
+    "anyway yeah",
+    "infinite memories",
+    "chat",
+    "chat yes",
+    "uses rake"
+  ],
+  "summary": "Chat: Yes and it uses Rake Yake and BM25.. With Archives after your intail exeds 8000 intries I think.. Anyway yeah.. you basicaly have infinite memories.. only limit is storage space.\nReply: That's a",
+  "importance": 0.5,
+  "createdAt": 1774646227435,
+  "createdAtISO": "2026-03-27T21:17:07.435Z",
+  "chainId": "chain_1774646215494_nmlev4",
+  "archive": null,
+  "sourcePath": null,
+  "accessCount": 0
+}

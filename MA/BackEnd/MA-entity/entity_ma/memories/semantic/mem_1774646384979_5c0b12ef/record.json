@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384979_5c0b12ef",
+  "type": "semantic",
+  "content": "async function onOllamaModelSelect() {\r\n  const sel = document.getElementById('cfg-model-select');\r\n  const model = sel.value;\r\n  const info = document.getElementById('model-info');\r\n  document.getElementById('cfg-model').value = model;\r\n  if (!model) { info.textContent = ''; return; }\r\n  const endpoint = document.getElementById('cfg-endpoint').value.trim();\r\n  info.textContent = 'Fetching model info...';\r\n  try {\r\n    const r = await fetch('/api/ollama/show', {\r\n      method: 'POST', headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({ endpoint, model })\r\n    });\r\n    const d = await r.json();\r\n    if (d.error) { info.textContent = ''; return; }\r\n    const parts = [];\r\n    if (d.family) parts.push(d.family);\r\n    if (d.parameterSize) parts.push(d.parameterSize);\r\n    if (d.quantization) parts.push(d.quantization);\r\n    if (d.contextLength) {\r\n      parts.push('context: ' + d.contextLength.toLocaleString());\r\n      const tok = Math.min(d.contextLength, 65536);\r\n      document.getElementById('cfg-tokens').value = tok;\r\n      document.getElementById('cfg-tokens-val').textContent = tok;\r\n    }\r\n    info.textContent = parts.length ? parts.join(' \\u00B7 ') : '';\r\n  } catch (_) { info.textContent = ''; }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-config.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function onOllamaModelSelect() {\r\n  const sel = document.getElementById('cfg-model-select');\r\n  const model = sel.value;\r\n  const info = document.getElementById('model-info');\r\n  document.getEle",
+  "importance": 0.6,
+  "createdAt": 1774646384980,
+  "createdAtISO": "2026-03-27T21:19:44.980Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-config.js",
+  "accessCount": 0
+}

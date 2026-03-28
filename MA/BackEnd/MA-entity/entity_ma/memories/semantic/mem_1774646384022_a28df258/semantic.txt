@@ -1,0 +1,31 @@
+4. **Split routes into 13 focused modules** in `routes/`:
+   ```
+   route-blueprints.js   route-chat.js       route-commands.js
+   route-config.js       route-memory.js     route-models.js
+   route-ollama.js       route-projects.js   route-pulse.js
+   route-static.js       route-system.js     route-worklog.js
+   route-workspace.js
+   ```
+
+5. **Result:** 814 lines → 131-line entry point + dispatcher + 13 modules
+
+**The extraction pattern:**
+```
+BEFORE:  one-giant-file.js (800+ lines)
+AFTER:   thin-orchestrator.js (~150 lines)
+         └── subfolder/
+             ├── module-a.js  (focused on one thing)
+             ├── module-b.js  (focused on one thing)
+             └── module-c.js  (focused on one thing)
+```
+
+---
+
+## Phase 4 — Core Modularization
+
+**Problem:** `MA-core.js` was 917 lines — config loading, bootstrapping,
+token counting, context assembly, and chat handling all in one file.
+
+**What we did:**
+1. **Read the entire file** and identified 5 logical groups
+2. **Created `core/` subfolder** with 5 focused modules:

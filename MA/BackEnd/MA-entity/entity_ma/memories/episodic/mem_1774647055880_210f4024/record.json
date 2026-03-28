@@ -1,0 +1,27 @@
+{
+  "id": "mem_1774647055880_210f4024",
+  "type": "episodic",
+  "content": "Chat: Sorry I switched you to Workmode go ahead\nReply: Great start on the project scaffold! The foundation is laid.\n\nSo what's the game plan for **MAvsMA**? Let me know what you need:\n\n- **Code architecture** — how should it be structured?\n- **Feature planning** — what does the self-repair protocol do?\n- **Tech stack** — what language/framework are we u",
+  "topics": [
+    "conversation",
+    "great start",
+    "project scaffold",
+    "game plan",
+    "code architecture",
+    "feature planning",
+    "selfrepair protocol",
+    "tech stack",
+    "chat",
+    "chat sorry",
+    "sorry switched",
+    "workmode go"
+  ],
+  "summary": "Chat: Sorry I switched you to Workmode go ahead\nReply: Great start on the project scaffold! The foundation is laid.\n\nSo what's the game plan for **MAvsMA**? Let me know what you need:\n\n- **Code archit",
+  "importance": 0.5,
+  "createdAt": 1774647055882,
+  "createdAtISO": "2026-03-27T21:30:55.882Z",
+  "chainId": "chain_1774647044555_i0yepc",
+  "archive": null,
+  "sourcePath": null,
+  "accessCount": 0
+}

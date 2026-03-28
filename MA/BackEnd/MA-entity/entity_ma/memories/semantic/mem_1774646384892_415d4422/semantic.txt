@@ -1,0 +1,38 @@
+function setMaskedCfgKey() {
+  const keyEl = document.getElementById('cfg-key');
+  const toggleEl = document.getElementById('cfg-key-toggle');
+  if (!keyEl) return;
+  keyEl.type = 'password';
+  keyEl.value = MA_MASKED_KEY;
+  keyEl.dataset.hasStoredKey = 'true';
+  keyEl.dataset.revealed = 'false';
+  if (toggleEl) toggleEl.textContent = 'See';
+}
+
+function clearCfgKeyMaskState() {
+  const keyEl = document.getElementById('cfg-key');
+  const toggleEl = document.getElementById('cfg-key-toggle');
+  if (!keyEl) return;
+  if (keyEl.value !== MA_MASKED_KEY) {
+    keyEl.dataset.revealed = 'false';
+    if (toggleEl) toggleEl.textContent = 'See';
+  }
+}
+
+async function toggleCfgKeyVisibility() {
+  const keyEl = document.getElementById('cfg-key');
+  const toggleEl = document.getElementById('cfg-key-toggle');
+  if (!keyEl || !toggleEl) return;
+
+  const isRevealed = keyEl.dataset.revealed === 'true';
+  const hasStoredKey = keyEl.dataset.hasStoredKey === 'true';
+
+  if (isRevealed) {
+    keyEl.type = 'password';
+    if (hasStoredKey) {
+      keyEl.value = MA_MASKED_KEY;
+    }
+    keyEl.dataset.revealed = 'false';
+    toggleEl.textContent = 'See';
+    return;
+  }

@@ -1,0 +1,25 @@
+**Rail Utilities** (bottom of left sidebar):
+- **💻 Terminal** — Toggles the terminal panel
+- **📥 Ingest** — Opens the memory ingest panel
+- **⚙ Settings** — Opens the LLM settings tab
+
+### Built-in IDE Editor
+
+Files from the workspace tree open in tabbed editor panes:
+
+- **Markdown files** — Rendered preview with a Preview/Raw toggle
+- **HTML files** — Iframe preview with a Preview/Source toggle
+- **Code files** (.js, .ts, .py, .rs, .cs, .css, .json, etc.) — Syntax-highlighted read-only view with line numbers and an Edit toggle to switch to a writeable textarea
+- **Tabs** track unsaved changes (dot indicator) and Save writes back via the workspace API
+- Chat file-link chips open in the editor instead of a new browser tab
+
+### Terminal Panel
+
+A terminal panel sits at the bottom of the editor area. Toggle it from:
+- The **Terminal** menu item in the menu bar
+- The **💻** button in the left rail utilities
+- The **View → Terminal** dropdown
+
+Type shell commands and press Enter or click Run. Output appears in the scrollable terminal output area with color-coded command echo, stdout, and stderr. Commands execute in the MA workspace directory through the sandboxed command executor (same whitelist rules apply).
+
+### Workspace File Tree

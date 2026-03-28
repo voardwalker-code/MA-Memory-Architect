@@ -1,0 +1,17 @@
+{
+  "ts": "2026-03-27T18:08:15.591Z",
+  "cfgPath": "C:\\Users\\voard\\Desktop\\MA-Memory-Architect\\MA\\MA-Config\\ma-config.json",
+  "legacyPath": "C:\\Users\\voard\\Desktop\\MA-Memory-Architect\\Config\\ma-config.json",
+  "checks": {
+    "bootRuns": true,
+    "localPriorityOnBoot": true,
+    "localPersistWrite": true,
+    "reloadReadsPersistedLocal": true,
+    "noLegacyWrite": true,
+    "phase2Pass": true,
+    "localConfigRestored": true
+  },
+  "notes": [
+    "boot model=phase2-local-priority-model"
+  ]
+}

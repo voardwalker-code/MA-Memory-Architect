@@ -1,0 +1,33 @@
+---
+name: dnd-campaign
+description: Build, run, and manage D&D campaigns with session prep, world lore, and narrative arcs
+---
+
+# DnD Campaign Skill
+
+## Triggers
+
+- "build a campaign", "run campaign", "start campaign"
+- "session prep", "prepare session", "prep next session"
+- "session recap", "write up session", "journal session"
+- "world lore", "faction lore", "deity lore", "region lore"
+- "campaign arc", "adventure", "quest line", "story arc"
+
+## Mode Detection
+
+| Signal | Mode |
+|--------|------|
+| "session prep" / "prepare session" / "prep next" | SESSION PREP |
+| "recap" / "journal" / "write up session" | SESSION RECAP |
+| "lore" / "faction" / "deity" / "region" / "world building" | WORLD LORE |
+| Default (campaign / adventure / quest / story arc) | CAMPAIGN BUILDER |
+
+## Workflow
+
+### Campaign Builder
+1. Setup — gather theme/setting, level range, party size, tone, length
+2. Campaign arc — villain, 3-5 story beats, branching decision points, themes
+3. INTERACTIVE PAUSE — present arc, get DM feedback
+4. Session-by-session outlines — hooks, encounters, NPC interactions, loot, cliffhangers
+5. NPC entity creation — villain + 2-3 key NPCs as NekoCore entities (3-5 memories each)
+6. Campaign bible — write all documents to workspace

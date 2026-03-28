@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382419_8296ddb6",
+  "type": "semantic",
+  "content": "// Create project archive entry\r\n        try { projectArchive.createProject(slug, { name: rawName, description: message.slice(0, 200) }); } catch { /* may already exist */ }\r\n\n        if (onActivity) await onActivity('project_create', `Created project folder: ${slug}/`);\r\n        if (memory) memory.store('episodic', `Created new project \"${rawName}\" (${slug}) — brief template placed at ${slug}/PROJECT-BRIEF.md`, { topics: ['project'], chainId });\r\n        worklog.recordTask('project', `Create project: ${rawName}`, 1, 'complete');\r\n\n        const reply = `I created **${rawName}** in your workspace:\\n\\n` +\r\n          `📁 \\`${slug}/\\`\\n📄 \\`${slug}/PROJECT-BRIEF.md\\`\\n\\n` +\r\n          `Open the **PROJECT-BRIEF.md** file in the workspace explorer and fill out the sections — ` +\r\n          `project name, description, tech stack, features, and any constraints.\\n\\n` +\r\n          `When you're done, just tell me **\"The brief is ready\"** or **\"Start building\"** and I'll read it and get to work.`;\r\n\n        return { reply, taskType: 'project', steps: 1, filesChanged: [briefDest] };\r\n      } catch (e) {\r\n        console.error('[CORE] Project template fast-path error:', e.message);\r\n        // Fall through to normal task runner on error\r\n      }\r\n    }\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// Create project archive entry\r\n        try { projectArchive.createProject(slug, { name: rawName, description: message.slice(0, 200) }); } catch { /* may already exist */ }\r\n\n        if (onActivity) ",
+  "importance": 0.6,
+  "createdAt": 1774646382420,
+  "createdAtISO": "2026-03-27T21:19:42.420Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

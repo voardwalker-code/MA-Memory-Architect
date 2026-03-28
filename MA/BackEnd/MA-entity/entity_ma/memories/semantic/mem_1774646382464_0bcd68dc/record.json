@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382464_0bcd68dc",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// gatherContext(opts)\r\n//\r\n// Scans for ALL relevant context before a chat message goes to the AI.\r\n// This includes:\r\n//   1. Files mentioned in the user's message (auto-detected file paths)\r\n//   2. Dragged/attached files and images\r\n//   3. Relevant memories from MA's memory store\r\n//   4. Knowledge documents that match the topic\r\n//   5. Workspace projects (folders with PROJECT-MANIFEST.json)\r\n//   6. Project archive entries (active and closed projects)\r\n//   7. Active skills that match the message topic\r\n//   8. Session worklog (what MA has been working on recently)\r\n//\r\n// Returns an object with all these context strings ready to inject.\r\n//\r\n//   opts.message         — the user's chat message\r\n//   opts.attachments     — array of attached files [{name, content, type}]\r\n//   opts.config          — current LLM config (for memory settings)\r\n//   opts.memory          — the memory store instance (or null)\r\n//   opts.skills          — array of loaded skills [{name, content}]\r\n//   opts.workspacePath   — absolute path to the workspace folder\r\n//   opts.knowledgeDir    — absolute path to the knowledge folder\r\n//   opts.projectArchive  — the project-archive module\r\n//   opts.worklog         — the worklog module\r\n//   opts.listKnowledgeFn — function to list knowledge docs\r\n//   opts.loadKnowledgeFn — function to load a knowledge doc by name\r\n//   opts.onActivity      — callback for activity events (optional)\r\n//\r\n//   Returns: {\r\n//     fileCtx, attachCtx, imageAttachments, memCtx, knowledgeCtx,\r\n//     workspaceCtx, archiveCtx, skillsCtx, worklogCtx\r\n//   }\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nasync function gatherContext(opts) {\r\n  const {\r\n    message, attachments = [], config, memory, skills = [],\r\n    workspacePath, projectArchive, worklog,\r\n    listKnowledgeFn, loadKnowledgeFn, onActivity\r\n  } = opts;",
+  "topics": [
+    "MA Memory Architect",
+    "core-context.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// gatherContext(opts)\r\n//\r\n// Scans for ALL relevant context before a chat message goes to the AI.\r\n// This includes:",
+  "importance": 0.6,
+  "createdAt": 1774646382465,
+  "createdAtISO": "2026-03-27T21:19:42.465Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-context.js",
+  "accessCount": 0
+}

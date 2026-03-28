@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385643_1d6ac520",
+  "type": "semantic",
+  "content": "# Change Ledger: MA Standalone Migration\r\n\n## Instructions\r\n- Add one entry per meaningful change set.\r\n- Keep entries chronological.\r\n- Link each entry to phase and validation evidence.\r\n- Do not skip failed attempts; mark them and resolution.\r\n\n## Status Snapshot\r\n- Current Phase: Phase 6 Complete\r\n- Overall Progress: 100%\r\n- Last Updated: 2026-03-27\r\n\n## Entry Template\r\nCopy this block for each change set:\r\n\n```md\r\n### Entry <ID>\r\n- Date:\r\n- Phase:\r\n- Owner/Agent:\r\n- Change Summary:\r\n- Files Changed:\r\n- Reason:\r\n- Validation Performed:\r\n- Result:\r\n- Risks/Notes:\r\n- Follow-up:\r\n```\r\n\n---\r\n\n## Ledger Entries\r\n\n### Entry 001\r\n- Date: 2026-03-27\r\n- Phase: Planning Setup\r\n- Owner/Agent: GitHub Copilot\r\n- Change Summary: Created standalone planning workspace documents.\r\n- Files Changed:\r\n  - MA Standalone Plan/MA-Standalone-Implementation-Plan.md\r\n  - MA Standalone Plan/SOURCE-OF-TRUTH.md\r\n  - MA Standalone Plan/CHANGE-LEDGER.md\r\n- Reason: Establish execution plan, standards baseline, and traceability mechanism before migration implementation.\r\n- Validation Performed: Verified files created in target folder with expected structure.\r\n- Result: Success.\r\n- Risks/Notes: None.\r\n- Follow-up: Begin Phase 0 baseline capture and append new ledger entries.",
+  "topics": [
+    "MA Memory Architect",
+    "CHANGE-LEDGER.md",
+    "MA Standalone Plan"
+  ],
+  "summary": "# Change Ledger: MA Standalone Migration\r\n\n## Instructions\r\n- Add one entry per meaningful change set.\r\n- Keep entries chronological.\r\n- Link each entry to phase and validation evidence.\r\n- Do not ski",
+  "importance": 0.6,
+  "createdAt": 1774646385643,
+  "createdAtISO": "2026-03-27T21:19:45.643Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Standalone Plan\\CHANGE-LEDGER.md",
+  "accessCount": 0
+}

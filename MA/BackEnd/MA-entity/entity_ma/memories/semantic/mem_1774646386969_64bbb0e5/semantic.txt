@@ -1,0 +1,36 @@
+[TASK_PLAN]
+- [ ] Read the existing prompt
+- [ ] Identify failure patterns
+- [ ] Apply targeted fixes
+- [ ] Write improved version to file
+- [ ] Explain what changed and why
+[/TASK_PLAN]
+
+### Phase 1 — Diagnosis
+
+Read the prompt and check for these common failures:
+
+| Problem | Symptom | Fix |
+|---------|---------|-----|
+| Too vague | Model rambles, goes off-topic | Add specific RULES and output format constraints |
+| Conflicting instructions | Inconsistent outputs | Remove contradictions, pick one direction |
+| Missing edge cases | Crashes on unusual input | Add explicit fallback instructions |
+| Wrong priority order | Model ignores important rules | Move critical rules to the top, after identity |
+| No output format | Unpredictable structure | Add explicit format spec with examples |
+| Too long / too dense | Model ignores parts | Trim to essentials, use numbered rules |
+| Missing identity anchor | Personality drift | Add clear identity statement as line 1 |
+| Over-constrained | Model refuses valid requests | Relax restrictions, add exceptions |
+| No examples | Model misinterprets intent | Add 1-3 few-shot examples |
+
+ASK the user: "What specific output problems are you seeing? What should it do instead?"
+
+### Phase 2 — Targeted Fix
+
+Apply the minimum changes needed. Don't rewrite the whole prompt if 2 lines fix it.
+
+Write the improved version to file:
+```
+[TOOL:ws_write {"path":"prompts/{slug}-refined.md"}]
+{improved prompt}
+[/TOOL]
+```

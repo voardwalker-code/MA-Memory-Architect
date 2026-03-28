@@ -1,0 +1,34 @@
+case 'projects': {
+      const projects = core.projectArchive.listProjects();
+      if (!projects.length) { console.log('  No project archives.'); return; }
+      console.log('  Project Archives:');
+      for (const p of projects) console.log(`    ${p.id} (${p.status}) — ${p.name}, ${p.nodeCount || 0} nodes`);
+      return;
+    }
+
+    case 'project': {
+      const sub = (parts[1] || '').toLowerCase();
+      const id = parts.slice(2).join(' ').trim();
+      if (sub === 'open' && id) {
+        try {
+          const p = core.projectArchive.resumeProject(id);
+          console.log(`  Project ${p.id} reopened (${p.status}). ${p.nodeCount || 0} nodes.`);
+        } catch (e) { console.log(`  Error: ${e.message}`); }
+        return;
+      }
+      if (sub === 'close' && id) {
+        try {
+          const p = core.projectArchive.closeProject(id);
+          console.log(`  Project ${p.id} closed.`);
+        } catch (e) { console.log(`  Error: ${e.message}`); }
+        return;
+      }
+      if (sub === 'status' && id) {
+        const s = core.projectArchive.getArchiveStats(id);
+        if (!s) { console.log(`  Project not found: ${id}`); return; }
+        console.log(JSON.stringify(s, null, 2));
+        return;
+      }
+      console.log('  Usage: /project open|close|status <id>');
+      return;
+    }

@@ -1,0 +1,23 @@
+const http  = require('http');
+const https = require('https');
+
+const DEFAULT_TIMEOUT  = 180000; // 180s — complex tasks (deep research, projects) need more time
+const DEFAULT_MAX_TOKENS = 12288;
+const ANTHROPIC_API_VERSION = '2023-06-01';
+const ANTHROPIC_DEFAULT_ENDPOINT = 'https://api.anthropic.com/v1/messages';
+
+/**
+ * Call an LLM provider.
+ * @param {object} config  - { type, endpoint, apiKey, model, capabilities? }
+ * @param {Array}  messages - [{ role, content }]
+ * @param {object} opts    - { temperature, maxTokens, timeout, responseFormat, thinking, tools }
+ * @returns {Promise<string|{content:string, toolCalls:Array}>} String normally; object when tools are active and tool_use blocks returned
+ */
+async function callLLM(config, messages, opts = {}) {
+  if (!config || !config.type) throw new Error('LLM config missing type');
+  if (!config.endpoint)        throw new Error('LLM config missing endpoint');
+  if (!config.model)           throw new Error('LLM config missing model');
+
+  const temperature = opts.temperature ?? 0.7;
+  const maxTokens   = opts.maxTokens   ?? DEFAULT_MAX_TOKENS;
+  const timeout     = opts.timeout     ?? DEFAULT_TIMEOUT;

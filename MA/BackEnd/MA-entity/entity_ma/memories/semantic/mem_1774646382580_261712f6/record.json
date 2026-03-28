@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382580_261712f6",
+  "type": "semantic",
+  "content": "const body = JSON.stringify(_sanitizeJsonValue(reqBody));\r\n\n  const headers = {\r\n    'Content-Type':      'application/json',\r\n    'x-api-key':         config.apiKey,\r\n    'anthropic-version':  ANTHROPIC_API_VERSION\r\n  };\r\n\n  // Extended cache: adds beta header for 1-hour TTL support\r\n  if (useExtendedCache) {\r\n    headers['anthropic-beta'] = 'prompt-caching-2024-07-31';\r\n    console.log('  ⟐ MA: Extended cache (1h) active');\r\n  }\r\n\n  const raw = await _fetch(url, body, headers, opts.timeout);\r\n  const data = JSON.parse(raw);\r\n\n  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));\r\n  if (!data.content || !data.content.length) throw new Error('No content in Anthropic response');\r\n\n  // Log cache performance\r\n  const cacheRead = data.usage?.cache_read_input_tokens || 0;\r\n  const cacheCreation = data.usage?.cache_creation_input_tokens || 0;\r\n  if (cacheRead || cacheCreation) {\r\n    console.log(`  \\u27D0 MA Anthropic cache: ${cacheRead} read, ${cacheCreation} creation tokens`);\r\n  }\r\n\n  // Extract text from content blocks (skip thinking blocks)\r\n  const textParts = data.content.filter(b => b.type === 'text');\r\n  const text = textParts.map(b => b.text).join('').trim();",
+  "topics": [
+    "MA Memory Architect",
+    "llm-api.js",
+    "BackEnd llm"
+  ],
+  "summary": "const body = JSON.stringify(_sanitizeJsonValue(reqBody));\r\n\n  const headers = {\r\n    'Content-Type':      'application/json',\r\n    'x-api-key':         config.apiKey,\r\n    'anthropic-version':  ANTHRO",
+  "importance": 0.6,
+  "createdAt": 1774646382580,
+  "createdAtISO": "2026-03-27T21:19:42.580Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-api.js",
+  "accessCount": 0
+}

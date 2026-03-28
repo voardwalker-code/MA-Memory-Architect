@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384183_74719b78",
+  "type": "semantic",
+  "content": "```javascript\r\n// ── Services · Notification Queue ────────────────────────────────────────────\r\n//\r\n// HOW NOTIFICATIONS WORK:\r\n// When something important happens (task completed, error detected,\r\n// chore finished), the system queues a notification.  The front end\r\n// polls for pending notifications and displays them to the user.\r\n//\r\n// This is a simple in-memory queue with optional persistence to disk.\r\n// Notifications auto-expire after 24 hours.\r\n//\r\n// WHAT USES THIS:\r\n//   core-chat.js  — queues \"task completed\" notifications\r\n//   svc-pulse.js  — queues \"chore finished\" notifications\r\n//   route-system.js — serves pending notifications to the front end\r\n//\r\n// EXPORTS:\r\n//   queue(type, message, meta?)  — add a notification\r\n//   poll(since?)                 — get notifications since timestamp\r\n//   dismiss(id)                  — mark as read\r\n//   clear()                      — remove all notifications\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n\nconst fs   = require('fs');\r\nconst path = require('path');\r\n\n// ... implementation\r\n```\r\n\n---\r\n\n## Quick Reference Card",
+  "topics": [
+    "MA Memory Architect",
+    "02-WRITING-AND-COMMENTING-GUIDE.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "```javascript\r\n// ── Services · Notification Queue ────────────────────────────────────────────\r\n//\r\n// HOW NOTIFICATIONS WORK:\r\n// When something important happens (task completed, error detected,\r\n/",
+  "importance": 0.6,
+  "createdAt": 1774646384185,
+  "createdAtISO": "2026-03-27T21:19:44.185Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\02-WRITING-AND-COMMENTING-GUIDE.md",
+  "accessCount": 0
+}

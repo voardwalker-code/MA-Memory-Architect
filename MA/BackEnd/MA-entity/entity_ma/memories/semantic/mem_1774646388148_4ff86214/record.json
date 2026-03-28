@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388148_4ff86214",
+  "type": "semantic",
+  "content": "// ── Targets to clear ────────────────────────────────────────────────────────\r\nconst TARGETS = [\r\n  // Chat history\r\n  { path: 'MA-Config/chat-history.json', type: 'file', label: 'Chat history' },\r\n  // Chat sessions (saved task/project conversations)\r\n  { path: 'MA-Config/chat-sessions', type: 'dir', label: 'Chat sessions' },\r\n  // Model performance tracking\r\n  { path: 'MA-Config/model-performance.json', type: 'file', label: 'Model performance data' },\r\n  // Chores / scheduled tasks\r\n  { path: 'MA-Config/chores.json', type: 'file', label: 'Chores schedule' },\r\n  // Full MA entity (memories, index, archives, entity.json — recreated on boot)\r\n  { path: 'MA-entity/entity_ma', type: 'dir', label: 'MA entity (full wipe — recreated on boot)' },\r\n  // All agent directories (recreated on boot from defaults)\r\n  { path: 'MA-entity', type: 'agents', label: 'Agent roster (full wipe — recreated on boot)' },\r\n  // Workspace (full wipe — projects now in separate repo)\r\n  { path: 'MA-workspace', type: 'dir', label: 'Workspace (full wipe)' },\r\n  // Pulse health log\r\n  { path: 'MA-logs/pulse-health.log', type: 'file', label: 'Pulse health log' },\r\n];\r\n\n// Files that should NOT be deleted (preserve config and examples)\r\nconst PRESERVE = [\r\n  'MA-Config/ma-config.json',\r\n  'MA-Config/cmd-whitelist.json',\r\n  'MA-Config/pulse-config.json',\r\n  'MA-Config/model-roster.json',\r\n];",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Reset-All.js",
+    "."
+  ],
+  "summary": "// ── Targets to clear ────────────────────────────────────────────────────────\r\nconst TARGETS = [\r\n  // Chat history\r\n  { path: 'MA-Config/chat-history.json', type: 'file', label: 'Chat history' },\r\n",
+  "importance": 0.6,
+  "createdAt": 1774646388149,
+  "createdAtISO": "2026-03-27T21:19:48.149Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-Reset-All.js",
+  "accessCount": 0
+}

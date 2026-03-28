@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386984_208d38d9",
+  "type": "semantic",
+  "content": "### Output:\r\n{example 1 output}\r\n\n### Input:\r\n{example 2 input}\r\n\n### Output:\r\n{example 2 output}\r\n\n[... more examples ...]\r\n\n### Input:\r\n{actual user input will go here — marked with {{INPUT}} placeholder}\r\n\n### Output:\r\n[/TOOL]\r\n```\r\n\nRules:\r\n- Keep examples concise — each should be under 100 words for the output\r\n- Place the hardest example last (recency bias helps)\r\n- Use identical formatting across all examples\r\n- Never include explanations inside examples unless the task is explanation\r\n\n---\r\n\n## CHAIN-OF-THOUGHT MODE\r\n\nBuild a prompt that forces the model to reason step-by-step before producing a final answer.\r\n\n[TASK_PLAN]\r\n- [ ] Understand the reasoning task\r\n- [ ] Design the thinking scaffold\r\n- [ ] Write prompt with CoT structure to file\r\n- [ ] Verify the scaffold produces traceable reasoning\r\n[/TASK_PLAN]\r\n\n### Phase 1 — Task Analysis\r\n\nASK: \"What kind of reasoning does this require?\"\r\n\n| Reasoning Type | CoT Pattern |\r\n|---------------|-------------|\r\n| Math / Logic | \"Show your work step by step. State each operation.\" |\r\n| Classification | \"List evidence for each category. State confidence. Choose.\" |\r\n| Decision / Comparison | \"List pros/cons for each option. Weigh trade-offs. Recommend.\" |\r\n| Diagnosis / Debugging | \"List symptoms. Generate hypotheses. Test each. Conclude.\" |\r\n| Multi-step Planning | \"Break into phases. For each phase: goal, input, output, risk.\" |\r\n\n### Phase 2 — Write Prompt\r\n\nStructure:\r\n```\r\n[System instruction setting up the task]",
+  "topics": [
+    "MA Memory Architect",
+    "prompt_engineering.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "### Output:\r\n{example 1 output}\r\n\n### Input:\r\n{example 2 input}\r\n\n### Output:\r\n{example 2 output}\r\n\n[... more examples ...]\r\n\n### Input:\r\n{actual user input will go here — marked with {{INPUT}} placeh",
+  "importance": 0.6,
+  "createdAt": 1774646386985,
+  "createdAtISO": "2026-03-27T21:19:46.985Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\prompt_engineering.md",
+  "accessCount": 0
+}

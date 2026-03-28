@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382677_04c777d8",
+  "type": "semantic",
+  "content": "// ── Exports ─────────────────────────────────────────────────────────────────\n// This is the public API.  Everything listed here is used by other MA files\n// (MA-Server-standalone.js, MA-cli.js, route modules, slash commands).\n// Do NOT remove or rename anything without checking all consumers first.\nmodule.exports = {\n  // Bootstrap\n  boot, ensureDirs, loadConfig, loadEntity, initMemory,\n  // State\n  getConfig, getMemory, getEntity, isConfigured, setConfig,\n  // Mode\n  getMode, setMode, getIntegrationMode,\n  // Chat\n  handleChat,\n  // Knowledge\n  loadKnowledge, listKnowledge,\n  // Re-exports for convenience (so other files don't need separate imports)\n  health, tasks, wsTools, agentCatalog, projectArchive, modelRouter, worklog,\n  // Paths\n  MA_ROOT, CONFIG_PATH, LEGACY_GLOBAL_CONFIG_PATH, ENTITY_DIR, WORKSPACE_DIR, KNOWLEDGE_DIR\n};",
+  "topics": [
+    "MA Memory Architect",
+    "MA-core.js",
+    "BackEnd"
+  ],
+  "summary": "// ── Exports ─────────────────────────────────────────────────────────────────\n// This is the public API.  Everything listed here is used by other MA files\n// (MA-Server-standalone.js, MA-cli.js, rou",
+  "importance": 0.6,
+  "createdAt": 1774646382677,
+  "createdAtISO": "2026-03-27T21:19:42.677Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-core.js",
+  "accessCount": 0
+}

@@ -1,0 +1,39 @@
+function refreshInspector() {
+  if (currentInspector === 'session' || currentInspector === 'tasks') { loadWorklog(); loadConversationHistory(); return; }
+  if (currentInspector === 'blueprints') return loadBlueprints();
+  if (currentInspector === 'projects') return loadProjects();
+  if (currentInspector === 'todos') return renderTodos();
+  if (currentInspector === 'chores') return loadChoresPane();
+  if (currentInspector === 'archives') return loadArchives();
+}
+
+function syncRailMode() {
+  const pill = document.getElementById('rail-mode-pill');
+  if (!pill) return;
+  pill.textContent = currentMode.toUpperCase();
+  if (currentMode === 'chat') {
+    pill.style.color = 'var(--ma)';
+    pill.style.background = 'rgba(35,134,54,.12)';
+    pill.style.borderColor = 'rgba(35,134,54,.25)';
+  } else {
+    pill.style.color = 'var(--accent)';
+    pill.style.background = 'rgba(88,166,255,.12)';
+    pill.style.borderColor = 'rgba(88,166,255,.25)';
+  }
+}
+
+function focusChatView() {
+  cfgPanel.classList.remove('show');
+  setRailActive('rail-chat');
+  inputEl.focus();
+}
+
+function openConfigPanelTab(tab) {
+  openConfig(tab);
+}
+
+function toggleActivity() {
+  selectInspector('activity');
+}
+
+let currentMode = localStorage.getItem('ma-mode') || 'work';

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386700_8f2be446",
+  "type": "semantic",
+  "content": "**DO:**\r\n- Make villains compelling — they should have reasons, not just \"evil for evil's sake\"\r\n- Include branching possibilities — campaigns are interactive, not railroads\r\n- Write read-aloud text that's atmospheric but short enough to not bore players\r\n- Make session prep actually usable — stat blocks, dialog lines, DCs ready to go\r\n- Turn rough recap notes into vivid narrative — that's the whole point\r\n- Cross-reference existing campaign content when it exists\r\n- Create NPC entities for recurring characters so they evolve session-to-session\r\n\n**DON'T:**\r\n- Write campaigns that require the party to do exactly one thing — always offer choices\r\n- Make every NPC a quest-giver — some are just people living their lives\r\n- Generate session prep without appropriate combat balance — DMs need to trust the numbers\r\n- Write recaps that add information the DM didn't provide — stick to what happened\r\n- Create lore that contradicts the campaign bible — consistency matters\r\n- Skip the interactive pause in campaign builder — the DM needs to approve the arc first\r\n- Create entity files manually with `ws_write` — always use the NekoCore OS API\r\n\n**Available emotions for entity memories:** joy, wonder, fear, sadness, pride, grief, love, hope, anger, longing, nostalgia, curiosity, gratitude, determined, resignation, content, melancholic, neutral",
+  "topics": [
+    "MA Memory Architect",
+    "dnd_campaign.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "**DO:**\r\n- Make villains compelling — they should have reasons, not just \"evil for evil's sake\"\r\n- Include branching possibilities — campaigns are interactive, not railroads\r\n- Write read-aloud text t",
+  "importance": 0.6,
+  "createdAt": 1774646386700,
+  "createdAtISO": "2026-03-27T21:19:46.700Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\dnd_campaign.md",
+  "accessCount": 0
+}

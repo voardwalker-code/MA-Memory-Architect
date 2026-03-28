@@ -1,0 +1,38 @@
+## entity.json — Creation Metadata
+
+Key fields: id, name, gender, personality_traits, emotional_baseline (curiosity/confidence/openness/stability), introduction, memory_count, creation_mode (guided|character|legacy), unbreakable, configProfileRef, voice profile.
+
+**Voice profile:** typingSpeed, rhythm (punctuationPause, sentenceEndPause, burstChance), errors (typo, transpose, missedSpace), fillers, brb. Generated from personality traits at creation time.
+
+---
+
+## persona.json — Live Emotional State
+
+Updated after sleep cycles. Can drift from creation snapshot: mood, emotions, tone, llmPersonality, continuityNotes, dreamSummary, sleepCount. `llmPersonality` blank until evolved beyond auto-generated default.
+
+---
+
+## system-prompt.txt — Identity Foundation
+
+Core behavioral instructions, personality guidelines, origin story. Processed by context-consolidator.js differently based on `unbreakable` flag.
+
+---
+
+## Entity File Structure
+
+```
+entities/entity_<id>/
+  entity.json       — creation metadata
+  persona.json      — live emotional state
+  system-prompt.txt — identity foundation
+  memories/
+    episodic/       — event memories
+    semantic/       — knowledge memories
+    ltm/            — long-term compressed
+  index/            — memory indexes
+  beliefs/          — belief graph data
+```
+
+---
+
+## Entity Runtime

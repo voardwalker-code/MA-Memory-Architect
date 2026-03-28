@@ -1,0 +1,26 @@
+// ── Route Module: Model Roster ───────────────────────────────────────────────
+//
+// This module manages MA's "model roster" — a registry of all the AI models
+// you might want to use.  Instead of being stuck with one model, MA can
+// switch between models depending on the task.
+//
+// Think of it like a sports team roster:
+//   • You have a list of players (models)
+//   • Each player has strengths (good at code, good at writing, etc.)
+//   • The coach (router) picks the best player for each play (task)
+//   • You can track how well each player performs over time
+//
+// ── Endpoints ───────────────────────────────────────────────────────────────
+//   GET  /api/models/roster      — Get the full list of registered models
+//   POST /api/models/add         — Add a new model to the roster
+//   POST /api/models/update      — Edit an existing model's settings
+//   POST /api/models/remove      — Remove a model from the roster
+//   POST /api/models/route       — Ask the router which model it would pick
+//   GET  /api/models/performance — Get performance stats for all models
+//   POST /api/models/research    — Use the LLM to discover a model's abilities
+//
+// ── What this module needs ──────────────────────────────────────────────────
+//   deps.core        — MA-core (getConfig, for routing decisions)
+//   deps.modelRouter — MA-model-router (roster CRUD, routing logic, perf data)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

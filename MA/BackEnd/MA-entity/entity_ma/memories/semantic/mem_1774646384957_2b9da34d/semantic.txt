@@ -1,0 +1,35 @@
+if (isAnthropic) {
+    capsSection.style.display = '';
+    capsToggles.style.display = '';
+    capsNotice.style.display = 'none';
+    // Default endpoint
+    const ep = document.getElementById('cfg-endpoint');
+    if (!ep.value || ep.value.includes('openrouter.ai') || ep.value.includes('localhost')) {
+      ep.value = 'https://api.anthropic.com/v1/messages';
+    }
+    // Populate Anthropic model datalist
+    const dl = document.getElementById('cfg-model-datalist');
+    dl.innerHTML = '<option value="claude-opus-4-6"><option value="claude-sonnet-4-6"><option value="claude-haiku-4-5">';
+  } else if (type === 'openrouter') {
+    capsSection.style.display = '';
+    capsToggles.style.display = 'none';
+    capsNotice.style.display = '';
+    capsNotice.textContent = 'Advanced capabilities like extended thinking and native tool use are available with Anthropic Direct.';
+    const ep = document.getElementById('cfg-endpoint');
+    if (!ep.value || ep.value.includes('anthropic.com') || ep.value.includes('localhost')) {
+      ep.value = 'https://openrouter.ai/api/v1/chat/completions';
+    }
+    document.getElementById('cfg-model-datalist').innerHTML = '';
+  } else {
+    // Ollama
+    capsSection.style.display = '';
+    capsToggles.style.display = 'none';
+    capsNotice.style.display = '';
+    capsNotice.textContent = 'Advanced capabilities like prompt caching and extended thinking are available with Anthropic Direct.';
+    const ep = document.getElementById('cfg-endpoint');
+    if (!ep.value || ep.value.includes('openrouter.ai') || ep.value.includes('anthropic.com')) {
+      ep.value = 'http://localhost:11434';
+    }
+    document.getElementById('cfg-model-datalist').innerHTML = '';
+    loadOllamaModels();
+  }

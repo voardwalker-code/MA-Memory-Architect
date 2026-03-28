@@ -1,0 +1,34 @@
+```json
+{
+  "content": "First-person statement of this belief — why they hold it, what experience formed it, how strongly they feel about it. How it connects to their actions in the story.",
+  "type": "semantic",
+  "emotion": "{emotion tied to this belief}",
+  "topics": ["belief", "{belief-topic}", "values"],
+  "importance": 0.6-0.8,
+  "phase": "beliefs"
+}
+```
+
+**Add self-knowledge memories** — how the character sees themselves at different points. If a character transforms (like Scrooge), capture the self-view BEFORE and AFTER the change. Include: strengths, flaws, fears about themselves, what they're proud of, how they think others see them, what they've learned.
+
+```json
+{
+  "content": "First-person self-reflection. Detailed introspection on who they are, what drives them, what haunts them.",
+  "type": "semantic",
+  "emotion": "{self-perception emotion}",
+  "topics": ["self-reflection", "identity", "{key-trait}"],
+  "importance": 0.7-0.85,
+  "phase": "self_knowledge"
+}
+```
+
+There is NO cap on semantic memories. Generate as many as the text supports. For a main character in a full novel, expect **50+ or 100+ semantic memories dont cap this!** covering relationships, beliefs, self-knowledge, fears, desires, regrets, and aspirations.
+
+---
+
+## Phase 5: Summary Report
+
+After all characters are created and populated, generate a summary:
+
+```
+📚 Book-to-Entity Ingestion Complete — "{Book Title}" by {Author}

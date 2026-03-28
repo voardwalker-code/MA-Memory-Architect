@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387447_23529999",
+  "type": "semantic",
+  "content": "# Layer 2 — Cognitive Pipeline\r\n\n## Pre-Requisite\r\n- Layer 1 tests pass: `node tests/test-runner.js 1`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/pipeline/turn-signals.js` — Deterministic signal extraction\r\n2. `server/pipeline/subconscious.js` — Phase 1A: memory retrieval + context\r\n3. `server/pipeline/dream-intuition.js` — Phase 1D: abstract associations\r\n4. `server/pipeline/conscious.js` — Phase 1C: full reasoning\r\n5. `server/pipeline/orchestrator.js` — Final: voice/review + pipeline runner\r\n\n## Instructions Per Module\r\n\n### turn-signals.js — `extractTurnSignals(message)`\r\n- **Subject**: First noun phrase (simple: first capitalized word or first word after \"about\"/\"regarding\")\r\n- **Event**: Detect question/request/statement/command from sentence structure\r\n- **Emotion**: Scan against EMOTION_LEXICON (already in stub). Return highest-confidence match\r\n- **Tension**: Scan against HIGH_TENSION keywords. Return 0.0-1.0 normalized score\r\n- Pure function. No async. No LLM calls. No side effects.",
+  "topics": [
+    "MA Memory Architect",
+    "layer-2-pipeline.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "# Layer 2 — Cognitive Pipeline\r\n\n## Pre-Requisite\r\n- Layer 1 tests pass: `node tests/test-runner.js 1`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/pipeline/turn-signals.js` — Determi",
+  "importance": 0.6,
+  "createdAt": 1774646387448,
+  "createdAtISO": "2026-03-27T21:19:47.448Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-2-pipeline.md",
+  "accessCount": 0
+}

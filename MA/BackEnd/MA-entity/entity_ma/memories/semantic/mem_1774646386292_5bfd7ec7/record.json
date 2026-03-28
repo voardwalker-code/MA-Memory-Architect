@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386292_5bfd7ec7",
+  "type": "semantic",
+  "content": "**Elizabeth's memory** (she overheard it — formative insult):\r\n```json\r\n{\r\n  \"content\": \"At the Meryton ball, I overheard Mr. Darcy refuse to dance with me. He told Mr. Bingley I was merely 'tolerable' and 'not handsome enough to tempt' him. The arrogance! I laughed it off with my friends, but the sting of his dismissal lingered.\",\r\n  \"emotion\": \"anger\",\r\n  \"topics\": [\"meryton-ball\", \"mr-darcy\", \"insult\", \"first-impression\"],\r\n  \"importance\": 0.8,\r\n  \"phase\": \"chapter_3\"\r\n}\r\n```\r\n\n**Darcy's memory** (unremarkable social obligation for him):\r\n```json\r\n{\r\n  \"content\": \"Bingley tried to persuade me to dance at the Meryton assembly. I was in no humor for it. The local society fell short of my expectations. I declined his suggestion regarding one of the Bennet girls.\",\r\n  \"emotion\": \"neutral\",\r\n  \"topics\": [\"meryton-ball\", \"bingley\", \"social-obligation\"],\r\n  \"importance\": 0.4,\r\n  \"phase\": \"chapter_3\"\r\n}\r\n```\r\n\nNote: Different importance, different emotional framing, different level of detail.\r\n\n---\r\n\n## Phase 4: Entity Creation + Memory Injection\r\n\n> ⚠️ **MANDATORY: You MUST use `entity_create` and `entity_inject_memory` tools in this phase.**\r\n> **DO NOT use `ws_mkdir` or `ws_write` to create entity folders or memory files.**\r\n> The `entity_create` tool generates a unique hex ID required by NekoCore OS.\r\n> Manual folder creation produces BROKEN entities that NekoCore cannot load.\r\n\nFor each selected character:\r\n\n### 4a. Create Entity (MUST use entity_create tool)",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "**Elizabeth's memory** (she overheard it — formative insult):\r\n```json\r\n{\r\n  \"content\": \"At the Meryton ball, I overheard Mr. Darcy refuse to dance with me. He told Mr. Bingley I was merely 'tolerable",
+  "importance": 0.6,
+  "createdAt": 1774646386293,
+  "createdAtISO": "2026-03-27T21:19:46.293Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

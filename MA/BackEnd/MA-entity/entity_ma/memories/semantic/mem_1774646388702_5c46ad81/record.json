@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388702_5c46ad81",
+  "type": "semantic",
+  "content": "fn read_config(path: &str) -> Result<String, io::Error> {\r\n    fs::read_to_string(path)\r\n}\r\n\nfn main() {\r\n    match read_config(\"config.toml\") {\r\n        Ok(content) => println!(\"Config: {content}\"),\r\n        Err(e) => eprintln!(\"Error reading config: {e}\"),\r\n    }\r\n}\r\n```\r\n\n### Using the ? operator\r\n```rust\r\nuse std::fs;\r\nuse std::io;\r\n\nfn process_file(path: &str) -> Result<usize, io::Error> {\r\n    let content = fs::read_to_string(path)?;\r\n    Ok(content.lines().count())\r\n}\r\n```\r\n\n### Traits\r\n```rust\r\ntrait Summary {\r\n    fn summarize(&self) -> String;\r\n}\r\n\nstruct Article {\r\n    title: String,\r\n    content: String,\r\n}\r\n\nimpl Summary for Article {\r\n    fn summarize(&self) -> String {\r\n        format!(\"{}: {}...\", self.title, &self.content[..50.min(self.content.len())])\r\n    }\r\n}\r\n```\r\n\n### Collections and iterators\r\n```rust\r\nlet numbers = vec![1, 2, 3, 4, 5];\r\nlet doubled: Vec<i32> = numbers.iter().map(|n| n * 2).collect();\r\nlet sum: i32 = numbers.iter().sum();\r\nlet evens: Vec<&i32> = numbers.iter().filter(|n| *n % 2 == 0).collect();\r\n```\r\n\n### Enums with data\r\n```rust\r\n#[derive(Debug)]\r\nenum Command {\r\n    Quit,\r\n    Echo(String),\r\n    Move { x: i32, y: i32 },\r\n    Count(i32),\r\n}\r\n\nfn execute(cmd: Command) {\r\n    match cmd {\r\n        Command::Quit => println!(\"Quitting\"),\r\n        Command::Echo(msg) => println!(\"{msg}\"),\r\n        Command::Move { x, y } => println!(\"Moving to ({x}, {y})\"),\r\n        Command::Count(n) => println!(\"Count: {n}\"),\r\n    }\r\n}\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills rust"
+  ],
+  "summary": "fn read_config(path: &str) -> Result<String, io::Error> {\r\n    fs::read_to_string(path)\r\n}\r\n\nfn main() {\r\n    match read_config(\"config.toml\") {\r\n        Ok(content) => println!(\"Config: {content}\"),\r",
+  "importance": 0.6,
+  "createdAt": 1774646388702,
+  "createdAtISO": "2026-03-27T21:19:48.702Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\rust\\SKILL.md",
+  "accessCount": 0
+}

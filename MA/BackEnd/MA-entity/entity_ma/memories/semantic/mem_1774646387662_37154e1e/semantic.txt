@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+// ── MA-cli.js ───────────────────────────────────────────────────────────────
+// MA — Terminal interface. Chat, run tasks, manage memory, check health.
+// Same core as MA-Server.js but no HTTP, no browser.
+// Start: node MA-cli.js
+'use strict';
+
+const readline = require('readline');
+const core     = require('./BackEnd/MA-core');
+const cmdExec  = require('./BackEnd/infra/infra-cmd-executor');
+
+const history = [];

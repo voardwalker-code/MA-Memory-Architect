@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383213_8091d71e",
+  "type": "semantic",
+  "content": "// Write semantic.txt (plain text for scanning) + record.json (structured)\r\n    fs.writeFileSync(path.join(dest, 'semantic.txt'), content, 'utf8');\r\n    fs.writeFileSync(path.join(dest, 'record.json'), JSON.stringify(record, null, 2), 'utf8');\r\n\n    // Update index\r\n    const entry = { id, type, topics: record.topics, summary: record.summary, importance: record.importance, createdAt: record.createdAt, createdAtISO: record.createdAtISO, chainId: record.chainId, archive: record.archive };\r\n    (type === 'semantic' ? _index.semantic : _index.episodic).push(entry);\r\n    _saveIndex();\r\n\n    return record;\r\n  }\r\n\n  // ── Retrieve ─────────────────────────────────────────────────────────────\r\n  function retrieve(memId) {\r\n    // Try both dirs\r\n    for (const dir of [episodicDir, semanticDir]) {\r\n      const p = path.join(dir, memId, 'record.json');\r\n      if (fs.existsSync(p)) {\r\n        const rec = JSON.parse(fs.readFileSync(p, 'utf8'));\r\n        rec.accessCount = (rec.accessCount || 0) + 1;\r\n        fs.writeFileSync(p, JSON.stringify(rec, null, 2), 'utf8');\r\n        return rec;\r\n      }\r\n    }\r\n    return null;\r\n  }\r\n\n  // ── Search (RAKE query extraction + BM25 scoring) ─────────────────────────\r\n  function search(query, limit = 10) {\r\n    if (!query || typeof query !== 'string') return [];",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// Write semantic.txt (plain text for scanning) + record.json (structured)\r\n    fs.writeFileSync(path.join(dest, 'semantic.txt'), content, 'utf8');\r\n    fs.writeFileSync(path.join(dest, 'record.json')",
+  "importance": 0.6,
+  "createdAt": 1774646383213,
+  "createdAtISO": "2026-03-27T21:19:43.213Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

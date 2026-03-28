@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382560_f86f70f0",
+  "type": "semantic",
+  "content": "// Strategy 3: DDG HTML scrape (optimistic fallback — may be blocked)\r\n  if (results.length === 0) {\r\n    try {\r\n      const searchUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;\r\n      const res = await fetchUrl(searchUrl);\r\n      const blocks = res.body.split(/class=\"result__body\"/);\r\n      for (let i = 1; i < blocks.length && results.length < 8; i++) {\r\n        const titleMatch = blocks[i].match(/class=\"result__a\"[^>]*href=\"([^\"]*)\"[^>]*>([\\s\\S]*?)<\\/a>/);\r\n        const snippetMatch = blocks[i].match(/class=\"result__snippet\"[^>]*>([\\s\\S]*?)<\\/td>/);\r\n        if (titleMatch) {\r\n          let url = titleMatch[1];\r\n          const udMatch = url.match(/uddg=([^&]+)/);\r\n          if (udMatch) url = decodeURIComponent(udMatch[1]);\r\n          results.push({\r\n            title: titleMatch[2].replace(/<[^>]+>/g, '').trim(),\r\n            url,\r\n            snippet: snippetMatch ? snippetMatch[1].replace(/<[^>]+>/g, '').trim() : ''\r\n          });\r\n        }\r\n      }\r\n    } catch { /* HTML scrape failed too */ }\r\n  }\r\n\n  return results;\r\n}\r\n\n// ── Format search results for LLM context ───────────────────────────────────\r\nfunction formatSearchResults(results, query) {\r\n  if (!results.length) return `[WEB SEARCH: \"${query}\"]\\nNo results found.\\n[/WEB SEARCH]`;\r\n  const lines = results.map((r, i) => `${i + 1}. ${r.title}\\n   ${r.url}\\n   ${r.snippet}`);\r\n  return `[WEB SEARCH: \"${query}\"]\\n${lines.join('\\n\\n')}\\n[/WEB SEARCH]`;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "infra-web-fetch.js",
+    "BackEnd infra"
+  ],
+  "summary": "// Strategy 3: DDG HTML scrape (optimistic fallback — may be blocked)\r\n  if (results.length === 0) {\r\n    try {\r\n      const searchUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query",
+  "importance": 0.6,
+  "createdAt": 1774646382560,
+  "createdAtISO": "2026-03-27T21:19:42.560Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-web-fetch.js",
+  "accessCount": 0
+}

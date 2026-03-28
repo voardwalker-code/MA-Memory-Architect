@@ -1,0 +1,27 @@
+{
+  "id": "mem_1774664248529_29e76252",
+  "type": "episodic",
+  "content": "Chat: Please tell me what you see in the workspace\nReply: I don't actually have the ability to view or access a workspace — I don't have tools available in this conversation to browse files, directories, or any external environment.\n\nIf you'd like me to help with workspace contents, you could:\n\n1. **Paste or share the contents** directly in the chat\n2. **D",
+  "topics": [
+    "conversation",
+    "please tell",
+    "tools available",
+    "browse files",
+    "external environment",
+    "contents directly",
+    "workspace contents",
+    "workspace",
+    "chat",
+    "chat please",
+    "see",
+    "access workspace"
+  ],
+  "summary": "Chat: Please tell me what you see in the workspace\nReply: I don't actually have the ability to view or access a workspace — I don't have tools available in this conversation to browse files, directori",
+  "importance": 0.5,
+  "createdAt": 1774664248531,
+  "createdAtISO": "2026-03-28T02:17:28.531Z",
+  "chainId": "chain_1774664238195_do3mof",
+  "archive": null,
+  "sourcePath": null,
+  "accessCount": 0
+}

@@ -1,0 +1,19 @@
+// Maintain conversation history for context
+      history.push({ role: 'user', content: trimmed });
+      history.push({ role: 'assistant', content: result.reply });
+      // Keep last 20 turns
+      while (history.length > 40) history.shift();
+    } catch (e) {
+      console.log(`  Error: ${e.message}`);
+    }
+
+    rl.prompt();
+  });
+
+  rl.on('close', () => {
+    console.log('\n  Bye.');
+    process.exit(0);
+  });
+}
+
+main().catch(e => { console.error('Fatal:', e); process.exit(1); });

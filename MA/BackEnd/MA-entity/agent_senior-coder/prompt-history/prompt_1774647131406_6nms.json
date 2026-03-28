@@ -1,0 +1,13 @@
+{
+  "id": "prompt_1774647131406_6nms",
+  "agentId": "senior-coder",
+  "task": "**Gather Context** - Request details about your issue:",
+  "prompt": "ORIGINAL REQUEST: \"No I want you to tell me whats not working and how to fix it\"\n\n► Step 1 of 8: **Gather Context** - Request details about your issue:\n\nExecute step 1 now. Write files with [TOOL:ws_write {\"path\":\"file\"}]\ncontent\n[/TOOL]",
+  "result": "I need more context to help you. Please provide:\n\n1. **What are you working on?** (project name, framework, or codebase)\n2. **What's the error or issue?** (exact error message, unexpected behavior, test failures)\n3. **Which file or module is affected?** (if applicable)\n4. **What have you tried?** (any attempted fixes)\n\nWithout this information, I can't diagnose the problem or provide a fix. Please share the relevant details and I'll help troubleshoot.",
+  "success": true,
+  "project": "",
+  "timestamp": "2026-03-27T21:32:11.406Z",
+  "tags": [
+    "code"
+  ]
+}

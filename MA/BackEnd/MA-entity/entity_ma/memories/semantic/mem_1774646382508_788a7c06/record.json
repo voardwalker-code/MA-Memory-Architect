@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382508_788a7c06",
+  "type": "semantic",
+  "content": "// ── Infra · Command Executor ───────────────────────────────────────────────\r\n//\r\n// HOW SAFE COMMAND EXECUTION WORKS:\r\n// Sometimes the AI needs to run a shell command (like \"npm install\"\r\n// or \"git status\").  But letting an AI run ANY command would be\r\n// dangerous — it could delete files, install malware, or worse.\r\n//\r\n// This executor acts like a security guard:\r\n//   1. WHITELIST CHECK — only pre-approved commands are allowed\r\n//      (configured in MA-Config/cmd-whitelist.json)\r\n//   2. WORKSPACE JAIL — commands run in the workspace directory,\r\n//      not the system root\r\n//   3. NO SHELL MODE — uses spawn() with shell=false, preventing\r\n//      shell injection attacks (no &&, ||, ;, pipes, etc.)\r\n//   4. OUTPUT LIMIT — captures max 16 KB of output per stream\r\n//   5. TIMEOUT — kills commands that run longer than 60 seconds\r\n//\r\n// SANITIZATION:\r\n// The command parser splits the input into [command, ...args] and\r\n// validates the command name against the whitelist.  Arguments are\r\n// NOT passed through a shell interpreter.\r\n//\r\n// WHAT USES THIS:\r\n//   MA-Server-standalone.js — passes execCommand to route handlers\r\n//   svc-slash-commands.js   — /cmd slash command\r\n//   tools-web.js            — cmd_run tool\r\n//   MA-cli.js               — CLI mode command execution\r\n//\r\n// EXPORTS:\r\n//   parseCommand, execCommand, getAvailableCommands,\r\n//   getWhitelist, whitelistAdd, whitelistRemove, whitelistReset\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "infra-cmd-executor.js",
+    "BackEnd infra"
+  ],
+  "summary": "// ── Infra · Command Executor ───────────────────────────────────────────────\r\n//\r\n// HOW SAFE COMMAND EXECUTION WORKS:\r\n// Sometimes the AI needs to run a shell command (like \"npm install\"\r\n// or \"g",
+  "importance": 0.6,
+  "createdAt": 1774646382508,
+  "createdAtISO": "2026-03-27T21:19:42.508Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-cmd-executor.js",
+  "accessCount": 0
+}

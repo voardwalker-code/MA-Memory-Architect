@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388587_a40c5de6",
+  "type": "semantic",
+  "content": "---\r\nname: memory-tools\r\ndescription: Advanced memory management tools. Create, search, and organize entity memories with fine-grained control.\r\n---\r\n\n# Memory Tools\r\n\nAdvanced memory management skill that provides fine-grained control over the entity's memory system.\r\n\n## Available Tools\r\n\n### Search Memories\r\nSearch across all stored memories (episodic, semantic, core, chatlogs) by keyword or topic. Returns scored results and related compressed chatlog context.\r\n\n```\r\n[TOOL:mem_search query=\"your search terms here\"]\r\n```\r\n\nExample:\r\n```\r\n[TOOL:mem_search query=\"conversation about neural visualization\"]\r\n```\r\n\n### Create Core Memory\r\nCreate an important memory that persists with high importance.\r\n\n```\r\n[TOOL:mem_create semantic=\"The fact or experience to remember\" importance=\"0.9\" emotion=\"joy\" topics=\"topic1, topic2\"]\r\n```\r\n\n- `semantic` (required): The content of the memory\r\n- `importance`: 0.0–1.0, default 0.8\r\n- `emotion`: Primary emotion label (e.g. joy, curiosity, frustration)\r\n- `topics`: Comma-separated topic keywords\r\n\n### Working Notes\r\nUse workspace tools (`ws_write`, `ws_read`) to keep working notes in the skill workspace for multi-step research or projects.\r\n\n## Behavior Guidelines",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills memory-tools"
+  ],
+  "summary": "---\r\nname: memory-tools\r\ndescription: Advanced memory management tools. Create, search, and organize entity memories with fine-grained control.\r\n---\r\n\n# Memory Tools\r\n\nAdvanced memory management skill",
+  "importance": 0.6,
+  "createdAt": 1774646388588,
+  "createdAtISO": "2026-03-27T21:19:48.588Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\memory-tools\\SKILL.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382829_310ead1e",
+  "type": "semantic",
+  "content": "// ── Route Module: Chat ──────────────────────────────────────────────────────\r\n//\r\n// This module handles everything related to chatting with the AI.\r\n// Think of it like the \"conversation room\" of the server — it's where\r\n// messages come in and answers go out.\r\n//\r\n// There are TWO ways to chat:\r\n//   1. Streaming (SSE) — The answer arrives piece by piece, like watching\r\n//      someone type in real time.  Great for long answers.\r\n//   2. Non-streaming   — The whole answer comes back at once, like getting\r\n//      a letter in the mail.  Simpler but slower-feeling.\r\n//\r\n// This module also manages \"chat sessions\" — saved conversations you can\r\n// come back to later, like bookmarks for your chats.\r\n//\r\n// ── Endpoints ───────────────────────────────────────────────────────────────\r\n//   POST /api/chat/stream       — Stream a chat response via Server-Sent Events\r\n//   POST /api/chat              — Get a full chat response in one shot\r\n//   GET  /api/chat/sessions     — List all saved conversations (newest first)\r\n//   GET  /api/chat/session/:id  — Load a single saved conversation by its ID\r\n//   POST /api/chat/session      — Save or update a conversation\r\n//   GET  /api/chat/history      — Legacy stub (old clients may still call this)\r\n//   POST /api/chat/history      — Legacy stub (old clients may still call this)\r\n//\r\n// ── What this module needs ──────────────────────────────────────────────────\r\n//   deps.core — The brain of MA (handles chat logic, knows where config lives)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "route-chat.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Route Module: Chat ──────────────────────────────────────────────────────\r\n//\r\n// This module handles everything related to chatting with the AI.\r\n// Think of it like the \"conversation room\" of ",
+  "importance": 0.6,
+  "createdAt": 1774646382829,
+  "createdAtISO": "2026-03-27T21:19:42.829Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-chat.js",
+  "accessCount": 0
+}

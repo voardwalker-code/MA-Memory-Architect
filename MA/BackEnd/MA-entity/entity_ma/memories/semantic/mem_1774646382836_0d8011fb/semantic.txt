@@ -1,0 +1,32 @@
+// ── 1. Streaming chat (Server-Sent Events) ──────────────────────
+    // The client opens a long-lived connection and the server pushes
+    // events as the AI works through the problem step by step.
+    //
+    // Events sent:
+    //   "step"     → one task step completed (index, total, description)
+    //   "activity" → extra info (classifier ran, tool used, etc.)
+    //   "done"     → final result object
+    //   "error"    → something went wrong
+    //   "close"    → stream is finished, client can disconnect
+    if (url.pathname === '/api/chat/stream' && method === 'POST') {
+      const body = JSON.parse(await readBody(req));
+
+      // Tell the browser "this is a stream, keep the connection open"
+      res.writeHead(200, {
+        'Content-Type':  'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection':    'keep-alive',
+        'Access-Control-Allow-Origin': '*'
+      });
+
+      // Helper: write one SSE frame.
+      // SSE format is:  event: <name>\ndata: <json>\n\n
+      const sendEvent = (event, data) => {
+        res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
+      };
+
+      try {
+        const result = await core.handleChat({
+          message:     body.message,
+          history:     body.history,
+          attachments: body.attachments,

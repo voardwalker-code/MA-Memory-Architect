@@ -1,0 +1,34 @@
+// ── LLM · Unified API Caller ─────────────────────────────────────────────────
+//
+// HOW TALKING TO AI MODELS WORKS:
+// MA can talk to AI models from three different providers:
+//   • OpenRouter — a hub that gives access to hundreds of models
+//   • Ollama     — runs models locally on your own computer
+//   • Anthropic  — Claude models directly from Anthropic's API
+//
+// Each provider has a slightly different way of accepting requests
+// and returning responses.  This file hides those differences behind
+// a single function: callLLM(config, messages, opts).
+//
+// THE FLOW:
+//   1. You pass in your config (which provider, API key, model name)
+//   2. You pass in the conversation messages [{role, content}]
+//   3. callLLM routes to the right provider function internally
+//   4. The raw HTTP request is sent, response parsed, text returned
+//
+// SPECIAL FEATURES:
+//   • Native tool use — Anthropic and OpenRouter can return structured
+//     tool calls instead of plain text (for function calling)
+//   • Extended thinking — Anthropic can think step-by-step internally
+//   • Prompt caching — Anthropic caches system prompts for speed
+//   • Image support — Ollama can process image attachments
+//   • Unicode safety — sanitizes broken surrogate pairs before sending
+//
+// WHAT USES THIS:
+//   core-chat.js — The main chat loop calls callLLM for every AI turn
+//   MA-Server-standalone.js — Passes callLLM to route handlers
+//
+// EXPORTS:
+//   callLLM(config, messages, opts)  → string | {content, toolCalls}
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

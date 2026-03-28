@@ -1,0 +1,31 @@
+for (const { label, path: modPath } of ROUTE_MODULES) {
+    const factory = safeRequire(modPath, label);
+    if (!factory) continue;   // Module file is missing or broken — skip
+
+    try {
+      const handler = factory(deps);
+      if (typeof handler === 'function') {
+        handlers.push({ label, handler });
+      } else {
+        console.warn(`[MA-routes] ⚠ Module "${label}" did not return a handler function — skipping`);
+      }
+    } catch (err) {
+      console.warn(`[MA-routes] ⚠ Module "${label}" crashed during init: ${err.message}`);
+    }
+  }
+
+  console.log(`[MA-routes] ✓ Loaded ${handlers.length}/${ROUTE_MODULES.length} route modules`);
+
+  // ── Step 2: Return the request handler ────────────────────────────
+  // This function is called for EVERY incoming HTTP request.
+  // It sets up CORS, then asks each module to try handling the request.
+  return async function handleRequest(req, res) {
+    const url    = new URL(req.url, `http://${req.headers.host}`);
+    const method = req.method;
+
+    // ── CORS headers ─────────────────────────────────────────────
+    // Allow the browser client to talk to the server from any origin.
+    // This is needed because the client might be on a different port.
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');

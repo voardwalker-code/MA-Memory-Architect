@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388895_f380689c",
+  "type": "semantic",
+  "content": "function status() {\r\n  const pid = readPid();\r\n  if (!pid) {\r\n    console.log('MA background server: stopped (no PID file).');\r\n    return;\r\n  }\r\n  if (!isProcessAlive(pid)) {\r\n    clearPid();\r\n    console.log(`MA background server: stopped (stale PID ${pid} removed).`);\r\n    return;\r\n  }\r\n  console.log(`MA background server: running (PID ${pid}).`);\r\n}\r\n\nfunction stop() {\r\n  const pid = readPid();\r\n  if (!pid) {\r\n    console.log('MA background server: nothing to stop.');\r\n    return;\r\n  }\r\n  if (!isProcessAlive(pid)) {\r\n    clearPid();\r\n    console.log(`MA background server: stale PID ${pid} removed.`);\r\n    return;\r\n  }\r\n  try {\r\n    process.kill(pid, 'SIGTERM');\r\n    clearPid();\r\n    console.log(`MA background server stopped (PID ${pid}).`);\r\n  } catch (err) {\r\n    console.error(`Failed to stop PID ${pid}: ${err.message}`);\r\n    process.exitCode = 1;\r\n  }\r\n}\r\n\nfunction start() {\r\n  if (!fs.existsSync(SERVER_SCRIPT)) {\r\n    console.error(`Server script not found: ${SERVER_SCRIPT}`);\r\n    process.exit(1);\r\n  }\r\n\n  const existingPid = readPid();\r\n  if (existingPid && isProcessAlive(existingPid)) {\r\n    console.log(`MA background server already running (PID ${existingPid}).`);\r\n    return;\r\n  }\r\n  if (existingPid) clearPid();\r\n\n  ensureLogsDir();\r\n  const outPath = path.join(MA_ROOT, 'MA-logs', 'ma-start.log');\r\n  const outFd = fs.openSync(outPath, 'a');",
+  "topics": [
+    "MA Memory Architect",
+    "ma-start.js",
+    "."
+  ],
+  "summary": "function status() {\r\n  const pid = readPid();\r\n  if (!pid) {\r\n    console.log('MA background server: stopped (no PID file).');\r\n    return;\r\n  }\r\n  if (!isProcessAlive(pid)) {\r\n    clearPid();\r\n    co",
+  "importance": 0.6,
+  "createdAt": 1774646388897,
+  "createdAtISO": "2026-03-27T21:19:48.897Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "ma-start.js",
+  "accessCount": 0
+}

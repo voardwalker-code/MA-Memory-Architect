@@ -1,0 +1,20 @@
+async function openArchiveNode(projectId, nodeId) {
+  try {
+    const r = await fetch('/api/projects/node/' + encodeURIComponent(projectId) + '/' + encodeURIComponent(nodeId));
+    if (!r.ok) { addSystem('Could not load archive node.'); return; }
+    const d = await r.json();
+    const node = d.node;
+    if (!node) { addSystem('Archive node not found.'); return; }
+
+    // Format as plain text for the editor viewport
+    let text = '── Archive Node ──\n';
+    text += 'ID:          ' + (node.memory_id || nodeId) + '\n';
+    text += 'Project:     ' + projectId + '\n';
+    text += 'Type:        ' + (node.sourceType || 'unknown') + '\n';
+    text += 'Created:     ' + (node.created || 'unknown') + '\n';
+    text += 'Importance:  ' + (node.importance != null ? node.importance : 'N/A') + '\n';
+    text += 'Topics:      ' + (node.topics || []).join(', ') + '\n';
+    if (node.agentId) text += 'Agent:       ' + node.agentId + '\n';
+    if (node.stepNumber != null) text += 'Step:        ' + node.stepNumber + '\n';
+    text += '\n── Summary ──\n' + (node.summary || '(no summary)') + '\n';
+    text += '\n── Content ──\n' + (node.content || '(no content)') + '\n';

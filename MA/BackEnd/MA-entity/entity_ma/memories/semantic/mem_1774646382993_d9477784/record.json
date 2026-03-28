@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382993_d9477784",
+  "type": "semantic",
+  "content": "// ── Pulse config ─────────────────────────────────────────────────\r\n    // Update timer intervals.  Body can include:\r\n    //   { healthScan: { intervalMs: 300000 }, choreCheck: { intervalMs: 600000 } }\r\n    // After saving, the timers are restarted with the new settings.\r\n    if (url.pathname === '/api/pulse/config' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      const cfg  = pulse.getPulseConfig();\r\n      if (body.healthScan) cfg.healthScan = { ...cfg.healthScan, ...body.healthScan };\r\n      if (body.choreCheck) cfg.choreCheck = { ...cfg.choreCheck, ...body.choreCheck };\r\n      pulse.savePulseConfig(cfg);\r\n      // Restart timers so the new intervals take effect immediately\r\n      pulse.stopAll();\r\n      pulse.startAll();\r\n      json(res, 200, { ok: true, config: cfg });\r\n      return true;\r\n    }\r\n\n    // ── Start all timers ─────────────────────────────────────────────\r\n    if (url.pathname === '/api/pulse/start' && method === 'POST') {\r\n      pulse.startAll();\r\n      json(res, 200, { ok: true });\r\n      return true;\r\n    }\r\n\n    // ── Stop all timers ──────────────────────────────────────────────\r\n    if (url.pathname === '/api/pulse/stop' && method === 'POST') {\r\n      pulse.stopAll();\r\n      json(res, 200, { ok: true });\r\n      return true;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "route-pulse.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Pulse config ─────────────────────────────────────────────────\r\n    // Update timer intervals.  Body can include:\r\n    //   { healthScan: { intervalMs: 300000 }, choreCheck: { intervalMs: 600000",
+  "importance": 0.6,
+  "createdAt": 1774646382994,
+  "createdAtISO": "2026-03-27T21:19:42.994Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-pulse.js",
+  "accessCount": 0
+}

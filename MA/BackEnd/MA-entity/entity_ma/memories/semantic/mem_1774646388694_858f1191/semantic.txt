@@ -1,0 +1,61 @@
+### Starting a new project
+```
+Step 1: [TOOL:cmd_run cmd="cargo new my-project"]
+Step 2: [TOOL:ws_list path="my-project/src"]
+Step 3: [TOOL:ws_write path="my-project/src/main.rs" content="...your code..."]
+Step 4: [TOOL:cmd_run cmd="cargo build"]
+Step 5: [TOOL:cmd_run cmd="cargo run"]
+```
+
+### Starting a library
+```
+Step 1: [TOOL:cmd_run cmd="cargo new my-lib --lib"]
+Step 2: [TOOL:ws_write path="my-lib/src/lib.rs" content="...your code..."]
+Step 3: [TOOL:cmd_run cmd="cargo test"]
+```
+
+### Adding dependencies
+```
+Step 1: [TOOL:cmd_run cmd="cargo add serde --features derive"]
+Step 2: [TOOL:cmd_run cmd="cargo add tokio --features full"]
+Step 3: [TOOL:ws_read path="Cargo.toml"]
+```
+
+## Rust Patterns — What Good Code Looks Like
+
+### Basic program structure
+```rust
+use std::io;
+
+fn main() {
+    println!("Enter your name:");
+    let mut name = String::new();
+    io::stdin().read_line(&mut name).expect("Failed to read line");
+    let name = name.trim();
+    println!("Hello, {name}!");
+}
+```
+
+### Structs and implementations
+```rust
+#[derive(Debug, Clone)]
+struct Point {
+    x: f64,
+    y: f64,
+}
+
+impl Point {
+    fn new(x: f64, y: f64) -> Self {
+        Self { x, y }
+    }
+
+    fn distance(&self, other: &Point) -> f64 {
+        ((self.x - other.x).powi(2) + (self.y - other.y).powi(2)).sqrt()
+    }
+}
+```
+
+### Error handling with Result
+```rust
+use std::fs;
+use std::io;

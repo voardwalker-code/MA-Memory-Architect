@@ -1,0 +1,10 @@
+<script src="js/ma-ui.js"></script>
+<script src="js/ma-ui-chat.js"></script>
+<script src="js/ma-ui-nav.js"></script>
+<script src="js/ma-ui-config.js"></script>
+<script src="js/ma-ui-editor.js"></script>
+<script src="js/ma-ui-workspace.js"></script>
+<script src="js/ma-ui-input.js"></script>
+<script src="js/ma-ui-bootstrap.js"></script>
+</body>
+</html>

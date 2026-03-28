@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382574_1059bf47",
+  "type": "semantic",
+  "content": "return (msg?.content || '').trim();\r\n}\r\n\n// ── Ollama ──────────────────────────────────────────────────────────────────\r\nasync function _callOllama(config, messages, opts) {\r\n  const endpoint = config.endpoint.replace(/\\/+$/, '');\r\n  const url = new URL(endpoint + '/api/chat');\r\n\n  // Ollama expects images in a separate `images` field per message (base64 only, no data URL prefix)\r\n  const ollamaMessages = messages.map(m => {\r\n    if (Array.isArray(m.content)) {\r\n      const textParts = m.content.filter(c => c.type === 'text').map(c => c.text);\r\n      const imageParts = m.content.filter(c => c.type === 'image_url' && c.image_url?.url);\r\n      const images = imageParts.map(c => {\r\n        const dataUrl = c.image_url.url;\r\n        const commaIdx = dataUrl.indexOf(',');\r\n        return commaIdx >= 0 ? dataUrl.slice(commaIdx + 1) : dataUrl;\r\n      });\r\n      return { role: m.role, content: textParts.join('\\n'), ...(images.length ? { images } : {}) };\r\n    }\r\n    return m;\r\n  });\r\n\n  const body = JSON.stringify(_sanitizeJsonValue({\r\n    model:   config.model,\r\n    messages: ollamaMessages,\r\n    stream:  false,\r\n    options: {\r\n      temperature: opts.temperature,\r\n      num_predict: opts.maxTokens,\r\n      num_ctx:     opts.maxTokens * 2\r\n    }\r\n  }));\r\n\n  const headers = { 'Content-Type': 'application/json' };\r\n  const raw = await _fetch(url, body, headers, opts.timeout);\r\n  const data = JSON.parse(raw);",
+  "topics": [
+    "MA Memory Architect",
+    "llm-api.js",
+    "BackEnd llm"
+  ],
+  "summary": "return (msg?.content || '').trim();\r\n}\r\n\n// ── Ollama ──────────────────────────────────────────────────────────────────\r\nasync function _callOllama(config, messages, opts) {\r\n  const endpoint = confi",
+  "importance": 0.6,
+  "createdAt": 1774646382574,
+  "createdAtISO": "2026-03-27T21:19:42.574Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-api.js",
+  "accessCount": 0
+}

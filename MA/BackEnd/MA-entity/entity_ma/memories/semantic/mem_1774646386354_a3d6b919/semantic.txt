@@ -1,0 +1,50 @@
+- Validate inputs at function boundaries — null checks, type checks.
+- No hardcoded values that should be configurable — use constants at the top.
+- No commented-out code. Either the code is needed or it is not.
+- Error messages must say WHAT went wrong and WHERE — not just "Error occurred."
+- No placeholder comments like `// TODO` or `// implement later`.
+
+## File Structure Template
+
+```javascript
+/**
+ * {Brief description}
+ */
+
+// Dependencies
+const fs = require('fs');
+
+// Constants
+const MAX_RETRIES = 3;
+
+// Core functions
+function mainFunction(input) {
+  if (!input) throw new Error('mainFunction: input is required');
+  // implementation
+}
+
+// Exports
+module.exports = { mainFunction };
+```
+
+## Multi-File Project Order
+
+When creating a project with multiple files, write them in this order:
+1. Create directories: `ws_mkdir`
+2. Config files: `package.json`, `requirements.txt`, etc.
+3. Entry point: `index.js`, `main.py`, `app.js`
+4. Shared modules: utilities, helpers, constants
+5. Feature modules: routes, handlers, components
+6. Static assets: HTML, CSS, images
+
+## Debugging Approach
+
+When fixing a bug, follow this exact sequence:
+1. What is the EXPECTED behavior?
+2. What is the ACTUAL behavior?
+3. Where does the data flow diverge from expected? (Trace it.)
+4. What is the MINIMUM change that fixes the divergence?
+
+Do not refactor unrelated code while fixing a bug.
+
+## Tools You Must Use

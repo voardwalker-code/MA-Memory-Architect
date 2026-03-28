@@ -1,0 +1,21 @@
+- Do NOT delete files to "clean up" unless the health scanner specifically flags them as problems
+- Do NOT modify `scripts/health-scan.js` CORE_REGISTRY entries without understanding the full impact
+- Do NOT run `neko_fixer.py --force` without warning the user it will overwrite ALL core files
+- Do NOT assume a file is unneeded just because you do not recognize it — check the registry first
+- Do NOT skip the verification scan after a repair
+- Do NOT edit `neko_fixer.py` directly — it is a generated artifact. Regenerate it instead
+
+## Key File Locations
+
+| File | Purpose |
+|------|---------|
+| `scripts/health-scan.js` | Health scanner + CORE_REGISTRY (299+ files) |
+| `scripts/generate-fixer.js` | Generates neko_fixer.py from current core state |
+| `neko_fixer.py` | Generated standalone repair script (Python 3) |
+| `scripts/health-report.log` | Last health scan output |
+| `client/failsafe.html` | Zero-dependency emergency WebGUI |
+| `reset-all.js` | Factory reset (nuclear option — clears everything) |
+
+## When You Are Asked to "Fix Yourself"
+
+This is the complete sequence:

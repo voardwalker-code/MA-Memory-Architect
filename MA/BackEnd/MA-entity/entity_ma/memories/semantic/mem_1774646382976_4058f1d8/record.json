@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382976_4058f1d8",
+  "type": "semantic",
+  "content": "// ── Change a project's state ─────────────────────────────────────\r\n    // Body: { id: \"project-id\", action: \"close\" | \"resume\" }\r\n    //\r\n    // \"close\"  — marks the project as completed/archived\r\n    // \"resume\" — reopens it so you can keep working on it\r\n    if (url.pathname === '/api/projects/state' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      if (!body.id || !body.action) {\r\n        json(res, 400, { error: 'Need project id and action' });\r\n        return true;\r\n      }\r\n      try {\r\n        const project = body.action === 'close'\r\n          ? core.projectArchive.closeProject(body.id)\r\n          : body.action === 'resume'\r\n            ? core.projectArchive.resumeProject(body.id)\r\n            : null;\r\n        if (!project) { json(res, 400, { error: 'Unsupported action' }); return true; }\r\n        json(res, 200, { ok: true, project });\r\n      } catch (e) {\r\n        json(res, 400, { error: e.message });\r\n      }\r\n      return true;\r\n    }\r\n\n    // None of our routes matched\r\n    return false;\r\n  };\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "route-projects.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Change a project's state ─────────────────────────────────────\r\n    // Body: { id: \"project-id\", action: \"close\" | \"resume\" }\r\n    //\r\n    // \"close\"  — marks the project as completed/archived\r\n",
+  "importance": 0.6,
+  "createdAt": 1774646382977,
+  "createdAtISO": "2026-03-27T21:19:42.977Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-projects.js",
+  "accessCount": 0
+}

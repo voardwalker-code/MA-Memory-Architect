@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383575_a0bed854",
+  "type": "semantic",
+  "content": "const limits = TASK_TYPES[taskType] || { maxSteps: 6, maxLLM: 20 };\r\n  const taskTimeout = limits.timeout || undefined; // per-task-type timeout for LLM calls\r\n  let llmCalls = 0;\r\n  const allWrittenFiles = [];\r\n\n  // Phase 1: Generate plan\r\n  const planBP = getBlueprint(taskType, 'plan');\r\n  let planFolderHint = '';\r\n  if (taskType === 'book_ingestion') {\r\n    const pfm = message.match(/YOUR PROJECT FOLDER IS:\\s*\"([^\"]+)\"/);\r\n    if (pfm) planFolderHint = `\\nAll output files MUST be written inside \"${pfm[1]}/\". Never write to the workspace root.`;\r\n  }\r\n  const planSys = `You are ${entityName}. Create a step-by-step task plan using [TASK_PLAN]...[/TASK_PLAN] blocks.` +\r\n    planFolderHint +\r\n    (planBP ? `\\n\\n[Planning Instructions]\\n${planBP}` : '');\r\n  if (onActivity) await onActivity('llm_call', 'Generating task plan...');\r\n  const planResp = await callLLM([\r\n    { role: 'system', content: planSys },\r\n    { role: 'user', content: `${message}\\n\\nCreate a concise task plan.` }\r\n  ], { temperature: 0.7, ...(taskTimeout ? { timeout: taskTimeout } : {}) });\r\n  llmCalls++;",
+  "topics": [
+    "MA Memory Architect",
+    "svc-tasks.js",
+    "BackEnd services"
+  ],
+  "summary": "const limits = TASK_TYPES[taskType] || { maxSteps: 6, maxLLM: 20 };\r\n  const taskTimeout = limits.timeout || undefined; // per-task-type timeout for LLM calls\r\n  let llmCalls = 0;\r\n  const allWrittenF",
+  "importance": 0.6,
+  "createdAt": 1774646383576,
+  "createdAtISO": "2026-03-27T21:19:43.576Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-tasks.js",
+  "accessCount": 0
+}

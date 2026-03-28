@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385439_88927f1f",
+  "type": "semantic",
+  "content": "async function addChoreFromPane() {\r\n  const name = document.getElementById('chore-name').value.trim();\r\n  const description = document.getElementById('chore-desc').value.trim();\r\n  const intervalMs = parseInt(document.getElementById('chore-interval').value, 10) || 1800000;\r\n  if (!name) {\r\n    addSystem('Chore name is required.');\r\n    return;\r\n  }\r\n  try {\r\n    const r = await fetch('/api/chores/add', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({ name, description, intervalMs })\r\n    });\r\n    const d = await r.json();\r\n    if (!d.ok) throw new Error(d.error || 'Could not add chore');\r\n    document.getElementById('chore-name').value = '';\r\n    document.getElementById('chore-desc').value = '';\r\n    loadChoresPane();\r\n  } catch (e) {\r\n    addSystem('Chore add error: ' + e.message);\r\n  }\r\n}\r\n\nasync function toggleChoreEnabled(id, enabled) {\r\n  try {\r\n    const r = await fetch('/api/chores/update', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({ id, enabled })\r\n    });\r\n    const d = await r.json();\r\n    if (!d.ok) throw new Error(d.error || 'Could not update chore');\r\n    loadChoresPane();\r\n  } catch (e) {\r\n    addSystem('Chore update error: ' + e.message);\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function addChoreFromPane() {\r\n  const name = document.getElementById('chore-name').value.trim();\r\n  const description = document.getElementById('chore-desc').value.trim();\r\n  const intervalMs =",
+  "importance": 0.6,
+  "createdAt": 1774646385440,
+  "createdAtISO": "2026-03-27T21:19:45.440Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

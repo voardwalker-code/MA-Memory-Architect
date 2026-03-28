@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387945_19d202c9",
+  "type": "semantic",
+  "content": "1. Putting business logic in server.js or route handlers\r\n2. Serializing parallel-safe contributors (1A and 1D)\r\n3. Blocking response delivery on post-turn work\r\n4. Hardcoding system prompts instead of using context-consolidator\r\n5. Storing system context accidentally as memory content\r\n6. Using `display:none` in CSS classes (JS controls this)\r\n7. Adding tab content directly to index.html\r\n8. Creating alternative CSS namespaces\r\n9. Eventual consistency for memory index updates\r\n10. Skip guard tests before refactoring",
+  "topics": [
+    "MA Memory Architect",
+    "code-quality.md",
+    "MA-knowledge"
+  ],
+  "summary": "1. Putting business logic in server.js or route handlers\r\n2. Serializing parallel-safe contributors (1A and 1D)\r\n3. Blocking response delivery on post-turn work\r\n4. Hardcoding system prompts instead o",
+  "importance": 0.6,
+  "createdAt": 1774646387947,
+  "createdAtISO": "2026-03-27T21:19:47.947Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\code-quality.md",
+  "accessCount": 0
+}

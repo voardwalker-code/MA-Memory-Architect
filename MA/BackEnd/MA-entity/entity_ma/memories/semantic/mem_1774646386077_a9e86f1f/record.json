@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386077_a9e86f1f",
+  "type": "semantic",
+  "content": "Report to user:\r\n- Total files created\r\n- Total modules (stubs)\r\n- Total contract tests\r\n- Test pass/fail count\r\n- Blueprint location: `MA-blueprints/{project-name}/`\r\n- Next steps: \"Start implementing Layer 0. Read MA-blueprints/{project-name}/layer-0-{name}.md for exact algorithms.\"\r\n\n### Step 9 (Optional): Transport Layer\r\n\nIf the project has a browser GUI, REST API, or WebSocket interface (check REQUIREMENTS.md Interfaces section), create a transport layer:\r\n\n**HTTP Server** — Write to `workspace/{project}/{prefix}-server.js`:\r\n- Express or raw `http.createServer` (match the tech stack)\r\n- POST endpoint for the primary interface (e.g., `/api/chat`, `/api/query`)\r\n- Serves static files from `client/` if a GUI exists\r\n- Imports the top-layer module as the entry point\r\n- Before implementation: returns a stub response (\"Layer N not yet implemented\")\r\n- After implementation: calls the real pipeline\r\n\n**Client GUI** (if browser interface) — Write to `workspace/{project}/client/index.html`:\r\n- Minimal functional UI for testing the transport layer\r\n- Sends requests to the server endpoint\r\n- Displays responses\r\n- Works at every build stage (shows stub messages before implementation)\r\n\nAdd these to INDEX.md as \"Transport Layer (Pre-Built)\" with a note that they work at every build stage.\r\nUpdate package.json with a `start` script.\r\n\n---\r\n\n## Common Mistakes to Avoid",
+  "topics": [
+    "MA Memory Architect",
+    "architect.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Report to user:\r\n- Total files created\r\n- Total modules (stubs)\r\n- Total contract tests\r\n- Test pass/fail count\r\n- Blueprint location: `MA-blueprints/{project-name}/`\r\n- Next steps: \"Start implementin",
+  "importance": 0.6,
+  "createdAt": 1774646386078,
+  "createdAtISO": "2026-03-27T21:19:46.078Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\architect.md",
+  "accessCount": 0
+}

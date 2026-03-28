@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383069_4d99c4f1",
+  "type": "semantic",
+  "content": "// Merge the incoming fields with the current state\r\n      const next = {\r\n        ...current,\r\n        activeProject:       body.activeProject       ?? current.activeProject,\r\n        activeProjectStatus: body.activeProjectStatus ?? current.activeProjectStatus,\r\n        currentTask:         body.currentTask         ?? current.currentTask,\r\n\n        // If a new taskPlan array was sent, clean it up:\r\n        //   • Each step must have { done: bool, description: string }\r\n        //   • Skip any steps with blank descriptions\r\n        taskPlan: Array.isArray(body.taskPlan)\r\n          ? body.taskPlan\r\n              .map(step => ({\r\n                done:        !!step.done,\r\n                description: String(step.description || '').trim()\r\n              }))\r\n              .filter(step => step.description)\r\n          : current.taskPlan,\r\n\n        recentWork:   Array.isArray(body.recentWork) ? body.recentWork : current.recentWork,\r\n        resumePoint:  body.resumePoint ?? current.resumePoint,\r\n        lastActivity: new Date().toISOString()\r\n      };\r\n\n      core.worklog.write(next);\r\n      json(res, 200, { ok: true, state: core.worklog.getState() });\r\n      return true;\r\n    }\r\n\n    // None of our routes matched\r\n    return false;\r\n  };\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "route-worklog.js",
+    "BackEnd routes"
+  ],
+  "summary": "// Merge the incoming fields with the current state\r\n      const next = {\r\n        ...current,\r\n        activeProject:       body.activeProject       ?? current.activeProject,\r\n        activeProjectSt",
+  "importance": 0.6,
+  "createdAt": 1774646383070,
+  "createdAtISO": "2026-03-27T21:19:43.070Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-worklog.js",
+  "accessCount": 0
+}

@@ -1,0 +1,41 @@
+1. **Summary** — plain language explanation (not textbook-speak). Aim for "explain it to a smart friend" level.
+2. **Key Terms Glossary** — term: definition + concrete example
+3. **Concept Connections** — how this concept relates to others (indented concept map)
+4. **Common Misconceptions** — what people get wrong + corrections
+5. **Memory Aids** — mnemonics, analogies, visual descriptions
+
+### Phase 4: Practice Questions
+
+Per topic section:
+- 3-5 multiple choice questions (with answer key + explanations for each option)
+- 2-3 short answer questions
+- 1 "explain it like I'm 5" prompt
+
+### Phase 5: Output
+
+Write the complete study guide as markdown:
+```
+[TOOL:ws_write {"path": "study-guide-{topic-slug}.md", "content": "..."}]
+```
+
+Structure: Table of Contents → Foundational Concepts → Intermediate Concepts → Advanced Concepts → Practice Questions → Answer Key
+
+---
+
+## FLASHCARD MODE
+
+### Phase 1: Source Analysis
+
+Same as Study Guide Phase 1.
+
+### Phase 2: Card Extraction
+
+LLM extracts all testable facts:
+- Definitions (term → meaning)
+- Processes (step → next step)
+- Dates (event → date/significance)
+- Formulas (name → formula + variable meanings)
+- Vocabulary (word → definition + usage)
+- Cause-effect (cause → effect)
+
+### Phase 3: Card Generation

@@ -1,0 +1,59 @@
+- Auto-updated when a task starts and completes
+- Loaded into MA's system prompt for session continuity
+- Accessible via the `/worklog` slash command or `GET /api/worklog`
+
+### Commands
+
+```
+/worklog          ← view the current worklog
+```
+
+---
+
+## Deep Research
+
+For thorough investigation of complex topics, use the deep research task type.
+
+### Triggering Deep Research
+
+Include phrases like "deep dive research", "thorough research", or "comprehensive research" in your message:
+
+```
+You: Do a deep dive research on WebAssembly component model
+```
+
+### How It Differs from Regular Research
+
+| Aspect | Regular Research | Deep Research |
+|--------|-----------------|---------------|
+| Max steps | 6 | 10 |
+| Max LLM calls | 20 | 40 |
+| Search queries | 2-3 | 8-15+ |
+| Source depth | Surface-level | Full-read 5-10 sources |
+| Output length | Brief summary | 2,000-5,000+ words |
+
+### Output Structure
+
+Deep research produces a publication-quality report:
+1. Executive summary
+2. Background and history
+3. Detailed evidence and findings
+4. Expert perspectives
+5. Criticisms and counterarguments
+6. Comparative analysis
+7. Future outlook
+8. Full source list with URLs
+
+---
+
+## Entity Genesis Skill
+
+MA can create rich, psychologically deep entities for NekoCore OS through an iterative genesis process.
+
+### How It Works
+
+Ask MA to create an entity:
+
+```
+You: Create a new entity — a retired detective who became a philosophy professor
+```

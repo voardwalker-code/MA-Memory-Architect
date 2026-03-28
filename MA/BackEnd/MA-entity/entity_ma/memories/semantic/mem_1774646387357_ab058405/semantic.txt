@@ -1,0 +1,18 @@
+| Module | File | What to Build |
+|--------|------|---------------|
+| Auth Service | `server/services/auth-service.js` | Session-based auth (JSON sessions) |
+| Boot Service | `server/services/boot.js` | Full boot sequence orchestration (10 steps) |
+| Chat Pipeline | `server/services/chat-pipeline.js` | Master turn cycle (classify→snapshot→context→generate→humanize→respond) |
+| Config Runtime | `server/services/config-runtime.js` | Live-editable runtime config overlay |
+| Config Service | `server/services/config-service.js` | Static config loader + validation |
+| Entity Checkout | `server/services/entity-checkout.js` | Check out entity from disk, trigger hatch if new |
+| Entity Memory Compat | `server/services/entity-memory-compat.js` | Bridge entity files ↔ memory subsystem |
+| Entity Runtime | `server/services/entity-runtime.js` | Live entity state holder |
+| Memory Service | `server/services/memory-service.js` | High-level memory API (recall/store/stats) |
+| Post-Response Cognitive Feedback | `server/services/post-response-cognitive-feedback.js` | Fire-and-forget cognitive update after turn |
+| Post-Response Memory | `server/services/post-response-memory.js` | Fire-and-forget memory encoding after turn |
+| Relationship Service | `server/services/relationship-service.js` | Track trust, familiarity, emotional bonds |
+| Response Post-Process | `server/services/response-postprocess.js` | Final response validation + metadata |
+| Startup Preflight | `server/services/startup-preflight.js` | Pre-boot validation checks |
+| Timeline Logger | `server/services/timeline-logger.js` | Append-only event timeline |
+| User Profiles | `server/services/user-profiles.js` | User preferences + history |

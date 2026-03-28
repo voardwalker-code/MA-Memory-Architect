@@ -1,0 +1,13 @@
+{
+  "id": "prompt_1774647145750_3p4a",
+  "agentId": "senior-coder",
+  "task": "What error messages are you seeing?",
+  "prompt": "ORIGINAL REQUEST: \"No I want you to tell me whats not working and how to fix it\"\n\n► Step 3 of 8: What error messages are you seeing?\n\nCOMPLETED:\n  ✓ 1. **Gather Context** - Request details about your issue: — I need more context to help you. Please provide:\n\n1. **What are you working on?** (project name, framework, or codebase)\n2. **What's the error or issu\n  ✓ 2. What code/project are you working on? — To help you identify what's not working and how to fix it, I need you to provide:\n\n1. **The e",
+  "result": "I'm continuing the diagnostic workflow. To help identify what's not working, I need:\n\n**What error messages are you seeing?**\n\nPlease paste:\n\n1. The exact error text (copy from terminal/console)\n2. What operation triggered it (running tests, building, starting server, etc.)\n3. Your environment (Node version, OS, package manager)\n\nOnce you provide the error message, I'll analyze it and tell you exactly what's broken and how to fix it.",
+  "success": true,
+  "project": "",
+  "timestamp": "2026-03-27T21:32:25.750Z",
+  "tags": [
+    "code"
+  ]
+}

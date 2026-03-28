@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387845_7f2023d2",
+  "type": "semantic",
+  "content": "# Agent Delegation — Interview & Dispatch Protocol\r\n\nReference doc for MA when delegating work to specialist agents.\r\n\n---\r\n\n## When This Applies\r\n\nWhen a task is too large or specialized for MA to do alone, delegate to an agent from the catalog.\r\n\n## Phase 1: Check the Roster\r\n\nBefore creating a new agent, scan who's already available:\r\n\n```\r\n[TOOL:cmd_run command=\"node -e \\\"const a=require('./BackEnd/services/svc-agents'); const s=a.getCatalogSummary(); console.log(JSON.stringify(s,null,2));\\\"\"]\r\n```\r\n\nOr list all agents with full details:\r\n```\r\n[TOOL:cmd_run command=\"node -e \\\"const a=require('./BackEnd/services/svc-agents'); a.listAgents().forEach(x => console.log(x.id, '-', x.name, '('+x.seniority+')', '-', x.role));\\\"\"]\r\n```\r\n\n## Phase 2: Match Task to Agent\r\n\n| Task Type | Best Agent Role | Seniority Guide |\r\n|-----------|----------------|-----------------|\r\n| Implement a module from blueprint | coder | senior for complex, junior for simple |\r\n| Design data shapes / contracts | architect | lead |\r\n| Write or update tests | tester | senior |\r\n| Research an algorithm or technique | researcher | senior |\r\n| Review code before merge | reviewer | lead |\r\n| Write documentation or guides | writer | mid or senior |",
+  "topics": [
+    "MA Memory Architect",
+    "agent-delegation.md",
+    "MA-knowledge"
+  ],
+  "summary": "# Agent Delegation — Interview & Dispatch Protocol\r\n\nReference doc for MA when delegating work to specialist agents.\r\n\n---\r\n\n## When This Applies\r\n\nWhen a task is too large or specialized for MA to do",
+  "importance": 0.6,
+  "createdAt": 1774646387846,
+  "createdAtISO": "2026-03-27T21:19:47.846Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\agent-delegation.md",
+  "accessCount": 0
+}

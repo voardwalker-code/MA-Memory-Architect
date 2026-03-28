@@ -1,0 +1,22 @@
+### Create Entity (REQUIRED FIRST STEP)
+**IMPORTANT**: Always use this API to create entities. Never create entity files manually with `ws_write`.
+Generate a unique ID: `{name-lowercase-dashes}-{timestamp}` (e.g. `alice-1711270452000`)
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/create", "method": "POST", "body": {"entityId": "{name-lowercase}-{timestamp}", "name": "Entity Name", "gender": "neutral", "traits": ["trait1", "trait2", "trait3"], "introduction": "Hello, I'm Entity Name."}}]
+```
+The response returns `{ ok: true, entity: {...}, entityId: "canonical-id" }`. Use the returned `entityId` for all subsequent calls.
+
+### Inject Memory
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/memories/inject", "method": "POST", "body": {"content": "First-person memory text...", "emotion": "joy", "topics": ["topic1", "topic2"], "importance": 0.7, "narrative": "Third-person summary", "type": "episodic", "phase": "chapter_1"}}]
+```
+
+### Cognitive Tick
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/cognitive/tick", "method": "POST", "body": {}}]
+```
+
+### Read State
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/cognitive/state", "method": "GET"}]
+```

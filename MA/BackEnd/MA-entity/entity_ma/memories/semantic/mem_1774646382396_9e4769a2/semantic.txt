@@ -1,0 +1,24 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// ensureEntity(entityDir, defaults)
+//
+// Checks if the entity.json file exists.  If it doesn't, creates one
+// using the default entity template.  Also creates the skills folder.
+//
+// The entity is like MA's "ID card" — it stores the name, personality,
+// and other identity info.  Without it, MA doesn't know who it is!
+//
+//   entityDir — path to the entity folder (e.g. MA-entity/entity_ma)
+//   defaults  — the DEFAULT_ENTITY object from agent-definitions.js
+// ─────────────────────────────────────────────────────────────────────────────
+function ensureEntity(entityDir, defaults) {
+  const p = path.join(entityDir, 'entity.json');
+  if (fs.existsSync(p)) return;
+  console.log('  Entity missing — provisioning default MA entity...');
+  fs.mkdirSync(entityDir, { recursive: true });
+  const entityDef = { ...defaults, createdAt: new Date().toISOString() };
+  fs.writeFileSync(p, JSON.stringify(entityDef, null, 2));
+  // Ensure skills directory exists too
+  const skillsDir = path.join(entityDir, 'skills');
+  if (!fs.existsSync(skillsDir)) fs.mkdirSync(skillsDir, { recursive: true });
+  console.log('  Entity provisioned: MA');
+}

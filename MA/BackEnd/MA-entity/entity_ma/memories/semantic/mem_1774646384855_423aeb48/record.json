@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384855_423aeb48",
+  "type": "semantic",
+  "content": "// Render clickable file links for created/modified files\r\n  if (d.filesChanged && d.filesChanged.length > 0) {\r\n    const container = msgDiv.querySelector('.bubble') || msgDiv;\r\n    const linksDiv = document.createElement('div');\r\n    linksDiv.className = 'file-links';\r\n    const extIcons = { '.js': '\\u{1F4DC}', '.ts': '\\u{1F4DC}', '.json': '\\u{1F4CB}', '.md': '\\u{1F4D6}', '.html': '\\u{1F310}', '.css': '\\u{1F3A8}', '.py': '\\u{1F40D}', '.rs': '\\u2699', '.txt': '\\u{1F4C4}' };\r\n    for (const fp of d.filesChanged) {\r\n      const ext = '.' + fp.split('.').pop().toLowerCase();\r\n      const icon = extIcons[ext] || '\\u{1F4C4}';\r\n      const name = fp.split('/').pop();\r\n      const a = document.createElement('a');\r\n      a.className = 'file-link';\r\n      a.href = '#';\r\n      a.title = fp;\r\n      a.onclick = function(e) { e.preventDefault(); openFileInEditor(fp); };\r\n      a.innerHTML = '<span class=\"fl-icon\">' + icon + '</span><span class=\"fl-name\">' + escHtml(name) + '</span>';\r\n      linksDiv.appendChild(a);\r\n    }\r\n    container.appendChild(linksDiv);\r\n  }\r\n\n  if (d.taskType) addSystem('Task: ' + d.taskType + ' (' + (d.steps || 0) + ' steps)');\r\n  if (d.contextUsage) updateTokenBar(d.contextUsage);\r\n  if (d.continuationPoint) {\r\n    lastContinuation = d.continuationPoint;\r\n    showContinueButton(d.continuationPoint);\r\n  } else {\r\n    lastContinuation = null;\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-chat.js",
+    "FrontEnd js"
+  ],
+  "summary": "// Render clickable file links for created/modified files\r\n  if (d.filesChanged && d.filesChanged.length > 0) {\r\n    const container = msgDiv.querySelector('.bubble') || msgDiv;\r\n    const linksDiv = ",
+  "importance": 0.6,
+  "createdAt": 1774646384857,
+  "createdAtISO": "2026-03-27T21:19:44.857Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-chat.js",
+  "accessCount": 0
+}

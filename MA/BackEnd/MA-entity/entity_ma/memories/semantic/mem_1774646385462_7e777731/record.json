@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385462_7e777731",
+  "type": "semantic",
+  "content": "let history = [];\r\nlet sending = false;\r\nlet pendingFiles = []; // { name, content } from drag-and-drop\r\nlet lastContinuation = null; // stores continuation point for \"continue\" button\r\nconst MA_MASKED_KEY = '********';\r\nconst TODO_STORAGE_KEY = 'ma-ui-todos-v1';\r\nconst inspectorTitles = {\r\n  session: 'Session',\r\n  activity: 'Activity',\r\n  blueprints: 'Blueprints',\r\n  projects: 'Projects',\r\n  tasks: 'Tasks',\r\n  todos: 'Todos',\r\n  chores: 'Chores',\r\n  archives: 'Archives'\r\n};\r\n\nlet currentInspector = 'session';\r\nlet selectedBlueprintPath = '';\r\n\n// ── Theme System ──────────────────────────────────────────────────────────\r\nconst THEME_KEY = 'ma-theme-v1';\r\n\nfunction applyTheme(choice) {\r\n  if (!choice) choice = localStorage.getItem(THEME_KEY) || 'system';\r\n  localStorage.setItem(THEME_KEY, choice);\r\n  const themeSelect = document.getElementById('cfg-theme');\r\n  if (themeSelect) themeSelect.value = choice;\r\n\n  let effective;\r\n  if (choice === 'system') {\r\n    effective = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';\r\n  } else {\r\n    effective = choice;\r\n  }\r\n\n  if (effective === 'light') {\r\n    document.body.setAttribute('data-theme', 'light');\r\n  } else {\r\n    document.body.removeAttribute('data-theme');\r\n  }\r\n}\r\n\napplyTheme();\r\nwindow.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {\r\n  if ((localStorage.getItem(THEME_KEY) || 'system') === 'system') applyTheme('system');\r\n});",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.js",
+    "FrontEnd js"
+  ],
+  "summary": "let history = [];\r\nlet sending = false;\r\nlet pendingFiles = []; // { name, content } from drag-and-drop\r\nlet lastContinuation = null; // stores continuation point for \"continue\" button\r\nconst MA_MASKE",
+  "importance": 0.6,
+  "createdAt": 1774646385462,
+  "createdAtISO": "2026-03-27T21:19:45.462Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui.js",
+  "accessCount": 0
+}

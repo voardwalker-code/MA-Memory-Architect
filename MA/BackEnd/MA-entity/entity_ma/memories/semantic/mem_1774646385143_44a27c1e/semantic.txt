@@ -1,0 +1,23 @@
+async function saveEditorTab() {
+  const tab = openTabs.find(t => t.id === activeTabId);
+  if (!tab) return;
+  // Capture textarea content if in source mode
+  const ta = editorContent.querySelector('.editor-textarea');
+  if (ta) tab.content = ta.value;
+  try {
+    const r = await fetch('/api/workspace/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: tab.path, content: tab.content })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'Save failed');
+    tab.originalContent = tab.content;
+    tab.dirty = false;
+    renderEditorTabs();
+    renderEditorContent();
+    addSystem('Saved ' + tab.name);
+  } catch (e) {
+    addSystem('Save error: ' + e.message);
+  }
+}

@@ -1,0 +1,40 @@
+For each event:
+- **Date** — as precise as available (year, month/year, or exact date)
+- **Title** — concise event name
+- **Description** — 2-3 sentences explaining what happened
+- **Significance** — why this event matters in the larger context
+- **Category** — political / social / economic / technological / cultural / scientific
+- **Key Figures** — people involved (if applicable)
+
+### Phase 3: Causal Linking
+
+LLM identifies cause-effect chains:
+- "Event A led to Event B because..."
+- "Event C was a response to Event D..."
+- Mark parallel developments that happened concurrently
+
+### Phase 4: Era Grouping
+
+Group events into named eras/periods:
+- Era name + date range
+- Era summary (3-5 sentences covering dominant themes)
+- Events within era listed chronologically
+
+### Phase 5: Study Questions
+
+Per era:
+- 2-3 cause/effect questions ("What caused X? What resulted from Y?")
+- 1-2 significance questions ("Why was X a turning point?")
+- 1 comparison question ("How did Era A differ from Era B?")
+
+### Phase 6: Output
+
+```
+[TOOL:ws_write {"path": "timeline-{topic-slug}.md", "content": "..."}]
+```
+
+Structure: Overview → Era 1 (with events) → Era 2 → ... → Study Questions → Key Connections
+
+---
+
+## Guidelines

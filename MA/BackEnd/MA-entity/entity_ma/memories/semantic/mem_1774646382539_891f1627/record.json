@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382539_891f1627",
+  "type": "semantic",
+  "content": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// ── MIME type map ───────────────────────────────────────────────────────────\r\n// Maps file extensions to Content-Type values for static file serving.\r\n// Only the types MA actually serves are listed; anything else falls back to\r\n// 'application/octet-stream' in the static handler.\r\nconst MIME = {\r\n  '.html':  'text/html',\r\n  '.css':   'text/css',\r\n  '.js':    'text/javascript',\r\n  '.json':  'application/json',\r\n  '.png':   'image/png',\r\n  '.svg':   'image/svg+xml',\r\n  '.ico':   'image/x-icon',\r\n  '.woff2': 'font/woff2',\r\n  '.md':    'text/plain'\r\n};\r\n\n// ── json(res, status, data) ─────────────────────────────────────────────────\r\n// Convenience: serialise `data` to JSON and write it to `res` with the given\r\n// HTTP status code.  Used by every API endpoint.\r\nfunction json(res, status, data) {\r\n  res.writeHead(status, { 'Content-Type': 'application/json' });\r\n  res.end(JSON.stringify(data));\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "infra-http-utils.js",
+    "BackEnd infra"
+  ],
+  "summary": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// ── MIME type map ───────────────────────────────────────────────────────────\r\n// Maps file extensions to Content-Type values for static ",
+  "importance": 0.6,
+  "createdAt": 1774646382539,
+  "createdAtISO": "2026-03-27T21:19:42.539Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-http-utils.js",
+  "accessCount": 0
+}

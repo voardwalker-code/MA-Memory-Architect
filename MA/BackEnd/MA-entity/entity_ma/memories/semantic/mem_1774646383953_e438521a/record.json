@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383953_e438521a",
+  "type": "semantic",
+  "content": "// ── Tool Schemas ─────────────────────────────────────────────────────────────\r\n//\r\n// Zod validation schemas for every tool MA can use.\r\n//\r\n// HOW IT WORKS:\r\n// When the AI tries to use a tool (like reading a file or searching the web),\r\n// it sends parameters as JSON.  Before we actually DO anything, we check\r\n// those parameters with Zod — a validation library.  This makes sure the\r\n// AI sent the right kind of data (correct types, required fields present).\r\n//\r\n// Think of it like a bouncer at a door — before you get in, you need to\r\n// show the right credentials.  Zod is the bouncer for tool parameters.\r\n//\r\n// WHAT IT EXPORTS:\r\n//   ToolSchemas — an object where each key is a tool name and each value\r\n//                 is a Zod schema that validates that tool's parameters\r\n//\r\n// TOOL CATEGORIES:\r\n//   ws_*             — Workspace file tools (list, read, write, delete, etc.)\r\n//   web_*            — Web tools (search, fetch)\r\n//   cmd_run          — Run a whitelisted terminal command\r\n//   memory_search    — Search MA's memories\r\n//   entity_*         — Create/manage AI entities\r\n//   book_*           — Read chunked books (from book ingestion)\r\n//\r\n// USED BY:\r\n//   tools-parser.js  — validates parsed tool calls against these schemas\r\n//   MA-tool-adapter.js — converts these into native function-call schemas\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n\nconst { z } = require('zod');",
+  "topics": [
+    "MA Memory Architect",
+    "tools-schemas.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ── Tool Schemas ─────────────────────────────────────────────────────────────\r\n//\r\n// Zod validation schemas for every tool MA can use.\r\n//\r\n// HOW IT WORKS:\r\n// When the AI tries to use a tool (li",
+  "importance": 0.6,
+  "createdAt": 1774646383955,
+  "createdAtISO": "2026-03-27T21:19:43.955Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-schemas.js",
+  "accessCount": 0
+}

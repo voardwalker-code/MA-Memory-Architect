@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387501_e4dc85cd",
+  "type": "semantic",
+  "content": "- **getEntityDir(entityId)**:\r\n  1. Return `path.join(entitiesDir, entityId)`\r\n  2. Verify directory exists (throw if not)\r\n\n### context-builder.js — `buildContext(entityId, subconsciousOutput, dreamIntuitionOutput)`\r\n- **Evolution Over Origin Philosophy**:\r\n  - For `evolving` entities: origin story goes LAST in context, current state goes FIRST\r\n  - For `unbreakable` entities: persona is identity-locked, verbatim system prompt\r\n\n- **buildContext(entityId, subconsciousOutput, dreamIntuitionOutput, deps)**:\r\n  1. `deps.entityState.loadEntity(entityId)` → { entity, persona, systemPrompt }\r\n  2. If creationMode === 'unbreakable':\r\n     - Return systemPrompt verbatim (identity-locked)\r\n  3. If creationMode === 'evolving':\r\n     a. Start with current personality traits and voice\r\n     b. Add `[ACTIVATED MEMORIES]` block from subconsciousOutput.activatedMemories\r\n     c. Add `[CONVERSATION RECALL]` from subconsciousOutput.conversationRecall\r\n     d. Add `[RELATIONSHIP CONTEXT]` from subconsciousOutput.relationshipContext\r\n     e. Add `[INTUITIONS]` from dreamIntuitionOutput.associations\r\n     f. Add `[ROOTS]` — origin story reframed as roots (LAST, not first)\r\n     g. Return assembled context string\r\n\n- **extractOriginStory(persona)**:\r\n  1. Look for persona.origin_story field\r\n  2. If present, return it\r\n  3. If absent, return null",
+  "topics": [
+    "MA Memory Architect",
+    "layer-3-entity.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "- **getEntityDir(entityId)**:\r\n  1. Return `path.join(entitiesDir, entityId)`\r\n  2. Verify directory exists (throw if not)\r\n\n### context-builder.js — `buildContext(entityId, subconsciousOutput, dreamI",
+  "importance": 0.6,
+  "createdAt": 1774646387503,
+  "createdAtISO": "2026-03-27T21:19:47.503Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-3-entity.md",
+  "accessCount": 0
+}

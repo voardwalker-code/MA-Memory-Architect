@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387427_d69fc92e",
+  "type": "semantic",
+  "content": "# Layer 1 — Memory Operations\r\n\n## Pre-Requisite\r\n- Layer 0 tests pass: `node tests/test-runner.js 0`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/memory/memory-ops.js` — High-level memory operations built on storage + index\r\n\n## Instructions\r\n\n### memory-ops.js\r\nThis module composes storage + index + NLP into meaningful operations:\r\n\n- **createCoreMemory(opts)**:\r\n  1. Build record via `memorySchema.createMemoryRecord({ type: 'episodic', ...opts })`\r\n  2. Validate with `memorySchema.validateMemoryRecord(record)`\r\n  3. Call `storage.writeMemory(record, opts.content || opts.summary)`\r\n  4. Extract topics with `rake.extractPhrases(opts.summary)` → take top 5\r\n  5. Call `index.addToIndex(record, topics)`\r\n  6. Return record\r\n\n- **createSemanticKnowledge(opts)**:\r\n  1. Same as createCoreMemory but type = 'semantic'\r\n  2. Set `record.decay = 1.0` (semantic exempt from decay but starts at 1.0)\r\n  3. Set `record.semantic_exempt = true`\r\n\n- **dualPathEncode(message, response, context)**:\r\n  1. Call `createCoreMemory({ topic: context.topic, summary: message, content: response })`\r\n  2. If response contains significant knowledge (length > 500 and importance > 0.7):\r\n     Call `createSemanticKnowledge({ topic: context.topic, summary: extracted_knowledge })`\r\n  3. Return { episodic: record1, semantic: record2 || null }",
+  "topics": [
+    "MA Memory Architect",
+    "layer-1-memory-ops.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "# Layer 1 — Memory Operations\r\n\n## Pre-Requisite\r\n- Layer 0 tests pass: `node tests/test-runner.js 0`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/memory/memory-ops.js` — High-level m",
+  "importance": 0.6,
+  "createdAt": 1774646387427,
+  "createdAtISO": "2026-03-27T21:19:47.427Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-1-memory-ops.md",
+  "accessCount": 0
+}

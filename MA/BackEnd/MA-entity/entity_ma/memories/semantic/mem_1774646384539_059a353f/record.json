@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384539_059a353f",
+  "type": "semantic",
+  "content": "/* Config panel */\r\n  #config-panel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:10;justify-content:center;align-items:center}\r\n  #config-panel.show{display:flex}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.css",
+    "FrontEnd css"
+  ],
+  "summary": "/* Config panel */\r\n  #config-panel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:10;justify-content:center;align-items:center}\r\n  #config-panel.show{display:flex}",
+  "importance": 0.6,
+  "createdAt": 1774646384540,
+  "createdAtISO": "2026-03-27T21:19:44.540Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\css\\ma-ui.css",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382603_7fed2933",
+  "type": "semantic",
+  "content": "// ── Model Roster ────────────────────────────────────────────────────────────\r\n// User-managed list of available models with metadata.\r\n//\r\n// Each model entry:\r\n// {\r\n//   id:           \"ollama/llama3.1:8b\"   (unique key)\r\n//   provider:     \"ollama\" | \"openrouter\"\r\n//   model:        \"llama3.1:8b\"          (actual model name for API calls)\r\n//   endpoint:     \"http://localhost:11434\"\r\n//   apiKey:       \"\"                      (blank for Ollama)\r\n//   contextWindow: 131072\r\n//   costPer1kIn:  0                       ($ per 1k input tokens, 0 for local)\r\n//   costPer1kOut: 0                       ($ per 1k output tokens, 0 for local)\r\n//   strengths:    [\"python\", \"creative-writing\"]\r\n//   weaknesses:   [\"rust\", \"long-code\"]\r\n//   tier:         \"local\" | \"cheap\" | \"mid\" | \"premium\"\r\n//   enabled:      true\r\n//   notes:        \"User notes\"\r\n// }\r\n\nfunction getRoster() {\r\n  try { return JSON.parse(fs.readFileSync(ROSTER_PATH, 'utf8')); }\r\n  catch { return { models: [] }; }\r\n}\r\n\nfunction saveRoster(data) {\r\n  fs.writeFileSync(ROSTER_PATH, JSON.stringify(data, null, 2));\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "llm-router.js",
+    "BackEnd llm"
+  ],
+  "summary": "// ── Model Roster ────────────────────────────────────────────────────────────\r\n// User-managed list of available models with metadata.\r\n//\r\n// Each model entry:\r\n// {\r\n//   id:           \"ollama/lla",
+  "importance": 0.6,
+  "createdAt": 1774646382603,
+  "createdAtISO": "2026-03-27T21:19:42.603Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-router.js",
+  "accessCount": 0
+}

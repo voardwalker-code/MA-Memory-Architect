@@ -1,0 +1,10 @@
+{
+  "type": "ollama",
+  "endpoint": "http://localhost:11434",
+  "model": "minimax-m2.7:cloud",
+  "maxTokens": 65536,
+  "workspacePath": "C:\\Users\\voard\\Desktop\\MA-Memory-Architect\\MA\\MA-workspace",
+  "memoryLimit": 6,
+  "memoryRecall": true,
+  "integrationMode": "off"
+}

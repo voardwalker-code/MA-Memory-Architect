@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382403_69f35da6",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// ensureAgents(agentCatalog, defaults)\r\n//\r\n// Agents are specialised workers that MA can delegate tasks to.\r\n// This checks the agent catalog and creates any default agents that\r\n// are missing.  Existing agents are left alone.\r\n//\r\n//   agentCatalog — the MA-agents module (has listAgents, createAgent)\r\n//   defaults     — the DEFAULT_AGENTS array from agent-definitions.js\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction ensureAgents(agentCatalog, defaults) {\r\n  const existing = agentCatalog.listAgents();\r\n  const existingIds = new Set(existing.map(a => a.id));\r\n  let created = 0;\r\n  for (const def of defaults) {\r\n    if (existingIds.has(def.id)) continue;\r\n    const result = agentCatalog.createAgent(def);\r\n    if (result.ok) {\r\n      console.log(`  Agent provisioned: ${def.name} (${def.id})`);\r\n      created++;\r\n    }\r\n  }\r\n  if (created) {\r\n    console.log(`  ${created} agent(s) auto-provisioned`);\r\n  } else {\r\n    console.log(`  Agents OK: ${existing.length} in catalog`);\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-bootstrap.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// ensureAgents(agentCatalog, defaults)\r\n//\r\n// Agents are specialised workers that MA can delegate tasks to.\r\n// This",
+  "importance": 0.6,
+  "createdAt": 1774646382404,
+  "createdAtISO": "2026-03-27T21:19:42.404Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-bootstrap.js",
+  "accessCount": 0
+}

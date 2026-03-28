@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385159_c4afe799",
+  "type": "semantic",
+  "content": "// ── Syntax Highlighting (lightweight) ─────────────────────────────────────\r\nfunction renderCodeView(content, ext) {\r\n  const lines = content.split('\\n');\r\n  const lang = ext.toLowerCase();\r\n  return lines.map(function(line, i) {\r\n    return '<div class=\"code-line\">' +\r\n      '<span class=\"code-gutter\">' + (i + 1) + '</span>' +\r\n      '<span class=\"code-content\">' + highlightLine(escHtml(line), lang) + '</span>' +\r\n    '</div>';\r\n  }).join('');\r\n}\r\n\nfunction highlightLine(line, lang) {\r\n  // Comments\r\n  if (lang === 'js' || lang === 'ts' || lang === 'json' || lang === 'cs' || lang === 'rs' || lang === 'css' || lang === 'java' || lang === 'c' || lang === 'cpp') {\r\n    line = line.replace(/^(\\s*)(\\/\\/.*)$/, '$1<span class=\"tok-comment\">$2</span>');\r\n    line = line.replace(/(\\/\\*.*?\\*\\/)/, '<span class=\"tok-comment\">$1</span>');\r\n  }\r\n  if (lang === 'py') {\r\n    line = line.replace(/^(\\s*)(#.*)$/, '$1<span class=\"tok-comment\">$2</span>');\r\n  }\r\n  if (lang === 'html' || lang === 'htm' || lang === 'xml' || lang === 'svg') {\r\n    line = line.replace(/(&lt;!--.*?--&gt;)/, '<span class=\"tok-comment\">$1</span>');\r\n  }\r\n\n  // Strings\r\n  line = line.replace(/(&quot;(?:[^&]|&(?!quot;))*?&quot;|&#39;(?:[^&]|&(?!#39;))*?&#39;|`[^`]*`)/g, '<span class=\"tok-string\">$1</span>');\r\n\n  // Numbers\r\n  line = line.replace(/\\b(\\d+\\.?\\d*)\\b/g, '<span class=\"tok-number\">$1</span>');",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-editor.js",
+    "FrontEnd js"
+  ],
+  "summary": "// ── Syntax Highlighting (lightweight) ─────────────────────────────────────\r\nfunction renderCodeView(content, ext) {\r\n  const lines = content.split('\\n');\r\n  const lang = ext.toLowerCase();\r\n  retur",
+  "importance": 0.6,
+  "createdAt": 1774646385159,
+  "createdAtISO": "2026-03-27T21:19:45.159Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-editor.js",
+  "accessCount": 0
+}

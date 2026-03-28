@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386763_592ac667",
+  "type": "semantic",
+  "content": "```\r\n[TOOL:ws_write {\"path\": \"npc-roster-{location-slug}.md\", \"content\": \"...\"}]\r\n```\r\n\nFormat:\r\n- **Quick Reference Table**: Name | Race | Occupation | One-Line Hook | Entity ID\r\n- **Detailed Entries**: Full NPC blocks with all Phase 2 information\r\n- **Relationship Map**: The web from Phase 3\r\n\n---\r\n\n## CHARACTER MODE\r\n\n### Phase 1: Concept\r\n\nExtract from user message or **ASK**:\r\n- **Race** (elf, dwarf, half-orc, tiefling, etc.)\r\n- **Class** (fighter, wizard, rogue, etc.)\r\n- **Level** (default: 1)\r\n- **Concept/Archetype** (optional: \"haunted soldier\", \"cheerful librarian-turned-adventurer\", \"retired pirate\")\r\n\n### Phase 2: Mechanical Build\r\n\n**Ability Scores:**\r\n- Standard array [15, 14, 13, 12, 10, 8] or point buy — user preference (default: standard array)\r\n- Assign based on class priorities + concept\r\n- Show final scores after racial bonuses\r\n\n**Race Features:**\r\n- List all relevant racial traits for chosen race\r\n\n**Class Features:**\r\n- List all features for chosen class at specified level\r\n- Subclass selection (if level ≥ 3) — suggest one that fits the concept\r\n\n**Background:**\r\n- Select background that fits the concept\r\n- Proficiencies gained\r\n- Feature description\r\n- Suggested personality traits, ideal, bond, flaw (original — not copied from PHB)\r\n\n**Equipment:**\r\n- Starting equipment OR level-appropriate gear\r\n- One signature item with flavor text (not magical, just personal)",
+  "topics": [
+    "MA Memory Architect",
+    "dnd_create.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "```\r\n[TOOL:ws_write {\"path\": \"npc-roster-{location-slug}.md\", \"content\": \"...\"}]\r\n```\r\n\nFormat:\r\n- **Quick Reference Table**: Name | Race | Occupation | One-Line Hook | Entity ID\r\n- **Detailed Entries",
+  "importance": 0.6,
+  "createdAt": 1774646386764,
+  "createdAtISO": "2026-03-27T21:19:46.764Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\dnd_create.md",
+  "accessCount": 0
+}

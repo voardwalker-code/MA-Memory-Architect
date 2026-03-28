@@ -1,0 +1,26 @@
+// ── NLP · Markdown to HTML Renderer ──────────────────────────────────────────
+//
+// HOW MARKDOWN RENDERING WORKS:
+// Markdown is a simple way to format text — # for headings, ** for bold,
+// ``` for code blocks, etc.  This tiny renderer turns those markers into
+// actual HTML so the browser can display them as a nice-looking page.
+//
+// It's NOT a full Markdown parser (those are huge libraries).  It handles
+// just enough for the User Guide endpoint:
+//   - Headings (#, ##, ###)
+//   - Bold (**text**) and inline code (`code`)
+//   - Bullet lists (- item)
+//   - Tables (| col | col |)
+//   - Code blocks (```)
+//   - Horizontal rules (---)
+//
+// The output is a complete HTML page with dark-theme styling baked in,
+// so it looks good in MA's web interface without needing external CSS.
+//
+// WHAT USES THIS:
+//   MA-Server-standalone.js — renders USER-GUIDE.md at the /guide endpoint
+//
+// EXPORTS:
+//   renderMarkdownToHtml(md)  → string (complete HTML document)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

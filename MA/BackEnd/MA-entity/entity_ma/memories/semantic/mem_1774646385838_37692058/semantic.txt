@@ -1,0 +1,7 @@
+Before submitting, answer YES or NO:
+- Did I address the user's actual request? → must be YES
+- Are all facts sourced, not invented? → must be YES
+- Are outputs in workspace files? → must be YES for multi-sentence output
+- Is my summary under 5 sentences? → must be YES
+
+If any answer is NO, fix it before submitting.

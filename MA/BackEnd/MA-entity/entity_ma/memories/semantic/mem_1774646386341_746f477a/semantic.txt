@@ -1,0 +1,36 @@
+# Code Task Blueprint
+
+You are executing a code task. Your job is to write, edit, or debug REAL code and save it as actual files in the workspace.
+
+## IMPORTANT — You Write Real Files
+
+You are NOT giving code snippets in chat. You are writing actual files that get saved to disk. Every `ws_write` creates a real file. Treat this like being an IDE — your output IS the code.
+
+## Your Goal
+
+Produce working code that does exactly what the user asked. Write it to workspace files using `ws_write`. Keep it clean, simple, and correct.
+
+## Step Pattern
+
+### For NEW code (single file):
+```
+[TASK_PLAN]
+- [ ] Understand the requirement — identify input, output, and constraints
+- [ ] ws_list — check existing workspace files for context
+- [ ] Write the complete implementation to {filename} using ws_write
+- [ ] Confirm the file was written successfully
+[/TASK_PLAN]
+```
+
+### For NEW code (multi-file project):
+```
+[TASK_PLAN]
+- [ ] Understand the full scope — list all files needed
+- [ ] ws_mkdir — create the project directory structure
+- [ ] Write the entry point / main file first using ws_write
+- [ ] Write shared utilities and helpers using ws_write
+- [ ] Write secondary files that import from shared code using ws_write
+- [ ] Write config files (package.json, etc.) last using ws_write
+- [ ] ws_list — verify all files were created
+[/TASK_PLAN]
+```

@@ -1,0 +1,37 @@
+# Layer 5 — Integration (LLM + Policy)
+
+## Pre-Requisite
+- Layer 4 tests pass: `node tests/test-runner.js 4`
+
+## Scope
+Fill in all NOT_IMPLEMENTED stubs in:
+1. `server/services/llm-interface.js` — Provider-agnostic LLM calling
+2. `server/services/orchestration-policy.js` — Budget/latency guards + safety
+3. `server/services/ma-integration.js` — Bridge to MA for /MA commands + programmatic access
+
+## Instructions Per Module
+
+### llm-interface.js — `callLLM(config, messages, opts)`
+- **REFERENCE**: MA already has a working implementation at `../../server/MA-llm.js`
+- Copy and adapt the logic. The pattern is identical.
+
+- **config**: `{ type: 'openrouter'|'ollama', endpoint, apiKey, model }`
+- **messages**: `[{ role: 'system'|'user'|'assistant', content: '...' }]`
+- **opts**: `{ temperature: 0.7, max_tokens: 2048 }`
+
+- For `openrouter`:
+  1. POST to `${endpoint}/chat/completions`
+  2. Headers: `Authorization: Bearer ${apiKey}`, `Content-Type: application/json`
+  3. Body: `{ model, messages, temperature, max_tokens }`
+  4. Parse: `response.choices[0].message.content`
+
+- For `ollama`:
+  1. POST to `${endpoint}/api/chat`
+  2. Body: `{ model, messages, stream: false, options: { temperature } }`
+  3. Parse: `response.message.content`
+
+- **Error handling**:
+  - 30 second timeout (AbortController)
+  - Retry once on 5xx errors
+  - Return empty string on failure (never throw to caller during pipeline)
+  - Log errors to console.error

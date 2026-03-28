@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385879_3fc12145",
+  "type": "semantic",
+  "content": "### Step 1: Understand the Question\r\nBefore analyzing anything, restate the question in your own words. If the question is vague, narrow it:\r\n- \"Is this a good idea?\" → \"What are the costs, risks, and expected benefits?\"\r\n- \"What's going on here?\" → \"What changed, when, and what is the impact?\"\r\n\n### Step 2: Gather Evidence\r\nCollect facts from available sources. For each fact, note WHERE it came from. Do not mix facts with opinions yet.\r\n\n### Step 3: Find Patterns\r\nLook for:\r\n- **Trends**: Is something increasing, decreasing, or stable over time?\r\n- **Clusters**: Do some items group together? What do they have in common?\r\n- **Outliers**: Is anything unusual? Why might it be different?\r\n- **Gaps**: What data is MISSING that would strengthen your analysis?\r\n\n### Step 4: Draw Conclusions\r\nFor each conclusion:\r\n1. State the conclusion clearly in one sentence.\r\n2. List the evidence that supports it (2-3 points).\r\n3. Note any evidence that contradicts it.\r\n4. Rate your confidence: HIGH (strong evidence), MEDIUM (some evidence), LOW (limited evidence).\r\n\n## Analysis Report Structure\r\n\n```markdown\r\n# Analysis: {Topic}\r\n\n## Question\r\n{Clear restatement of what was analyzed and why.}\r\n\n## Key Findings\r\n\n### Finding 1: {conclusion}\r\n- Evidence: {supporting facts with sources}\r\n- Confidence: HIGH / MEDIUM / LOW\r\n\n### Finding 2: {conclusion}\r\n- Evidence: {supporting facts with sources}\r\n- Confidence: HIGH / MEDIUM / LOW",
+  "topics": [
+    "MA Memory Architect",
+    "analysis.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "### Step 1: Understand the Question\r\nBefore analyzing anything, restate the question in your own words. If the question is vague, narrow it:\r\n- \"Is this a good idea?\" → \"What are the costs, risks, and",
+  "importance": 0.6,
+  "createdAt": 1774646385879,
+  "createdAtISO": "2026-03-27T21:19:45.879Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\analysis.md",
+  "accessCount": 0
+}

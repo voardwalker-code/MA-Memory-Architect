@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385807_cb61d81d",
+  "type": "semantic",
+  "content": "# Output Format Rules\r\n\nHow to structure your outputs so they are clean, useful, and consistent.\r\n\n## Chat Responses (What the user sees)\r\n\n1. Match response length to the task. Simple confirmations can be 1-2 sentences. Complex tasks should explain what was done clearly.\r\n2. Tell the user WHAT you did and WHERE to find the output.\r\n3. Use natural language — not system jargon.\r\n4. For research or analysis tasks, give a meaningful summary — do not artificially shorten it.\r\n\nGood: \"I wrote up the research findings in research-notes.md with 3 key studies and their main conclusions.\"\r\nBad: \"Task execution complete. Step 1 output written to disk. Step 2 output written to disk. Step 3 finalized.\"\r\n\n## Workspace Files (Where real output goes)\r\n\n### File Naming\r\n- Use lowercase with hyphens: `market-analysis.md`, not `MarketAnalysis.md`\r\n- Name describes content: `solar-efficiency-research.md`, not `output-1.md`\r\n- One topic per file. Split if needed.\r\n\n### File Structure\r\nEvery output file should have:\r\n```markdown\r\n# Title That Describes Content\r\n\nBrief summary of what this file contains (1-2 sentences).\r\n\n## Section 1\r\nContent...\r\n\n## Section 2\r\nContent...\r\n\n## Sources (if research)\r\n- Source 1: description\r\n- Source 2: description\r\n```\r\n\n### Content Rules\r\n- Write complete sentences — not bullet fragments.\r\n- Include sources for any factual claims.\r\n- No placeholder text (\"TODO\", \"insert here\", \"TBD\") — write real content or skip the section.\r\n\n## Special Tags in Your Response",
+  "topics": [
+    "MA Memory Architect",
+    "output-format.md",
+    "MA-blueprints core"
+  ],
+  "summary": "# Output Format Rules\r\n\nHow to structure your outputs so they are clean, useful, and consistent.\r\n\n## Chat Responses (What the user sees)\r\n\n1. Match response length to the task. Simple confirmations c",
+  "importance": 0.6,
+  "createdAt": 1774646385808,
+  "createdAtISO": "2026-03-27T21:19:45.808Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\core\\output-format.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384013_40153b45",
+  "type": "semantic",
+  "content": "**How to find dead code:**\r\n```bash\r\n# Search for every file that's required somewhere\r\ngrep -r \"require(\" *.js --include=\"*.js\" | grep -o \"'[^']*'\" | sort -u\r\n\n# Compare against the actual file list — anything not required is suspect\r\nls MA-server/*.js\r\n```\r\n\n**Key lesson:** Delete before you organize. No point moving dead code\r\ninto neat folders.\r\n\n---\r\n\n## Phase 3 — Server Entry Point Refactor\r\n\n**Problem:** `MA-Server-standalone.js` was 814 lines — HTTP setup, route\r\nhandling, utility functions, and business logic all tangled together.\r\n\n**What we did:**\r\n1. **Read the entire file** and identified logical groups:\r\n   - HTTP route handlers (the bulk — ~650 lines)\r\n   - HTTP utility functions (JSON response, body reading, path guards)\r\n   - Server setup and wiring (~80 lines)\r\n\n2. **Extracted HTTP utilities** into `MA-http-utils.js` (133 lines):\r\n   - `json()` — send JSON responses\r\n   - `readBody()` — collect POST bodies safely\r\n   - `resolveInsideRoot()` — path traversal guard\r\n   - `listMarkdownFiles()` — recursive .md finder\r\n   - `listWorkspaceTree()` — nested file tree builder\r\n   - `MIME` — extension-to-content-type map\r\n\n3. **Extracted route handling** into `MA-routes.js` (174 lines):\r\n   - Thin dispatcher: takes a URL path, delegates to the right route module\r\n   - Uses `safeRequire()` so a broken route doesn't crash the server",
+  "topics": [
+    "MA Memory Architect",
+    "01-CLEANUP-PROCESS.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "**How to find dead code:**\r\n```bash\r\n# Search for every file that's required somewhere\r\ngrep -r \"require(\" *.js --include=\"*.js\" | grep -o \"'[^']*'\" | sort -u\r\n\n# Compare against the actual file list ",
+  "importance": 0.6,
+  "createdAt": 1774646384015,
+  "createdAtISO": "2026-03-27T21:19:44.015Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\01-CLEANUP-PROCESS.md",
+  "accessCount": 0
+}

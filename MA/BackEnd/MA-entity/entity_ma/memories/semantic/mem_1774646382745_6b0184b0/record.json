@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382745_6b0184b0",
+  "type": "semantic",
+  "content": "// ── MA Workspace Tools ───────────────────────────────────────────────────────\n// File I/O + web + command tools for task execution.\n//\n// HOW IT WORKS:\n// When the AI wants to DO something (read a file, write code, search the\n// web, run a command), it calls a \"tool\".  This file is the orchestrator\n// that coordinates all those tools.\n//\n// Instead of having ALL the tool logic crammed into one giant file,\n// we split it into focused modules in the ./tools/ folder:\n//\n//   tools-schemas.js  — Zod validation schemas (what params each tool expects)\n//   tools-parser.js   — Extracts [TOOL:...] calls from LLM text output\n//   tools-fs.js       — Workspace file operations (list, read, write, etc.)\n//   tools-entity.js   — Entity creation and memory injection\n//   tools-book.js     — Book chunk reading\n//   tools-web.js      — Web search, fetch, command execution\n//\n// This file's job is simple:\n//   1. Load each tool module\n//   2. When executeToolCalls() is called, parse the text for tool calls,\n//      then dispatch each call to the right module\n//   3. Collect results and return them\n//\n// RESILIENCE:\n// Each tool module is loaded with safeRequire() — if a module is missing\n// or broken, the server still starts.  Tools from that module just won't\n// be available (they'll return an error instead of crashing the server).\n//\n// EXPORTS (public API — same as the old monolith):\n//   extractToolCalls(text)                — Parse text for tool calls\n//   executeToolCalls(text, opts)           — Parse + execute all tool calls\n//   executeNativeToolCalls(toolCalls, opts) — Execute pre-parsed native calls\n//   formatToolResults(results)             — Format results for LLM context\n//   stripToolCalls(text)                   — Remove tool blocks from text\n//   ToolSchemas                            — The Zod schemas for all tools\n// ─────────────────────────────────────────────────────────────────────────────\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "MA-workspace-tools.js",
+    "BackEnd"
+  ],
+  "summary": "// ── MA Workspace Tools ───────────────────────────────────────────────────────\n// File I/O + web + command tools for task execution.\n//\n// HOW IT WORKS:\n// When the AI wants to DO something (read a ",
+  "importance": 0.6,
+  "createdAt": 1774646382745,
+  "createdAtISO": "2026-03-27T21:19:42.745Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-workspace-tools.js",
+  "accessCount": 0
+}

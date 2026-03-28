@@ -1,0 +1,33 @@
+For each NPC entity that appeared in the session, inject a memory of the session events from their perspective:
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/memories/inject", "method": "POST", "body": {"content": "From NPC's perspective: what happened in this session...", "type": "episodic", "emotion": "...", "topics": ["session-N", "relevant-event"], "importance": 0.6, "narrative": "...", "phase": "session_N"}}]
+```
+
+Run cognitive tick for updated NPCs:
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/cognitive/tick", "method": "POST", "body": {}}]
+```
+
+### Phase 5: Thread Tracking
+
+Flag:
+- **Unresolved plot threads** — what's still dangling
+- **New hooks introduced** — what was foreshadowed or hinted at
+- **Faction reputation changes** — did the party gain or lose standing with anyone?
+- **Consequences** — what will happen next because of what the party did
+
+### Phase 6: Next Session Opener
+
+Generate a "Previously on..." read-aloud text (2-3 paragraphs) ready for the DM to read at the start of the next session.
+
+### Phase 7: Output
+
+```
+[TOOL:ws_write {"path": "campaign-{name-slug}/recap-session-{N}.md", "content": "..."}]
+```
+
+---
+
+## WORLD LORE MODE
+
+### Phase 1: Target

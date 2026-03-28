@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383534_d12e2fd9",
+  "type": "semantic",
+  "content": "// Task types that benefit from extended thinking (complex reasoning required)\r\nconst COMPLEX_TASK_TYPES = new Set(['architect', 'code', 'deep_research', 'project', 'entity_genesis', 'book_ingestion', 'study_guide', 'dnd_create', 'tutor_entity', 'dnd_campaign', 'course_creator', 'blueprint_builder', 'prompt_engineering', 'app_builder']);\r\n\n/** Strip <thinking>...</thinking> blocks from LLM output. */\r\nfunction _stripThinkingTags(text) {\r\n  if (!text) return text;\r\n  return text.replace(/<thinking>[\\s\\S]*?<\\/thinking>/gi, '').trim();\r\n}\r\n\n// ── Blueprint cache ─────────────────────────────────────────────────────────\r\nconst _bpCache = new Map();\r\nconst BP_DIR = path.join(__dirname, '..', 'MA-blueprints');\r\n\nfunction _loadBP(filePath) {\r\n  if (_bpCache.has(filePath)) return _bpCache.get(filePath);\r\n  try {\r\n    if (fs.existsSync(filePath)) {\r\n      const c = fs.readFileSync(filePath, 'utf8').trim();\r\n      _bpCache.set(filePath, c);\r\n      return c;\r\n    }\r\n  } catch (_) {}\r\n  _bpCache.set(filePath, '');\r\n  return '';\r\n}\r\n\nfunction getBlueprint(taskType, phase) {\r\n  const parts = [];\r\n  const coreDir = path.join(BP_DIR, 'core');\r\n  const modDir  = path.join(BP_DIR, 'modules');",
+  "topics": [
+    "MA Memory Architect",
+    "svc-tasks.js",
+    "BackEnd services"
+  ],
+  "summary": "// Task types that benefit from extended thinking (complex reasoning required)\r\nconst COMPLEX_TASK_TYPES = new Set(['architect', 'code', 'deep_research', 'project', 'entity_genesis', 'book_ingestion',",
+  "importance": 0.6,
+  "createdAt": 1774646383535,
+  "createdAtISO": "2026-03-27T21:19:43.535Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-tasks.js",
+  "accessCount": 0
+}

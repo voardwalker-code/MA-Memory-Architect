@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387005_2d5f3cdd",
+  "type": "semantic",
+  "content": "Structure for tool/function calling:\r\n```\r\nYou have access to these tools:\r\n[Tool definitions with parameters and descriptions]\r\n\nWhen you need to use a tool, output:\r\n[Exact call format]\r\n\nRules:\r\n- Only call tools when needed to fulfill the request\r\n- Provide all required parameters\r\n- Never fabricate tool results\r\n```\r\n\nWrite to file:\r\n```\r\n[TOOL:ws_write {\"path\":\"prompts/{slug}-structured.md\"}]\r\n{structured output prompt}\r\n[/TOOL]\r\n```\r\n\n---\r\n\n## GENERAL PROMPT MODE\r\n\nFor any prompt request that doesn't fit the specific modes above.\r\n\n[TASK_PLAN]\r\n- [ ] Clarify the use case and desired outcome\r\n- [ ] Design the prompt structure (system / user / assistant sections)\r\n- [ ] Write complete prompt to file\r\n- [ ] Review for clarity, specificity, and completeness\r\n[/TASK_PLAN]\r\n\nFollow the same principles as System Prompt Mode but adapt the structure to the request. Always ask:\r\n1. What is the input?\r\n2. What is the desired output?\r\n3. What must the model NEVER do?\r\n4. What format should the output be in?\r\n\n---\r\n\n## Prompt Engineering Principles — Always Apply",
+  "topics": [
+    "MA Memory Architect",
+    "prompt_engineering.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Structure for tool/function calling:\r\n```\r\nYou have access to these tools:\r\n[Tool definitions with parameters and descriptions]\r\n\nWhen you need to use a tool, output:\r\n[Exact call format]\r\n\nRules:\r\n- ",
+  "importance": 0.6,
+  "createdAt": 1774646387006,
+  "createdAtISO": "2026-03-27T21:19:47.006Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\prompt_engineering.md",
+  "accessCount": 0
+}

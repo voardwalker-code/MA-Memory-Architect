@@ -1,0 +1,41 @@
+```
+┌─────────────────────────────────────────────────────────────┐
+│  MA Code Conventions — Quick Reference                      │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  EVERY FILE STARTS WITH:                                    │
+│    // ── {Group} · {Name} ──────────────────── ...          │
+│    // HOW: plain English explanation                        │
+│    // WHAT USES THIS: list consumers                        │
+│    // EXPORTS: list public API                              │
+│    'use strict';                                            │
+│                                                             │
+│  VOICE: explain like the reader is 10 years old             │
+│  ANALOGIES: use real-world comparisons                      │
+│  SECTIONS: use ── divider comments ──                       │
+│                                                             │
+│  FILE SIZE: split at 200+ lines, mandatory at 400+          │
+│  PATTERN: orchestrator + subfolder modules                  │
+│  RESILIENCE: safeRequire() in orchestrators                 │
+│  EXPORTS: explicit, at the bottom, one list                 │
+│                                                             │
+│  NAMING:                                                    │
+│    Files:     nlp-bm25.js, svc-memory.js, route-chat.js    │
+│    Functions: camelCase, _privatePrefix                     │
+│    Constants: UPPER_SNAKE or descriptive camelCase          │
+│                                                             │
+│  ORDER IN FILE:                                             │
+│    1. Header comment                                        │
+│    2. 'use strict'                                          │
+│    3. Imports (built-in first, then local)                  │
+│    4. Constants                                             │
+│    5. Core logic                                            │
+│    6. Helpers (private functions)                            │
+│    7. module.exports                                        │
+│                                                             │
+│  VALIDATE AFTER EVERY CHANGE:                               │
+│    npm run guardrails:standalone                            │
+│    npm run smoke:standalone                                 │
+│    npm run health                                           │
+└─────────────────────────────────────────────────────────────┘
+```

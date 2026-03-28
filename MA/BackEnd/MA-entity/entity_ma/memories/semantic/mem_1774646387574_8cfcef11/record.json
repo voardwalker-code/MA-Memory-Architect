@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387574_8cfcef11",
+  "type": "semantic",
+  "content": "# Layer 5 — Integration (LLM + Policy)\r\n\n## Pre-Requisite\r\n- Layer 4 tests pass: `node tests/test-runner.js 4`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/services/llm-interface.js` — Provider-agnostic LLM calling\r\n2. `server/services/orchestration-policy.js` — Budget/latency guards + safety\r\n3. `server/services/ma-integration.js` — Bridge to MA for /MA commands + programmatic access\r\n\n## Instructions Per Module\r\n\n### llm-interface.js — `callLLM(config, messages, opts)`\r\n- **REFERENCE**: MA already has a working implementation at `../../server/MA-llm.js`\r\n- Copy and adapt the logic. The pattern is identical.\r\n\n- **config**: `{ type: 'openrouter'|'ollama', endpoint, apiKey, model }`\r\n- **messages**: `[{ role: 'system'|'user'|'assistant', content: '...' }]`\r\n- **opts**: `{ temperature: 0.7, max_tokens: 2048 }`\r\n\n- For `openrouter`:\r\n  1. POST to `${endpoint}/chat/completions`\r\n  2. Headers: `Authorization: Bearer ${apiKey}`, `Content-Type: application/json`\r\n  3. Body: `{ model, messages, temperature, max_tokens }`\r\n  4. Parse: `response.choices[0].message.content`\r\n\n- For `ollama`:\r\n  1. POST to `${endpoint}/api/chat`\r\n  2. Body: `{ model, messages, stream: false, options: { temperature } }`\r\n  3. Parse: `response.message.content`\r\n\n- **Error handling**:\r\n  - 30 second timeout (AbortController)\r\n  - Retry once on 5xx errors\r\n  - Return empty string on failure (never throw to caller during pipeline)\r\n  - Log errors to console.error",
+  "topics": [
+    "MA Memory Architect",
+    "layer-5-integration.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "# Layer 5 — Integration (LLM + Policy)\r\n\n## Pre-Requisite\r\n- Layer 4 tests pass: `node tests/test-runner.js 4`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/services/llm-interface.js` ",
+  "importance": 0.6,
+  "createdAt": 1774646387575,
+  "createdAtISO": "2026-03-27T21:19:47.575Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-5-integration.md",
+  "accessCount": 0
+}

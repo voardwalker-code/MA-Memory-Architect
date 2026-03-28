@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385135_dbbefddb",
+  "type": "semantic",
+  "content": "return '<div class=\"editor-toolbar\">' +\r\n    '<div class=\"meta-wrap\">' +\r\n      '<span class=\"editor-pane-title\">' + escHtml(tab.name) + '</span>' +\r\n      '<span class=\"editor-pane-meta\">' + escHtml(tab.path) + ' <span class=\"' + saveClass + '\">' + saveText + '</span></span>' +\r\n    '</div>' +\r\n    '<div class=\"actions\">' +\r\n      viewButtons +\r\n      '<button class=\"editor-action-btn primary\" onclick=\"saveEditorTab()\" title=\"Save file\">Save</button>' +\r\n    '</div>' +\r\n  '</div>';\r\n}\r\n\nfunction switchViewMode(mode) {\r\n  const tab = openTabs.find(t => t.id === activeTabId);\r\n  if (!tab) return;\r\n  // On switching away from source, capture textarea content\r\n  if (tab.viewMode === 'source') {\r\n    const ta = editorContent.querySelector('.editor-textarea');\r\n    if (ta) tab.content = ta.value;\r\n  }\r\n  tab.viewMode = mode;\r\n  renderEditorContent();\r\n}\r\n\nfunction onEditorInput(textarea) {\r\n  const tab = openTabs.find(t => t.id === activeTabId);\r\n  if (!tab) return;\r\n  tab.content = textarea.value;\r\n  tab.dirty = tab.content !== tab.originalContent;\r\n  renderEditorTabs();\r\n  // Update save indicator inline\r\n  const indicator = editorContent.querySelector('.save-indicator');\r\n  if (indicator) {\r\n    indicator.className = tab.dirty ? 'save-indicator dirty' : 'save-indicator saved';\r\n    indicator.textContent = tab.dirty ? 'Unsaved' : 'Saved';\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-editor.js",
+    "FrontEnd js"
+  ],
+  "summary": "return '<div class=\"editor-toolbar\">' +\r\n    '<div class=\"meta-wrap\">' +\r\n      '<span class=\"editor-pane-title\">' + escHtml(tab.name) + '</span>' +\r\n      '<span class=\"editor-pane-meta\">' + escHtml(",
+  "importance": 0.6,
+  "createdAt": 1774646385136,
+  "createdAtISO": "2026-03-27T21:19:45.136Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-editor.js",
+  "accessCount": 0
+}

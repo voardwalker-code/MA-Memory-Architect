@@ -1,0 +1,29 @@
+const CONVO_KW = ['hello','hi','hey','how are you','thanks','thank you','what do you think','your opinion','chat','talk'];
+
+function _score(msg, kw, re) {
+  const low = msg.toLowerCase();
+  const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  let kwHits = kw.filter(k => new RegExp(`(^|\\W)${esc(k).replace(/\s+/g, '\\s+')}($|\\W)`, 'i').test(low)).length;
+  let reHits = re.filter(r => r.test(msg)).length;
+  return Math.min(kwHits * 0.2, 0.6) + Math.min(reHits * 0.35, 0.6);
+}
+
+/** Classify message → { intent: 'task'|'conversation', taskType, confidence } */
+function classify(message) {
+  if (!message || typeof message !== 'string') return { intent: 'conversation', taskType: null, confidence: 0 };
+
+  let best = null, bestScore = 0;
+  for (const [type, r] of Object.entries(RULES)) {
+    const s = _score(message, r.kw, r.re);
+    if (s > bestScore) { bestScore = s; best = type; }
+  }
+
+  const convoScore = _score(message, CONVO_KW, [/^(?:hello|hi|hey|what's up|how are you).{0,30}$/i]);
+  if (bestScore >= 0.2 && bestScore >= convoScore + 0.05) {
+    return { intent: 'task', taskType: best, confidence: bestScore };
+  }
+  return { intent: 'conversation', taskType: null, confidence: convoScore };
+}
+
+// ── Task runner ─────────────────────────────────────────────────────────────
+const PLAN_RE = /\[TASK_PLAN\]([\s\S]*?)\[\/TASK_PLAN\]/;

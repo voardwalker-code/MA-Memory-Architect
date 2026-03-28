@@ -1,0 +1,33 @@
+| Group | What goes in it | Count |
+|-------|-----------------|-------|
+| `nlp/` | Text processing: BM25, RAKE, YAKE, Markdown renderer | 4 files |
+| `llm/` | AI model communication: API caller, router, capabilities, tool adapter | 4 files |
+| `services/` | Business logic: agents, memory, tasks, pulse, worklog, project archive, slash commands | 7 files |
+| `infra/` | Infrastructure: health scanner, HTTP utils, command executor, web fetch | 4 files |
+
+3. **Copied files to new locations** (never move — copy first, test, then delete)
+
+4. **Updated ALL require() paths** across the entire codebase:
+   - 13 route modules (all pointed to `../MA-http-utils`)
+   - Core modules (pointed to `../MA-capabilities`)
+   - Tool modules (pointed to `../MA-web-fetch`, `../MA-cmd-executor`)
+   - Entry points (MA-Server-standalone.js, MA-cli.js)
+   - Test files
+   - Scripts
+   - Documentation and blueprints
+
+5. **Updated the health registry** (infra-health.js) with all new paths
+
+6. **Validated:** `require()` check → guardrails → smoke test → health scan
+
+7. **Deleted old files** only after everything passed
+
+**Critical safety rule:** NEVER delete the originals until the new
+structure is fully validated. Copy first, update paths, test, THEN delete.
+
+---
+
+## Phase 7 — FrontEnd / BackEnd Split
+
+**Problem:** Even after internal organization, the top-level MA/ folder
+mixed frontend browser code with backend server code.

@@ -1,0 +1,35 @@
+**What we did:**
+1. **Mapped the 6 logical groups:**
+   - Zod schemas for parameter validation
+   - Three-pass regex parser for extracting tool calls from text
+   - File system operations (list, read, write, append, delete, mkdir, move)
+   - Entity creation and memory injection
+   - Book chunk listing and reading
+   - Web search, fetch, and command execution
+
+2. **Created `tools/` subfolder** with 6 modules:
+
+| Module | Responsibility |
+|--------|----------------|
+| `tools-schemas.js` | Zod validation schemas for all 15 tools |
+| `tools-parser.js` | Three-pass regex parser + extractToolCalls + stripToolCalls |
+| `tools-fs.js` | File operations + path security boundary |
+| `tools-entity.js` | Entity creation + memory injection |
+| `tools-book.js` | Book chunk listing and reading |
+| `tools-web.js` | Web search, fetch, command execution |
+
+3. **Rewrote MA-workspace-tools.js** as a 256-line orchestrator
+
+---
+
+## Phase 6 — Folder Organization
+
+**Problem:** After modularization, MA-server/ still had 22 loose `.js`
+files sitting at the root level — hard to navigate, hard to understand
+what belongs together.
+
+**What we did:**
+1. **Mapped every require() dependency** in the entire project
+   (who imports what, from where)
+
+2. **Identified 4 natural groups:**

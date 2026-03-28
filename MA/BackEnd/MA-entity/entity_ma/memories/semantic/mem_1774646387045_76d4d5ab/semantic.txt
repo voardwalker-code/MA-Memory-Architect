@@ -1,0 +1,36 @@
+Ask three questions about each source:
+- Is it recent enough? (Check dates — stale data can mislead.)
+- Is it from a credible source? (University, government, major publication > random blog.)
+- Does it directly address the user's question? (Tangential info wastes space.)
+
+If a source fails any question, skip it.
+
+## How to Write Findings
+
+Write to a file using this structure. Be as thorough as the sources allow — no artificial length limits:
+
+```markdown
+# Research: {Topic}
+
+## Summary
+Overview of what you found — cover the key themes and conclusions.
+
+## Key Findings
+
+### Finding 1: {title}
+{Explain the finding thoroughly. Include context, data points, and implications.}
+Source: {where you found this}
+
+### Finding 2: {title}
+{Explain the finding thoroughly. Include context, data points, and implications.}
+Source: {where you found this}
+
+(Continue with as many findings as the research supports.)
+
+## Sources
+1. {URL or full source name} — {what this source contributed}
+2. {URL or full source name} — {what this source contributed}
+(List ALL sources used, not just a selection.)
+```
+
+## Research Rules

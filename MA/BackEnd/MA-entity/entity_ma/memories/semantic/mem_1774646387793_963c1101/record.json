@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387793_963c1101",
+  "type": "semantic",
+  "content": "{\n  \"records\": {}\n}",
+  "topics": [
+    "MA Memory Architect",
+    "model-performance.json",
+    "MA-Config"
+  ],
+  "summary": "{\n  \"records\": {}\n}",
+  "importance": 0.6,
+  "createdAt": 1774646387794,
+  "createdAtISO": "2026-03-27T21:19:47.794Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-Config\\model-performance.json",
+  "accessCount": 0
+}

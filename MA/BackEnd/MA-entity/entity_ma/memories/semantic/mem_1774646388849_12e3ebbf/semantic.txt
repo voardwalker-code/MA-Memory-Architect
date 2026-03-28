@@ -1,0 +1,21 @@
+All on `http://localhost:3847`:
+
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/entities/create` | POST | Create tutor/TA entity |
+| `/api/entities/{id}/memories/inject` | POST | Inject knowledge and experience |
+| `/api/entities/{id}/cognitive/tick` | POST | Process memories |
+| `/api/entities/{id}/cognitive/state` | GET | Read evolved personality |
+
+## Memory Types
+
+- **Subject Knowledge** (semantic): Core concepts + how to explain them + common pitfalls
+- **Teaching Strategies** (semantic): Approaches for specific topics + alternative explanations
+- **Pedagogical Experience** (episodic): Teaching moments, breakthroughs, lessons learned
+- **Course Content** (semantic, TA mode): Weekly topics, assignment details, exam prep
+
+## Memory Quality Rules
+- First person from the tutor's perspective
+- Include HOW they explain concepts, not just WHAT the concepts are
+- Vary emotions — teaching involves joy, curiosity, pride, patience
+- Importance: 0.7-0.9 for core expertise, 0.5-0.7 for strategies, 0.3-0.5 for anecdotes

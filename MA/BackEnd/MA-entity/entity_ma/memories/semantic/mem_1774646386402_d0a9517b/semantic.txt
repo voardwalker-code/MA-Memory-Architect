@@ -1,0 +1,34 @@
+### Phase 4: INTERACTIVE PAUSE
+
+Present proposed course structure:
+- Module list mapped to book chapters
+- Proposed reading order vs original chapter order
+- Flagged reference-only chapters
+
+Offer: "Should I adjust the module groupings, reorder anything, or include/exclude specific chapters?"
+
+### Phase 5: Module Content
+
+For each module:
+- **Learning Objectives** — what the student gains from this section
+- **Concept Summary** — simpler than the book's language, accessible explanation
+- **Key Takeaways** — 3-5 bullet points per module
+- **Reading Assignment** — specific chapters/pages in the book
+- **Discussion Questions** — 3-5 questions that promote deeper thinking
+- **Practice Problems** — 3-5 exercises based on the chapter content
+
+### Phase 6: Assessments
+
+Same assessment structure as Course Creator mode (quizzes, midterm, final).
+
+### Phase 7: Reading Schedule
+
+Generate a structured reading plan:
+- Day-by-day or week-by-week schedule
+- Specific page/chapter references
+- Built-in review sessions
+- Pacing that matches difficulty (harder chapters get more time)
+
+### Phase 8: Optional Tutor
+
+**ASK** user: "Would you like me to create a tutor entity specialized in this book's subject matter? The tutor will have knowledge of the book's key concepts and can help you study."

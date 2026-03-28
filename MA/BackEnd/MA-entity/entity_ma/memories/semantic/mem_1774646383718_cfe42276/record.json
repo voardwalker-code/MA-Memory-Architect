@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383718_cfe42276",
+  "type": "semantic",
+  "content": "// ── Tool Book ────────────────────────────────────────────────────────────────\r\n//\r\n// Tools for reading ingested book chunks from the workspace.\r\n//\r\n// HOW IT WORKS:\r\n// When MA ingests a book, it splits the text into small \"chunks\" and\r\n// saves them as numbered text files inside a books/{bookId}/chunks/ folder.\r\n// These tools let the AI read those chunks one at a time.\r\n//\r\n// The book folder contains:\r\n//   meta.json           — book metadata (title, author, bookId, etc.)\r\n//   chunks/\r\n//     chunk_0000.txt    — first chunk of the book\r\n//     chunk_0001.txt    — second chunk\r\n//     ...               — and so on\r\n//\r\n// There are TWO possible locations for books:\r\n//   1. New layout:  projects/{slug}/books/{bookId}/   (inside a project)\r\n//   2. Legacy:      books/{bookId}/                   (standalone)\r\n//\r\n// WHAT IT EXPORTS:\r\n//   bookListChunks(wp, bookId)          — List all chunks in a book\r\n//   bookReadChunk(wp, bookId, index)    — Read one specific chunk\r\n//\r\n// USED BY: MA-workspace-tools.js (the orchestrator's executeToolCalls)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n\nconst fs   = require('fs');\r\nconst path = require('path');",
+  "topics": [
+    "MA Memory Architect",
+    "tools-book.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ── Tool Book ────────────────────────────────────────────────────────────────\r\n//\r\n// Tools for reading ingested book chunks from the workspace.\r\n//\r\n// HOW IT WORKS:\r\n// When MA ingests a book, it",
+  "importance": 0.6,
+  "createdAt": 1774646383720,
+  "createdAtISO": "2026-03-27T21:19:43.720Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-book.js",
+  "accessCount": 0
+}

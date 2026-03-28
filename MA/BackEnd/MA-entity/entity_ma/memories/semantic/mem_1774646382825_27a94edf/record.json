@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382825_27a94edf",
+  "type": "semantic",
+  "content": "// ── Save a blueprint ─────────────────────────────────────────────\r\n    // Body: { path: \"core/output-format.md\", content: \"# Updated...\" }\r\n    // The file must already exist — you can't create new ones via API.\r\n    if (url.pathname === '/api/blueprints/file' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      if (!body.path || typeof body.content !== 'string') {\r\n        json(res, 400, { error: 'Need blueprint path and content' });\r\n        return true;\r\n      }\r\n      try {\r\n        const fullPath = resolveInsideRoot(BLUEPRINT_DIR, body.path);\r\n        if (!fs.existsSync(fullPath)) { json(res, 404, { error: 'Blueprint not found' }); return true; }\r\n        fs.writeFileSync(fullPath, body.content, 'utf8');\r\n        json(res, 200, {\r\n          ok:   true,\r\n          path: path.relative(BLUEPRINT_DIR, fullPath).replace(/\\\\/g, '/')\r\n        });\r\n      } catch (e) {\r\n        json(res, 400, { error: e.message });\r\n      }\r\n      return true;\r\n    }\r\n\n    // None of our routes matched\r\n    return false;\r\n  };\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "route-blueprints.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Save a blueprint ─────────────────────────────────────────────\r\n    // Body: { path: \"core/output-format.md\", content: \"# Updated...\" }\r\n    // The file must already exist — you can't create new",
+  "importance": 0.6,
+  "createdAt": 1774646382825,
+  "createdAtISO": "2026-03-27T21:19:42.825Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-blueprints.js",
+  "accessCount": 0
+}

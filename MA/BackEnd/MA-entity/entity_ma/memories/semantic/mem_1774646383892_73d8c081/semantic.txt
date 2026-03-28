@@ -1,0 +1,32 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// _preCleanToolText(text)
+//
+// Sometimes the AI wraps tool calls in code fences like:
+//   ```json
+//   [TOOL:ws_read {"path":"f"}]
+//   ```
+// This strips those code fences so the real parser can find the tools.
+// ─────────────────────────────────────────────────────────────────────────────
+function _preCleanToolText(text) {
+  if (!text) return text;
+  return text.replace(/```[\w]*\s*(\[\s*TOOL[\s\S]*?(?:\[\s*\/\s*TOOL\s*\]|\]))\s*```/gi, '$1');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// _normName(n)
+//
+// Normalises a tool name: lowercase and replace dashes with underscores.
+// So "ws-read" and "WS_READ" both become "ws_read".
+// ─────────────────────────────────────────────────────────────────────────────
+function _normName(n) { return n.toLowerCase().replace(/-/g, '_'); }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// _parseJSON(raw)
+//
+// Tries to parse a JSON string.  Returns the parsed object, or null
+// if parsing fails (instead of throwing an error).
+// ─────────────────────────────────────────────────────────────────────────────
+function _parseJSON(raw) {
+  if (!raw) return {};
+  try { return JSON.parse(raw); } catch { return null; }
+}

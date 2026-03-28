@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385657_045ac490",
+  "type": "semantic",
+  "content": "### Entry 003\r\n- Date: 2026-03-27\r\n- Phase: Phase 2 (Config Ownership Isolation)\r\n- Owner/Agent: GitHub Copilot\r\n- Change Summary: Refactored MA-core to local-first config ownership with optional one-way legacy import and no parent-config writes.\r\n- Files Changed:\r\n  - MA-server/MA-core.js\r\n  - MA Standalone Plan/MA-Standalone-Implementation-Plan.md\r\n  - MA Standalone Plan/CHANGE-LEDGER.md\r\n- Reason: Eliminate required dependency on parent `../Config/ma-config.json` while preserving migration path.\r\n- Validation Performed:\r\n  - Static checks: no remaining `GLOBAL_CONFIG_PATH` references; no `_writeUnifiedRuntimeConfig` path remains.\r\n  - Source inspection confirms legacy path is read-only via `LEGACY_GLOBAL_CONFIG_PATH`.\r\n  - VS Code Problems check reports no errors in `MA-server/MA-core.js`.\r\n  - Runtime harness executed and logged to `MA Standalone Plan/phase2-validation.json`:\r\n    - boot with forced local config succeeded.\r\n    - local config took priority (`localPriorityOnBoot=true`).\r\n    - `setConfig` persisted to local MA-Config.\r\n    - reload read persisted local config.\r\n    - no legacy parent-config write detected.\r\n- Result: Success (Phase 2 fully validated).\r\n- Risks/Notes: None blocking Phase 3.\r\n- Follow-up: Proceed to Phase 3 (optional integration boundary).",
+  "topics": [
+    "MA Memory Architect",
+    "CHANGE-LEDGER.md",
+    "MA Standalone Plan"
+  ],
+  "summary": "### Entry 003\r\n- Date: 2026-03-27\r\n- Phase: Phase 2 (Config Ownership Isolation)\r\n- Owner/Agent: GitHub Copilot\r\n- Change Summary: Refactored MA-core to local-first config ownership with optional one-",
+  "importance": 0.6,
+  "createdAt": 1774646385658,
+  "createdAtISO": "2026-03-27T21:19:45.658Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Standalone Plan\\CHANGE-LEDGER.md",
+  "accessCount": 0
+}

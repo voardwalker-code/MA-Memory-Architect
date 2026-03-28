@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385478_56784f2d",
+  "type": "semantic",
+  "content": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<title>MA — Memory Architect</title>\r\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n<link href=\"https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">\r\n<link rel=\"stylesheet\" href=\"css/ma-ui.css\">\r\n</head>\r\n<body>",
+  "topics": [
+    "MA Memory Architect",
+    "MA-index.html",
+    "FrontEnd"
+  ],
+  "summary": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<title>MA — Memory Architect</title>\r\n<link rel=\"preconnect\" ",
+  "importance": 0.6,
+  "createdAt": 1774646385479,
+  "createdAtISO": "2026-03-27T21:19:45.479Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\MA-index.html",
+  "accessCount": 0
+}

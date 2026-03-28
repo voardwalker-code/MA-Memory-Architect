@@ -1,0 +1,16 @@
+async function removeChoreFromPane(id) {
+  try {
+    const r = await fetch('/api/chores/remove', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'Could not remove chore');
+    loadChoresPane();
+  } catch (e) {
+    addSystem('Chore remove error: ' + e.message);
+  }
+}
+
+// ── Mode toggle (Chat / Work) ────────────────────────────────────────────

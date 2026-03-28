@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386361_8515be6c",
+  "type": "semantic",
+  "content": "- `[TOOL:ws_list {\"path\":\"...\"}]` — see what files exist\r\n- `[TOOL:ws_read {\"path\":\"...\"}]` — read existing code before changing it\r\n- `[TOOL:ws_write {\"path\":\"...\"}]content[/TOOL]` — write your code to a file (COMPLETE file)\r\n- `[TOOL:ws_append {\"path\":\"...\"}]content[/TOOL]` — add to end of an existing file\r\n- `[TOOL:ws_delete {\"path\":\"...\"}]` — remove a file you no longer need\r\n- `[TOOL:ws_move {\"src\":\"...\",\"dst\":\"...\"}]` — rename or move a file\r\n- `[TOOL:ws_mkdir {\"path\":\"...\"}]` — create a directory for project structure\r\n\n## Common Mistakes to Avoid\r\n\n- Writing code in your chat reply instead of using `ws_write` to save it as a file\r\n- Writing only part of a file — `ws_write` REPLACES the entire file\r\n- Forgetting to read a file before editing it — you will lose existing code\r\n- Adding features the user did not ask for\r\n- Creating test files unless the user explicitly asked for tests",
+  "topics": [
+    "MA Memory Architect",
+    "code.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "- `[TOOL:ws_list {\"path\":\"...\"}]` — see what files exist\r\n- `[TOOL:ws_read {\"path\":\"...\"}]` — read existing code before changing it\r\n- `[TOOL:ws_write {\"path\":\"...\"}]content[/TOOL]` — write your code ",
+  "importance": 0.6,
+  "createdAt": 1774646386361,
+  "createdAtISO": "2026-03-27T21:19:46.361Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\code.md",
+  "accessCount": 0
+}

@@ -1,0 +1,40 @@
+### Refactor/Noise Signals
+- Debug logs present in server and client code paths (for example in core/chat paths).
+- Legacy compatibility branches still exist and should be reevaluated against current requirements.
+- UI logic and markup generation are mixed in some client modules (HTML string scaffolding + state logic).
+
+---
+
+## Guardrails (Non-Negotiable Rules)
+- Do not break standalone behavior established in migration work.
+- Do not remove any file until references are verified by search and startup tests.
+- Any deletion must be recorded in a deletion log section inside this plan.
+- Use feature flags or compatibility wrappers only when needed for safe migration.
+- Keep comments useful: explain intent and constraints, not obvious syntax.
+
+---
+
+## Phase 1: Script Inventory and Classification
+Goal: Classify every script as runtime, test, tooling, or dead.
+
+Tasks:
+- Build script registry from:
+  - `package.json` scripts,
+  - server imports (`require` graph),
+  - HTML script tags,
+  - startup entrypoints (`MA-Server-standalone.js`, `MA-Server.js`, `ma-start.js`).
+- Tag each file as:
+  - `runtime-core`,
+  - `runtime-optional`,
+  - `dev-test`,
+  - `migration-legacy`,
+  - `dead/remove`.
+- Confirm whether temporary scripts are still used operationally.
+
+Deliverables:
+- `MA Refactor Plan/script-inventory.md` (with status per file).
+
+Validation Gate:
+- No file is marked dead without reference evidence.
+
+---

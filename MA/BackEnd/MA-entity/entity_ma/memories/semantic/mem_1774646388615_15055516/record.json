@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388615_15055516",
+  "type": "semantic",
+  "content": "### Rule 2: Read before editing\r\nBefore modifying any existing file:\r\n```\r\n[TOOL:ws_read path=\"src/app.py\"]\r\n```\r\nThen write the complete modified version back.\r\n\n### Rule 3: Use python (not python3) as default\r\nTry `python` first. If it fails, fall back to `python3`. On most systems `python` works.\r\n\n### Rule 4: Read tracebacks carefully\r\nPython tracebacks read bottom-to-top. The last line is the actual error. The lines above show the call stack. Fix the code at the location shown.\r\n\n### Rule 5: One command per cmd_run call\r\nEach `cmd_run` runs one command. Do NOT chain commands with `&&` or `;`.\r\n\n### Rule 6: Create requirements.txt for projects\r\nIf you use any `pip install`, also create a `requirements.txt` so the project is reproducible.\r\n\n## How to Build a Python Project — Step by Step\r\n\n### Simple script\r\n```\r\nStep 1: [TOOL:ws_write path=\"main.py\" content=\"...your code...\"]\r\nStep 2: [TOOL:cmd_run cmd=\"python main.py\"]\r\n```\r\n\n### Project with dependencies\r\n```\r\nStep 1: [TOOL:ws_mkdir path=\"my-project\"]\r\nStep 2: [TOOL:ws_write path=\"my-project/requirements.txt\" content=\"requests>=2.28\\nbeautifulsoup4>=4.12\"]\r\nStep 3: [TOOL:cmd_run cmd=\"pip install -r requirements.txt\"]\r\nStep 4: [TOOL:ws_write path=\"my-project/main.py\" content=\"...your code...\"]\r\nStep 5: [TOOL:cmd_run cmd=\"python main.py\"]\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills python"
+  ],
+  "summary": "### Rule 2: Read before editing\r\nBefore modifying any existing file:\r\n```\r\n[TOOL:ws_read path=\"src/app.py\"]\r\n```\r\nThen write the complete modified version back.\r\n\n### Rule 3: Use python (not python3) ",
+  "importance": 0.6,
+  "createdAt": 1774646388615,
+  "createdAtISO": "2026-03-27T21:19:48.615Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\python\\SKILL.md",
+  "accessCount": 0
+}

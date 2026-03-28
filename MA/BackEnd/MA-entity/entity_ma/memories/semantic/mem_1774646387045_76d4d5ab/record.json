@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387045_76d4d5ab",
+  "type": "semantic",
+  "content": "Ask three questions about each source:\r\n- Is it recent enough? (Check dates — stale data can mislead.)\r\n- Is it from a credible source? (University, government, major publication > random blog.)\r\n- Does it directly address the user's question? (Tangential info wastes space.)\r\n\nIf a source fails any question, skip it.\r\n\n## How to Write Findings\r\n\nWrite to a file using this structure. Be as thorough as the sources allow — no artificial length limits:\r\n\n```markdown\r\n# Research: {Topic}\r\n\n## Summary\r\nOverview of what you found — cover the key themes and conclusions.\r\n\n## Key Findings\r\n\n### Finding 1: {title}\r\n{Explain the finding thoroughly. Include context, data points, and implications.}\r\nSource: {where you found this}\r\n\n### Finding 2: {title}\r\n{Explain the finding thoroughly. Include context, data points, and implications.}\r\nSource: {where you found this}\r\n\n(Continue with as many findings as the research supports.)\r\n\n## Sources\r\n1. {URL or full source name} — {what this source contributed}\r\n2. {URL or full source name} — {what this source contributed}\r\n(List ALL sources used, not just a selection.)\r\n```\r\n\n## Research Rules",
+  "topics": [
+    "MA Memory Architect",
+    "research.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Ask three questions about each source:\r\n- Is it recent enough? (Check dates — stale data can mislead.)\r\n- Is it from a credible source? (University, government, major publication > random blog.)\r\n- Do",
+  "importance": 0.6,
+  "createdAt": 1774646387046,
+  "createdAtISO": "2026-03-27T21:19:47.046Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\research.md",
+  "accessCount": 0
+}

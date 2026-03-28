@@ -1,0 +1,30 @@
+// ── Route Module: Workspace & Terminal ────────────────────────────────────────
+//
+// This module gives the browser client access to the user's project files
+// and lets the AI run whitelisted terminal commands.
+//
+// Think of it like a file manager + a safe terminal:
+//   • TREE  — Show the folder structure (like a sidebar in VS Code)
+//   • READ  — Open a file and see its contents
+//   • SAVE  — Write new content to a file (create or update)
+//   • MKDIR — Create a new folder
+//   • FILE  — Serve a raw file (images, HTML, etc.) for in-browser preview
+//   • EXEC  — Run a terminal command, but ONLY if it's on the whitelist
+//
+// SAFETY: All file paths are checked to make sure they stay inside the
+// workspace folder.  You can't use tricks like "../../etc/passwd" to
+// escape.  Terminal commands are also restricted to the whitelist.
+//
+// ── Endpoints ───────────────────────────────────────────────────────────────
+//   GET  /api/workspace/tree  — Get the folder tree of the workspace
+//   GET  /api/workspace/read  — Read a file.  Query: ?path=src/app.js
+//   POST /api/workspace/save  — Write a file.  Body: { path, content }
+//   POST /api/workspace/mkdir — Create a folder.  Body: { path }
+//   GET  /api/workspace/file  — Serve a raw file with correct MIME type
+//   POST /api/terminal/exec   — Run a whitelisted command.  Body: { command }
+//
+// ── What this module needs ──────────────────────────────────────────────────
+//   deps.core    — MA-core (WORKSPACE_DIR for the project root)
+//   deps.cmdExec — MA-cmd-executor (parseCommand, execCommand for terminal)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

@@ -1,0 +1,34 @@
+// ── Scan logic ──────────────────────────────────────────────────────────────
+
+/** Run a full health scan. Returns { issues[], summary } */
+function scan() {
+  const issues = [];
+
+  // Pass 1: existence + zero-byte
+  for (const [rel, desc] of Object.entries(CORE_REGISTRY)) {
+    const abs = path.join(MA_ROOT, rel);
+    if (!fs.existsSync(abs)) {
+      issues.push({ file: rel, severity: 'critical', type: 'missing', desc });
+    } else {
+      const stat = fs.statSync(abs);
+      if (stat.size === 0) {
+        issues.push({ file: rel, severity: 'critical', type: 'zero_byte', desc });
+      }
+    }
+  }
+
+  // Pass 2: deep validation on existing files
+  for (const [rel] of Object.entries(CORE_REGISTRY)) {
+    const abs = path.join(MA_ROOT, rel);
+    if (!fs.existsSync(abs) || fs.statSync(abs).size === 0) continue;
+
+    const ext = path.extname(rel).toLowerCase();
+    try {
+      const content = fs.readFileSync(abs, 'utf8');
+      if (ext === '.js') _validateJS(rel, content, issues);
+      if (ext === '.json') _validateJSON(rel, content, issues);
+      if (ext === '.html') _validateHTML(rel, content, issues);
+    } catch (e) {
+      issues.push({ file: rel, severity: 'warning', type: 'read_error', detail: e.message });
+    }
+  }

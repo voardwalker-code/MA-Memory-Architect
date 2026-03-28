@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384111_b5c2cd85",
+  "type": "semantic",
+  "content": "If a file is approaching 200+ lines of actual logic, it's time to\r\nconsider splitting it. Files over 400 lines should definitely be split.\r\n\n### The Single-Responsibility Rule\r\n\nEach file should do ONE thing well. Ask yourself: \"Can I describe what\r\nthis file does in one sentence without using the word 'and'?\"\r\n\n- ✅ \"Scores documents by relevance using BM25\"\r\n- ✅ \"Extracts tool calls from LLM text output\"\r\n- ❌ \"Handles config AND bootstrapping AND chat AND token counting\"\r\n\n### The Folder Rules\r\n\n```\r\nBackEnd/\r\n  MA-core.js              ← Orchestrators live at root\r\n  MA-routes.js\r\n  MA-workspace-tools.js\r\n  core/                   ← Sub-modules of an orchestrator\r\n    core-config.js\r\n    core-bootstrap.js\r\n    ...\r\n  nlp/                    ← Grouped by domain\r\n    nlp-bm25.js\r\n    nlp-rake.js\r\n    ...\r\n  llm/                    ← Grouped by domain\r\n    llm-api.js\r\n    llm-router.js\r\n    ...\r\n  services/               ← Business logic\r\n    svc-memory.js\r\n    svc-tasks.js\r\n    ...\r\n  infra/                  ← Infrastructure utilities\r\n    infra-health.js\r\n    infra-http-utils.js\r\n    ...\r\n  tools/                  ← Tool implementations\r\n    tools-fs.js\r\n    tools-web.js\r\n    ...\r\n  routes/                 ← HTTP route handlers\r\n    route-chat.js\r\n    route-config.js\r\n    ...\r\n```\r\n\n### What goes where?",
+  "topics": [
+    "MA Memory Architect",
+    "02-WRITING-AND-COMMENTING-GUIDE.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "If a file is approaching 200+ lines of actual logic, it's time to\r\nconsider splitting it. Files over 400 lines should definitely be split.\r\n\n### The Single-Responsibility Rule\r\n\nEach file should do ON",
+  "importance": 0.6,
+  "createdAt": 1774646384113,
+  "createdAtISO": "2026-03-27T21:19:44.113Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\02-WRITING-AND-COMMENTING-GUIDE.md",
+  "accessCount": 0
+}

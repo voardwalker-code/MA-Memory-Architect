@@ -1,0 +1,31 @@
+### conscious.js — `runConscious(input, deps)`
+- `input`: { turnSignals, subconsciousOutput, dreamIntuitionOutput, message, conversationHistory }
+- `deps`: { llm, entityState, contextBuilder }
+- Algorithm:
+  1. `contextBuilder.buildContext(entityId, subconsciousOutput, dreamIntuitionOutput)` → system context
+  2. Build messages array: system prompt + context + conversation + current message
+  3. Call LLM with temperature 0.7
+  4. `parseToolCalls(response)` → extract any tool call blocks (TOOL_CALL_REGEX in stub)
+  5. Build output matching `CONSCIOUS_OUTPUT` contract shape
+  6. Validate output
+  7. Return output
+
+### orchestrator.js — `runPipeline(input)` + `runOrchestrator(input, deps)`
+- **runPipeline** orchestrates the full sequence:
+  1. `extractTurnSignals(message)` → turnSignals
+  2. `Promise.all([runSubconscious(...), runDreamIntuition(...)])` → parallel 1A+1D
+  3. `runConscious({ turnSignals, subconsciousOutput, dreamIntuitionOutput, ... })` → 1C
+  4. `runOrchestrator({ consciousOutput, turnSignals, entityId })` → final
+  5. Build output matching `PIPELINE_OUTPUT_SHAPE` contract
+  6. Return output
+- **runOrchestrator** does voice/review:
+  1. Check budget via `orchestrationPolicy.checkBudget()`
+  2. Check latency via `orchestrationPolicy.withLatencyGuard()`
+  3. Apply entity voice/persona from persona.json
+  4. Return final response
+
+## Done When
+```bash
+node tests/test-runner.js 2
+# All tests pass
+```

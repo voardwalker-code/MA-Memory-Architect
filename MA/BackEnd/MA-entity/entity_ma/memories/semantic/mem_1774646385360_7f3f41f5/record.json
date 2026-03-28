@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385360_7f3f41f5",
+  "type": "semantic",
+  "content": "// Fetch nodes for each project in parallel\r\n    const withNodes = await Promise.all(projects.map(async function(project) {\r\n      try {\r\n        const nr = await fetch('/api/projects/nodes/' + encodeURIComponent(project.id));\r\n        const nd = await nr.json();\r\n        return { project: project, nodes: nd.nodes || [] };\r\n      } catch (_) { return { project: project, nodes: [] }; }\r\n    }));\r\n\n    _archivesCache = withNodes;\r\n    _renderArchiveList(withNodes, '');\r\n  } catch (e) {\r\n    list.innerHTML = '<div class=\"side-empty\">Could not load archives.</div>';\r\n  }\r\n}\r\n\nfunction filterArchiveList() {\r\n  const input = document.getElementById('archive-search');\r\n  const query = (input ? input.value : '').toLowerCase().trim();\r\n  _renderArchiveList(_archivesCache, query);\r\n}\r\n\nfunction _renderArchiveList(archives, query) {\r\n  const list = document.getElementById('archive-list');\r\n  if (!list) return;\r\n\n  if (!archives.length) {\r\n    list.innerHTML = '<div class=\"side-empty\">No archives found.</div>';\r\n    return;\r\n  }\r\n\n  let html = '';\r\n  for (const entry of archives) {\r\n    const proj = entry.project;\r\n    let nodes = entry.nodes;",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "// Fetch nodes for each project in parallel\r\n    const withNodes = await Promise.all(projects.map(async function(project) {\r\n      try {\r\n        const nr = await fetch('/api/projects/nodes/' + encode",
+  "importance": 0.6,
+  "createdAt": 1774646385361,
+  "createdAtISO": "2026-03-27T21:19:45.361Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

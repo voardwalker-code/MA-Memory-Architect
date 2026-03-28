@@ -1,0 +1,27 @@
+{
+  "id": "mem_1774660899966_6a399786",
+  "type": "episodic",
+  "content": "Chat: Cant you see the file I attched to this message?\nReply: Looks like there's just an **MA/** folder in the workspace right now. I don't see an attachment or the full \"Project/MA-Memory-Architect\" folder structure you mentioned — just \"MA/\" at the root.\n\nIf you'd like me to work with a Memory-Architect project, could you:\n\n1. Share the attachment again, or\n",
+  "topics": [
+    "conversation",
+    "workspace right",
+    "folder structure",
+    "memoryarchitect project",
+    "chat",
+    "cant",
+    "see",
+    "file",
+    "attched",
+    "chat cant",
+    "cant see",
+    "file attched"
+  ],
+  "summary": "Chat: Cant you see the file I attched to this message?\nReply: Looks like there's just an **MA/** folder in the workspace right now. I don't see an attachment or the full \"Project/MA-Memory-Architect\" ",
+  "importance": 0.5,
+  "createdAt": 1774660899969,
+  "createdAtISO": "2026-03-28T01:21:39.969Z",
+  "chainId": "chain_1774660889795_16fq5y",
+  "archive": null,
+  "sourcePath": null,
+  "accessCount": 0
+}

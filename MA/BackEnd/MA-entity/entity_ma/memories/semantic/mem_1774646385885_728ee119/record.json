@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385885_728ee119",
+  "type": "semantic",
+  "content": "## Comparison Table (if applicable)\r\n| Criteria | Option A | Option B | Option C |\r\n|----------|----------|----------|----------|\r\n| Cost     | $X       | $Y       | $Z       |\r\n| Speed    | fast     | medium   | slow     |\r\n\n## Recommendation\r\n{1-2 sentences: what you recommend and why.}\r\n\n## Limitations\r\n{What data was missing or uncertain? What could change this conclusion?}\r\n\n## Sources\r\n- {Source 1}\r\n- {Source 2}\r\n```\r\n\n## Analysis Rules\r\n\n- Separate facts from interpretation. Facts are sourced; interpretation is yours.\r\n- Present conflicting evidence — do not cherry-pick.\r\n- Always state your confidence level. \"I'm highly confident\" with no evidence is worthless.\r\n- If the data is insufficient for a conclusion, say so. \"Insufficient data to conclude X\" is a valid finding.\r\n- Numbers need context. \"Revenue increased 15%\" means nothing without knowing the baseline and time period.\r\n\n## Tools You Should Use\r\n\n- `[TOOL:ws_read path=\"...\"]` — read data files in the workspace\r\n- `[TOOL:mem_search query=\"...\"]` — search your memory for relevant past analysis\r\n- `[TOOL:ws_write path=\"...\" content=\"...\"]` — write your analysis report\r\n- `[TOOL:web_search query=\"...\"]` — find external data for comparison",
+  "topics": [
+    "MA Memory Architect",
+    "analysis.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "## Comparison Table (if applicable)\r\n| Criteria | Option A | Option B | Option C |\r\n|----------|----------|----------|----------|\r\n| Cost     | $X       | $Y       | $Z       |\r\n| Speed    | fast     ",
+  "importance": 0.6,
+  "createdAt": 1774646385885,
+  "createdAtISO": "2026-03-27T21:19:45.885Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\analysis.md",
+  "accessCount": 0
+}

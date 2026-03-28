@@ -1,0 +1,15 @@
+**For each significant relationship**, add AS MANY relationship memories as the text supports. A complex relationship like Scrooge-Marley might need many  relationship memories covering different facets: business partnership, friendship lost, the ghostly warning, guilt, fear, eventual gratitude. A simpler relationship might need less. DO NOT CAP THIS.
+
+Each relationship memory:
+```json
+{
+  "content": "First-person reflection on their relationship with {other character}. What they think of them, how they feel, key moments that defined the relationship. How the relationship changed over time. What they wish they'd said or done differently. Specific dialog or moments that defined the bond.",
+  "type": "semantic",
+  "emotion": "{dominant emotion for this relationship}",
+  "topics": ["{other-character-name}", "relationship", "{relationship-type}", "{key-dynamic}"],
+  "importance": 0.6-0.85,
+  "phase": "relationships"
+}
+```
+
+**For EVERY core belief, value, fear, desire, regret, and aspiration the character holds**, add a semantic memory. Mine the text for these — they are in the dialog, the actions, the narrator's commentary. A complex character like Scrooge has beliefs about money, poverty, charity, family, isolation, redemption, mortality, joy, work ethic, class — each gets its own memory.

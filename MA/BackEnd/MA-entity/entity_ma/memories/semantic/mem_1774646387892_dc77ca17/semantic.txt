@@ -1,0 +1,27 @@
+# REM System — Architecture Patterns
+
+Reference doc for MA when building or extending the REM System.
+
+---
+
+## Core Architecture
+
+REM (Recursive Echo Memory) is a zero-dependency Node.js cognitive architecture between a user interface and LLM providers. It gives AI entities persistent memory, emotional state, belief formation, dreaming, and relationship tracking across sessions.
+
+**Core conviction:** an entity should be shaped by what it has experienced, not only by what it was told on day one.
+
+---
+
+## Boundary Policy (Non-Negotiable)
+
+- `client/**` — no backend orchestration, filesystem logic, or server policy logic
+- `server/**` — no DOM or UI rendering concerns
+- New routes go in `server/routes/**`, not `server/server.js`
+- New schemas and validators go in `server/contracts/**`
+- `server/server.js` is composition/bootstrap only — no business logic
+- New modules target <= 300 lines where practical
+- Any file above 1200 lines that needs changes requires an extraction plan
+
+---
+
+## Subsystem Map

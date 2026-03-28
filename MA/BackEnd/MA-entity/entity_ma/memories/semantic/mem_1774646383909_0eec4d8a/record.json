@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383909_0eec4d8a",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _validate(name, raw, blockContent)\r\n//\r\n// Validates tool parameters against the Zod schema for that tool.\r\n// For block tools (ws_write/ws_append), the file content comes from the\r\n// block body, not the JSON params.\r\n//\r\n//   name         — normalised tool name (e.g. \"ws_read\")\r\n//   raw          — parsed JSON parameters\r\n//   blockContent — the text between [TOOL:] and [/TOOL] (for writes)\r\n//   Returns: { ok: true, data } or { ok: false, error }\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction _validate(name, raw, blockContent) {\r\n  const schema = ToolSchemas[name];\r\n  if (!schema) return { ok: false, error: `Unknown tool: ${name}` };\r\n\n  const params = { ...raw };\r\n  if (blockContent !== undefined && (name === 'ws_write' || name === 'ws_append')) {\r\n    params.content = blockContent;\r\n  }\r\n\n  const result = schema.safeParse(params);\r\n  if (!result.success) {\r\n    const issues = result.error?.issues || result.error?.errors || [];\r\n    const msgs = issues.map(i => `${(i.path || []).join('.') || 'param'}: ${i.message}`);\r\n    return { ok: false, error: `${name} schema error: ${msgs.join('; ')}. Expected: ${JSON.stringify(Object.keys(schema.shape))}` };\r\n  }\r\n  return { ok: true, data: result.data };\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "tools-parser.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _validate(name, raw, blockContent)\r\n//\r\n// Validates tool parameters against the Zod schema for that tool.\r\n// For ",
+  "importance": 0.6,
+  "createdAt": 1774646383910,
+  "createdAtISO": "2026-03-27T21:19:43.910Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-parser.js",
+  "accessCount": 0
+}

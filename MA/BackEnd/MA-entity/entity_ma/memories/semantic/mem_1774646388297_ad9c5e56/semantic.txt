@@ -1,0 +1,28 @@
+// 2. Initialise model router — give it an LLM caller so it can research models
+  modelRouter.init({
+    callLLM: (msgs, opts) => llm.callLLM(core.getConfig(), msgs, opts)
+  });
+  console.log('  Model router ready (' + modelRouter.listModels().length + ' models in roster)');
+
+  // 3. Start pulse engine — background health scans & chore timers
+  pulse.init({ core, callLLM: llm.callLLM, agentCatalog: core.agentCatalog, health: core.health });
+  pulse.startAll();
+  console.log('  Pulse engine started');
+
+  // 4. Build the route handler (all HTTP endpoints live in MA-routes.js)
+  const handleRequest = createRouteHandler({
+    core, llm, pulse, modelRouter, cmdExec,
+    handleSlashCommand, renderMarkdownToHtml,
+    BLUEPRINT_DIR, CLIENT_DIR
+  });
+
+  // 5. Find a free port — try the default first, then scan the range
+  let port = DEFAULT_PORT;
+  if (!(await isPortFree(port))) {
+    console.log(`  \u26A0 Port ${port} in use, scanning ${DEFAULT_PORT}\u2013${PORT_RANGE_END}...`);
+    port = await findFreePort(DEFAULT_PORT, PORT_RANGE_END);
+  }
+  if (port === 0) {
+    console.error(`  \u2716 No free port found in range ${DEFAULT_PORT}\u2013${PORT_RANGE_END}. Exiting.`);
+    process.exit(1);
+  }

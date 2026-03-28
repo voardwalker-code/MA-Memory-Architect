@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384313_2d929470",
+  "type": "semantic",
+  "content": "**Rail Utilities** (bottom of left sidebar):\r\n- **💻 Terminal** — Toggles the terminal panel\r\n- **📥 Ingest** — Opens the memory ingest panel\r\n- **⚙ Settings** — Opens the LLM settings tab\r\n\n### Built-in IDE Editor\r\n\nFiles from the workspace tree open in tabbed editor panes:\r\n\n- **Markdown files** — Rendered preview with a Preview/Raw toggle\r\n- **HTML files** — Iframe preview with a Preview/Source toggle\r\n- **Code files** (.js, .ts, .py, .rs, .cs, .css, .json, etc.) — Syntax-highlighted read-only view with line numbers and an Edit toggle to switch to a writeable textarea\r\n- **Tabs** track unsaved changes (dot indicator) and Save writes back via the workspace API\r\n- Chat file-link chips open in the editor instead of a new browser tab\r\n\n### Terminal Panel\r\n\nA terminal panel sits at the bottom of the editor area. Toggle it from:\r\n- The **Terminal** menu item in the menu bar\r\n- The **💻** button in the left rail utilities\r\n- The **View → Terminal** dropdown\r\n\nType shell commands and press Enter or click Run. Output appears in the scrollable terminal output area with color-coded command echo, stdout, and stderr. Commands execute in the MA workspace directory through the sandboxed command executor (same whitelist rules apply).\r\n\n### Workspace File Tree",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "**Rail Utilities** (bottom of left sidebar):\r\n- **💻 Terminal** — Toggles the terminal panel\r\n- **📥 Ingest** — Opens the memory ingest panel\r\n- **⚙ Settings** — Opens the LLM settings tab\r\n\n### Built",
+  "importance": 0.6,
+  "createdAt": 1774646384314,
+  "createdAtISO": "2026-03-27T21:19:44.314Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

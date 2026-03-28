@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384326_eb6bd3bb",
+  "type": "semantic",
+  "content": "- **Tool calls** — Workspace reads, writes, web searches, command executions\r\n- **LLM calls** — Each model invocation with provider and token usage\r\n- **Memory operations** — Searches, stores, knowledge loads\r\n- **Step progress** — Multi-step task progress with checkmarks\r\n- **Task plan** — When a task is running, the plan is displayed with checkboxes\r\n- **Session worklog** — Summary of work done this session\r\n\n### Settings Panel\r\n\nAccessed from **File → Settings**, the **⚙** rail utility button, or the left sidebar.\r\n\n**LLM Tab:**\r\n- Provider (OpenRouter / Ollama)\r\n- Endpoint URL\r\n- API Key\r\n- Model name (text input for OpenRouter, dropdown for Ollama)\r\n- Max Tokens slider (1,024–1,000,000 — auto-set from Ollama model info)\r\n- **Memory Recall** — Slider (6–50) controlling how many memories MA retrieves per message, plus a toggle to disable recall entirely\r\n- **Workspace Path** — Configurable working directory (defaults to `MA-workspace/`)\r\n- **Theme** — Dark / Light / System selector\r\n- **Ollama extras:** refresh model list button, pull new models, model info display (family, size, quantization, context length)\r\n\n**Command Whitelist Tab:**\r\n- View all currently allowed commands\r\n- Add new commands (binary name + optional subcommands)\r\n- Remove commands\r\n- Reset to defaults",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "- **Tool calls** — Workspace reads, writes, web searches, command executions\r\n- **LLM calls** — Each model invocation with provider and token usage\r\n- **Memory operations** — Searches, stores, knowled",
+  "importance": 0.6,
+  "createdAt": 1774646384326,
+  "createdAtISO": "2026-03-27T21:19:44.326Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

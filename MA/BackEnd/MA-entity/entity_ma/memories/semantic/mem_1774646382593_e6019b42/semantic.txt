@@ -1,0 +1,30 @@
+// ── Provider Capability Defaults ────────────────────────────────────────────
+const PROVIDER_CAPS = {
+  anthropic: {
+    promptCaching:    true,
+    extendedCache:    true,       // 1-hour cache TTL
+    compaction:       false,      // Disabled by default pending stable context compaction behavior
+    extendedThinking: true,       // native thinking parameter
+    adaptiveThinking: true,       // adaptive mode (Opus 4.6)
+    nativeToolUse:    true,       // tools array in request
+    contextEditing:   true,       // context_management.edits clear operations
+  },
+  openrouter: {
+    promptCaching:    false,      // provider-dependent, conservative default
+    extendedCache:    false,
+    compaction:       'prompt',   // LLM prompt-based summarization
+    extendedThinking: false,      // model-dependent, conservative default
+    adaptiveThinking: false,
+    nativeToolUse:    true,       // OpenAI-compatible tool use
+    contextEditing:   false,
+  },
+  ollama: {
+    promptCaching:    false,
+    extendedCache:    false,
+    compaction:       'prompt',   // LLM prompt-based summarization
+    extendedThinking: false,
+    adaptiveThinking: false,
+    nativeToolUse:    false,      // model-dependent, conservative default
+    contextEditing:   false,
+  }
+};

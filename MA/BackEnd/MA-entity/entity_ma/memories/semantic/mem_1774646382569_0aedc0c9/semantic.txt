@@ -1,0 +1,39 @@
+if (config.type === 'ollama') {
+    return _callOllama(config, messages, { temperature, maxTokens, timeout });
+  }
+  if (config.type === 'anthropic') {
+    return _callAnthropic(config, messages, { temperature, maxTokens, timeout, thinking: opts.thinking, tools: opts.tools });
+  }
+  // Default: OpenRouter / OpenAI-compatible
+  return _callOpenRouter(config, messages, { temperature, maxTokens, timeout, responseFormat: opts.responseFormat, tools: opts.tools });
+}
+
+function _sanitizeString(value) {
+  let out = '';
+  for (let index = 0; index < value.length; index += 1) {
+    const code = value.charCodeAt(index);
+    if (code >= 0xD800 && code <= 0xDBFF) {
+      const next = value.charCodeAt(index + 1);
+      if (next >= 0xDC00 && next <= 0xDFFF) {
+        out += value[index] + value[index + 1];
+        index += 1;
+      } else {
+        out += '\uFFFD';
+      }
+    } else if (code >= 0xDC00 && code <= 0xDFFF) {
+      out += '\uFFFD';
+    } else {
+      out += value[index];
+    }
+  }
+  return out;
+}
+
+function _sanitizeJsonValue(value) {
+  if (typeof value === 'string') return _sanitizeString(value);
+  if (Array.isArray(value)) return value.map(_sanitizeJsonValue);
+  if (!value || typeof value !== 'object') return value;
+  const out = {};
+  for (const [key, inner] of Object.entries(value)) out[key] = _sanitizeJsonValue(inner);
+  return out;
+}

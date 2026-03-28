@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382768_9bb96176",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\n// formatToolResults(results)\n//\n// Turns tool results into a text block the AI can read.\n// Each result is wrapped in [TOOL_RESULT: name] ... [/TOOL_RESULT] tags.\n// Errors get an \"ERROR:\" prefix so the AI knows something went wrong.\n//\n//   results — array of { tool, result, ok } from executeToolCalls\n//   Returns: formatted string\n// ─────────────────────────────────────────────────────────────────────────────\nfunction formatToolResults(results) {\n  if (!results.length) return '';\n  return results.map(r =>\n    `[TOOL_RESULT: ${r.tool}]\\n${r.ok ? r.result : 'ERROR: ' + r.result}\\n[/TOOL_RESULT]`\n  ).join('\\n\\n');\n}\n\n// ── Exports ─────────────────────────────────────────────────────────────────\n// Same public API as the original monolith — nothing changes for consumers.\nmodule.exports = {\n  extractToolCalls,\n  executeToolCalls,\n  executeNativeToolCalls,\n  formatToolResults,\n  stripToolCalls,\n  ToolSchemas\n};",
+  "topics": [
+    "MA Memory Architect",
+    "MA-workspace-tools.js",
+    "BackEnd"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\n// formatToolResults(results)\n//\n// Turns tool results into a text block the AI can read.\n// Each result is wrapped in ",
+  "importance": 0.6,
+  "createdAt": 1774646382768,
+  "createdAtISO": "2026-03-27T21:19:42.768Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-workspace-tools.js",
+  "accessCount": 0
+}

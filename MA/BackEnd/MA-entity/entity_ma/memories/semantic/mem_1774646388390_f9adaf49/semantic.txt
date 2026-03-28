@@ -1,0 +1,24 @@
+1. **Scene presence required** — a character only gets memories from chunks where they appear
+2. **First-person only** — every memory is written from that character's perspective
+3. **No cross-contamination** — Character A NEVER knows about scenes they weren't in
+4. **Internal thoughts** — belong ONLY to the POV narrator character
+5. **Shared scenes** — generate SEPARATE memories for each present character, with different emotional framing and importance
+6. **Importance varies** — the same event can be high-importance for one character and trivial for another
+
+## Memory Schema
+
+Each injected memory follows this format:
+
+```json
+{
+  "content": "First-person memory text — ONLY what this character experienced/witnessed",
+  "type": "episodic",
+  "emotion": "joy|wonder|love|hope|pride|gratitude|sadness|fear|anger|grief|longing|nostalgia|curiosity|neutral|resignation|melancholic|determined|content",
+  "topics": ["tag1", "tag2"],
+  "importance": 0.3,
+  "narrative": "Brief third-person summary",
+  "phase": "chapter_1"
+}
+```
+
+## IMPORTANT

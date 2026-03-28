@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383588_f62ed674",
+  "type": "semantic",
+  "content": "// Agent dispatch: find matching agent for this task type\r\n  let dispatchedAgent = null;\r\n  let agentCtx = '';\r\n  if (agentCatalog) {\r\n    const roleMap = { code: 'coder', research: 'researcher', writing: 'writer', architect: 'architect', analysis: 'researcher', project: 'architect', entity_genesis: 'architect' };\r\n    const role = roleMap[taskType];\r\n    if (role) {\r\n      const agents = agentCatalog.findAgentsByRole(role);\r\n      if (agents.length) {\r\n        const seniorityOrder = { lead: 4, senior: 3, mid: 2, junior: 1 };\r\n        dispatchedAgent = agents.sort((a, b) => (seniorityOrder[b.seniority] || 0) - (seniorityOrder[a.seniority] || 0))[0];\r\n        agentCtx = `\\n[Agent: ${dispatchedAgent.name} (${dispatchedAgent.role}, ${dispatchedAgent.seniority})]\\n${dispatchedAgent.systemPrompt || ''}`;\r\n        if (onActivity) await onActivity('agent_dispatch', `Assigned ${dispatchedAgent.name} (${dispatchedAgent.role}, ${dispatchedAgent.seniority})`, { agentId: dispatchedAgent.id, role: dispatchedAgent.role });\r\n      }\r\n    }\r\n  }\r\n\n  for (let i = 0; i < plan.steps.length && llmCalls < limits.maxLLM; i++) {\r\n    const step = plan.steps[i];\r\n    if (onActivity) await onActivity('step_start', `Step ${i + 1}: ${step.description}`);",
+  "topics": [
+    "MA Memory Architect",
+    "svc-tasks.js",
+    "BackEnd services"
+  ],
+  "summary": "// Agent dispatch: find matching agent for this task type\r\n  let dispatchedAgent = null;\r\n  let agentCtx = '';\r\n  if (agentCatalog) {\r\n    const roleMap = { code: 'coder', research: 'researcher', writ",
+  "importance": 0.6,
+  "createdAt": 1774646383589,
+  "createdAtISO": "2026-03-27T21:19:43.589Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-tasks.js",
+  "accessCount": 0
+}

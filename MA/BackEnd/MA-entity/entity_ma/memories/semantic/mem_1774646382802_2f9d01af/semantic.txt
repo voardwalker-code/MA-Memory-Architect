@@ -1,0 +1,32 @@
+function tokenize(text) {
+  const sentences = text.split(SENTENCE_SPLIT).filter(s => s.trim().length > 0);
+  const tokens = [];
+  let pos = 0;
+  for (let si = 0; si < sentences.length; si++) {
+    const words = sentences[si].split(WORD_SPLIT).filter(w => w.length > 0);
+    for (const w of words) {
+      tokens.push({ word: w, lower: w.toLowerCase(), position: pos, sentenceIndex: si });
+      pos++;
+    }
+  }
+  return tokens;
+}
+
+function computeWordFeatures(tokens) {
+  const totalTokens = tokens.length;
+  if (totalTokens === 0) return new Map();
+
+  const stats = new Map();
+  for (const t of tokens) {
+    if (STOPWORDS.has(t.lower) || t.lower.length < 2) continue;
+    if (!stats.has(t.lower)) stats.set(t.lower, { positions: [], upperCount: 0, totalCount: 0, sentences: new Set() });
+    const s = stats.get(t.lower);
+    s.positions.push(t.position);
+    s.totalCount++;
+    if (t.word[0] === t.word[0].toUpperCase() && t.word[0] !== t.word[0].toLowerCase()) s.upperCount++;
+    s.sentences.add(t.sentenceIndex);
+  }
+
+  const freqs = [...stats.values()].map(s => s.totalCount);
+  const meanFreq = freqs.reduce((a, b) => a + b, 0) / (freqs.length || 1);
+  const stdFreq = Math.sqrt(freqs.reduce((a, b) => a + (b - meanFreq) ** 2, 0) / (freqs.length || 1));

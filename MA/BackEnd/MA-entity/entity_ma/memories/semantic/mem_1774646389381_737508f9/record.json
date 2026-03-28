@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389381_737508f9",
+  "type": "semantic",
+  "content": "MA can research a model's capabilities, pricing, and strengths using its own LLM:\r\n```\r\n/models research llama3.1:8b\r\n/models research claude-sonnet-4\r\n```\r\n\nIf the model is in the roster, MA auto-updates its entry with the research results (context window, strengths, weaknesses, tier, pricing).\r\n\n### Roster File\r\n\nThe roster is stored in `MA-Config/model-roster.json`. Performance data is in `MA-Config/model-performance.json`. Both are auto-created on first run.\r\n\n---\r\n\n## Health Diagnostics\r\n\nRun a health scan to check all MA modules:\r\n\n```\r\n/health\r\n```\r\n\nOutput:\r\n```\r\nMA Health Scan\r\n========================================\r\nFiles: 18 | Critical: 0 | Warnings: 1\r\n\n  [WARNING] MA-client/MA-index.html — html_imbalance: open=65 close=60\r\n```\r\n\n**Severity levels:**\r\n- **Critical** — Module won't load. Needs immediate fix.\r\n- **Warning** — Minor issue. Usually cosmetic (e.g., HTML void element counting).\r\n\nYou can also run health from the terminal without starting the server:\r\n```bash\r\nnode -e \"const h=require('./BackEnd/infra/infra-health');console.log(h.formatReport(h.scan()))\"\r\n```\r\n\n---\r\n\n## Activity Monitor\r\n\nThe activity monitor is a real-time sidebar panel in the browser GUI that shows everything MA is doing.\r\n\n### What It Shows",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "MA can research a model's capabilities, pricing, and strengths using its own LLM:\r\n```\r\n/models research llama3.1:8b\r\n/models research claude-sonnet-4\r\n```\r\n\nIf the model is in the roster, MA auto-upd",
+  "importance": 0.6,
+  "createdAt": 1774646389382,
+  "createdAtISO": "2026-03-27T21:19:49.382Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

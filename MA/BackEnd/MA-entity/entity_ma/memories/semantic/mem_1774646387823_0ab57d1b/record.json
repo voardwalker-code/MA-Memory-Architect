@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387823_0ab57d1b",
+  "type": "semantic",
+  "content": "{\r\n  \"type\": \"openrouter\",\r\n  \"endpoint\": \"https://openrouter.ai/api/v1/chat/completions\",\r\n  \"apiKey\": \"YOUR_API_KEY_HERE\",\r\n  \"model\": \"anthropic/claude-sonnet-4\",\r\n  \"integrationMode\": \"off\"\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-config.example.json",
+    "."
+  ],
+  "summary": "{\r\n  \"type\": \"openrouter\",\r\n  \"endpoint\": \"https://openrouter.ai/api/v1/chat/completions\",\r\n  \"apiKey\": \"YOUR_API_KEY_HERE\",\r\n  \"model\": \"anthropic/claude-sonnet-4\",\r\n  \"integrationMode\": \"off\"\r\n}",
+  "importance": 0.6,
+  "createdAt": 1774646387825,
+  "createdAtISO": "2026-03-27T21:19:47.825Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "ma-config.example.json",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385706_a76129bc",
+  "type": "semantic",
+  "content": "# MA Standalone Implementation Plan\r\n\n## Purpose\r\nThis plan converts MA into a truly standalone package with no required runtime dependencies outside the MA repository root.\r\n\n## How To Use This Plan\r\n- Complete phases in order.\r\n- Check every task box only after validation passes.\r\n- At the end of each phase, paste the Agent Continuation Message for that phase.\r\n- Record every material change in the Change Ledger.\r\n- Follow the Source of Truth document for all engineering decisions and quality gates.\r\n\n## Success Criteria (Definition of Done)\r\n- MA boots from default entrypoint with no imports outside MA root.\r\n- MA does not require reading or writing config outside MA root by default.\r\n- npm start, start:bg, stop, and status all work in standalone mode.\r\n- Docs and UX no longer imply mandatory dependence on NekoCore/other app.\r\n- Optional integrations are explicit, feature-flagged, and failure-safe.\r\n- Change Ledger is complete and traceable to commits/files/tests.\r\n\n---\r\n\n## Phase 0: Governance and Baseline\r\n**Goal:** Establish execution rules and baseline diagnostics before edits.\r\n\n### Tasks\r\n- [x] Confirm this plan, Source of Truth, and Change Ledger are present and approved.\r\n- [x] Capture baseline startup behavior for default server and standalone server variants.\r\n- [x] Capture baseline health scan output.\r\n- [x] Capture baseline test status and known failures.\r\n- [x] Record all baseline observations in Change Ledger.",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Standalone-Implementation-Plan.md",
+    "MA Standalone Plan"
+  ],
+  "summary": "# MA Standalone Implementation Plan\r\n\n## Purpose\r\nThis plan converts MA into a truly standalone package with no required runtime dependencies outside the MA repository root.\r\n\n## How To Use This Plan\r",
+  "importance": 0.6,
+  "createdAt": 1774646385708,
+  "createdAtISO": "2026-03-27T21:19:45.708Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Standalone Plan\\MA-Standalone-Implementation-Plan.md",
+  "accessCount": 0
+}

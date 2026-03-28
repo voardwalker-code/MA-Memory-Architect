@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382518_d3bb7f42",
+  "type": "semantic",
+  "content": "// Check blocked patterns\r\n  for (const pat of BLOCKED) {\r\n    if (pat.test(trimmed)) return { ok: false, error: `Blocked pattern: ${pat}` };\r\n  }\r\n\n  // Tokenize (respects double-quoted strings)\r\n  const tokens = [];\r\n  const re = /\"([^\"]*)\"|(\\S+)/g;\r\n  let m;\r\n  while ((m = re.exec(trimmed))) tokens.push(m[1] ?? m[2]);\r\n  if (!tokens.length) return { ok: false, error: 'No tokens' };\r\n\n  const binary = tokens[0].toLowerCase();\r\n  const args = tokens.slice(1);\r\n\n  // Whitelist check\r\n  if (!(binary in WHITELIST)) return { ok: false, error: `Command not whitelisted: ${binary}` };\r\n\n  // Subcommand check\r\n  const allowed = WHITELIST[binary];\r\n  if (allowed && args.length && !allowed.includes(args[0])) {\r\n    return { ok: false, error: `Subcommand not allowed: ${binary} ${args[0]}` };\r\n  }\r\n\n  return { ok: true, binary, args, config: { timeout: TIMEOUT_MAP[binary] || DEFAULT_TIMEOUT } };\r\n}\r\n\n/**\r\n * Execute a command in the workspace jail.\r\n * @param {string} cmdStr - Command to run\r\n * @param {string} workspacePath - Absolute path to workspace\r\n * @param {object} opts - { timeout }\r\n * @returns {Promise<{ ok, exitCode, stdout, stderr, error, timedOut }>}\r\n */\r\nfunction execCommand(cmdStr, workspacePath, opts = {}) {\r\n  return new Promise((resolve) => {\r\n    const parsed = parseCommand(cmdStr);\r\n    if (!parsed.ok) return resolve({ ok: false, error: parsed.error });\r\n\n    if (!workspacePath) return resolve({ ok: false, error: 'No workspace path' });",
+  "topics": [
+    "MA Memory Architect",
+    "infra-cmd-executor.js",
+    "BackEnd infra"
+  ],
+  "summary": "// Check blocked patterns\r\n  for (const pat of BLOCKED) {\r\n    if (pat.test(trimmed)) return { ok: false, error: `Blocked pattern: ${pat}` };\r\n  }\r\n\n  // Tokenize (respects double-quoted strings)\r\n  c",
+  "importance": 0.6,
+  "createdAt": 1774646382518,
+  "createdAtISO": "2026-03-27T21:19:42.518Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-cmd-executor.js",
+  "accessCount": 0
+}

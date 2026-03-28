@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382779_9c54e50e",
+  "type": "semantic",
+  "content": "function renderMarkdownToHtml(md) {\r\n  let html = md\r\n    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')\r\n    .replace(/^### (.+)$/gm, '<h3>$1</h3>')\r\n    .replace(/^## (.+)$/gm, '<h2>$1</h2>')\r\n    .replace(/^# (.+)$/gm, '<h1>$1</h1>')\r\n    .replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>')\r\n    .replace(/`([^`]+)`/g, '<code>$1</code>')\r\n    .replace(/^- (.+)$/gm, '<li>$1</li>')\r\n    .replace(/^\\| (.+) \\|$/gm, (m) => {\r\n      const cells = m.slice(1, -1).split('|').map(c => c.trim());\r\n      if (cells.every(c => /^[-:]+$/.test(c))) return '';\r\n      const tag = m.includes('---') ? 'th' : 'td';\r\n      return '<tr>' + cells.map(c => `<${tag}>${c}</${tag}>`).join('') + '</tr>';\r\n    })\r\n    .replace(/^```(\\w*)$/gm, '<pre><code>').replace(/^```$/gm, '</code></pre>')\r\n    .replace(/\\n{2,}/g, '</p><p>')\r\n    .replace(/^---$/gm, '<hr>');\r\n  // Wrap li sequences in ul\r\n  html = html.replace(/(<li>.*?<\\/li>\\n?)+/gs, (m) => '<ul>' + m + '</ul>');\r\n  // Wrap tr sequences in table\r\n  html = html.replace(/(<tr>.*?<\\/tr>\\n?)+/gs, (m) => '<table border=\"1\" cellpadding=\"6\" cellspacing=\"0\">' + m + '</table>');\r\n  return `<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>MA — User Guide</title>\r\n<style>body{font-family:system-ui,sans-serif;max-width:900px;margin:0 auto;padding:24px;background:#0d1117;color:#c9d1d9;line-height:1.6}\r\nh1,h2,h3{color:#58a6ff}code{background:#161b22;padding:2px 6px;border-radius:4px;font-size:0.9em}\r\npre{background:#161b22;padding:16px;border-radius:8px;overflow-x:auto}pre code{padding:0;background:none}\r\ntable{border-collapse:collapse;margin:12px 0}th,td{padding:8px 12px;border:1px solid #30363d;text-align:left}th{background:#161b22}\r\nul{padding-left:24px}li{margin:4px 0}a{color:#58a6ff}hr{border:0;border-top:1px solid #30363d;margin:24px 0}\r\nstrong{color:#e6edf3}</style></head><body><p>${html}</p></body></html>`;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "nlp-markdown.js",
+    "BackEnd nlp"
+  ],
+  "summary": "function renderMarkdownToHtml(md) {\r\n  let html = md\r\n    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')\r\n    .replace(/^### (.+)$/gm, '<h3>$1</h3>')\r\n    .replace(/^## (.+)$/gm, ",
+  "importance": 0.6,
+  "createdAt": 1774646382780,
+  "createdAtISO": "2026-03-27T21:19:42.780Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\nlp\\nlp-markdown.js",
+  "accessCount": 0
+}

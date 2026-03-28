@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385627_f0493f3e",
+  "type": "semantic",
+  "content": "Tasks:\r\n- HTML:\r\n  - normalize semantic sections (header/nav/explorer/editor/chat/config modal),\r\n  - remove duplicate or legacy scaffolding regions,\r\n  - ensure clear IDs/data hooks and predictable script loading.\r\n- CSS:\r\n  - split into layered files:\r\n    - `base.css` (reset, typography, variables),\r\n    - `layout.css` (grid/panels/splitters),\r\n    - `components.css` (buttons, forms, cards, tabs),\r\n    - `features.css` (workspace/chat/config special cases),\r\n  - remove dead selectors and conflicting style rules,\r\n  - keep design tokens centralized in `:root` variables.\r\n- JS:\r\n  - separate DOM rendering from state and API calls,\r\n  - reduce inline HTML string construction where practical,\r\n  - enforce one responsibility per module.\r\n\nValidation Gate:\r\n- UI works on desktop and mobile widths.\r\n- No major visual regressions in workspace, chat, settings, and terminal panels.\r\n\n---\r\n\n## Phase 6: Regression Protection and Finalization\r\nGoal: Lock in maintainability and prevent reintroducing chaos.\r\n\nTasks:\r\n- Add lint/format/check scripts (if not present) and run in CI/local.\r\n- Add static checks for:\r\n  - forbidden temporary filenames in root,\r\n  - commented-out code markers (`OLD`, `TEMP`, stale debug blocks),\r\n  - oversized files threshold warnings.\r\n- Add/update tests for extracted modules.\r\n- Write `MA Refactor Plan/CHANGELOG-REFACTOR.md` summarizing moved/removed files.",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Refactor-Cleanup-Plan.md",
+    "MA Refactor Plan"
+  ],
+  "summary": "Tasks:\r\n- HTML:\r\n  - normalize semantic sections (header/nav/explorer/editor/chat/config modal),\r\n  - remove duplicate or legacy scaffolding regions,\r\n  - ensure clear IDs/data hooks and predictable s",
+  "importance": 0.6,
+  "createdAt": 1774646385628,
+  "createdAtISO": "2026-03-27T21:19:45.628Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Refactor Plan\\MA-Refactor-Cleanup-Plan.md",
+  "accessCount": 0
+}

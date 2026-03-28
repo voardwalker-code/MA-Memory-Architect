@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388632_c5e28a6b",
+  "type": "semantic",
+  "content": "### Error handling\r\n```python\r\ndef read_json(path):\r\n    \"\"\"Read and parse a JSON file.\"\"\"\r\n    try:\r\n        with open(path, encoding=\"utf-8\") as f:\r\n            return json.load(f)\r\n    except FileNotFoundError:\r\n        print(f\"Error: {path} not found\")\r\n        return None\r\n    except json.JSONDecodeError as e:\r\n        print(f\"Error: invalid JSON in {path}: {e}\")\r\n        return None\r\n```\r\n\n### Working with files\r\n```python\r\nfrom pathlib import Path\r\n\n# Read\r\ncontent = Path(\"data.txt\").read_text(encoding=\"utf-8\")\r\n\n# Write\r\nPath(\"output.txt\").write_text(\"Hello\\n\", encoding=\"utf-8\")\r\n\n# Iterate directory\r\nfor f in Path(\"src\").glob(\"*.py\"):\r\n    print(f.name)\r\n\n# Create directories\r\nPath(\"output/reports\").mkdir(parents=True, exist_ok=True)\r\n```\r\n\n### HTTP requests (with requests library)\r\n```python\r\nimport requests\r\n\ndef fetch_data(url):\r\n    response = requests.get(url, timeout=10)\r\n    response.raise_for_status()\r\n    return response.json()\r\n```\r\n\n### Data processing with collections\r\n```python\r\nfrom collections import Counter, defaultdict\r\n\n# Count words\r\nwords = text.lower().split()\r\ncounts = Counter(words)\r\ntop_10 = counts.most_common(10)\r\n\n# Group items\r\ngroups = defaultdict(list)\r\nfor item in items:\r\n    groups[item[\"category\"]].append(item)\r\n```\r\n\n### List comprehensions and generators\r\n```python\r\n# Filter and transform\r\nnames = [user[\"name\"] for user in users if user[\"active\"]]\r\n\n# Dictionary comprehension\r\nlookup = {item[\"id\"]: item for item in items}",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills python"
+  ],
+  "summary": "### Error handling\r\n```python\r\ndef read_json(path):\r\n    \"\"\"Read and parse a JSON file.\"\"\"\r\n    try:\r\n        with open(path, encoding=\"utf-8\") as f:\r\n            return json.load(f)\r\n    except FileN",
+  "importance": 0.6,
+  "createdAt": 1774646388632,
+  "createdAtISO": "2026-03-27T21:19:48.632Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\python\\SKILL.md",
+  "accessCount": 0
+}

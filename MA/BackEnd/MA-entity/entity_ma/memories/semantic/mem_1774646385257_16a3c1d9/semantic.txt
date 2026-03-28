@@ -1,0 +1,36 @@
+// ── Rail & Inspector ──────────────────────────────────────────────────────
+function setRailActive(activeId) {
+  document.querySelectorAll('.rail-btn').forEach(function(button) {
+    button.classList.toggle('active', button.id === activeId);
+  });
+}
+
+function selectInspector(name) {
+  if (!inspectorTitles[name]) return;
+  currentInspector = name;
+  document.querySelectorAll('.side-pane').forEach(function(pane) {
+    pane.classList.toggle('active', pane.id === 'pane-' + name);
+  });
+  if (sideTitleEl) sideTitleEl.textContent = inspectorTitles[name];
+  setRailActive('rail-' + name);
+  refreshInspector();
+}
+
+function selectWorkspaceSection(name) {
+  currentInspector = name;
+  setRailActive('rail-' + name);
+  if (explorerTitleEl) {
+    explorerTitleEl.textContent = inspectorTitles[name] || 'Workspace Files';
+  }
+  refreshWorkspaceSection();
+}
+
+function saveActiveTab() {
+  if (activeTabId) return saveEditorTab();
+  saveBlueprint();
+}
+
+function resetWorkspaceLayout() {
+  localStorage.removeItem('ma-workspace-layout-v1');
+  location.reload();
+}

@@ -1,0 +1,41 @@
+For each fact, generate multiple card formats:
+- **Term → Definition**: "What is [term]?" → "[definition]"
+- **Question → Answer**: "[question]?" → "[answer]"
+- **Fill-in-the-blank**: "[sentence with ___]" → "[missing word/phrase]"
+- **Concept → Example**: "Give an example of [concept]" → "[concrete example]"
+
+### Phase 4: Tagging
+
+Each card gets:
+- `difficulty`: basic / intermediate / hard
+- `topic`: subject area tag
+- `cardType`: definition / question / fill-blank / example
+
+### Phase 5: Spaced Repetition Order
+
+Sort cards by concept dependency — foundational concepts first, building to complex ones. Within each tier, shuffle for variety.
+
+### Phase 6: Output
+
+Write as both structured JSON and readable markdown:
+```
+[TOOL:ws_write {"path": "flashcards-{topic-slug}.json", "content": "[{\"front\":\"...\",\"back\":\"...\",\"difficulty\":\"basic\",\"topic\":\"...\",\"cardType\":\"definition\"}, ...]"}]
+[TOOL:ws_write {"path": "flashcards-{topic-slug}.md", "content": "..."}]
+```
+
+---
+
+## OUTLINE MODE
+
+### Phase 1: Context Gathering
+
+Extract from user message or ASK:
+- **Topic** — what the outline is about
+- **Format** — essay, research paper, presentation, lecture, or general
+- **Source material** — if provided, analyze first; if topic only, research
+
+```
+[TOOL:web_search {"query": "{topic} structure arguments evidence"}]
+```
+
+### Phase 2: Outline Generation

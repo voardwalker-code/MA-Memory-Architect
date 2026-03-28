@@ -1,0 +1,13 @@
+// ── List memory archives ─────────────────────────────────────────
+    // Returns an object listing all named archives (collections of
+    // ingested material).
+    if (url.pathname === '/api/memory/archives' && method === 'GET') {
+      const mem = core.getMemory();
+      json(res, 200, mem ? mem.listArchives() : {});
+      return true;
+    }
+
+    // None of our routes matched
+    return false;
+  };
+};

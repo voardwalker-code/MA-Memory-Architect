@@ -1,0 +1,48 @@
+```
+[TOOL:ws_write {"path": "blueprint-registration-{task_type}.md"}]
+# Blueprint Registration: {task_type}
+
+## Files Created
+
+- `MA-blueprints/modules/{task_type}.md` — Full blueprint
+- `MA-skills/{skill-name}/SKILL.md` — Skill registration
+- `MA-entity/entity_ma/skills/{skill-name}.md` — Runtime skill
+
+## MA-tasks.js Changes Required
+
+Add to `TASK_TYPES` object:
+```js
+  {task_type}: { maxSteps: {N}, maxLLM: {N}, timeout: {N} },
+```
+
+Add to `COMPLEX_TASK_TYPES` Set (if complex reasoning needed):
+```js
+const COMPLEX_TASK_TYPES = new Set([...existing..., '{task_type}']);
+```
+
+Add to `RULES` object:
+```js
+  {task_type}: {
+    kw: [{keyword list}],
+    re: [{regex list}]
+  },
+```
+
+### Keyword Design Rules
+- Use 10-20 keywords that a user would naturally say
+- Include both short forms ("NPC") and long forms ("non-player character")
+- Overlap with existing task types is OK — the scoring system handles priority
+- Include action verbs + nouns: "create a {thing}", "build a {thing}", "design a {thing}"
+
+### Regex Design Rules
+- 2-4 regex patterns covering the main use cases
+- Use `.{0,30}` for flexible gaps (not `.*` — too greedy)
+- Use `/i` flag for case-insensitive
+- Test that your patterns match common phrasings
+
+## Verification
+
+After registration, test classification:
+```js
+node -e "const t = require('./MA/BackEnd/services/svc-tasks.js'); console.log(t.classify('{test phrase}'));"
+```

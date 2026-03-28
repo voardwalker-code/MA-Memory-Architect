@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388778_cbc07f77",
+  "type": "semantic",
+  "content": "This is a single HTML file with zero external dependencies (all CSS and JS inline). It provides:\r\n- Sign in / create account\r\n- Configure an LLM model (Ollama or OpenRouter)\r\n- Chat with you\r\n\nTell the user about this if they report the main UI is broken.\r\n\n### 4. CORE_REGISTRY — The Source of Truth\r\n\nThe CORE_REGISTRY in `scripts/health-scan.js` lists every essential file in the system with a description. It is the canonical list of \"what files should exist.\" Currently 299+ entries covering:\r\n\n- Server bootstrap, routes, services, contracts\r\n- Brain modules (core, cognition, memory, identity, affect, generation, knowledge, skills, tasks, blueprints)\r\n- Client shell, CSS, core JS, app loaders, apps, themes, overlays\r\n- Skills (coding, rust, python, memory-tools, search-archive, web-search, vscode, ws_mkdir, ws_move, tutorial-notes, self-repair)\r\n- Integrations (web-fetch, cmd-executor, telegram)\r\n- Root scripts and config\r\n\n## Step-by-Step: Diagnosing a Problem\r\n\nWhen the user reports something is broken, follow this sequence:\r\n\n### Step 1: Run the health scanner\r\n\n```\r\n[TOOL:cmd_run cmd=\"node scripts/health-scan.js\"]\r\n```\r\n\nRead the full output. Look for `critical` and `warning` severity issues.\r\n\n### Step 2: Identify the category of damage",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills self-repair"
+  ],
+  "summary": "This is a single HTML file with zero external dependencies (all CSS and JS inline). It provides:\r\n- Sign in / create account\r\n- Configure an LLM model (Ollama or OpenRouter)\r\n- Chat with you\r\n\nTell th",
+  "importance": 0.6,
+  "createdAt": 1774646388779,
+  "createdAtISO": "2026-03-27T21:19:48.779Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\self-repair\\SKILL.md",
+  "accessCount": 0
+}

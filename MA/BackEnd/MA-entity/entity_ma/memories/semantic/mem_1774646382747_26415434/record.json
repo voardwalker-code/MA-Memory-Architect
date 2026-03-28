@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382747_26415434",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\n// safeRequire(modulePath, label)\n//\n// Like require(), but returns null instead of crashing if the module is\n// missing or broken.  This way one broken tool module doesn't take down\n// every other tool.\n//\n//   modulePath — the path to require (e.g. './tools/tools-fs')\n//   label      — a friendly name for log messages\n// ─────────────────────────────────────────────────────────────────────────────\nfunction safeRequire(modulePath, label) {\n  try {\n    return require(modulePath);\n  } catch (err) {\n    console.warn(`[MA-workspace-tools] ⚠ Could not load tool module \"${label}\": ${err.message}`);\n    return null;\n  }\n}\n\n// ── Load tool modules (resiliently) ─────────────────────────────────────────\nconst schemas = safeRequire('./tools/tools-schemas', 'schemas');\nconst parser  = safeRequire('./tools/tools-parser',  'parser');\nconst toolsFs = safeRequire('./tools/tools-fs',      'fs');\nconst entity  = safeRequire('./tools/tools-entity',  'entity');\nconst book    = safeRequire('./tools/tools-book',    'book');\nconst web     = safeRequire('./tools/tools-web',     'web');",
+  "topics": [
+    "MA Memory Architect",
+    "MA-workspace-tools.js",
+    "BackEnd"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\n// safeRequire(modulePath, label)\n//\n// Like require(), but returns null instead of crashing if the module is\n// missin",
+  "importance": 0.6,
+  "createdAt": 1774646382748,
+  "createdAtISO": "2026-03-27T21:19:42.748Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-workspace-tools.js",
+  "accessCount": 0
+}

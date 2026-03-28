@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384892_415d4422",
+  "type": "semantic",
+  "content": "function setMaskedCfgKey() {\r\n  const keyEl = document.getElementById('cfg-key');\r\n  const toggleEl = document.getElementById('cfg-key-toggle');\r\n  if (!keyEl) return;\r\n  keyEl.type = 'password';\r\n  keyEl.value = MA_MASKED_KEY;\r\n  keyEl.dataset.hasStoredKey = 'true';\r\n  keyEl.dataset.revealed = 'false';\r\n  if (toggleEl) toggleEl.textContent = 'See';\r\n}\r\n\nfunction clearCfgKeyMaskState() {\r\n  const keyEl = document.getElementById('cfg-key');\r\n  const toggleEl = document.getElementById('cfg-key-toggle');\r\n  if (!keyEl) return;\r\n  if (keyEl.value !== MA_MASKED_KEY) {\r\n    keyEl.dataset.revealed = 'false';\r\n    if (toggleEl) toggleEl.textContent = 'See';\r\n  }\r\n}\r\n\nasync function toggleCfgKeyVisibility() {\r\n  const keyEl = document.getElementById('cfg-key');\r\n  const toggleEl = document.getElementById('cfg-key-toggle');\r\n  if (!keyEl || !toggleEl) return;\r\n\n  const isRevealed = keyEl.dataset.revealed === 'true';\r\n  const hasStoredKey = keyEl.dataset.hasStoredKey === 'true';\r\n\n  if (isRevealed) {\r\n    keyEl.type = 'password';\r\n    if (hasStoredKey) {\r\n      keyEl.value = MA_MASKED_KEY;\r\n    }\r\n    keyEl.dataset.revealed = 'false';\r\n    toggleEl.textContent = 'See';\r\n    return;\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-config.js",
+    "FrontEnd js"
+  ],
+  "summary": "function setMaskedCfgKey() {\r\n  const keyEl = document.getElementById('cfg-key');\r\n  const toggleEl = document.getElementById('cfg-key-toggle');\r\n  if (!keyEl) return;\r\n  keyEl.type = 'password';\r\n  k",
+  "importance": 0.6,
+  "createdAt": 1774646384893,
+  "createdAtISO": "2026-03-27T21:19:44.893Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-config.js",
+  "accessCount": 0
+}

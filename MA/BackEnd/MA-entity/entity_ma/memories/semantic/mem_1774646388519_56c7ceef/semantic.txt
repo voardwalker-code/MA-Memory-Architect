@@ -1,0 +1,5 @@
+- Backstory/motivation: importance 0.7-0.9, type episodic or core
+- Secret agenda: importance 0.8, type core
+- Session events: importance 0.5-0.7, type episodic
+- Relationship notes: importance 0.5-0.7, type semantic
+- Use only the 18 canonical emotions

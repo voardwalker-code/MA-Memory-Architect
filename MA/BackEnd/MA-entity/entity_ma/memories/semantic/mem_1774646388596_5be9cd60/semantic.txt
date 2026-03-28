@@ -1,0 +1,4 @@
+- Use `mem_search` to find past conversations and memories relevant to the current topic
+- Use `mem_create` for facts the entity should never forget
+- Working notes in the workspace are useful for multi-step research or projects
+- Chatlog results from `mem_search` are compressed — reconstruct the narrative before referencing them

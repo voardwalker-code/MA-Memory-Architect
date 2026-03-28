@@ -1,0 +1,41 @@
+### Common sections:
+
+```javascript
+// ── Imports ─────────────────────────────────────────────────────────────────
+// ── Constants ───────────────────────────────────────────────────────────────
+// ── Schema ──────────────────────────────────────────────────────────────────
+// ── Core Logic ──────────────────────────────────────────────────────────────
+// ── Helpers ─────────────────────────────────────────────────────────────────
+// ── Exports ─────────────────────────────────────────────────────────────────
+```
+
+---
+
+## 9. What NOT To Do
+
+### ❌ Don't comment every line
+```javascript
+// BAD
+const fs = require('fs');    // import filesystem module
+const path = require('path'); // import path module
+const data = {};              // create empty data object
+```
+
+### ❌ Don't write novels in comments
+```javascript
+// BAD — this is a comment, not a blog post
+// So basically what happens here is that we need to take the input
+// and then we process it through a series of transformations and
+// each transformation does a slightly different thing and at the
+// end we get the output which is what we return...
+```
+
+### ❌ Don't put TODO/FIXME/HACK without a plan
+```javascript
+// BAD
+// TODO: fix this later
+// HACK: this is ugly but works
+
+// GOOD
+// TODO(v2): Replace regex parser with proper AST when Ollama supports native tools
+```

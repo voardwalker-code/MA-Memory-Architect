@@ -1,0 +1,25 @@
+const fs   = require('fs');
+const path = require('path');
+
+// ── Task types (no planning/orchestration — MA is single-entity) ────────────
+const TASK_TYPES = {
+  architect:    { maxSteps: 10, maxLLM: 50, timeout: 300000 },
+  delegate:     { maxSteps: 8,  maxLLM: 30 },
+  code:         { maxSteps: 8,  maxLLM: 25, timeout: 240000 },
+  research:      { maxSteps: 6,  maxLLM: 20 },
+  deep_research: { maxSteps: 10, maxLLM: 40, timeout: 300000 },
+  writing:       { maxSteps: 6,  maxLLM: 20 },
+  analysis:     { maxSteps: 6,  maxLLM: 20 },
+  project:      { maxSteps: 10, maxLLM: 40, timeout: 300000 },
+  memory_query: { maxSteps: 3,  maxLLM: 10 },
+  entity_genesis: { maxSteps: 10, maxLLM: 50, timeout: 300000 },
+  book_ingestion: { maxSteps: 50, maxLLM: 300, timeout: 1800000 },
+  study_guide:    { maxSteps: 8,  maxLLM: 30, timeout: 300000 },
+  dnd_create:     { maxSteps: 10, maxLLM: 50, timeout: 300000 },
+  tutor_entity:   { maxSteps: 10, maxLLM: 50, timeout: 300000 },
+  dnd_campaign:   { maxSteps: 12, maxLLM: 60, timeout: 480000 },
+  course_creator: { maxSteps: 12, maxLLM: 60, timeout: 480000 },
+  blueprint_builder: { maxSteps: 10, maxLLM: 40, timeout: 300000 },
+  prompt_engineering: { maxSteps: 8,  maxLLM: 30, timeout: 300000 },
+  app_builder:        { maxSteps: 10, maxLLM: 40, timeout: 300000 }
+};

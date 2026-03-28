@@ -1,0 +1,8 @@
+1. Always write atomically (temp file + rename) — prevents partial writes
+2. Always normalize to memory schema v1 before persisting
+3. Dual-path encode every exchange — episodic + semantic
+4. Never store system context as memory content
+5. Filter doc_* from retrieval — they flood context
+6. Index updates must be synchronous with writes — no eventual consistency
+7. Importance scoring should factor emotional intensity + novelty
+8. Keep memory content in semantic.txt, metadata in log.json — never mix

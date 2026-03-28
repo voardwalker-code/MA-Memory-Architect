@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382414_0c031bdd",
+  "type": "semantic",
+  "content": "if (!config) throw new Error('No LLM configured. Run /config or POST /api/config first.');\r\n  if (!message) throw new Error('No message');\r\n\n  const entityName = entity?.name || 'MA';\r\n  const isChatMode = maMode === 'chat';\r\n  const intent = isChatMode ? { intent: 'conversation', taskType: null, confidence: 0 } : tasks.classify(message);\r\n  const chainId = `chain_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;\r\n  const integrationMode = (config && config.integrationMode) ? config.integrationMode : 'off';\r\n\n  // ── Gather all context ──────────────────────────────────────────────\r\n  const context = await gatherContext({\r\n    message, attachments, config, memory, skills,\r\n    workspacePath: WORKSPACE_DIR, knowledgeDir: KNOWLEDGE_DIR,\r\n    projectArchive, worklog, listKnowledgeFn: listKnowledge,\r\n    loadKnowledgeFn: loadKnowledge, onActivity\r\n  });\r\n\n  // ── Build the system prompt ─────────────────────────────────────────\r\n  const { sysPrompt, responseReserve, contextBudget } = buildSystemPrompt({\r\n    entityName, isChatMode, context, config, integrationMode\r\n  });",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "if (!config) throw new Error('No LLM configured. Run /config or POST /api/config first.');\r\n  if (!message) throw new Error('No message');\r\n\n  const entityName = entity?.name || 'MA';\r\n  const isChatM",
+  "importance": 0.6,
+  "createdAt": 1774646382414,
+  "createdAtISO": "2026-03-27T21:19:42.414Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

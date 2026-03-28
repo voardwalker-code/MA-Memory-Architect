@@ -1,0 +1,42 @@
+module.exports = { boot, handleChat };
+```
+
+---
+
+## 6. The safeRequire Pattern
+
+```javascript
+function safeRequire(modulePath, label) {
+  try {
+    return require(modulePath);
+  } catch (err) {
+    console.warn(`[${THIS_FILE}] ⚠ Could not load "${label}": ${err.message}`);
+    return null;
+  }
+}
+```
+
+### When to use it:
+- ✅ Orchestrator files loading sub-modules
+- ✅ Dispatcher files loading route handlers
+- ✅ Any file that loads many optional modules
+
+### When NOT to use it:
+- ❌ Leaf modules loading built-in Node.js modules (fs, path, etc.)
+- ❌ Files loading critical dependencies that MUST exist
+
+### Always check for null:
+```javascript
+const config = safeRequire('./core/core-config', 'config');
+
+// Every call site must handle the null case
+function loadConfig() {
+  return config ? config.loadConfig(state) : null;
+}
+```
+
+---
+
+## 7. Function Comments
+
+### For complex functions, use this pattern:

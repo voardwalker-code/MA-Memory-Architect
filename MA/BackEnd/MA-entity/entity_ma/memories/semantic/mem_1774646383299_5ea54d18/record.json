@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383299_5ea54d18",
+  "type": "semantic",
+  "content": "const fs     = require('fs');\r\nconst path   = require('path');\r\nconst crypto = require('crypto');\r\nconst { extractPhrases }  = require('../nlp/nlp-rake');\r\nconst { extractKeywords }  = require('../nlp/nlp-yake');\r\n\nconst MA_ROOT      = path.join(__dirname, '..');\r\nconst ARCHIVES_DIR = path.join(MA_ROOT, 'MA-entity', 'entity_ma', 'archives');\r\n\n// ── Schema Constants (NekoCore OS-compatible) ───────────────────────────────\r\n\nconst MEMORY_SCHEMA_VERSION = 1;\r\n\nconst NODE_TYPES = ['step', 'code', 'response', 'agent-dispatch', 'thought', 'decision', 'error', 'semantic'];\r\n\nconst EDGE_TYPES = [\r\n  'precedes',     // temporal: node A happened before node B\r\n  'derives',      // semantic knowledge derived from episodic step\r\n  'produces',     // step produced code artifact\r\n  'delegates',    // step dispatched to agent\r\n  'supports',     // reinforcing connection\r\n  'contradicts',  // conflicting information\r\n  'references'    // generic cross-reference\r\n];\r\n\nconst IMPORTANCE_MAP = {\r\n  'step':           0.5,\r\n  'code':           0.7,\r\n  'response':       0.4,\r\n  'agent-dispatch': 0.6,\r\n  'thought':        0.5,\r\n  'decision':       0.8,\r\n  'error':          0.6,\r\n  'semantic':       0.7\r\n};\r\n\n// ── Project Lifecycle ───────────────────────────────────────────────────────\r\n\nfunction _projectDir(projectId) {\r\n  return path.join(ARCHIVES_DIR, `proj_${projectId}`);\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "svc-project-archive.js",
+    "BackEnd services"
+  ],
+  "summary": "const fs     = require('fs');\r\nconst path   = require('path');\r\nconst crypto = require('crypto');\r\nconst { extractPhrases }  = require('../nlp/nlp-rake');\r\nconst { extractKeywords }  = require('../nlp",
+  "importance": 0.6,
+  "createdAt": 1774646383300,
+  "createdAtISO": "2026-03-27T21:19:43.300Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-project-archive.js",
+  "accessCount": 0
+}

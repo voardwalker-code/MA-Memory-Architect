@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382785_e5edf6bd",
+  "type": "semantic",
+  "content": "// ── NLP · RAKE Keyphrase Extraction ──────────────────────────────────────────\r\n//\r\n// HOW KEYPHRASE EXTRACTION WORKS:\r\n// When you read a paragraph, your brain picks out the important phrases\r\n// — things like \"machine learning\" or \"project planning\".  RAKE does\r\n// the same thing automatically using a simple trick:\r\n//\r\n//   1. Split the text at \"stop words\" (boring words like \"the\", \"and\", \"is\")\r\n//   2. The chunks left over are candidate keyphrases\r\n//   3. Score each phrase by how many interesting words it contains\r\n//      and how often those words appear together\r\n//   4. Return the top-scoring phrases\r\n//\r\n// RAKE stands for \"Rapid Automatic Keyword Extraction\" — it's fast\r\n// because it doesn't need a dictionary or AI model, just a list of\r\n// stop words and some math.\r\n//\r\n// WHY MULTI-WORD PHRASES MATTER:\r\n// Single words like \"memory\" are vague.  But \"semantic memory search\"\r\n// is precise.  RAKE finds these multi-word phrases so the memory system\r\n// can index and retrieve knowledge accurately.\r\n//\r\n// WHAT USES THIS:\r\n//   svc-memory.js          — extracts topics when storing memories\r\n//   svc-project-archive.js — extracts topics for project nodes\r\n//\r\n// EXPORTS:\r\n//   extractPhrases(text, maxPhrases?)  → string[]\r\n//   buildCandidatePhrases(text)        → string[][]\r\n//   computeWordScores(candidates)      → {word: score}\r\n//   scorePhrases(candidates, scores)   → [{phrase, score}]\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "nlp-rake.js",
+    "BackEnd nlp"
+  ],
+  "summary": "// ── NLP · RAKE Keyphrase Extraction ──────────────────────────────────────────\r\n//\r\n// HOW KEYPHRASE EXTRACTION WORKS:\r\n// When you read a paragraph, your brain picks out the important phrases\r\n// —",
+  "importance": 0.6,
+  "createdAt": 1774646382785,
+  "createdAtISO": "2026-03-27T21:19:42.785Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\nlp\\nlp-rake.js",
+  "accessCount": 0
+}

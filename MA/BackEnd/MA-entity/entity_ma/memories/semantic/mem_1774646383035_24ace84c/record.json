@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383035_24ace84c",
+  "type": "semantic",
+  "content": "// Safety check: don't serve files outside the client folder\r\n    if (!resolved.startsWith(CLIENT_DIR)) {\r\n      res.writeHead(403);\r\n      res.end('Forbidden');\r\n      return true;\r\n    }\r\n\n    // If the file exists, serve it with the right content type\r\n    if (fs.existsSync(resolved) && fs.statSync(resolved).isFile()) {\r\n      const ext = path.extname(resolved).toLowerCase();\r\n      res.writeHead(200, {\r\n        'Content-Type': MIME[ext] || 'application/octet-stream'\r\n      });\r\n      fs.createReadStream(resolved).pipe(res);\r\n      return true;\r\n    }\r\n\n    // File not found — return 404\r\n    // (We still return true because this is the catch-all; no other\r\n    // module should try to handle this request.)\r\n    res.writeHead(404);\r\n    res.end('Not found');\r\n    return true;\r\n  };\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "route-static.js",
+    "BackEnd routes"
+  ],
+  "summary": "// Safety check: don't serve files outside the client folder\r\n    if (!resolved.startsWith(CLIENT_DIR)) {\r\n      res.writeHead(403);\r\n      res.end('Forbidden');\r\n      return true;\r\n    }\r\n\n    // If",
+  "importance": 0.6,
+  "createdAt": 1774646383036,
+  "createdAtISO": "2026-03-27T21:19:43.036Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-static.js",
+  "accessCount": 0
+}

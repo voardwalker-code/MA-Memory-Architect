@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385227_44e7bc82",
+  "type": "semantic",
+  "content": "// MA UI — Navigation rail, inspector switching, workspace sections, mode toggle, menus, terminal.\r\n\n// ── Menu dropdown system ──────────────────────────────────────────────────\r\nlet _activeMenu = null;\r\n\nfunction toggleMenu(name) {\r\n  const dd = document.getElementById('menu-' + name + '-dropdown');\r\n  if (!dd) return;\r\n  if (_activeMenu === name) { closeMenus(); return; }\r\n  closeMenus();\r\n  dd.classList.add('show');\r\n  _activeMenu = name;\r\n}\r\n\nfunction closeMenus() {\r\n  document.querySelectorAll('.menu-dropdown').forEach(d => d.classList.remove('show'));\r\n  _activeMenu = null;\r\n}\r\n\ndocument.addEventListener('click', function(e) {\r\n  if (!e.target.closest('.menu-item')) closeMenus();\r\n});\r\n\n// ── File menu actions ─────────────────────────────────────────────────────\r\nfunction menuNewFile() {\r\n  closeMenus();\r\n  const name = prompt('New file name (relative to workspace):');\r\n  if (!name || !name.trim()) return;\r\n  fetch('/api/workspace/save', {\r\n    method: 'POST',\r\n    headers: { 'Content-Type': 'application/json' },\r\n    body: JSON.stringify({ path: name.trim(), content: '' })\r\n  }).then(r => r.json()).then(d => {\r\n    if (!d.ok) { addSystem('Error: ' + (d.error || 'Could not create file')); return; }\r\n    addSystem('Created ' + name.trim());\r\n    if (currentInspector === 'workspace') loadWorkspaceTree();\r\n    openFileInEditor(name.trim());\r\n  }).catch(e => addSystem('Create error: ' + e.message));\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-nav.js",
+    "FrontEnd js"
+  ],
+  "summary": "// MA UI — Navigation rail, inspector switching, workspace sections, mode toggle, menus, terminal.\r\n\n// ── Menu dropdown system ──────────────────────────────────────────────────\r\nlet _activeMenu = nu",
+  "importance": 0.6,
+  "createdAt": 1774646385228,
+  "createdAtISO": "2026-03-27T21:19:45.228Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-nav.js",
+  "accessCount": 0
+}

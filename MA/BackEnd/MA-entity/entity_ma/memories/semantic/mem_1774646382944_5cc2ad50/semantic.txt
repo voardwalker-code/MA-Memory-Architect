@@ -1,0 +1,21 @@
+// ── Research a model ─────────────────────────────────────────────
+    // Uses an LLM call to discover a model's capabilities and updates
+    // the roster with what it finds.  Useful for auto-configuring a
+    // new model you just added.
+    // Body: { model: "model-name" }
+    if (url.pathname === '/api/models/research' && method === 'POST') {
+      const body = JSON.parse(await readBody(req));
+      if (!body.model) { json(res, 400, { error: 'Need model name' }); return true; }
+      try {
+        const result = await modelRouter.researchAndUpdate(body.model);
+        json(res, result.ok ? 200 : 400, result);
+      } catch (e) {
+        json(res, 500, { error: e.message });
+      }
+      return true;
+    }
+
+    // None of our routes matched
+    return false;
+  };
+};

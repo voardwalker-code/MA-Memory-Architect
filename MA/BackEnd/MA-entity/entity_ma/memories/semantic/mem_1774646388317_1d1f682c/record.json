@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388317_1d1f682c",
+  "type": "semantic",
+  "content": "#!/usr/bin/env node\r\n// ── MA-Server.js ────────────────────────────────────────────────────────────\r\n// Compatibility shim: delegates to the standalone server entrypoint.\r\n'use strict';\r\n\nconsole.warn('[MA] MA-Server.js is now a compatibility shim. Use MA-Server-standalone.js as canonical entrypoint.');\r\n\nrequire('./MA-Server-standalone.js');",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Server.js",
+    "."
+  ],
+  "summary": "#!/usr/bin/env node\r\n// ── MA-Server.js ────────────────────────────────────────────────────────────\r\n// Compatibility shim: delegates to the standalone server entrypoint.\r\n'use strict';\r\n\nconsole.war",
+  "importance": 0.6,
+  "createdAt": 1774646388317,
+  "createdAtISO": "2026-03-27T21:19:48.317Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-Server.js",
+  "accessCount": 0
+}

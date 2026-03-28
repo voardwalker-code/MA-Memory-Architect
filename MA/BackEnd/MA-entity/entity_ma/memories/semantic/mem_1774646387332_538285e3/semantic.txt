@@ -1,0 +1,18 @@
+# Part 4 — Identity & Generation
+
+**Pre-requisite**: Part 3 tests pass (50/50).
+
+## Scope — Identity (8)
+
+| Module | File | What to Build |
+|--------|------|---------------|
+| Hatch Entity | `server/identity/hatch-entity.js` | Entity birth ceremony — create identity + defaults |
+| Identity Manager | `server/identity/identity-manager.js` | Identity lifecycle — load, evolve, persist |
+| Core Memory Manager | `server/identity/core-memory-manager.js` | Protected core memories (never pruned) |
+| Goal Generator | `server/identity/goal-generator.js` | Pattern-based goal generation from experience |
+| Goals Manager | `server/identity/goals-manager.js` | Active goals tracking + priority + progress |
+| Dream Diary | `server/identity/dream-diary.js` | Dream diary recording |
+| Life Diary | `server/identity/life-diary.js` | Life diary recording |
+| Onboarding | `server/identity/onboarding.js` | New entity onboarding (7-step wizard) |
+
+## Scope — Generation (9)

@@ -1,0 +1,28 @@
+async function onOllamaModelSelect() {
+  const sel = document.getElementById('cfg-model-select');
+  const model = sel.value;
+  const info = document.getElementById('model-info');
+  document.getElementById('cfg-model').value = model;
+  if (!model) { info.textContent = ''; return; }
+  const endpoint = document.getElementById('cfg-endpoint').value.trim();
+  info.textContent = 'Fetching model info...';
+  try {
+    const r = await fetch('/api/ollama/show', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ endpoint, model })
+    });
+    const d = await r.json();
+    if (d.error) { info.textContent = ''; return; }
+    const parts = [];
+    if (d.family) parts.push(d.family);
+    if (d.parameterSize) parts.push(d.parameterSize);
+    if (d.quantization) parts.push(d.quantization);
+    if (d.contextLength) {
+      parts.push('context: ' + d.contextLength.toLocaleString());
+      const tok = Math.min(d.contextLength, 65536);
+      document.getElementById('cfg-tokens').value = tok;
+      document.getElementById('cfg-tokens-val').textContent = tok;
+    }
+    info.textContent = parts.length ? parts.join(' \u00B7 ') : '';
+  } catch (_) { info.textContent = ''; }
+}

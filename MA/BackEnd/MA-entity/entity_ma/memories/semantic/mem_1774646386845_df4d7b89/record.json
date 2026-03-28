@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386845_df4d7b89",
+  "type": "semantic",
+  "content": "**DON'T:**\r\n- Write generic \"I was happy\" memories — be specific\r\n- Make every memory dramatic — quiet moments define character too\r\n- Ignore the cognitive state between chapters — that's the whole point\r\n- Create memories that contradict earlier ones (unless the entity grew/changed)\r\n- Rush through chapters — quality over quantity\r\n\n## Example Memory (good)\r\n\n```\r\nThe rain was coming down sideways when I found the injured bird under the awning.\r\nIts wing was bent wrong and it kept trying to fly, each attempt more desperate than\r\nthe last. I wrapped it in my scarf — the blue one grandmother knitted — and carried\r\nit home. It died before morning. I buried it in the garden next to the rosemary,\r\nwhich seemed like the kind of thing you do when something small and fragile trusts\r\nyou and you can't fix it anyway.\r\n```\r\n\n**emotion**: grief\r\n**topics**: [\"compassion\", \"loss\", \"helplessness\", \"nature\"]\r\n**importance**: 0.65",
+  "topics": [
+    "MA Memory Architect",
+    "entity_genesis.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "**DON'T:**\r\n- Write generic \"I was happy\" memories — be specific\r\n- Make every memory dramatic — quiet moments define character too\r\n- Ignore the cognitive state between chapters — that's the whole po",
+  "importance": 0.6,
+  "createdAt": 1774646386846,
+  "createdAtISO": "2026-03-27T21:19:46.846Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\entity_genesis.md",
+  "accessCount": 0
+}

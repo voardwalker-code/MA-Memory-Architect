@@ -1,0 +1,26 @@
+if (tab.mode === 'markdown') {
+    if (tab.viewMode === 'preview') {
+      body = '<div class="preview-surface"><div class="md-preview">' + renderMarkdown(tab.content) + '</div></div>';
+    } else {
+      body = '<div class="editor-surface"><textarea class="editor-textarea" oninput="onEditorInput(this)" spellcheck="false">' + escHtml(tab.content) + '</textarea></div>';
+    }
+  } else if (tab.mode === 'html') {
+    if (tab.viewMode === 'preview') {
+      body = '<div class="editor-surface"><iframe class="html-preview-frame" sandbox="allow-scripts allow-same-origin"></iframe></div>';
+    } else {
+      body = '<div class="editor-surface"><textarea class="editor-textarea" oninput="onEditorInput(this)" spellcheck="false">' + escHtml(tab.content) + '</textarea></div>';
+    }
+  } else {
+    // Code mode: read-only syntax highlighted view by default, editable source on switch
+    if (tab.viewMode === 'source') {
+      body = '<div class="editor-surface"><textarea class="editor-textarea" oninput="onEditorInput(this)" spellcheck="false">' + escHtml(tab.content) + '</textarea></div>';
+    } else {
+      body = '<div class="editor-code-view">' + renderCodeView(tab.content, tab.ext) + '</div>';
+    }
+  }
+
+  editorContent.innerHTML =
+    '<div class="editor-pane active">' +
+      '<div class="editor-pane-header">' + toolbar + '</div>' +
+      '<div class="editor-pane-body">' + body + '</div>' +
+    '</div>';

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385263_e36fdc5c",
+  "type": "semantic",
+  "content": "function refreshInspector() {\r\n  if (currentInspector === 'session' || currentInspector === 'tasks') { loadWorklog(); loadConversationHistory(); return; }\r\n  if (currentInspector === 'blueprints') return loadBlueprints();\r\n  if (currentInspector === 'projects') return loadProjects();\r\n  if (currentInspector === 'todos') return renderTodos();\r\n  if (currentInspector === 'chores') return loadChoresPane();\r\n  if (currentInspector === 'archives') return loadArchives();\r\n}\r\n\nfunction syncRailMode() {\r\n  const pill = document.getElementById('rail-mode-pill');\r\n  if (!pill) return;\r\n  pill.textContent = currentMode.toUpperCase();\r\n  if (currentMode === 'chat') {\r\n    pill.style.color = 'var(--ma)';\r\n    pill.style.background = 'rgba(35,134,54,.12)';\r\n    pill.style.borderColor = 'rgba(35,134,54,.25)';\r\n  } else {\r\n    pill.style.color = 'var(--accent)';\r\n    pill.style.background = 'rgba(88,166,255,.12)';\r\n    pill.style.borderColor = 'rgba(88,166,255,.25)';\r\n  }\r\n}\r\n\nfunction focusChatView() {\r\n  cfgPanel.classList.remove('show');\r\n  setRailActive('rail-chat');\r\n  inputEl.focus();\r\n}\r\n\nfunction openConfigPanelTab(tab) {\r\n  openConfig(tab);\r\n}\r\n\nfunction toggleActivity() {\r\n  selectInspector('activity');\r\n}\r\n\nlet currentMode = localStorage.getItem('ma-mode') || 'work';",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-nav.js",
+    "FrontEnd js"
+  ],
+  "summary": "function refreshInspector() {\r\n  if (currentInspector === 'session' || currentInspector === 'tasks') { loadWorklog(); loadConversationHistory(); return; }\r\n  if (currentInspector === 'blueprints') ret",
+  "importance": 0.6,
+  "createdAt": 1774646385263,
+  "createdAtISO": "2026-03-27T21:19:45.263Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-nav.js",
+  "accessCount": 0
+}

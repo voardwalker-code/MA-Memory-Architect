@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388372_ffa6156b",
+  "type": "semantic",
+  "content": "---\r\nname: book-ingestion\r\ndescription: Extract characters from a book and create them as NekoCore OS entities with POV-isolated memories. Supports main-only, all, or specific character selection.\r\n---\r\n\n# Book-to-Entity Ingestion Skill\r\n\nExtract characters from a book (novel, story, transcript) and create each as a NekoCore OS entity with isolated first-person memories.\r\n\n## When This Skill Applies\r\n- User wants to ingest a book and extract characters as entities\r\n- User mentions book characters, novel characters, character extraction\r\n- User wants to turn a story's cast into NekoCore OS entities\r\n- User mentions \"book to entity\", \"extract characters from book\", \"ingest novel\"\r\n\n## Workflow Overview\r\n\nBook ingestion is a **multi-phase pipeline**:\r\n1. Upload book text → server chunks it into ~2500-char segments\r\n2. Process all chunks in batches → discover characters, aliases, roles, traits, scene appearances\r\n3. Classify characters (main/supporting/minor/background)\r\n4. Present list to user — **wait for selection** (Main Only / All / Specific names)\r\n5. For each selected character, extract POV-isolated memories from ONLY their scenes\r\n6. Create each character as an entity via NekoCore OS API\r\n7. Inject memories chronologically with cognitive ticks between chapters\r\n8. Summary report\r\n\n## API Endpoints\r\n\n### MA Server (`http://localhost:3850`)",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills book-ingestion"
+  ],
+  "summary": "---\r\nname: book-ingestion\r\ndescription: Extract characters from a book and create them as NekoCore OS entities with POV-isolated memories. Supports main-only, all, or specific character selection.\r\n--",
+  "importance": 0.6,
+  "createdAt": 1774646388372,
+  "createdAtISO": "2026-03-27T21:19:48.372Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\book-ingestion\\SKILL.md",
+  "accessCount": 0
+}

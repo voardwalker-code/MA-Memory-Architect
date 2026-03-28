@@ -1,0 +1,7 @@
+1. Keep Promise.all for parallel contributors — never serialize 1A and 1D
+2. Orchestrator is voicer/reviewer only — never add reasoning to Final pass
+3. Post-turn memory encoding must be async — never block response delivery
+4. Budget and latency guards are non-negotiable safety rails
+5. Tool calls use `[TOOL: name; params]` syntax — parsed and executed between passes
+6. Task dispatch precedes companion pipeline — check task intent first
+7. System prompt assembly goes through context-consolidator — never hardcode

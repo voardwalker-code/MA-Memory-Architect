@@ -1,0 +1,20 @@
+// ── Exports ─────────────────────────────────────────────────────────────────
+// This is the public API.  Everything listed here is used by other MA files
+// (MA-Server-standalone.js, MA-cli.js, route modules, slash commands).
+// Do NOT remove or rename anything without checking all consumers first.
+module.exports = {
+  // Bootstrap
+  boot, ensureDirs, loadConfig, loadEntity, initMemory,
+  // State
+  getConfig, getMemory, getEntity, isConfigured, setConfig,
+  // Mode
+  getMode, setMode, getIntegrationMode,
+  // Chat
+  handleChat,
+  // Knowledge
+  loadKnowledge, listKnowledge,
+  // Re-exports for convenience (so other files don't need separate imports)
+  health, tasks, wsTools, agentCatalog, projectArchive, modelRouter, worklog,
+  // Paths
+  MA_ROOT, CONFIG_PATH, LEGACY_GLOBAL_CONFIG_PATH, ENTITY_DIR, WORKSPACE_DIR, KNOWLEDGE_DIR
+};

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386591_679d4332",
+  "type": "semantic",
+  "content": "1. **Opening Hook** — read-aloud boxed text (2-3 paragraphs the DM reads to players)\r\n2. **Encounter Sequence** — mix of:\r\n   - Combat encounters (CR-appropriate with stat block references)\r\n   - Social encounters (NPC interactions with goals and dialog)\r\n   - Exploration encounters (puzzles, traps, discoveries)\r\n3. **Key NPC Interactions** — for each NPC the party meets:\r\n   - What they want\r\n   - What they know (and what they'll share vs hide)\r\n   - Dialog hooks (2-3 key lines)\r\n4. **Loot Table** — level-appropriate, thematic items with flavor text\r\n5. **Cliffhanger** — session end hook that makes players want to come back\r\n\n### Phase 5: NPC Entity Creation\r\n\nFor key NPCs (villain, 2-3 major allies, recurring antagonists), create as NekoCore OS entities:\r\n\nGenerate unique ID: `{name-lowercase}-npc-{timestamp}`\r\n\n```\r\n[TOOL:web_fetch {\"url\": \"http://localhost:3847/api/entities/create\", \"method\": \"POST\", \"body\": {\"entityId\": \"{name-lowercase}-npc-{timestamp}\", \"name\": \"NPC Name\", \"gender\": \"male|female|neutral\", \"traits\": [\"trait1\", \"trait2\", \"trait3\"], \"introduction\": \"In-character introduction from the NPC's perspective\"}}]\r\n```\r\n\nFor each key NPC, inject 3-5 memories:\r\n- Backstory seed (episodic, importance 0.7-0.9)\r\n- Current motivation (semantic, importance 0.6-0.8)\r\n- Secret agenda (core, importance 0.8)\r\n- Relationship to party or other NPCs (semantic, importance 0.6)",
+  "topics": [
+    "MA Memory Architect",
+    "dnd_campaign.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "1. **Opening Hook** — read-aloud boxed text (2-3 paragraphs the DM reads to players)\r\n2. **Encounter Sequence** — mix of:\r\n   - Combat encounters (CR-appropriate with stat block references)\r\n   - Soci",
+  "importance": 0.6,
+  "createdAt": 1774646386592,
+  "createdAtISO": "2026-03-27T21:19:46.592Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\dnd_campaign.md",
+  "accessCount": 0
+}

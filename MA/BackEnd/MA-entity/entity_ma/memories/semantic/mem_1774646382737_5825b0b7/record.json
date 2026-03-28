@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382737_5825b0b7",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\n// createRouteHandler(deps) → async function handleRequest(req, res)\n//\n// This is the main function that MA-Server-standalone.js calls.\n// It receives all the services (deps) and returns the request handler\n// that gets passed to http.createServer().\n//\n// deps = {\n//   core,                — MA-core (boot, handleChat, getConfig, etc.)\n//   llm,                 — MA-llm  (callLLM, ollamaListModels, …)\n//   pulse,               — MA-pulse (timers, chores)\n//   modelRouter,         — MA-model-router (roster, routing, perf)\n//   cmdExec,             — MA-cmd-executor (whitelist, exec)\n//   handleSlashCommand,  — from MA-slash-commands\n//   renderMarkdownToHtml,— from MA-markdown\n//   BLUEPRINT_DIR,       — absolute path to blueprints folder\n//   CLIENT_DIR           — absolute path to browser client folder\n// }\n// ─────────────────────────────────────────────────────────────────────────────\nfunction createRouteHandler(deps) {\n\n  // ── Step 1: Load and initialize all route modules ─────────────────\n  // For each module in ROUTE_MODULES:\n  //   1. Try to require() it (safeRequire handles errors)\n  //   2. Call the factory function with deps to get a handler\n  //   3. If anything goes wrong, log a warning and skip it\n  const handlers = [];",
+  "topics": [
+    "MA Memory Architect",
+    "MA-routes.js",
+    "BackEnd"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\n// createRouteHandler(deps) → async function handleRequest(req, res)\n//\n// This is the main function that MA-Server-sta",
+  "importance": 0.6,
+  "createdAt": 1774646382738,
+  "createdAtISO": "2026-03-27T21:19:42.738Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-routes.js",
+  "accessCount": 0
+}

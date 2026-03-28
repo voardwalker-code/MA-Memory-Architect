@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385693_8f231a3f",
+  "type": "semantic",
+  "content": "### Phase 0 Evidence\r\n- Planning and governance artifacts created before migration edits:\r\n  - `MA Standalone Plan/MA-Standalone-Implementation-Plan.md`\r\n  - `MA Standalone Plan/SOURCE-OF-TRUTH.md`\r\n  - `MA Standalone Plan/CHANGE-LEDGER.md`\r\n- Early execution records captured in this ledger prior to later phase implementation.\r\n\n### Phase 1 Evidence\r\n- `node MA-Server.js` verified shim delegation startup path.\r\n- `npm start`, `npm run start:bg`, `npm run status` verified standalone boot/lifecycle.\r\n- No `MODULE_NOT_FOUND` for parent-app runtime imports.\r\n\n### Phase 2 Evidence\r\n- Local-first config runtime checks recorded in:\r\n  - `MA Standalone Plan/phase2-validation.json`\r\n- Confirmed no required parent-config writes.\r\n\n### Phase 3 Evidence\r\n- `node -e \"const t=require('./MA-server/MA-workspace-tools'); ... integrationMode:'off' ...\"` output: blocked with explicit integrationMode fallback.\r\n- `node -e \"const t=require('./MA-server/MA-workspace-tools'); ... integrationMode:'nekocore' ...\"` output: no integration-mode block message.\r\n- Config toggle evidence:\r\n  - `integrationMode after on: nekocore`\r\n  - `integrationMode after off: off`\r\n\n### Phase 4 Evidence\r\n- README quickstart updated to `node MA-Server-standalone.js`.\r\n- USER-GUIDE quickstart updated to `node MA-Server-standalone.js`.\r\n- NekoCore integration section relabeled optional and includes explicit enablement steps.",
+  "topics": [
+    "MA Memory Architect",
+    "CHANGE-LEDGER.md",
+    "MA Standalone Plan"
+  ],
+  "summary": "### Phase 0 Evidence\r\n- Planning and governance artifacts created before migration edits:\r\n  - `MA Standalone Plan/MA-Standalone-Implementation-Plan.md`\r\n  - `MA Standalone Plan/SOURCE-OF-TRUTH.md`\r\n ",
+  "importance": 0.6,
+  "createdAt": 1774646385694,
+  "createdAtISO": "2026-03-27T21:19:45.694Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Standalone Plan\\CHANGE-LEDGER.md",
+  "accessCount": 0
+}

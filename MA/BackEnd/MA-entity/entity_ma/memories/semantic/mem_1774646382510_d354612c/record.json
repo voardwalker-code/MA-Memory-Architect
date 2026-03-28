@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382510_d354612c",
+  "type": "semantic",
+  "content": "const { spawn } = require('child_process');\r\nconst fs   = require('fs');\r\nconst path = require('path');\r\n\nconst OUTPUT_CAP = 16 * 1024; // 16 KB max per stream\r\nconst DEFAULT_TIMEOUT = 60000;\r\nconst HARD_MAX_TIMEOUT = 300000;\r\n\nconst MA_ROOT = path.resolve(__dirname, '..');\r\nconst WHITELIST_PATH = path.join(MA_ROOT, 'MA-Config', 'cmd-whitelist.json');\r\n\n// ── Default whitelist: binary → allowed subcommands (null = all) ────────────\r\nconst DEFAULT_WHITELIST = {\r\n  cargo:   ['build','run','test','check','clippy','fmt','init','new','add','remove','update','doc'],\r\n  rustc:   null, rustfmt: null,\r\n  python:  null, python3: null,\r\n  pip:     ['install','list','show','freeze','uninstall'],\r\n  pip3:    ['install','list','show','freeze','uninstall'],\r\n  node:    null, npm: ['init','install','test','run','start','build','ls','outdated','update','ci'],\r\n  npx:     null,\r\n  gcc:     null, 'g++': null, make: null, cmake: null,\r\n  go:      ['build','run','test','fmt','vet','mod','get'],\r\n  git:     ['init','status','add','commit','log','diff','branch','checkout','tag'],\r\n  cat:     null, head: null, tail: null, wc: null,\r\n  ls:      null, dir:  null, find: null, grep: null, type: null\r\n};\r\n\n// ── Runtime whitelist (loaded from file or defaults) ────────────────────────\r\nlet WHITELIST = { ...DEFAULT_WHITELIST };",
+  "topics": [
+    "MA Memory Architect",
+    "infra-cmd-executor.js",
+    "BackEnd infra"
+  ],
+  "summary": "const { spawn } = require('child_process');\r\nconst fs   = require('fs');\r\nconst path = require('path');\r\n\nconst OUTPUT_CAP = 16 * 1024; // 16 KB max per stream\r\nconst DEFAULT_TIMEOUT = 60000;\r\nconst H",
+  "importance": 0.6,
+  "createdAt": 1774646382510,
+  "createdAtISO": "2026-03-27T21:19:42.510Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-cmd-executor.js",
+  "accessCount": 0
+}

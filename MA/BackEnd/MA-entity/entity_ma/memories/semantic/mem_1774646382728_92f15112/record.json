@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382728_92f15112",
+  "type": "semantic",
+  "content": "// ── MA Route Dispatcher ──────────────────────────────────────────────────────\n//\n// This is the central router for the MA standalone server.\n//\n// HOW IT WORKS:\n// Instead of having ALL the route logic crammed into one giant file,\n// we split it into small \"route modules\" — each one lives in the\n// ./routes/ folder and handles a specific area (chat, config, memory, etc.).\n//\n// This file's job is simple:\n//   1. Load each route module file from ./routes/\n//   2. Initialize each module by passing it the services it needs (deps)\n//   3. When a request comes in, ask each module \"is this yours?\" in order\n//   4. The first module that says \"yes\" (returns true) handles it\n//   5. If nobody claims the request, return 404\n//\n// RESILIENCE:\n// If a route module file is missing, has a syntax error, or crashes during\n// setup, the server still starts!  It just logs a warning and skips that\n// module.  One broken feature won't take down the whole server.\n//\n// ── Route modules (loaded in this order) ────────────────────────────────────\n//   route-chat       — Chat streaming + sessions         (groups 1, 2)\n//   route-config     — Mode toggle + LLM config          (groups 3, 4)\n//   route-ollama     — Ollama model management            (group 5)\n//   route-system     — Entity identity + Health scan      (groups 6, 7)\n//   route-pulse      — Pulse timers + Chores              (groups 8, 9)\n//   route-models     — Model roster + routing             (group 10)\n//   route-worklog    — Session work state                 (group 11)\n//   route-projects   — Project archive                    (group 12)\n//   route-blueprints — Blueprint CRUD                     (group 13)\n//   route-commands   — Slash commands + Whitelist          (groups 14, 15)\n//   route-memory     — Memory search/store/ingest         (group 16)\n//   route-workspace  — File system + Terminal             (groups 17, 18)\n//   route-static     — User guide + Static files (LAST!)  (groups 19, 20)\n//\n// ── Exports ─────────────────────────────────────────────────────────────────\n//   createRouteHandler(deps) → async function handleRequest(req, res)\n// ─────────────────────────────────────────────────────────────────────────────\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "MA-routes.js",
+    "BackEnd"
+  ],
+  "summary": "// ── MA Route Dispatcher ──────────────────────────────────────────────────────\n//\n// This is the central router for the MA standalone server.\n//\n// HOW IT WORKS:\n// Instead of having ALL the route l",
+  "importance": 0.6,
+  "createdAt": 1774646382729,
+  "createdAtISO": "2026-03-27T21:19:42.729Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-routes.js",
+  "accessCount": 0
+}

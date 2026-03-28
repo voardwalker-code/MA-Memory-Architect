@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384943_a5414ed9",
+  "type": "semantic",
+  "content": "async function wlAdd() {\r\n  const bin = document.getElementById('wl-bin').value.trim();\r\n  if (!bin) { alert('Enter a binary name'); return; }\r\n  const subsRaw = document.getElementById('wl-subs').value.trim();\r\n  const subs = subsRaw ? subsRaw.split(',').map(s => s.trim()).filter(Boolean) : null;\r\n  try {\r\n    const r = await fetch('/api/whitelist/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ binary: bin, subcommands: subs }) });\r\n    const d = await r.json();\r\n    if (d.error) { alert(d.error); return; }\r\n    document.getElementById('wl-bin').value = '';\r\n    document.getElementById('wl-subs').value = '';\r\n    wlLoad();\r\n  } catch (e) { alert('Error: ' + e.message); }\r\n}\r\n\nasync function wlRemove(bin) {\r\n  try {\r\n    await fetch('/api/whitelist/remove', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ binary: bin }) });\r\n    wlLoad();\r\n  } catch (e) { alert('Error: ' + e.message); }\r\n}\r\n\nasync function wlReset() {\r\n  if (!confirm('Reset command whitelist to defaults?')) return;\r\n  try {\r\n    await fetch('/api/whitelist/reset', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });\r\n    wlLoad();\r\n  } catch (e) { alert('Error: ' + e.message); }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-config.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function wlAdd() {\r\n  const bin = document.getElementById('wl-bin').value.trim();\r\n  if (!bin) { alert('Enter a binary name'); return; }\r\n  const subsRaw = document.getElementById('wl-subs').val",
+  "importance": 0.6,
+  "createdAt": 1774646384944,
+  "createdAtISO": "2026-03-27T21:19:44.944Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-config.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386251_3b9d205f",
+  "type": "semantic",
+  "content": "**CRITICAL: STOP AND WAIT for the user's response before proceeding.** Do not continue until they select.\r\n\n---\r\n\n## Phase 3: Memory Extraction (Per-Character, POV-Isolated)\r\n\nFor each selected character, process ONLY the chunks where that character appears.\r\n\n### POV Isolation Rules — MANDATORY\r\n\nThese rules are **non-negotiable**. They define the entire purpose of this system.",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "**CRITICAL: STOP AND WAIT for the user's response before proceeding.** Do not continue until they select.\r\n\n---\r\n\n## Phase 3: Memory Extraction (Per-Character, POV-Isolated)\r\n\nFor each selected charac",
+  "importance": 0.6,
+  "createdAt": 1774646386252,
+  "createdAtISO": "2026-03-27T21:19:46.252Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

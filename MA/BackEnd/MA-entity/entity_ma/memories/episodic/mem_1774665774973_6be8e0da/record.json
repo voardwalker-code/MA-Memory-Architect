@@ -1,0 +1,27 @@
+{
+  "id": "mem_1774665774973_6be8e0da",
+  "type": "episodic",
+  "content": "Chat: Hello\nReply: Hey there! 👋\n\nI'm MA — your Memory Architect. How can I help you today?",
+  "topics": [
+    "conversation",
+    "memory architect",
+    "chat",
+    "hello",
+    "reply",
+    "hey",
+    "help",
+    "today",
+    "chat hello",
+    "reply hey",
+    "👋",
+    "ma"
+  ],
+  "summary": "Chat: Hello\nReply: Hey there! 👋\n\nI'm MA — your Memory Architect. How can I help you today?",
+  "importance": 0.5,
+  "createdAt": 1774665774976,
+  "createdAtISO": "2026-03-28T02:42:54.976Z",
+  "chainId": "chain_1774665767471_445wor",
+  "archive": null,
+  "sourcePath": null,
+  "accessCount": 0
+}

@@ -1,0 +1,49 @@
+| Type of code | Folder | Prefix |
+|-------------|--------|--------|
+| Text/NLP algorithms | `nlp/` | `nlp-` |
+| AI model communication | `llm/` | `llm-` |
+| Business logic, data managers | `services/` | `svc-` |
+| System utilities, HTTP helpers | `infra/` | `infra-` |
+| AI tool implementations | `tools/` | `tools-` |
+| HTTP endpoint handlers | `routes/` | `route-` |
+| Parts of MA-core.js | `core/` | `core-` |
+
+---
+
+## 4. Naming Conventions
+
+### Files
+
+- **Prefix matches the folder:** `nlp/nlp-bm25.js`, `services/svc-memory.js`
+- **Lowercase with hyphens:** `svc-project-archive.js` not `svcProjectArchive.js`
+- **Descriptive but short:** `llm-api.js` not `llm-unified-provider-api-caller.js`
+
+### Functions
+
+- **camelCase:** `extractToolCalls()`, `bm25Score()`
+- **Private functions start with underscore:** `_safe()`, `_dispatch()`
+- **Boolean functions use is/has/can:** `isConfigured()`, `hasCapability()`
+
+### Constants
+
+- **UPPER_SNAKE_CASE:** `MAX_TOKENS`, `DEFAULT_TIMEOUT`
+- **Or descriptive camelCase for complex constants:** `PROVIDER_CAPS`
+
+### Exports
+
+Always put `module.exports` at the very end of the file. List every
+export explicitly — never use `module.exports = { ...obj }` from a
+variable:
+
+```javascript
+// ── Exports ─────────────────────────────────────────────────────────────────
+module.exports = {
+  extractToolCalls,
+  executeToolCalls,
+  formatToolResults,
+  stripToolCalls,
+  ToolSchemas
+};
+```
+
+---

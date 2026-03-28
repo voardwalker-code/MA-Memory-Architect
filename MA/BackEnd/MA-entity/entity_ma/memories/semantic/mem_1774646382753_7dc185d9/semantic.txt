@@ -1,0 +1,33 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// _dispatch(name, params, wp, opts)
+//
+// Routes a single tool call to the correct module function.
+// This is the central switch that connects tool names to implementations.
+//
+// Think of it like a phone operator — when someone calls "ws_read",
+// the operator connects them to the file-reading department.
+//
+//   name   — normalised tool name (e.g. "ws_read", "web_search")
+//   params — validated parameters for the tool
+//   wp     — workspace path (for file tools)
+//   opts   — execution options (webFetchEnabled, cmdRunEnabled, etc.)
+//   Returns: the tool's result string
+// ─────────────────────────────────────────────────────────────────────────────
+async function _dispatch(name, params, wp, opts) {
+  const p = params;
+  switch (name) {
+    // ── File tools ──────────────────────────────────────────────────
+    case 'ws_list':
+      return toolsFs ? toolsFs.wsList(wp, p.path) : 'ws_list: file module not available';
+    case 'ws_read':
+      return toolsFs ? toolsFs.wsRead(wp, p.path) : 'ws_read: file module not available';
+    case 'ws_write':
+      return toolsFs ? toolsFs.wsWrite(wp, p.path, p.content) : 'ws_write: file module not available';
+    case 'ws_append':
+      return toolsFs ? toolsFs.wsAppend(wp, p.path, p.content) : 'ws_append: file module not available';
+    case 'ws_delete':
+      return toolsFs ? toolsFs.wsDelete(wp, p.path) : 'ws_delete: file module not available';
+    case 'ws_mkdir':
+      return toolsFs ? toolsFs.wsMkdir(wp, p.path) : 'ws_mkdir: file module not available';
+    case 'ws_move':
+      return toolsFs ? toolsFs.wsMove(wp, p.src, p.dst) : 'ws_move: file module not available';

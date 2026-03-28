@@ -1,0 +1,34 @@
+## Installer App Package Contract
+
+Required package shape for non-core app installability:
+
+1. App payload HTML: `client/apps/non-core/core/tab-<appId>.html`
+2. Installer contract JSON: `server/contracts/installer-<appId>.contract.example.json`
+3. Install actions for all registration points (non-core loader, window app registry, category map)
+4. Uninstall actions mirroring each install action by `entryId` with `expectedFingerprint`
+
+### Install Action Fields
+- `type`: insert | create-file
+- `filePath`, `entryId` (stable string for uninstall targeting)
+- For insert: `anchorId` + `payload`
+- For create-file: `payload` or `templatePath`
+
+### Uninstall Action Fields
+- `type`: remove | delete-file
+- `filePath`, `entryId`
+- For remove: `expectedFingerprint` required
+
+### Transactional Guarantees
+- Marker matching exact before insertion
+- Missing boundary anywhere → `auto-rollback-error`
+- All-or-nothing (no partial writes)
+
+### ID Conventions
+- `appId` matches all surfaces: tab id, contract appId, install action payload
+- Lowercase kebab or lowercase alnum only
+- Icons: short display token for nav, inline SVG for shell/taskbar
+- Labels: human-readable title case, stable across reruns
+
+---
+
+## CSS Class Contract

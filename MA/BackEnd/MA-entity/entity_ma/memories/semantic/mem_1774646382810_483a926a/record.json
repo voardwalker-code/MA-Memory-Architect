@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382810_483a926a",
+  "type": "semantic",
+  "content": "function dedup(candidates) {\r\n  const sorted = candidates.sort((a, b) => a.score - b.score);\r\n  const kept = [], usedWords = new Set();\r\n  for (const c of sorted) {\r\n    const words = c.keyword.split(' ');\r\n    if (words.every(w => usedWords.has(w))) continue;\r\n    kept.push(c);\r\n    for (const w of words) usedWords.add(w);\r\n  }\r\n  return kept;\r\n}\r\n\n/**\r\n * Extract keywords from text using YAKE statistical features.\r\n * @param {string} text\r\n * @param {number} [maxKeywords=10]\r\n * @returns {string[]}\r\n */\r\nfunction extractKeywords(text, maxKeywords = 10) {\r\n  if (!text || typeof text !== 'string') return [];\r\n  const tokens = tokenize(text);\r\n  if (tokens.length === 0) return [];\r\n\n  const wordFeatures = computeWordFeatures(tokens);\r\n  const bigramScores = scoreBigrams(tokens, wordFeatures);\r\n\n  const candidates = [];\r\n  for (const [word, feat] of wordFeatures) candidates.push({ keyword: word, score: feat.score });\r\n  for (const [bigram, feat] of bigramScores) {\r\n    if (feat.count >= 1) candidates.push({ keyword: bigram, score: feat.score });\r\n  }\r\n\n  return dedup(candidates).slice(0, maxKeywords).map(c => c.keyword);\r\n}\r\n\nmodule.exports = { extractKeywords };",
+  "topics": [
+    "MA Memory Architect",
+    "nlp-yake.js",
+    "BackEnd nlp"
+  ],
+  "summary": "function dedup(candidates) {\r\n  const sorted = candidates.sort((a, b) => a.score - b.score);\r\n  const kept = [], usedWords = new Set();\r\n  for (const c of sorted) {\r\n    const words = c.keyword.split(",
+  "importance": 0.6,
+  "createdAt": 1774646382810,
+  "createdAtISO": "2026-03-27T21:19:42.810Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\nlp\\nlp-yake.js",
+  "accessCount": 0
+}

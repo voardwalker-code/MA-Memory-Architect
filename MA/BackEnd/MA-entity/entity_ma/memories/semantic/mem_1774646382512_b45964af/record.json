@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382512_b45964af",
+  "type": "semantic",
+  "content": "function _loadWhitelist() {\r\n  try {\r\n    if (fs.existsSync(WHITELIST_PATH)) {\r\n      const data = JSON.parse(fs.readFileSync(WHITELIST_PATH, 'utf8'));\r\n      WHITELIST = data;\r\n    }\r\n  } catch { /* use defaults */ }\r\n}\r\n\nfunction _saveWhitelist() {\r\n  const dir = path.dirname(WHITELIST_PATH);\r\n  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });\r\n  fs.writeFileSync(WHITELIST_PATH, JSON.stringify(WHITELIST, null, 2));\r\n}\r\n\n// Load on module init\r\n_loadWhitelist();\r\n\n// ── Whitelist management API ────────────────────────────────────────────────\r\n\n/** Get the full whitelist. */\r\nfunction getWhitelist() {\r\n  return { ...WHITELIST };\r\n}\r\n\n/**\r\n * Add or update a command in the whitelist.\r\n * @param {string} binary — command name (lowercase)\r\n * @param {string[]|null} subcommands — allowed subcommands, or null for all\r\n */\r\nfunction whitelistAdd(binary, subcommands) {\r\n  if (!binary || typeof binary !== 'string') throw new Error('binary required');\r\n  const key = binary.toLowerCase().trim();\r\n  if (!key) throw new Error('binary cannot be empty');\r\n  // Prevent whitelisting dangerous binaries\r\n  const forbidden = ['rm','del','format','shutdown','kill','taskkill','curl','wget','powershell','cmd.exe','bash','sh','cmd'];\r\n  if (forbidden.includes(key)) throw new Error(`Cannot whitelist dangerous command: ${key}`);\r\n  WHITELIST[key] = subcommands;\r\n  _saveWhitelist();\r\n  return { binary: key, subcommands };\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "infra-cmd-executor.js",
+    "BackEnd infra"
+  ],
+  "summary": "function _loadWhitelist() {\r\n  try {\r\n    if (fs.existsSync(WHITELIST_PATH)) {\r\n      const data = JSON.parse(fs.readFileSync(WHITELIST_PATH, 'utf8'));\r\n      WHITELIST = data;\r\n    }\r\n  } catch { /* ",
+  "importance": 0.6,
+  "createdAt": 1774646382513,
+  "createdAtISO": "2026-03-27T21:19:42.513Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-cmd-executor.js",
+  "accessCount": 0
+}

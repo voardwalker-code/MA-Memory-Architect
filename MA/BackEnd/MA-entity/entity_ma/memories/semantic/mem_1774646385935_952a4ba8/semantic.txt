@@ -1,0 +1,16 @@
+> **App: {Name}**
+> - Container: `tab-{appId}`
+> - Category: `{category}`
+> - Window: {w}×{h}
+> - Icon: {emoji}
+> - Features: {list}
+>
+> The HTML payload is written. Shall I proceed with the installer contract, or do you want changes?
+
+Wait for user confirmation before proceeding.
+
+---
+
+## Phase 5 — Build Installer Contract
+
+Write the complete installer contract. This is the EXACT format required — every field matters.

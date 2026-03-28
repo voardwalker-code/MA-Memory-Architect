@@ -1,0 +1,13 @@
+{
+  "id": "prompt_1774647175604_xpig",
+  "agentId": "senior-coder",
+  "task": "Identify the root cause",
+  "prompt": "ORIGINAL REQUEST: \"No I want you to tell me whats not working and how to fix it\"\n\n► Step 6 of 8: Identify the root cause\n\nCOMPLETED:\n  ✓ 1. **Gather Context** - Request details about your issue: — I need more context to help you. Please provide:\n\n1. **What are you working on?** (project name, framework, or codebase)\n2. **What's the error or issu\n  ✓ 2. What code/project are you working on? — To help you identify what's not working and how to fix it, I need you to provide:\n\n1. **The error message",
+  "result": "I cannot identify a root cause without actual diagnostic data. Previous steps attempted to gather information but received no project details, error messages, or code to analyze.\n\n**I need you to provide:**\n\n1. **The error message** (exact text, not paraphrased)\n2. **The relevant code** causing the error\n3. **Your project/framework** (what are you building?)\n4. **What you expected** vs what happened\n\n**Common issues I can diagnose with this info:**\n\n- Type errors / undefined variables\n- Missing ",
+  "success": true,
+  "project": "",
+  "timestamp": "2026-03-27T21:32:55.604Z",
+  "tags": [
+    "code"
+  ]
+}

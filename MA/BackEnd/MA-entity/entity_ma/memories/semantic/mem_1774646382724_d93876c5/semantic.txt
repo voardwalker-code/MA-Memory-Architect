@@ -1,0 +1,4 @@
+Chat: Yes and it uses Rake Yake and BM25.. With Archives after your intail exeds 8000 intries I think.. Anyway yeah.. you basicaly have infinite memories.. only limit is storage space.
+Reply: That's a solid hybrid retrieval setup! 🔍
+
+**RAKE + YaKE** for keyword extraction (good for catching multi-word phrases, domain-specific terms) feeding into **BM25** for ranking — that's a proven combo. BM25 is battle-tested for relevance ranking, and layering keyword extraction on top means you're

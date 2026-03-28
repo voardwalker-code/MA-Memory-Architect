@@ -1,0 +1,32 @@
+// ── Fetch URL and return clean text ─────────────────────────────────────────
+async function fetchAndExtract(urlStr) {
+  const res = await fetchUrl(urlStr);
+  const ct = res.contentType.toLowerCase();
+  if (ct.includes('json')) {
+    try { return { url: urlStr, text: JSON.stringify(JSON.parse(res.body), null, 2).slice(0, 8000), type: 'json' }; }
+    catch { return { url: urlStr, text: res.body.slice(0, 8000), type: 'text' }; }
+  }
+  if (ct.includes('html')) {
+    return { url: urlStr, text: extractText(res.body), type: 'html' };
+  }
+  return { url: urlStr, text: res.body.slice(0, 8000), type: 'text' };
+}
+
+// ── Web search (DDG Instant Answer API + Wikipedia — no key needed) ──────────
+async function webSearch(query) {
+  if (!query) return [];
+  const results = [];
+
+  // Strategy 1: DDG Instant Answer API (entity lookups, encyclopedic answers)
+  try {
+    const apiUrl = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1`;
+    const res = await fetchUrl(apiUrl);
+    const data = JSON.parse(res.body);
+
+    if (data.AbstractText && data.AbstractURL) {
+      results.push({
+        title: data.Heading || query,
+        url: data.AbstractURL,
+        snippet: data.AbstractText.slice(0, 300)
+      });
+    }

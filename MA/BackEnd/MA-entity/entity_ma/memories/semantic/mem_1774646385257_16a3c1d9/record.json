@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385257_16a3c1d9",
+  "type": "semantic",
+  "content": "// ── Rail & Inspector ──────────────────────────────────────────────────────\r\nfunction setRailActive(activeId) {\r\n  document.querySelectorAll('.rail-btn').forEach(function(button) {\r\n    button.classList.toggle('active', button.id === activeId);\r\n  });\r\n}\r\n\nfunction selectInspector(name) {\r\n  if (!inspectorTitles[name]) return;\r\n  currentInspector = name;\r\n  document.querySelectorAll('.side-pane').forEach(function(pane) {\r\n    pane.classList.toggle('active', pane.id === 'pane-' + name);\r\n  });\r\n  if (sideTitleEl) sideTitleEl.textContent = inspectorTitles[name];\r\n  setRailActive('rail-' + name);\r\n  refreshInspector();\r\n}\r\n\nfunction selectWorkspaceSection(name) {\r\n  currentInspector = name;\r\n  setRailActive('rail-' + name);\r\n  if (explorerTitleEl) {\r\n    explorerTitleEl.textContent = inspectorTitles[name] || 'Workspace Files';\r\n  }\r\n  refreshWorkspaceSection();\r\n}\r\n\nfunction saveActiveTab() {\r\n  if (activeTabId) return saveEditorTab();\r\n  saveBlueprint();\r\n}\r\n\nfunction resetWorkspaceLayout() {\r\n  localStorage.removeItem('ma-workspace-layout-v1');\r\n  location.reload();\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-nav.js",
+    "FrontEnd js"
+  ],
+  "summary": "// ── Rail & Inspector ──────────────────────────────────────────────────────\r\nfunction setRailActive(activeId) {\r\n  document.querySelectorAll('.rail-btn').forEach(function(button) {\r\n    button.class",
+  "importance": 0.6,
+  "createdAt": 1774646385258,
+  "createdAtISO": "2026-03-27T21:19:45.258Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-nav.js",
+  "accessCount": 0
+}

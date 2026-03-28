@@ -1,0 +1,33 @@
+// ── User Guide ───────────────────────────────────────────────────
+    // Reads the USER-GUIDE.md file from the MA root folder, converts
+    // it to HTML using the markdown renderer, and sends it as a
+    // full HTML page.
+    if (url.pathname === '/user-guide' && method === 'GET') {
+      const guidePath = path.join(core.MA_ROOT, 'USER-GUIDE.md');
+      if (fs.existsSync(guidePath)) {
+        const md   = fs.readFileSync(guidePath, 'utf8');
+        const html = renderMarkdownToHtml(md);
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(html);
+      } else {
+        res.writeHead(404);
+        res.end('User guide not found');
+      }
+      return true;
+    }
+
+    // ── Static file serving ──────────────────────────────────────────
+    // This is the catch-all.  It maps the URL to a file in FrontEnd/:
+    //   /              → FrontEnd/MA-index.html  (the main page)
+    //   /css/style.css → FrontEnd/css/style.css
+    //   /js/app.js     → FrontEnd/js/app.js
+    //   etc.
+    //
+    // Security: We check that the resolved path stays inside CLIENT_DIR
+    // to prevent directory traversal attacks (e.g. "/../../../etc/passwd").
+
+    // If the URL is just "/", serve the main page
+    const filePath = url.pathname === '/' ? '/MA-index.html' : url.pathname;
+
+    // Resolve the path against the client directory
+    const resolved = path.resolve(CLIENT_DIR, '.' + filePath);

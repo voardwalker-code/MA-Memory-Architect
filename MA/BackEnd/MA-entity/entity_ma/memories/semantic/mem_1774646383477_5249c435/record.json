@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383477_5249c435",
+  "type": "semantic",
+  "content": "function startPulse(id, handler, intervalMs) {\r\n  stopPulse(id);\r\n  const intervalId = setInterval(handler, intervalMs);\r\n  _timers.set(id, { intervalId, intervalMs, handler, startedAt: new Date().toISOString() });\r\n  // Run immediately on first start\r\n  try { handler(); } catch { /* logged inside handlers */ }\r\n}\r\n\nfunction stopPulse(id) {\r\n  if (_timers.has(id)) {\r\n    clearInterval(_timers.get(id).intervalId);\r\n    _timers.delete(id);\r\n  }\r\n}\r\n\nfunction getPulseStatus() {\r\n  const status = {};\r\n  for (const [id, t] of _timers) {\r\n    status[id] = { running: true, intervalMs: t.intervalMs, startedAt: t.startedAt };\r\n  }\r\n  return status;\r\n}\r\n\n/** Start all configured pulses. Call after init(). */\r\nfunction startAll() {\r\n  const cfg = getPulseConfig();\r\n  if (cfg.healthScan?.enabled) {\r\n    startPulse('health', _runHealthPulse, cfg.healthScan.intervalMs || 3600000);\r\n  }\r\n  if (cfg.choreCheck?.enabled) {\r\n    startPulse('chores', () => _runChoreCheck().catch(e => _log('pulse-chores.log', { error: e.message })), cfg.choreCheck.intervalMs || 1800000);\r\n  }\r\n}\r\n\nfunction stopAll() {\r\n  for (const id of _timers.keys()) stopPulse(id);\r\n}\r\n\n// ── Exports ─────────────────────────────────────────────────────────────────",
+  "topics": [
+    "MA Memory Architect",
+    "svc-pulse.js",
+    "BackEnd services"
+  ],
+  "summary": "function startPulse(id, handler, intervalMs) {\r\n  stopPulse(id);\r\n  const intervalId = setInterval(handler, intervalMs);\r\n  _timers.set(id, { intervalId, intervalMs, handler, startedAt: new Date().toI",
+  "importance": 0.6,
+  "createdAt": 1774646383477,
+  "createdAtISO": "2026-03-27T21:19:43.477Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-pulse.js",
+  "accessCount": 0
+}

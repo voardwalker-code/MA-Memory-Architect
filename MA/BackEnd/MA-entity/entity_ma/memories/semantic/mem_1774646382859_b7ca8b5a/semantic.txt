@@ -1,0 +1,18 @@
+// json()     — send a JSON response with a status code
+// readBody() — read the full body of a POST request
+const { json, readBody } = require('../infra/infra-http-utils');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// createCommandRoutes(deps)
+//
+// Called once when the server starts.  Returns a handler that checks every
+// incoming request.  Returns true if handled, false if not ours.
+// ─────────────────────────────────────────────────────────────────────────────
+module.exports = function createCommandRoutes(deps) {
+  const { handleSlashCommand, cmdExec } = deps;
+
+  return async function handle(url, method, req, res) {
+
+    // ═════════════════════════════════════════════════════════════════
+    // SLASH COMMANDS — The command catalog + execution
+    // ═════════════════════════════════════════════════════════════════

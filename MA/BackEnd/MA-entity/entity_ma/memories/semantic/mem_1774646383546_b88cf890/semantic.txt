@@ -1,0 +1,79 @@
+// ── Intent classifier (rule-based, no LLM fallback) ────────────────────────
+const RULES = {
+  delegate: {
+    kw: ['delegate','dispatch','assign','hire','agent','roster','catalog','team','who can','available agents','send to','hand off'],
+    re: [/(?:delegate|dispatch|assign|send).{0,50}(?:to|agent|coder|engineer|researcher|reviewer|tester)/i, /(?:hire|create).{0,30}(?:agent|coder|engineer)/i, /(?:who|which|list|show).{0,30}(?:agent|roster|team|available)/i, /(?:check|scan).{0,30}(?:roster|catalog|agents)/i]
+  },
+  architect: {
+    kw: ['architect','project plan','detailed plan','plan out','blueprint','specification','requirements gathering','design document','scaffold plan'],
+    re: [/(?:plan|design|architect|spec).{0,50}(?:project|system|app|application)/i, /(?:create|generate|build|write).{0,50}(?:plan|blueprint|specification|architecture)/i, /generate the project plan/i]
+  },
+  code: {
+    kw: ['code','write','develop','implement','create','build','function','script','program','debug','fix','refactor','test','error','bug','api','file','command','run','execute','compile','python','javascript','html','css','rust'],
+    re: [/(?:write|create|build|implement).{0,50}(?:code|function|script|app)/i, /(?:fix|debug|refactor).{0,50}(?:code|bug|error)/i]
+  },
+  deep_research: {
+    kw: ['deep dive','deep research','deep-dive','extensive research','comprehensive report','detailed report','research paper','white paper','full report','in-depth research','thorough research'],
+    re: [/deep\s*dive\s*(?:research|into|on|about)/i, /(?:deep|extensive|exhaustive|thorough|comprehensive|in-depth).{0,30}(?:research|investigation|report|paper|study|analysis)/i, /(?:write|create|produce).{0,30}(?:detailed|comprehensive|extensive|full).{0,30}(?:report|paper|article|study)/i]
+  },
+  research: {
+    kw: ['research','find','search','look up','investigate','explore','what is','how many','why is','web','source'],
+    re: [/(?:find|search|research|investigate).{0,50}(?:about|for|on)/i, /\b(?:what|who|where|when|why|how)\b.{0,80}\b(?:is|are|was|were)\b/i]
+  },
+  writing: {
+    kw: ['compose','draft','article','blog','document','essay','guide','tutorial','story','summarize','summary','email','outline'],
+    re: [/(?:write|compose|draft).{0,80}(?:content|article|blog|guide|email|story)/i, /(?:summarize|summary).{0,80}(?:article|document|text)/i]
+  },
+  analysis: {
+    kw: ['analyze','analysis','breakdown','compare','evaluate','assess','examine','pattern','trend','insight','data','pros','cons'],
+    re: [/(?:analyze|break down|examine).{0,50}(?:data|information|results)/i, /(?:compare|evaluate|assess).{0,50}(?:options|approaches)/i]
+  },
+  project: {
+    kw: ['project','scaffold','setup','generate','starter','template','boilerplate','full app'],
+    re: [/(?:create|build|scaffold).{0,50}(?:project|app|application)/i]
+  },
+  memory_query: {
+    kw: ['remember','recall','memory','what did','when did','past','previous','earlier','talked about','mentioned','history'],
+    re: [/(?:remember|recall|do you remember).{0,50}(?:when|what|where)/i, /(?:what).{0,30}(?:did).{0,30}(?:talk|discuss)/i]
+  },
+  entity_genesis: {
+    kw: ['entity','genesis','create entity','forge entity','new entity','character','backstory','persona','birth','evolve entity','spawn entity','generate entity','entity creation','build entity','bring to life'],
+    re: [/(?:create|forge|birth|spawn|generate|build|make).{0,50}(?:entity|character|persona|being)/i, /entity.{0,30}(?:genesis|creation|evolution|backstory)/i, /(?:evolve|enrich|develop).{0,50}(?:entity|character|persona)/i]
+  },
+  book_ingestion: {
+    kw: ['book','novel','ingest book','extract characters','story characters','character extraction','book characters','ingest novel','book to entity','literary characters','fiction characters'],
+    re: [/(?:ingest|process|read|extract|import).{0,50}(?:book|novel|story|text|fiction)/i, /(?:book|novel|story).{0,50}(?:characters?|entities|cast)/i, /(?:extract|pull|get|find).{0,50}(?:characters?|cast).{0,50}(?:from|in|of)/i, /character.{0,30}(?:extraction|ingestion|import)/i]
+  },
+  study_guide: {
+    kw: ['study guide','study','flashcards','flash cards','outline','timeline','review material','help me study','study for','create outline','build timeline','make flashcards','key concepts','study notes','revision','cram'],
+    re: [/(?:create|build|make|generate).{0,30}(?:study guide|flashcards?|outline|timeline)/i, /(?:help me|I need to).{0,30}(?:study|review|learn|prepare)/i, /(?:study|review|revision).{0,30}(?:guide|notes|material|cards)/i, /(?:build|create).{0,30}(?:timeline|chronolog)/i]
+  },
+  dnd_create: {
+    kw: ['DnD','D&D','dungeons and dragons','encounter','NPC','character sheet','roll character','stat block','monster','combat encounter','dungeon','tabletop','5e','pathfinder','TTRPG','hit points','armor class'],
+    re: [/(?:create|build|design|generate|roll).{0,30}(?:encounter|NPC|character|stat block|dungeon)/i, /(?:DnD|D&D|dungeons?.{0,5}dragons?|5e|pathfinder|TTRPG)/i, /(?:combat|battle|fight).{0,30}(?:encounter|scenario|challenge)/i, /(?:populate|fill|stock).{0,30}(?:tavern|dungeon|town|village|guild|court)/i]
+  },
+  tutor_entity: {
+    kw: ['tutor','teacher','teaching assistant','TA','teach me','I need a teacher','create tutor','subject tutor','private tutor','study helper','homework help','build a TA','course helper'],
+    re: [/(?:create|build|make|I need).{0,30}(?:tutor|teacher|teaching assistant|TA)/i, /(?:tutor|teach).{0,30}(?:for|about|in|on).{0,30}(?:math|science|english|history|biology|chemistry|physics|calculus|spanish|french|music|programming|coding)/i, /(?:help me).{0,30}(?:learn|understand|study).{0,30}(?:with a|using a|through a)/i]
+  },
+  dnd_campaign: {
+    kw: ['campaign','DnD campaign','D&D campaign','session prep','prepare session','session recap','journal session','world lore','faction lore','deity lore','campaign arc','adventure','quest line','story arc'],
+    re: [/(?:build|create|design|plan|start).{0,30}(?:campaign|adventure|quest|story arc)/i, /(?:prep|prepare|plan).{0,30}(?:session|next session)/i, /(?:recap|journal|write up).{0,30}(?:session|last session|adventure)/i, /(?:build|create|expand).{0,30}(?:lore|faction|deity|region|world)/i]
+  },
+  course_creator: {
+    kw: ['course','curriculum','syllabus','lesson plan','create a course','build a course','book to course','study course','exam prep','prepare for exam','study for test','mock exam','final exam','midterm','assessment'],
+    re: [/(?:create|build|design|make).{0,30}(?:course|curriculum|syllabus|lesson plan)/i, /(?:turn|convert|transform).{0,30}(?:book|textbook|text).{0,30}(?:into|to|as).{0,30}(?:course|curriculum|study)/i, /(?:exam|test|midterm|final).{0,30}(?:prep|prepare|study|review|practice)/i, /(?:help me).{0,30}(?:prepare for|study for|get ready for).{0,30}(?:exam|test|assessment)/i]
+  },
+  blueprint_builder: {
+    kw: ['blueprint','create a blueprint','build a blueprint','make a blueprint','new blueprint','design a blueprint','write a blueprint','blueprint for','no blueprint','missing blueprint','need a blueprint','task type','new task type','add a task type','workflow','create a workflow','build a workflow'],
+    re: [/(?:create|build|make|write|design|draft).{0,30}(?:blueprint|workflow|task type|task template)/i, /(?:no|missing|need|there.{0,10}no).{0,30}(?:blueprint|workflow).{0,30}(?:for|to|that)/i, /blueprint.{0,30}(?:for|to|that).{0,30}(?:can|will|does|handles?)/i, /(?:teach|learn|know).{0,30}(?:how to).{0,30}(?:do|handle|process|create)/i]
+  },
+  prompt_engineering: {
+    kw: ['prompt','system prompt','write a prompt','create a prompt','build a prompt','design a prompt','prompt engineering','prompt template','few-shot','few shot','chain of thought','refine prompt','improve prompt','fix prompt','prompt refinement','custom instructions','agent instructions','structured output','prompt for'],
+    re: [/(?:create|write|build|design|draft|make).{0,30}(?:prompt|system prompt|instructions|few.?shot)/i, /(?:refine|improve|fix|rewrite|optimize).{0,30}(?:prompt|system prompt|instructions)/i, /(?:prompt|instructions).{0,30}(?:engineering|template|design|for)/i, /(?:few.?shot|chain.of.thought|structured.output).{0,30}(?:prompt|template|example)/i]
+  },
+  app_builder: {
+    kw: ['app','application','build an app','create an app','make an app','new app','app builder','install app','nekocore app','app window','tab app','desktop app','windowed app','add an app','app for nekocore','gui app'],
+    re: [/(?:create|build|make|design|develop).{0,30}(?:app|application|window|tab|gui)/i, /(?:install|add|register).{0,30}(?:app|application).{0,30}(?:nekocore|neko|desktop|os)/i, /(?:nekocore|neko).{0,30}(?:app|application|window)/i, /(?:app|application).{0,30}(?:builder|creator|installer|maker)/i]
+  }
+};

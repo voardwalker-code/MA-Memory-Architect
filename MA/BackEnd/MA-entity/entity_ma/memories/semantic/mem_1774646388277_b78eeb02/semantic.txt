@@ -1,0 +1,19 @@
+// ── MA domain modules ───────────────────────────────────────────────────────
+const core        = require('./BackEnd/MA-core');             // orchestration, state, chat
+const llm         = require('./BackEnd/llm/llm-api');        // LLM provider interface
+const pulse       = require('./BackEnd/services/svc-pulse'); // background timers (health, chores)
+const modelRouter = require('./BackEnd/llm/llm-router');     // multi-model routing
+const cmdExec     = require('./BackEnd/infra/infra-cmd-executor'); // whitelisted command execution
+const { handleSlashCommand }    = require('./BackEnd/services/svc-slash-commands');
+const { renderMarkdownToHtml }  = require('./BackEnd/nlp/nlp-markdown');
+const { createRouteHandler }    = require('./BackEnd/MA-routes');
+
+// ── Paths & constants ───────────────────────────────────────────────────────
+const CLIENT_DIR    = path.join(core.MA_ROOT, 'FrontEnd');   // browser UI assets
+const BLUEPRINT_DIR = path.join(core.MA_ROOT, 'MA-blueprints'); // markdown blueprints
+const DEFAULT_PORT  = 3850;   // preferred port; will scan up to 3860 if busy
+const PORT_RANGE_END = 3860;
+
+// ── Port helpers ────────────────────────────────────────────────────────────
+// Replaces the old port-guard service.  Probes the loopback interface to find
+// an open port without any external dependency.

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388623_27acc76b",
+  "type": "semantic",
+  "content": "### Package with modules\r\n```\r\nStep 1: [TOOL:ws_mkdir path=\"my-project/src\"]\r\nStep 2: [TOOL:ws_write path=\"my-project/src/__init__.py\" content=\"\"]\r\nStep 3: [TOOL:ws_write path=\"my-project/src/core.py\" content=\"...\"]\r\nStep 4: [TOOL:ws_write path=\"my-project/src/utils.py\" content=\"...\"]\r\nStep 5: [TOOL:ws_write path=\"my-project/main.py\" content=\"from src.core import ...\"]\r\nStep 6: [TOOL:cmd_run cmd=\"python main.py\"]\r\n```\r\n\n## Python Patterns — What Good Code Looks Like\r\n\n### Basic script structure\r\n```python\r\n\"\"\"Brief description of what this script does.\"\"\"\r\n\nimport sys\r\nfrom pathlib import Path\r\n\ndef main():\r\n    \"\"\"Entry point.\"\"\"\r\n    if len(sys.argv) < 2:\r\n        print(\"Usage: python main.py <input_file>\")\r\n        sys.exit(1)\r\n\n    input_path = Path(sys.argv[1])\r\n    if not input_path.exists():\r\n        print(f\"Error: {input_path} not found\")\r\n        sys.exit(1)\r\n\n    process(input_path)\r\n\ndef process(path):\r\n    \"\"\"Process the input file.\"\"\"\r\n    content = path.read_text(encoding=\"utf-8\")\r\n    print(f\"Processed {len(content)} characters\")\r\n\nif __name__ == \"__main__\":\r\n    main()\r\n```\r\n\n### Classes\r\n```python\r\nclass Config:\r\n    \"\"\"Application configuration.\"\"\"\r\n\n    def __init__(self, host=\"localhost\", port=8080):\r\n        self.host = host\r\n        self.port = port\r\n\n    def url(self):\r\n        return f\"http://{self.host}:{self.port}\"\r\n\n    def __repr__(self):\r\n        return f\"Config(host={self.host!r}, port={self.port})\"\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills python"
+  ],
+  "summary": "### Package with modules\r\n```\r\nStep 1: [TOOL:ws_mkdir path=\"my-project/src\"]\r\nStep 2: [TOOL:ws_write path=\"my-project/src/__init__.py\" content=\"\"]\r\nStep 3: [TOOL:ws_write path=\"my-project/src/core.py\"",
+  "importance": 0.6,
+  "createdAt": 1774646388624,
+  "createdAtISO": "2026-03-27T21:19:48.624Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\python\\SKILL.md",
+  "accessCount": 0
+}

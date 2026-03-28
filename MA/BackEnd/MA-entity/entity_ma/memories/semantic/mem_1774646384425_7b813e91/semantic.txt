@@ -1,0 +1,33 @@
+MA can automatically select the best LLM for each task from a user-configured roster of models. This means you don't need Opus doing simple text generation — a local model handles the easy work, while premium models are reserved for complex tasks.
+
+### Setting Up the Roster
+
+Add models to MA's roster via slash commands:
+```
+/models add ollama llama3.1:8b http://localhost:11434
+/models add ollama codellama:13b http://localhost:11434
+/models add openrouter anthropic/claude-sonnet-4 https://openrouter.ai/api/v1/chat/completions
+```
+
+Or via the API:
+```json
+POST /api/models/add
+{
+  "provider": "ollama",
+  "model": "llama3.1:8b",
+  "endpoint": "http://localhost:11434",
+  "contextWindow": 131072,
+  "tier": "local",
+  "strengths": ["python", "javascript"],
+  "weaknesses": ["rust"]
+}
+```
+
+Each model entry has:
+- **provider** — ollama or openrouter
+- **tier** — local, cheap, mid, or premium (auto-detected for ollama)
+- **contextWindow** — max tokens the model supports
+- **strengths** / **weaknesses** — what the model is good/bad at
+- **costPer1kIn** / **costPer1kOut** — pricing (0 for local models)
+
+### How Routing Works

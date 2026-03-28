@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388429_8d7da48e",
+  "type": "semantic",
+  "content": "### Building a multi-file project\r\n1. Plan the file structure first (list all files you need)\r\n2. Start with the entry point / main file\r\n3. Write shared utilities and helpers next\r\n4. Write secondary files that depend on the shared code\r\n5. Write configuration files last (package.json, etc.)\r\n\nExample order for a Node.js project:\r\n```\r\nStep 1: ws_mkdir path=\"my-project/src\"\r\nStep 2: ws_write path=\"my-project/package.json\" content=\"...\"\r\nStep 3: ws_write path=\"my-project/src/index.js\" content=\"...\"\r\nStep 4: ws_write path=\"my-project/src/utils.js\" content=\"...\"\r\n```\r\n\n## Language Patterns\r\n\n### JavaScript / Node.js\r\n```javascript\r\n// Dependencies at top\r\nconst fs = require('fs');\r\nconst path = require('path');\r\n\n// Constants\r\nconst DEFAULT_PORT = 3000;\r\n\n// Functions\r\nfunction startServer(port) {\r\n  if (!port) port = DEFAULT_PORT;\r\n  // implementation\r\n}\r\n\n// Exports at bottom\r\nmodule.exports = { startServer };\r\n```\r\n\n### Python\r\n```python\r\n\"\"\"Module description.\"\"\"\r\n\nimport os\r\nimport sys\r\n\n# Constants\r\nDEFAULT_TIMEOUT = 30\r\n\ndef main():\r\n    \"\"\"Entry point.\"\"\"\r\n    # implementation\r\n    pass\r\n\nif __name__ == '__main__':\r\n    main()\r\n```\r\n\n### HTML\r\n```html\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title>Page Title</title>\r\n  <link rel=\"stylesheet\" href=\"styles.css\">\r\n</head>\r\n<body>\r\n  <main id=\"app\"></main>\r\n  <script src=\"app.js\"></script>\r\n</body>\r\n</html>\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills coding"
+  ],
+  "summary": "### Building a multi-file project\r\n1. Plan the file structure first (list all files you need)\r\n2. Start with the entry point / main file\r\n3. Write shared utilities and helpers next\r\n4. Write secondary",
+  "importance": 0.6,
+  "createdAt": 1774646388429,
+  "createdAtISO": "2026-03-27T21:19:48.429Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\coding\\SKILL.md",
+  "accessCount": 0
+}

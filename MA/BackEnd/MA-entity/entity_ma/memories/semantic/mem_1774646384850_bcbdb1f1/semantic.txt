@@ -1,0 +1,20 @@
+_clearLongRequestTimer();
+    // If no events came through at all, handle gracefully
+    if (!gotSteps) hideTyping();
+
+  } catch (e) {
+    _clearLongRequestTimer();
+    dismissLongRequest();
+    hideTyping();
+    if (e.name !== 'AbortError') addSystem('Network error: ' + e.message);
+  }
+
+  sending = false;
+  sendBtn.disabled = false;
+  inputEl.focus();
+}
+
+function handleChatResult(d) {
+  const reply = d.reply || '(empty response)';
+  const msgDiv = addMsg('ma', reply);
+  history.push({ role: 'assistant', content: reply });

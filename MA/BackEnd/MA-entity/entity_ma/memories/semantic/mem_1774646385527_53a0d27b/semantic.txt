@@ -1,0 +1,29 @@
+<section id="chat-panel">
+    <div id="chat-toolbar">
+      <div>
+        <div class="chat-kicker">Assistant</div>
+        <h2>Chat</h2>
+      </div>
+      <div class="chat-hint">The workspace stays visible while you chat, inspect files, and edit documents.</div>
+    </div>
+    <div id="session-picker">
+      <div id="session-recent-bar"></div>
+      <div id="session-dropdown-wrap">
+        <button class="sp-new-btn" onclick="startNewSession()" title="New conversation">＋ New Chat</button>
+        <button id="session-dropdown-btn" onclick="toggleSessionDropdown()">History ▾</button>
+        <div id="session-dropdown" class="hidden"></div>
+      </div>
+    </div>
+    <div id="chat"></div>
+    <div id="token-bar"><div class="fill"></div></div>
+    <div id="token-info"></div>
+    <div id="input-bar">
+      <div id="cmd-popup"></div>
+      <div id="file-chips"></div>
+      <textarea id="msg-input" placeholder="Message MA... (type / for commands, or drag files here)" rows="1" onkeydown="handleKey(event)" oninput="handleInput()"></textarea>
+      <button id="send-btn" onclick="send()">Send</button>
+    </div>
+  </section>
+</div>
+
+<div id="drop-overlay"><span>Drop files here</span></div>

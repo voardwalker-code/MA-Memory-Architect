@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387215_d7f2a61b",
+  "type": "semantic",
+  "content": "**DON'T:**\r\n- Create generic \"I know about X\" memories — include HOW they explain it and what students get wrong\r\n- Make tutors robotic — they should have personality quirks and teaching stories\r\n- Skip cognitive ticks — the entity needs to evolve a coherent teaching personality\r\n- Create entity files manually with `ws_write` — always use the NekoCore OS API\r\n- Make TA memories too generic — they should reference specific course content, not just the subject",
+  "topics": [
+    "MA Memory Architect",
+    "tutor_entity.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "**DON'T:**\r\n- Create generic \"I know about X\" memories — include HOW they explain it and what students get wrong\r\n- Make tutors robotic — they should have personality quirks and teaching stories\r\n- Sk",
+  "importance": 0.6,
+  "createdAt": 1774646387217,
+  "createdAtISO": "2026-03-27T21:19:47.217Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\tutor_entity.md",
+  "accessCount": 0
+}

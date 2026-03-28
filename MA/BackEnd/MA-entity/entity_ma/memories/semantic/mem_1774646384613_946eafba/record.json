@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384613_946eafba",
+  "type": "semantic",
+  "content": "/* Task progress */\r\n  .task-progress{align-self:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;max-width:75%;width:320px}\r\n  .task-progress .tp-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--accent);font-weight:600;font-size:13px}\r\n  .task-progress .tp-header .tp-spinner{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}\r\n  @keyframes spin{to{transform:rotate(360deg)}}\r\n  .task-progress .tp-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:6px}\r\n  .task-progress .tp-bar .tp-fill{height:100%;background:var(--accent);transition:width .4s ease;border-radius:2px}\r\n  .task-progress .tp-step{font-size:12px;color:var(--dim);padding:2px 0;display:flex;gap:6px;align-items:baseline}\r\n  .task-progress .tp-step.done{color:var(--ma)}\r\n  .task-progress .tp-step.active{color:var(--accent)}\r\n  .task-progress .tp-step .tp-icon{min-width:14px;text-align:center}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.css",
+    "FrontEnd css"
+  ],
+  "summary": "/* Task progress */\r\n  .task-progress{align-self:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;max-width:75%;width:320px}\r\n  .",
+  "importance": 0.6,
+  "createdAt": 1774646384614,
+  "createdAtISO": "2026-03-27T21:19:44.614Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\css\\ma-ui.css",
+  "accessCount": 0
+}

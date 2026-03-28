@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386737_d74cedf8",
+  "type": "semantic",
+  "content": "2-3 sentences connecting this encounter to a story. Not just \"monsters attack\" — why is this fight happening? What are the stakes?\r\n\n### Phase 5: Scaling Notes\r\n\n- **Harder**: add +2 monsters, upgrade one enemy to next CR tier, add lair actions\r\n- **Easier**: remove 1-2 monsters, reduce HP by 20%, remove special abilities\r\n- **Different party size**: adjust XP budget proportionally\r\n\n### Phase 6: Non-Combat Variant (if applicable)\r\n\nSkill challenge framework:\r\n- Skills that apply and their DCs\r\n- Success/failure thresholds (e.g., 5 successes before 3 failures)\r\n- Branching outcomes (full success, partial success, failure)\r\n\n### Phase 7: Output\r\n\n```\r\n[TOOL:ws_write {\"path\": \"encounter-{name-slug}.md\", \"content\": \"...\"}]\r\n```\r\n\n---\r\n\n## NPC FACTORY MODE\r\n\n### Phase 1: Setting Context\r\n\nExtract from user message:\r\n- **Location type**: tavern, guild hall, royal court, bandit camp, marketplace, temple, docks, etc.\r\n- **Faction** (optional): thieves guild, noble house, mercenary company, religious order\r\n- **Number of NPCs**: default 5-8 for a location, 10-15 for a larger setting\r\n\n### Phase 2: NPC Generation\r\n\nFor each NPC generate:",
+  "topics": [
+    "MA Memory Architect",
+    "dnd_create.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "2-3 sentences connecting this encounter to a story. Not just \"monsters attack\" — why is this fight happening? What are the stakes?\r\n\n### Phase 5: Scaling Notes\r\n\n- **Harder**: add +2 monsters, upgrade",
+  "importance": 0.6,
+  "createdAt": 1774646386738,
+  "createdAtISO": "2026-03-27T21:19:46.738Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\dnd_create.md",
+  "accessCount": 0
+}

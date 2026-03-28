@@ -1,0 +1,40 @@
+for (const mode of modes) {
+    const btn = document.createElement('button');
+    btn.className = 'book-select-btn';
+    btn.textContent = mode.label;
+    btn.onclick = function () {
+      bar.querySelectorAll('.book-select-btn').forEach(b => b.disabled = true);
+      if (mode.value === 'specific') {
+        // Show text input for character names
+        const inp = document.createElement('input');
+        inp.type = 'text';
+        inp.className = 'book-char-input';
+        inp.placeholder = 'Character names (comma-separated)...';
+        inp.onkeydown = function (e) {
+          if (e.key === 'Enter' && inp.value.trim()) {
+            const names = inp.value.trim();
+            inputEl.value = '[BOOK_SELECTION] mode=specific selected=' + names;
+            send();
+            inp.disabled = true;
+          }
+        };
+        const go = document.createElement('button');
+        go.className = 'book-select-btn';
+        go.textContent = 'Extract';
+        go.onclick = function () {
+          if (inp.value.trim()) {
+            inputEl.value = '[BOOK_SELECTION] mode=specific selected=' + inp.value.trim();
+            send();
+            inp.disabled = true;
+            go.disabled = true;
+          }
+        };
+        bar.appendChild(inp);
+        bar.appendChild(go);
+      } else {
+        inputEl.value = '[BOOK_SELECTION] mode=' + mode.value;
+        send();
+      }
+    };
+    bar.appendChild(btn);
+  }

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383078_08bb53ec",
+  "type": "semantic",
+  "content": "// ── Route Module: Workspace & Terminal ────────────────────────────────────────\r\n//\r\n// This module gives the browser client access to the user's project files\r\n// and lets the AI run whitelisted terminal commands.\r\n//\r\n// Think of it like a file manager + a safe terminal:\r\n//   • TREE  — Show the folder structure (like a sidebar in VS Code)\r\n//   • READ  — Open a file and see its contents\r\n//   • SAVE  — Write new content to a file (create or update)\r\n//   • MKDIR — Create a new folder\r\n//   • FILE  — Serve a raw file (images, HTML, etc.) for in-browser preview\r\n//   • EXEC  — Run a terminal command, but ONLY if it's on the whitelist\r\n//\r\n// SAFETY: All file paths are checked to make sure they stay inside the\r\n// workspace folder.  You can't use tricks like \"../../etc/passwd\" to\r\n// escape.  Terminal commands are also restricted to the whitelist.\r\n//\r\n// ── Endpoints ───────────────────────────────────────────────────────────────\r\n//   GET  /api/workspace/tree  — Get the folder tree of the workspace\r\n//   GET  /api/workspace/read  — Read a file.  Query: ?path=src/app.js\r\n//   POST /api/workspace/save  — Write a file.  Body: { path, content }\r\n//   POST /api/workspace/mkdir — Create a folder.  Body: { path }\r\n//   GET  /api/workspace/file  — Serve a raw file with correct MIME type\r\n//   POST /api/terminal/exec   — Run a whitelisted command.  Body: { command }\r\n//\r\n// ── What this module needs ──────────────────────────────────────────────────\r\n//   deps.core    — MA-core (WORKSPACE_DIR for the project root)\r\n//   deps.cmdExec — MA-cmd-executor (parseCommand, execCommand for terminal)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "route-workspace.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Route Module: Workspace & Terminal ────────────────────────────────────────\r\n//\r\n// This module gives the browser client access to the user's project files\r\n// and lets the AI run whitelisted te",
+  "importance": 0.6,
+  "createdAt": 1774646383079,
+  "createdAtISO": "2026-03-27T21:19:43.079Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-workspace.js",
+  "accessCount": 0
+}

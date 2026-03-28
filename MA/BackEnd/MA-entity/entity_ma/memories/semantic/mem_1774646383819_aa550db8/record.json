@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383819_aa550db8",
+  "type": "semantic",
+  "content": "// Write memory.zip — compressed full content with metadata\r\n  const memContent = JSON.stringify({ semantic: content, narrative, emotion, topics, phase, createdDuring: 'book_ingestion' });\r\n  fs.writeFileSync(path.join(memDir, 'memory.zip'), zlib.gzipSync(memContent));\r\n\n  // Write log.json — metadata for searching and sorting\r\n  const log = {\r\n    memory_id: memId,\r\n    type: memType === 'core' ? 'core_memory' : memType,\r\n    created: new Date().toISOString(),\r\n    importance,\r\n    emotion,\r\n    decay: memType === 'core' ? 0.005 : (memType === 'semantic' ? 0 : 0.95),\r\n    topics,\r\n    access_count: 0,\r\n    emotionalTag: { valence: 0, arousal: 0 }\r\n  };\r\n  fs.writeFileSync(path.join(memDir, 'log.json'), JSON.stringify(log, null, 2), 'utf8');\r\n\n  // Update memory index (best-effort — failure here is not fatal)\r\n  const indexDir = path.join(entityDir, 'index');\r\n  const indexFile = path.join(indexDir, 'memoryIndex.json');\r\n  try {\r\n    fs.mkdirSync(indexDir, { recursive: true });\r\n    let memIndex = {};\r\n    if (fs.existsSync(indexFile)) memIndex = JSON.parse(fs.readFileSync(indexFile, 'utf8'));\r\n    memIndex[memId] = { importance, decay: log.decay, topics, emotion, created: log.created, type: log.type };\r\n    fs.writeFileSync(indexFile, JSON.stringify(memIndex, null, 2), 'utf8');\r\n  } catch (_) { /* index update is best-effort */ }",
+  "topics": [
+    "MA Memory Architect",
+    "tools-entity.js",
+    "BackEnd tools"
+  ],
+  "summary": "// Write memory.zip — compressed full content with metadata\r\n  const memContent = JSON.stringify({ semantic: content, narrative, emotion, topics, phase, createdDuring: 'book_ingestion' });\r\n  fs.write",
+  "importance": 0.6,
+  "createdAt": 1774646383820,
+  "createdAtISO": "2026-03-27T21:19:43.820Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-entity.js",
+  "accessCount": 0
+}

@@ -1,0 +1,19 @@
+const fs   = require('fs');
+const path = require('path');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ensureDirs(dirs)
+//
+// Takes a list of folder paths and creates any that don't exist yet.
+// Uses { recursive: true } so it creates parent folders too.
+//
+// Example: if you pass ['MA-workspace', 'MA-entity/memories/episodic']
+// it will create all those folders (and any parents) if needed.
+//
+//   dirs — an array of absolute folder paths
+// ─────────────────────────────────────────────────────────────────────────────
+function ensureDirs(dirs) {
+  for (const d of dirs) {
+    if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });
+  }
+}

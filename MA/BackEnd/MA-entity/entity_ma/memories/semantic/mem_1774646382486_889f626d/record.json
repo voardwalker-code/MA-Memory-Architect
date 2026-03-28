@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382486_889f626d",
+  "type": "semantic",
+  "content": "Examples:\r\n[TOOL:ws_list {\"path\":\"myproject\"}]\r\n[TOOL:ws_read {\"path\":\"myproject/package.json\"}]\r\n${isChatMode ? '' : `[TOOL:ws_write {\"path\":\"myproject/hello.txt\"}]\r\nHello world content here\r\n[/TOOL]\r\n[TOOL:ws_delete {\"path\":\"old-file.js\"}]\r\n[TOOL:ws_move {\"src\":\"old.js\",\"dst\":\"new.js\"}]\r\n[TOOL:cmd_run {\"cmd\":\"npm test\"}]\r\n`}[TOOL:web_search {\"query\":\"node.js streams\"}]\r\n[TOOL:memory_search {\"query\":\"previous conversation about APIs\"}]\r\n\nRULES:\r\n- Parameters MUST be valid JSON: {\"key\":\"value\"}\r\n- File content goes AFTER the opening tag, closed with [/TOOL]\r\n- Do NOT put file content inside the JSON — use the block format\r\n- Do NOT wrap tool calls in code fences, quotes, or backticks\r\n- One tool per block. Do NOT nest tool calls.\r\n${isChatMode ? '' : `\r\n[Code Output — MANDATORY]\r\nALWAYS write code to workspace files using [TOOL:ws_write]. NEVER paste raw code blocks into the chat.\r\nIf the user asks you to write, create, build, or implement code — use ws_write to put it in a file.\r\nThe user sees your chat response — keep it conversational (what you're doing, what you built). The actual code goes in files.",
+  "topics": [
+    "MA Memory Architect",
+    "core-context.js",
+    "BackEnd core"
+  ],
+  "summary": "Examples:\r\n[TOOL:ws_list {\"path\":\"myproject\"}]\r\n[TOOL:ws_read {\"path\":\"myproject/package.json\"}]\r\n${isChatMode ? '' : `[TOOL:ws_write {\"path\":\"myproject/hello.txt\"}]\r\nHello world content here\r\n[/TOOL]",
+  "importance": 0.6,
+  "createdAt": 1774646382486,
+  "createdAtISO": "2026-03-27T21:19:42.486Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-context.js",
+  "accessCount": 0
+}

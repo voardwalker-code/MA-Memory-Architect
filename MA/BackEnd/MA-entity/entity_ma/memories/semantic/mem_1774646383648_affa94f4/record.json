@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383648_affa94f4",
+  "type": "semantic",
+  "content": "stepOutputs.push({ step: i + 1, description: step.description, output: resp });\r\n    step.done = true;\r\n    if (onStep) await onStep({ stepIndex: i, stepTotal: plan.steps.length, description: step.description, output: resp });\r\n    if (onActivity) await onActivity('step_done', `Step ${i + 1} complete: ${step.description}`);\r\n    if (dispatchedAgent && agentCatalog) {\r\n      try { agentCatalog.recordPrompt(dispatchedAgent.id, { task: step.description, prompt: prompt.slice(0, 500), result: (resp || '').slice(0, 500), success: true, tags: [taskType] }); } catch {}\r\n    }\r\n  }\r\n\n  // Phase 3: Final summary\r\n  let finalResponse;\r\n  const sumBP = getBlueprint(taskType, 'summarize');\r\n  if (llmCalls < limits.maxLLM) {\r\n    const stepsBlock = stepOutputs.map(s => `Step ${s.step} — ${s.description}:\\n${s.output}`).join('\\n\\n');\r\n    finalResponse = await callLLM([\r\n      { role: 'system', content: `You are ${entityName}. Summarize what you accomplished. Be brief and natural. List what files were created or modified — do NOT include code in the summary. The code is already in the workspace files.` + (sumBP ? `\\n\\n${sumBP}` : '') },\r\n      { role: 'user', content: `Request: \"${message}\"\\n\\nCompleted ${stepOutputs.length} steps:\\n${stepsBlock}\\n\\nBrief summary:` }\r\n    ], { temperature: 0.6, ...(taskTimeout ? { timeout: taskTimeout } : {}) });\r\n    llmCalls++;\r\n  } else {\r\n    finalResponse = stepOutputs.map(s => `**${s.description}**\\n${s.output}`).join('\\n\\n');\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "svc-tasks.js",
+    "BackEnd services"
+  ],
+  "summary": "stepOutputs.push({ step: i + 1, description: step.description, output: resp });\r\n    step.done = true;\r\n    if (onStep) await onStep({ stepIndex: i, stepTotal: plan.steps.length, description: step.des",
+  "importance": 0.6,
+  "createdAt": 1774646383649,
+  "createdAtISO": "2026-03-27T21:19:43.649Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-tasks.js",
+  "accessCount": 0
+}

@@ -1,0 +1,12 @@
+module.exports = {
+  init, startAll, stopAll,
+  // Pulse control
+  startPulse, stopPulse, getPulseStatus,
+  getPulseConfig, savePulseConfig,
+  // Chores
+  getChores, addChore, updateChore, removeChore,
+  // Logs
+  readLog, LOG_DIR,
+  // Paths
+  CHORE_PATH, PULSE_CFG
+};

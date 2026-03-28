@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386218_ae40b6b9",
+  "type": "semantic",
+  "content": "| Tool | Purpose |\r\n|------|--------|\r\n| `ws_write` | Write a file to the workspace |\r\n| `ws_read` | Read a file from the workspace |\r\n| `ws_mkdir` | Create a directory |\r\n| `ws_list` | List directory contents |\r\n\n> **IMPORTANT:** `entity_create` generates a unique hex ID (e.g. `Entity-Bob-Cratchit-a3f2b1`). This ID is REQUIRED for NekoCore to recognize the entity. Manual folder creation WILL NOT have this ID.\r\n> **DO NOT use `web_fetch` to access book chunks.** The `book_list_chunks` and `book_read_chunk` tools read directly from the filesystem and always work. `web_fetch` is blocked for localhost URLs.\r\n\n## Step Pattern",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "| Tool | Purpose |\r\n|------|--------|\r\n| `ws_write` | Write a file to the workspace |\r\n| `ws_read` | Read a file from the workspace |\r\n| `ws_mkdir` | Create a directory |\r\n| `ws_list` | List directory",
+  "importance": 0.6,
+  "createdAt": 1774646386220,
+  "createdAtISO": "2026-03-27T21:19:46.220Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

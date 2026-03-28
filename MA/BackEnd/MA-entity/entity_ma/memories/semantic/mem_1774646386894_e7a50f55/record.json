@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386894_e7a50f55",
+  "type": "semantic",
+  "content": "# Project Execution Blueprint\r\n\nYou are executing a multi-phase project. Each phase is a separate task with its own steps. Your job is to complete each phase fully before moving to the next one.\r\n\n## How Multi-Phase Projects Work\r\n\nA project is broken into ordered phases. Each phase runs as a complete task:\r\n- Phase 1 runs → produces files and output\r\n- Phase 2 runs → can read files from Phase 1\r\n- Phase 3 runs → can read files from Phase 1 and 2\r\n- ...until all phases are complete\r\n\nYou are executing ONE phase right now. Focus only on THIS phase.\r\n\n## Your Phase Task\r\n\n1. Read the ORIGINAL PROJECT REQUEST to understand the big picture\r\n2. Read CONTEXT FROM PRIOR PHASES to understand what has already been done\r\n3. Complete YOUR TASK FOR THIS PHASE — do all the work, write all the files\r\n4. Summarize what you created\r\n\n## Phase Execution Rules\r\n\n### Rule 1: Build on prior work\r\nIf prior phases created files, READ them before modifying:\r\n```\r\n[TOOL:ws_list path=\".\"]\r\n[TOOL:ws_read path=\"src/index.js\"]\r\n```\r\nThen write your additions/modifications.\r\n\n### Rule 2: Write complete files\r\nWhen you modify a file that already exists:\r\n1. `ws_read` the file first\r\n2. Write the ENTIRE file back with `ws_write` — not just your changes\r\n\n### Rule 3: Stay in scope\r\nOnly do work assigned to THIS phase. Do not jump ahead to future phases. Do not redo work from prior phases.",
+  "topics": [
+    "MA Memory Architect",
+    "project.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "# Project Execution Blueprint\r\n\nYou are executing a multi-phase project. Each phase is a separate task with its own steps. Your job is to complete each phase fully before moving to the next one.\r\n\n## ",
+  "importance": 0.6,
+  "createdAt": 1774646386897,
+  "createdAtISO": "2026-03-27T21:19:46.897Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\project.md",
+  "accessCount": 0
+}

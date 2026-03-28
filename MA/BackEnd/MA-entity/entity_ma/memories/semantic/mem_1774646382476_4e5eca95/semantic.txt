@@ -1,0 +1,32 @@
+// ── 5. Workspace projects ──────────────────────────────────────────
+  // Scan the workspace folder for project directories.
+  // If a project has a PROJECT-MANIFEST.json, read its status.
+  try {
+    if (fs.existsSync(workspacePath)) {
+      const entries = fs.readdirSync(workspacePath).filter(f => {
+        const full = path.join(workspacePath, f);
+        return fs.statSync(full).isDirectory();
+      });
+      if (entries.length > 0) {
+        const projectLines = [];
+        for (const dir of entries) {
+          const manifestPath = path.join(workspacePath, dir, 'PROJECT-MANIFEST.json');
+          if (fs.existsSync(manifestPath)) {
+            try {
+              const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+              const layers = manifest.layers || manifest.parts || {};
+              const layerCount = Object.keys(layers).length;
+              const statuses = Object.values(layers).map(l => l.status);
+              const done = statuses.filter(s => s === 'complete' || s === 'done').length;
+              projectLines.push(`- ${dir}/ — ${manifest.description || manifest.project || dir} (${done}/${layerCount} layers complete)`);
+            } catch { projectLines.push(`- ${dir}/`); }
+          } else {
+            projectLines.push(`- ${dir}/`);
+          }
+        }
+        result.workspaceCtx = '\n[Workspace Projects — YOUR active projects]\n' + projectLines.join('\n');
+        result.workspaceCtx += '\nYou built these projects. When the user asks to continue or start one, read its PROJECT-MANIFEST.json and BUILD-ORDER.md for full context.';
+        if (onActivity) await onActivity('workspace_scan', `Found ${entries.length} workspace project(s)`);
+      }
+    }
+  } catch { /* ignore scan errors */ }

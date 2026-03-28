@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383121_18619a3a",
+  "type": "semantic",
+  "content": "// ── Execute a command ────────────────────────────────────────────\r\n    // Body: { command: \"git status\" }\r\n    //\r\n    // How it works:\r\n    //   1. Parse the command to extract the binary name\r\n    //   2. Check if that binary is on the whitelist\r\n    //   3. If allowed, run it inside the workspace directory\r\n    //   4. Return { stdout, stderr, code }\r\n    //\r\n    // If the command isn't whitelisted, it returns an error message\r\n    // (but still with status 200, so the UI can display it nicely).\r\n    if (url.pathname === '/api/terminal/exec' && method === 'POST') {\r\n      const body = JSON.parse(await readBody(req));\r\n      if (!body.command || typeof body.command !== 'string') {\r\n        json(res, 400, { error: 'Need command' });\r\n        return true;\r\n      }\r\n      try {\r\n        const parsed = cmdExec.parseCommand(body.command);\r\n        if (!parsed.ok) {\r\n          json(res, 200, { error: parsed.error });\r\n          return true;\r\n        }\r\n        const result = await cmdExec.execCommand(body.command, core.WORKSPACE_DIR);\r\n        json(res, 200, {\r\n          stdout: result.stdout || '',\r\n          stderr: result.stderr || '',\r\n          code:   result.code\r\n        });\r\n      } catch (e) {\r\n        json(res, 200, { error: e.message });\r\n      }\r\n      return true;\r\n    }\r\n\n    // None of our routes matched\r\n    return false;\r\n  };\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "route-workspace.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Execute a command ────────────────────────────────────────────\r\n    // Body: { command: \"git status\" }\r\n    //\r\n    // How it works:\r\n    //   1. Parse the command to extract the binary name\r\n  ",
+  "importance": 0.6,
+  "createdAt": 1774646383122,
+  "createdAtISO": "2026-03-27T21:19:43.122Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-workspace.js",
+  "accessCount": 0
+}

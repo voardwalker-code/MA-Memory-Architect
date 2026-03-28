@@ -1,0 +1,41 @@
+// If native tools were used, check for tool_use blocks
+  if (opts.tools && opts.tools.length) {
+    const toolUseBlocks = data.content.filter(b => b.type === 'tool_use');
+    if (toolUseBlocks.length) {
+      return {
+        content: text,
+        toolCalls: toolUseBlocks.map(b => ({
+          id: b.id,
+          name: b.name,
+          input: b.input || {}
+        })),
+        _stopReason: data.stop_reason
+      };
+    }
+  }
+
+  return text;
+}
+
+// Anthropic requires strictly alternating user/assistant messages.
+// Merge consecutive same-role messages and ensure conversation starts with user.
+function _enforceAlternatingRoles(messages) {
+  if (!messages.length) return [{ role: 'user', content: '.' }];
+
+  const merged = [];
+  for (const msg of messages) {
+    const last = merged[merged.length - 1];
+    if (last && last.role === msg.role) {
+      last.content += '\n\n' + msg.content;
+    } else {
+      merged.push({ role: msg.role, content: msg.content });
+    }
+  }
+
+  // Ensure first message is user role
+  if (merged[0]?.role !== 'user') {
+    merged.unshift({ role: 'user', content: '.' });
+  }
+
+  return merged;
+}

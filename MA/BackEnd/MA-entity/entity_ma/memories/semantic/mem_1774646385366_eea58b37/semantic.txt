@@ -1,0 +1,20 @@
+// Filter by search query
+    if (query) {
+      nodes = nodes.filter(function(n) {
+        return (n.summary || '').toLowerCase().includes(query)
+          || (n.sourceType || '').toLowerCase().includes(query)
+          || (n.topics || []).some(function(t) { return t.toLowerCase().includes(query); });
+      });
+      // Skip project if no matching nodes and project name doesn't match
+      if (!nodes.length && !(proj.name || proj.id).toLowerCase().includes(query)) continue;
+    }
+
+    const isClosed = proj.status === 'closed';
+    html += '<div class="archive-project-folder open">';
+    html += '<div class="archive-project-header" onclick="this.parentElement.classList.toggle(\'open\')">';
+    html += '<span class="conv-folder-icon">📂</span> ';
+    html += '<strong>' + escHtml(proj.name || proj.id) + '</strong>';
+    html += '<span class="conv-day-count">' + nodes.length + ' nodes</span>';
+    if (isClosed) html += '<span class="archive-status-badge">closed</span>';
+    html += '</div>';
+    html += '<div class="archive-node-list">';

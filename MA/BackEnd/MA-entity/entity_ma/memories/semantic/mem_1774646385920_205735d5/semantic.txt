@@ -1,0 +1,12 @@
+1. **Container ID MUST be `tab-<appId>`** — the window manager keys on this
+2. **Wrap ALL script logic in an IIFE** — `(function () { ... })();`
+3. **Idempotent guard** — check `window.__<appId>Init` to prevent double-init
+4. **No `<link>` or `<style>` tags** — use inline styles or existing system classes
+5. **No global variable leaks** — everything stays inside the IIFE
+6. **Provide a `dispose()` function** on `window.__<appId>State` for cleanup
+7. **Use system CSS classes** where available: `card`, `card-hd`, `btn`, `bp`, `bg`, `flex`, `grid`, etc.
+8. **Use CSS variables for theming**: `var(--ac)` accent, `var(--tm)` text main, `var(--td)` text dim, `var(--sf2)` surface, `var(--bd)` border, `var(--em)` green, `var(--dn)` red
+9. **Element IDs must be unique** — prefix with appId to avoid collisions (e.g., `{appId}-search-input`)
+10. **Do NOT use `display:none` in CSS classes** — JS toggles this directly at runtime
+
+### System CSS Classes Available

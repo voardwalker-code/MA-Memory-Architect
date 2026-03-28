@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382481_32acdd89",
+  "type": "semantic",
+  "content": "// ── 8. Worklog ──────────────────────────────────────────────────────\r\n  // Load the session worklog so the AI knows what it's been working on.\r\n  const wlSummary = worklog.getSummaryForPrompt();\r\n  if (wlSummary) {\r\n    result.worklogCtx = '\\n[Session Worklog — your work history]\\n' + wlSummary;\r\n    if (onActivity) await onActivity('worklog', 'Loaded session worklog');\r\n  }\r\n\n  return result;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-context.js",
+    "BackEnd core"
+  ],
+  "summary": "// ── 8. Worklog ──────────────────────────────────────────────────────\r\n  // Load the session worklog so the AI knows what it's been working on.\r\n  const wlSummary = worklog.getSummaryForPrompt();\r\n ",
+  "importance": 0.6,
+  "createdAt": 1774646382481,
+  "createdAtISO": "2026-03-27T21:19:42.481Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-context.js",
+  "accessCount": 0
+}

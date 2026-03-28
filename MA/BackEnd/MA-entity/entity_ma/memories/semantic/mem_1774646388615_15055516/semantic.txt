@@ -1,0 +1,35 @@
+### Rule 2: Read before editing
+Before modifying any existing file:
+```
+[TOOL:ws_read path="src/app.py"]
+```
+Then write the complete modified version back.
+
+### Rule 3: Use python (not python3) as default
+Try `python` first. If it fails, fall back to `python3`. On most systems `python` works.
+
+### Rule 4: Read tracebacks carefully
+Python tracebacks read bottom-to-top. The last line is the actual error. The lines above show the call stack. Fix the code at the location shown.
+
+### Rule 5: One command per cmd_run call
+Each `cmd_run` runs one command. Do NOT chain commands with `&&` or `;`.
+
+### Rule 6: Create requirements.txt for projects
+If you use any `pip install`, also create a `requirements.txt` so the project is reproducible.
+
+## How to Build a Python Project — Step by Step
+
+### Simple script
+```
+Step 1: [TOOL:ws_write path="main.py" content="...your code..."]
+Step 2: [TOOL:cmd_run cmd="python main.py"]
+```
+
+### Project with dependencies
+```
+Step 1: [TOOL:ws_mkdir path="my-project"]
+Step 2: [TOOL:ws_write path="my-project/requirements.txt" content="requests>=2.28\nbeautifulsoup4>=4.12"]
+Step 3: [TOOL:cmd_run cmd="pip install -r requirements.txt"]
+Step 4: [TOOL:ws_write path="my-project/main.py" content="...your code..."]
+Step 5: [TOOL:cmd_run cmd="python main.py"]
+```

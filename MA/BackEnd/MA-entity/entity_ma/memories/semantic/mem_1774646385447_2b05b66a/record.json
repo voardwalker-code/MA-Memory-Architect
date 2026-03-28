@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385447_2b05b66a",
+  "type": "semantic",
+  "content": "async function removeChoreFromPane(id) {\r\n  try {\r\n    const r = await fetch('/api/chores/remove', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({ id })\r\n    });\r\n    const d = await r.json();\r\n    if (!d.ok) throw new Error(d.error || 'Could not remove chore');\r\n    loadChoresPane();\r\n  } catch (e) {\r\n    addSystem('Chore remove error: ' + e.message);\r\n  }\r\n}\r\n\n// ── Mode toggle (Chat / Work) ────────────────────────────────────────────",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function removeChoreFromPane(id) {\r\n  try {\r\n    const r = await fetch('/api/chores/remove', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.st",
+  "importance": 0.6,
+  "createdAt": 1774646385448,
+  "createdAtISO": "2026-03-27T21:19:45.448Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

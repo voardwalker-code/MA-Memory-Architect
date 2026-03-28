@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385907_e9e62899",
+  "type": "semantic",
+  "content": "[TASK_PLAN]\r\n- [ ] Phase 1: Requirements — gather app purpose, features, category\r\n- [ ] Phase 2: Design — plan layout, sections, interactions\r\n- [ ] Phase 3: Build HTML payload\r\n- [ ] Phase 4: INTERACTIVE PAUSE — show preview, get feedback\r\n- [ ] Phase 5: Build installer contract\r\n- [ ] Phase 6: Install the app\r\n- [ ] Phase 7: Verify installation\r\n[/TASK_PLAN]\r\n\n---\r\n\n## Phase 1 — Requirements Gathering\r\n\nASK the user (do not guess):\r\n1. **What does the app do?** (one-sentence purpose)\r\n2. **What is the app name?** (display name, e.g., \"Weather Dashboard\")\r\n3. **What appId?** (lowercase slug, e.g., `weather-dashboard` — suggest one based on name)\r\n4. **What category?** (tools, journal, mind, browse, appearance, system — suggest `tools` if unsure)\r\n5. **What features?** (list specific interactive elements: buttons, inputs, lists, canvases, API calls)\r\n6. **What window size?** (standard 980×680, or suggest based on content)\r\n7. **What icon?** (emoji for loader, ask or suggest based on app purpose)\r\n\nIf the user gives a vague description, propose a concrete feature set and confirm: \"Here's what I'll build — [features]. Sound right?\"\r\n\n---\r\n\n## Phase 2 — Design\r\n\nPlan the layout BEFORE writing code. Identify:\r\n- Top-level sections (header, controls, content area, status bar)\r\n- Interactive elements (buttons, inputs, dropdowns, toggles)\r\n- Data display patterns (cards, lists, tables, grids)\r\n- State management approach (window-scoped variables via IIFE)",
+  "topics": [
+    "MA Memory Architect",
+    "app_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "[TASK_PLAN]\r\n- [ ] Phase 1: Requirements — gather app purpose, features, category\r\n- [ ] Phase 2: Design — plan layout, sections, interactions\r\n- [ ] Phase 3: Build HTML payload\r\n- [ ] Phase 4: INTERA",
+  "importance": 0.6,
+  "createdAt": 1774646385907,
+  "createdAtISO": "2026-03-27T21:19:45.907Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\app_builder.md",
+  "accessCount": 0
+}

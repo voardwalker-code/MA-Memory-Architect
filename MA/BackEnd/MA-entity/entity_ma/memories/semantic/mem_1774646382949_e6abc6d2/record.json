@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382949_e6abc6d2",
+  "type": "semantic",
+  "content": "// ── Route Module: Ollama ─────────────────────────────────────────────────────\r\n//\r\n// This module talks to a local Ollama server — a program that runs AI models\r\n// right on your own computer (no internet needed!).\r\n//\r\n// Think of Ollama like a \"model manager\" on your PC.  This module lets you:\r\n//   • See which models you have installed (like listing your apps)\r\n//   • Look at details about a specific model (like reading an app's info page)\r\n//   • Download (pull) a new model (like installing a new app)\r\n//\r\n// ── Endpoints ───────────────────────────────────────────────────────────────\r\n//   GET  /api/ollama/models          — List all models installed in Ollama\r\n//   POST /api/ollama/show            — Get detailed info about one model\r\n//   POST /api/ollama/pull            — Download a new model from the Ollama library\r\n//\r\n// ── What this module needs ──────────────────────────────────────────────────\r\n//   deps.core — MA-core (to read the current config for the Ollama endpoint)\r\n//   deps.llm  — MA-llm  (has the functions that actually talk to Ollama)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n\n// json()     — send a JSON response with a status code\r\n// readBody() — read the full body of a POST request\r\nconst { json, readBody } = require('../infra/infra-http-utils');",
+  "topics": [
+    "MA Memory Architect",
+    "route-ollama.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Route Module: Ollama ─────────────────────────────────────────────────────\r\n//\r\n// This module talks to a local Ollama server — a program that runs AI models\r\n// right on your own computer (no i",
+  "importance": 0.6,
+  "createdAt": 1774646382949,
+  "createdAtISO": "2026-03-27T21:19:42.949Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-ollama.js",
+  "accessCount": 0
+}

@@ -1,0 +1,10 @@
+### DON'T:
+- Put `<link>` or `<style>` tags inside app HTML files
+- Extract `display:none` to CSS classes (JS controls this)
+- Use sync XHR — always use `fetch()` with async/await
+- Register apps in core loaders — only use non-core manifest path
+- Hardcode colors — use CSS variables for theme compatibility
+- Create global variables — everything inside the IIFE
+- Skip the interactive pause — the user must approve before install
+- Modify `non-core-html-loader.js` installer comment markers
+- Add apps directly to `index.html` — tab content lives in payload files

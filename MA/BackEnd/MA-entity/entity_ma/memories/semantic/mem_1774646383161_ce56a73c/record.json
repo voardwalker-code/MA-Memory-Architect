@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383161_ce56a73c",
+  "type": "semantic",
+  "content": "function listAgents() {\r\n  if (!fs.existsSync(ENTITY_DIR)) return [];\r\n  return fs.readdirSync(ENTITY_DIR)\r\n    .filter(d => d.startsWith(AGENT_PREFIX) && fs.statSync(path.join(ENTITY_DIR, d)).isDirectory())\r\n    .map(d => {\r\n      const id = d.slice(AGENT_PREFIX.length);\r\n      return getAgent(id);\r\n    })\r\n    .filter(Boolean);\r\n}\r\n\nfunction findAgentsByRole(role) {\r\n  return listAgents().filter(a => a.role === role);\r\n}\r\n\nfunction findAgentsByCapability(capability) {\r\n  return listAgents().filter(a => (a.capabilities || []).includes(capability));\r\n}\r\n\nfunction getCatalogSummary() {\r\n  const agents = listAgents();\r\n  const byRole = {};\r\n  for (const a of agents) {\r\n    if (!byRole[a.role]) byRole[a.role] = [];\r\n    byRole[a.role].push({ id: a.id, name: a.name, seniority: a.seniority, usageCount: a.usageCount });\r\n  }\r\n  return { total: agents.length, byRole };\r\n}\r\n\n// ── Prompt History ──────────────────────────────────────────────────────────\r\n\nfunction recordPrompt(agentId, entry) {\r\n  const agent = getAgent(agentId);\r\n  if (!agent) return { ok: false, errors: ['Agent not found: ' + agentId] };\r\n\n  const histDir = _historyDir(agentId);\r\n  if (!fs.existsSync(histDir)) fs.mkdirSync(histDir, { recursive: true });",
+  "topics": [
+    "MA Memory Architect",
+    "svc-agents.js",
+    "BackEnd services"
+  ],
+  "summary": "function listAgents() {\r\n  if (!fs.existsSync(ENTITY_DIR)) return [];\r\n  return fs.readdirSync(ENTITY_DIR)\r\n    .filter(d => d.startsWith(AGENT_PREFIX) && fs.statSync(path.join(ENTITY_DIR, d)).isDirec",
+  "importance": 0.6,
+  "createdAt": 1774646383162,
+  "createdAtISO": "2026-03-27T21:19:43.162Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-agents.js",
+  "accessCount": 0
+}

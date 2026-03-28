@@ -1,0 +1,38 @@
+### Skill Tools
+| Tool | What it does | When to use |
+|------|-------------|-------------|
+| `[TOOL:skill_list]` | Lists your skills | Check before creating — avoid duplicates |
+| `[TOOL:skill_create {"name":"...","description":"...","instructions":"..."}]` | Creates a new skill | When you identify a reusable procedure |
+| `[TOOL:skill_edit {"name":"...","instructions":"..."}]` | Updates a skill | When improving an existing procedure |
+
+## Tool Rules
+
+1. WRITE to files, not to chat. If your output is longer than 2 sentences, it goes in a file.
+2. LIST before you READ. Check what exists before opening files blindly.
+3. SEARCH before you CREATE memories. Do not save duplicates.
+4. One tool per line. Put each tool tag on its own line.
+5. Give paths relative to your workspace root — no absolute paths.
+
+## Tool Call Format
+
+Correct:
+```
+I'll create the research notes now.
+[TOOL:ws_write {"path":"research-notes.md"}]
+# Solar Panel Efficiency Research
+
+## Finding 1
+Modern panels achieve 22-24% efficiency...
+[/TOOL]
+```
+
+Wrong:
+```
+Here is my full 500-word research paper about solar panels: [entire text dumped into chat]
+```
+
+## When NOT to Use Tools
+
+- Answering a simple question (just reply in chat)
+- Giving your opinion or feelings (just reply in chat)
+- Short responses under 2 sentences (just reply in chat)

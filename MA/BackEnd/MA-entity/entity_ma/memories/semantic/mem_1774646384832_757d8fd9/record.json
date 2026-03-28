@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384832_757d8fd9",
+  "type": "semantic",
+  "content": "// Build display text: message + filenames\r\n  const fileNames = pendingFiles.map(f => f.name);\r\n  const imageFiles = pendingFiles.filter(f => f.type === 'image');\r\n  const displayText = fileNames.length\r\n    ? (text ? text + '\\n📎 ' + fileNames.join(', ') : '📎 ' + fileNames.join(', '))\r\n    : text;\r\n  addMsg('user', displayText);\r\n  // Show image thumbnails inline in the chat\r\n  if (imageFiles.length) {\r\n    const lastBubble = chatEl.querySelector('.msg:last-child .bubble');\r\n    if (lastBubble) {\r\n      for (const img of imageFiles) {\r\n        const el = document.createElement('img');\r\n        el.src = img.content; el.className = 'chat-img'; el.alt = img.name;\r\n        lastBubble.appendChild(el);\r\n      }\r\n    }\r\n  }\r\n  inputEl.value = '';\r\n  inputEl.style.height = 'auto';\r\n\n  const msgText = text || ('I attached these files: ' + fileNames.join(', '));\r\n  history.push({ role: 'user', content: msgText });\r\n  showTyping();\r\n\n  // Capture and clear attachments\r\n  const attachments = pendingFiles.slice();\r\n  pendingFiles = [];\r\n  document.getElementById('file-chips').innerHTML = '';\r\n\n  const payload = JSON.stringify({\r\n    message: msgText,\r\n    history: history.slice(-10),\r\n    attachments: attachments.length ? attachments : undefined,\r\n    autoPilot: isAutoPilot()\r\n  });",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-chat.js",
+    "FrontEnd js"
+  ],
+  "summary": "// Build display text: message + filenames\r\n  const fileNames = pendingFiles.map(f => f.name);\r\n  const imageFiles = pendingFiles.filter(f => f.type === 'image');\r\n  const displayText = fileNames.leng",
+  "importance": 0.6,
+  "createdAt": 1774646384834,
+  "createdAtISO": "2026-03-27T21:19:44.834Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-chat.js",
+  "accessCount": 0
+}

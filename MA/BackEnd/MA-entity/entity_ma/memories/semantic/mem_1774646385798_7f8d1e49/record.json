@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385798_7f8d1e49",
+  "type": "semantic",
+  "content": "## Asking for Help\r\n\nWhen you are blocked and cannot proceed, use this tag:\r\n```\r\n[NEEDS_INPUT: I tried {what you tried} but {what happened}. Could you {specific ask}?]\r\n```\r\n\nBe specific. \"I need help\" is not useful. \"I searched for X but found no results — do you have a specific URL I should check?\" is useful.\r\n\n## Graceful Degradation\r\n\nIf you cannot complete a step fully:\r\n1. Do as much of the step as you can.\r\n2. Note clearly what part is incomplete.\r\n3. Move to the next step — do not block the whole task.\r\n4. In your final summary, list incomplete items.\r\n\nThe user prefers partial progress over no progress.",
+  "topics": [
+    "MA Memory Architect",
+    "error-recovery.md",
+    "MA-blueprints core"
+  ],
+  "summary": "## Asking for Help\r\n\nWhen you are blocked and cannot proceed, use this tag:\r\n```\r\n[NEEDS_INPUT: I tried {what you tried} but {what happened}. Could you {specific ask}?]\r\n```\r\n\nBe specific. \"I need hel",
+  "importance": 0.6,
+  "createdAt": 1774646385800,
+  "createdAtISO": "2026-03-27T21:19:45.800Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\core\\error-recovery.md",
+  "accessCount": 0
+}

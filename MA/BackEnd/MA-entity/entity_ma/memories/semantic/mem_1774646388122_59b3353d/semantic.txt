@@ -1,0 +1,31 @@
+| Type | Strength Default | Meaning |
+|---|---|---|
+| precedes | 0.8 | Temporal: A happened before B |
+| derives | 0.7 | B is knowledge extracted from A |
+| produces | 0.7 | A (step) produced B (code) |
+| delegates | 0.6 | A dispatched work to agent B |
+| supports | 0.5 | B reinforces/confirms A |
+| contradicts | 0.5 | B conflicts with A |
+| references | 0.5 | Generic cross-reference |
+
+## Typical Recording Flow
+
+```
+1. createProject('my-project', { name: 'My Project', tags: ['coding'] })
+2. step1 = recordStep(projectId, { sourceType: 'thought', content: 'Planning approach...' })
+3. step2 = recordStep(projectId, { sourceType: 'step', content: 'Creating file...', previousNodeId: step1.node.memory_id })
+4. step3 = recordStep(projectId, { sourceType: 'code', content: 'function foo() {...}', previousNodeId: step2.node.memory_id })
+5. addEdge(projectId, { sourceId: step2.node.memory_id, targetId: step3.node.memory_id, type: 'produces', strength: 0.8 })
+6. closeProject(projectId)
+```
+
+## Dual-Path Encoding
+
+Use `recordStepWithKnowledge()` to create both an episodic node (what happened) AND a semantic node (what was learned), automatically connected with a `derives` edge. This mirrors the NekoCore OS IME dual-path pattern.
+
+## For Predictive Memory
+
+Call `exportForPredictive(projectId)` to get the full graph:
+- All nodes with weights (importance, decay, topics)
+- All edges with strength and type
+- Stats (node/edge counts by type, averages)

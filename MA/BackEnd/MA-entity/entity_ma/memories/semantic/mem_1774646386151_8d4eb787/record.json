@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386151_8d4eb787",
+  "type": "semantic",
+  "content": "```markdown\r\n| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `http://localhost:3847/api/entities/create` | POST | Create entity |\r\n| `http://localhost:3847/api/entities/{id}/memories/inject` | POST | Inject memories |\r\n| `http://localhost:3847/api/entities/{id}/cognitive/tick` | POST | Run cognitive processing |\r\n| `http://localhost:3847/api/entities/{id}/cognitive/state` | GET | Read cognitive state |\r\n```\r\n\nAnd include the 18 canonical emotions list: joy, wonder, fear, sadness, pride, grief, love, hope, anger, longing, nostalgia, curiosity, gratitude, determined, resignation, content, melancholic, neutral.\r\n\nMemory schema: `{content, type (episodic|semantic|core), emotion, topics[], importance (0-1), narrative, phase}`\r\n\n### Tool Reference (include only tools the blueprint actually uses)",
+  "topics": [
+    "MA Memory Architect",
+    "blueprint_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "```markdown\r\n| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `http://localhost:3847/api/entities/create` | POST | Create entity |\r\n| `http://localhost:3847/api/entities/{id}/memori",
+  "importance": 0.6,
+  "createdAt": 1774646386152,
+  "createdAtISO": "2026-03-27T21:19:46.152Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\blueprint_builder.md",
+  "accessCount": 0
+}

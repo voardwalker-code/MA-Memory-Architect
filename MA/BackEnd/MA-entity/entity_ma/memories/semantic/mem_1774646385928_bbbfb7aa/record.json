@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385928_bbbfb7aa",
+  "type": "semantic",
+  "content": "| Class | Purpose |\r\n|-------|---------|\r\n| `card` | Card container with padding and border |\r\n| `card-hd` | Card header section |\r\n| `btn` | Base button style |\r\n| `bp` | Primary button (accent color) |\r\n| `bg` | Ghost/secondary button |\r\n| `flex` | Flexbox container |\r\n| `grid` | Grid container |\r\n| `text-xs-c` | Extra small text |\r\n| `text-sm-c` | Small text |\r\n| `hidden` | Visibility hidden |\r\n| `settings-container` | Settings-style layout |\r\n| `settings-section` | Settings section with padding |\r\n| `settings-section-header` | Section header with h2 + p |\r\n\n### Calling NekoCore OS APIs from App HTML\r\n\nFor apps that need server data, use `fetch()`:\r\n```javascript\r\n// GET example\r\nvar res = await fetch('/api/skills');\r\nvar data = await res.json();\r\n\n// POST example\r\nvar res = await fetch('/api/chat', {\r\n  method: 'POST',\r\n  headers: { 'Content-Type': 'application/json' },\r\n  body: JSON.stringify({ message: 'hello' })\r\n});\r\n```\r\n\nCommon API endpoints:\r\n- `GET /api/skills` — list entity skills\r\n- `GET /api/entity/current` — current entity info\r\n- `GET /api/memory/list` — list memories\r\n- `POST /api/chat` — send chat message\r\n- `GET /api/config` — system configuration\r\n- `GET /api/brain/status` — brain loop status\r\n- `GET /api/processes` — running processes\r\n\nWrite the payload:\r\n```\r\n[TOOL:ws_write {\"path\":\"client/apps/non-core/core/tab-{appId}.html\"}]\r\n{complete HTML payload}\r\n[/TOOL]\r\n```\r\n\n---\r\n\n## Phase 4 — Interactive Pause\r\n\nPresent the app design to the user:",
+  "topics": [
+    "MA Memory Architect",
+    "app_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "| Class | Purpose |\r\n|-------|---------|\r\n| `card` | Card container with padding and border |\r\n| `card-hd` | Card header section |\r\n| `btn` | Base button style |\r\n| `bp` | Primary button (accent color",
+  "importance": 0.6,
+  "createdAt": 1774646385928,
+  "createdAtISO": "2026-03-27T21:19:45.928Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\app_builder.md",
+  "accessCount": 0
+}

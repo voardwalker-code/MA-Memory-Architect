@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383270_1da299e0",
+  "type": "semantic",
+  "content": "// ── Rebuild index from disk ──────────────────────────────────────────────\r\n  function rebuildIndex() {\r\n    _index = { episodic: [], semantic: [] };\r\n    for (const [type, dir] of [['episodic', episodicDir], ['semantic', semanticDir]]) {\r\n      if (!fs.existsSync(dir)) continue;\r\n      for (const folder of fs.readdirSync(dir)) {\r\n        const recFile = path.join(dir, folder, 'record.json');\r\n        if (!fs.existsSync(recFile)) continue;\r\n        try {\r\n          const rec = JSON.parse(fs.readFileSync(recFile, 'utf8'));\r\n          _index[type].push({\r\n            id: rec.id, type, topics: rec.topics || [],\r\n            summary: rec.summary || '', importance: rec.importance || 0.5,\r\n            createdAt: rec.createdAt || 0\r\n          });\r\n        } catch { /* skip corrupt */ }\r\n      }\r\n    }\r\n    _saveIndex();\r\n    return stats();\r\n  }\r\n\n  return { store, retrieve, search, searchWithArchives, list, stats, ingest, ingestFolder, listArchives, rebuildIndex };\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// ── Rebuild index from disk ──────────────────────────────────────────────\r\n  function rebuildIndex() {\r\n    _index = { episodic: [], semantic: [] };\r\n    for (const [type, dir] of [['episodic', epi",
+  "importance": 0.6,
+  "createdAt": 1774646383271,
+  "createdAtISO": "2026-03-27T21:19:43.271Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

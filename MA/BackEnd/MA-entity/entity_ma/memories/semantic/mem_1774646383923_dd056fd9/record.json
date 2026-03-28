@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383923_dd056fd9",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// extractToolCalls(text)\r\n//\r\n// The main parser.  Scans LLM text for tool calls in three passes:\r\n//   Pass 1: Block tools (ws_write/ws_append with [/TOOL] closing tag)\r\n//   Pass 2: Inline tools (single-line, JSON params)\r\n//   Pass 3: Legacy tools (semicolon format, backward compatibility)\r\n//\r\n// Each pass skips positions already matched by earlier passes.\r\n// Returns an array of { name, params, error? } sorted by document order.\r\n//\r\n//   text — the raw LLM response text\r\n//   Returns: array of tool call objects\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction extractToolCalls(text) {\r\n  if (!text) return [];\r\n  const cleaned = _preCleanToolText(text);\r\n  const calls = [];\r\n  const matched = []; // [start, end] ranges already consumed\r\n  let m;",
+  "topics": [
+    "MA Memory Architect",
+    "tools-parser.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// extractToolCalls(text)\r\n//\r\n// The main parser.  Scans LLM text for tool calls in three passes:\r\n//   Pass 1: Block",
+  "importance": 0.6,
+  "createdAt": 1774646383925,
+  "createdAtISO": "2026-03-27T21:19:43.925Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-parser.js",
+  "accessCount": 0
+}

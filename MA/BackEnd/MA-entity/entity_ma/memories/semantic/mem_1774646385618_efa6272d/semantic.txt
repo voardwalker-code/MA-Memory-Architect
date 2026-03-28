@@ -1,0 +1,45 @@
+Validation Gate:
+- Existing tests pass.
+- No behavior regressions on API endpoints and chat flow.
+
+---
+
+## Phase 4: Commenting and Developer Readability Pass
+Goal: Add human-readable guidance in code without noise.
+
+Commenting Standard:
+- File header must state:
+  - what this module owns,
+  - why it exists,
+  - primary entrypoints.
+- Non-trivial functions must include:
+  - intent,
+  - key constraints,
+  - expected input/output shape,
+  - side effects.
+- Complex branches must include brief rationale comments.
+- Remove low-value comments that only restate syntax.
+
+Template:
+```js
+/**
+ * Purpose: <what this function does in business terms>
+ * Why: <why this behavior exists / constraints>
+ * Inputs: <shape and assumptions>
+ * Output: <shape and failure behavior>
+ */
+```
+
+Validation Gate:
+- Every edited runtime file has clear top-level ownership comments.
+- No large function (>80 lines) lacks intent-level documentation.
+
+---
+
+## Phase 5: Frontend Structure and Styling Cleanup
+Goal: Convert the UI from monolithic styling/markup into maintainable structure.
+
+Targets:
+- `MA-client/MA-index.html`
+- `MA-client/css/ma-ui.css`
+- `MA-client/js/ma-ui-*.js`

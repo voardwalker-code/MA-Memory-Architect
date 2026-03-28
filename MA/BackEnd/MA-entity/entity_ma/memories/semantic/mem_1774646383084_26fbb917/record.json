@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383084_26fbb917",
+  "type": "semantic",
+  "content": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// json()              — send a JSON response with a status code\r\n// readBody()          — read the full body of a POST request\r\n// listWorkspaceTree() — recursively build a folder tree (depth-limited)\r\n// MIME                — lookup table for file extensions → content types\r\nconst { json, readBody, listWorkspaceTree, MIME } = require('../infra/infra-http-utils');\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// createWorkspaceRoutes(deps)\r\n//\r\n// Called once when the server starts.  Returns a handler that checks every\r\n// incoming request.  Returns true if handled, false if not ours.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nmodule.exports = function createWorkspaceRoutes(deps) {\r\n  const { core, cmdExec } = deps;\r\n\n  return async function handle(url, method, req, res) {\r\n\n    // ═════════════════════════════════════════════════════════════════\r\n    // WORKSPACE — File system access\r\n    // ═════════════════════════════════════════════════════════════════",
+  "topics": [
+    "MA Memory Architect",
+    "route-workspace.js",
+    "BackEnd routes"
+  ],
+  "summary": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// json()              — send a JSON response with a status code\r\n// readBody()          — read the full body of a POST request\r\n// listWor",
+  "importance": 0.6,
+  "createdAt": 1774646383086,
+  "createdAtISO": "2026-03-27T21:19:43.086Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-workspace.js",
+  "accessCount": 0
+}

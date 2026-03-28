@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384379_f706e697",
+  "type": "semantic",
+  "content": "| Document | Topic |\r\n|----------|-------|\r\n| `agent-delegation` | Patterns for delegating to agents |\r\n| `architecture-patterns` | System design principles |\r\n| `code-quality` | Code review standards |\r\n| `cognitive-pipeline` | Cognitive architecture flow |\r\n| `contracts-schemas` | Data contracts & JSON schemas |\r\n| `entity-identity` | Entity lifecycle & identity |\r\n| `memory-system` | Memory architecture details |\r\n| `project-architect` | Project scaffolding patterns |\r\n| `project-archive` | Archive management |\r\n\nKnowledge docs are **auto-loaded** when your message contains relevant keywords. You can also browse manually:\r\n\n```\r\n/knowledge                    ← list all docs\r\n/knowledge code-quality       ← view a specific doc\r\n```\r\n\n---\r\n\n## Command Execution\r\n\nMA can execute shell commands via the `cmd_run` tool — but only commands on the whitelist.\r\n\n### Default Whitelist",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "| Document | Topic |\r\n|----------|-------|\r\n| `agent-delegation` | Patterns for delegating to agents |\r\n| `architecture-patterns` | System design principles |\r\n| `code-quality` | Code review standards",
+  "importance": 0.6,
+  "createdAt": 1774646384379,
+  "createdAtISO": "2026-03-27T21:19:44.379Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

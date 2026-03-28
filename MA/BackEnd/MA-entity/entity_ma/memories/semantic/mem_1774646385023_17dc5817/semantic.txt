@@ -1,0 +1,29 @@
+function _showIngestError(msg) {
+  const errEl = document.getElementById('ingest-prog-error');
+  errEl.textContent = msg;
+  errEl.classList.remove('hidden');
+  document.getElementById('ingest-prog-fill').classList.add('error');
+  document.getElementById('ingest-prog-label').textContent = 'Error';
+  document.getElementById('ingest-kill-btn').classList.add('hidden');
+  document.getElementById('ingest-close-btn').classList.remove('hidden');
+}
+
+function _showIngestStopped() {
+  document.getElementById('ingest-prog-fill').classList.add('stopped');
+  document.getElementById('ingest-prog-label').textContent = 'Stopped';
+  document.getElementById('ingest-kill-btn').classList.add('hidden');
+  document.getElementById('ingest-close-btn').classList.remove('hidden');
+}
+
+function closeIngestProgress() {
+  document.getElementById('ingest-progress-overlay').classList.remove('show');
+  _ingestAbort = null;
+  document.getElementById('ingest-folder-btn').disabled = false;
+}
+
+function killIngest() {
+  if (_ingestAbort) {
+    _ingestAbort.abort();
+    _ingestAbort = null;
+  }
+}

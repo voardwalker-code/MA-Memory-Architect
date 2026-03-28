@@ -1,0 +1,68 @@
+fn read_config(path: &str) -> Result<String, io::Error> {
+    fs::read_to_string(path)
+}
+
+fn main() {
+    match read_config("config.toml") {
+        Ok(content) => println!("Config: {content}"),
+        Err(e) => eprintln!("Error reading config: {e}"),
+    }
+}
+```
+
+### Using the ? operator
+```rust
+use std::fs;
+use std::io;
+
+fn process_file(path: &str) -> Result<usize, io::Error> {
+    let content = fs::read_to_string(path)?;
+    Ok(content.lines().count())
+}
+```
+
+### Traits
+```rust
+trait Summary {
+    fn summarize(&self) -> String;
+}
+
+struct Article {
+    title: String,
+    content: String,
+}
+
+impl Summary for Article {
+    fn summarize(&self) -> String {
+        format!("{}: {}...", self.title, &self.content[..50.min(self.content.len())])
+    }
+}
+```
+
+### Collections and iterators
+```rust
+let numbers = vec![1, 2, 3, 4, 5];
+let doubled: Vec<i32> = numbers.iter().map(|n| n * 2).collect();
+let sum: i32 = numbers.iter().sum();
+let evens: Vec<&i32> = numbers.iter().filter(|n| *n % 2 == 0).collect();
+```
+
+### Enums with data
+```rust
+#[derive(Debug)]
+enum Command {
+    Quit,
+    Echo(String),
+    Move { x: i32, y: i32 },
+    Count(i32),
+}
+
+fn execute(cmd: Command) {
+    match cmd {
+        Command::Quit => println!("Quitting"),
+        Command::Echo(msg) => println!("{msg}"),
+        Command::Move { x, y } => println!("Moving to ({x}, {y})"),
+        Command::Count(n) => println!("Count: {n}"),
+    }
+}
+```

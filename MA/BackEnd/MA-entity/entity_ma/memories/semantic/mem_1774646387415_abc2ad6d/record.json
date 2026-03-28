@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387415_abc2ad6d",
+  "type": "semantic",
+  "content": "### memory-index.js\r\n- **Three caches**: `topicToMemories` (Map: topic→Set<id>), `topicCounts` (Map: topic→number), `recencyIndex` (Array sorted by last_accessed)\r\n- **addToIndex**: Extract topics from record, add ID to each topic set, push to recency\r\n- **removeFromIndex**: Remove ID from all topic sets, remove from recency\r\n- **lookupByTopic**: Return array of IDs for given topic\r\n- **getMostRecent(n)**: Return top N from recency index\r\n- **persistIndexes**: Write all three caches to `_indexes/` as JSON\r\n- **loadIndexes**: Read from `_indexes/`, reconstruct Maps\r\n- **rebuildIndexes**: Walk all memory folders, rebuild caches from scratch\r\n- **detectDivergence**: Compare index count vs actual folder count, report mismatches\r\n\n### NLP modules (rake.js, bm25.js, yake.js)\r\n- **REFERENCE**: MA already has working implementations:\r\n  - `rake.js` → copy logic from `../../server/MA-rake.js`\r\n  - `bm25.js` → copy logic from `../../server/MA-bm25.js`\r\n  - `yake.js` → copy logic from `../../server/MA-yake.js`\r\n- Each stub has the exact algorithm documented in comments — follow those steps\r\n- The STOPWORDS set is already included in each stub\r\n\n## Done When\r\n```bash\r\nnode tests/test-runner.js 0\r\n# All tests pass — no failures\r\n```\r\n\n## After Completion\r\nUpdate `PROJECT-MANIFEST.json`:\r\n- Set layer 0 status to \"complete\"\r\n- Set each module status to \"implemented\"",
+  "topics": [
+    "MA Memory Architect",
+    "layer-0-memory-nlp.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "### memory-index.js\r\n- **Three caches**: `topicToMemories` (Map: topic→Set<id>), `topicCounts` (Map: topic→number), `recencyIndex` (Array sorted by last_accessed)\r\n- **addToIndex**: Extract topics fro",
+  "importance": 0.6,
+  "createdAt": 1774646387417,
+  "createdAtISO": "2026-03-27T21:19:47.417Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-0-memory-nlp.md",
+  "accessCount": 0
+}

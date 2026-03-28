@@ -1,0 +1,31 @@
+// Delete all agent_* directories inside MA-entity/
+function deleteAgents(entityDir) {
+  if (!fs.existsSync(entityDir)) return 0;
+  let count = 0;
+  for (const entry of fs.readdirSync(entityDir)) {
+    if (!entry.startsWith('agent_')) continue;
+    const full = path.join(entityDir, entry);
+    if (!fs.statSync(full).isDirectory()) continue;
+    count += deleteDir(full);
+    fs.rmdirSync(full);
+    count++; // count the dir itself
+  }
+  return count;
+}
+
+async function confirm(prompt) {
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  return new Promise(resolve => {
+    rl.question(prompt, answer => {
+      rl.close();
+      resolve(answer.trim().toLowerCase());
+    });
+  });
+}
+
+async function main() {
+  const skipConfirm = process.argv.includes('--yes') || process.argv.includes('-y');
+
+  console.log('\n  MA Reset All');
+  console.log('  ============\n');
+  console.log('  This will delete the following:\n');

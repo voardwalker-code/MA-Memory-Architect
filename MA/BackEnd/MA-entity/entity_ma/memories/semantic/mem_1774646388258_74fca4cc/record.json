@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388258_74fca4cc",
+  "type": "semantic",
+  "content": "// Default MA entity definition — recreated on reset\r\nconst DEFAULT_ENTITY = {\r\n  id: 'ma',\r\n  name: 'MA',\r\n  type: 'memory-architect',\r\n  description: 'Minimal Memory Architect — the foundation layer. Stores and retrieves memory, runs tasks, ingests archives, and can health-scan and repair itself.',\r\n  version: '1.0.0',\r\n  capabilities: [\r\n    'memory-store',\r\n    'memory-search',\r\n    'archive-ingest',\r\n    'task-execution',\r\n    'web-search',\r\n    'web-fetch',\r\n    'cmd-run',\r\n    'health-scan',\r\n    'self-repair'\r\n  ],\r\n  skills: [\r\n    'coding',\r\n    'memory-tools',\r\n    'python',\r\n    'rust',\r\n    'search-archive',\r\n    'self-repair',\r\n    'web-search',\r\n    'ws_mkdir',\r\n    'ws_move'\r\n  ]\r\n};\r\n\nmodule.exports = { DEFAULT_AGENTS, DEFAULT_ENTITY };",
+  "topics": [
+    "MA Memory Architect",
+    "agent-definitions.js",
+    "MA-scripts"
+  ],
+  "summary": "// Default MA entity definition — recreated on reset\r\nconst DEFAULT_ENTITY = {\r\n  id: 'ma',\r\n  name: 'MA',\r\n  type: 'memory-architect',\r\n  description: 'Minimal Memory Architect — the foundation layer",
+  "importance": 0.6,
+  "createdAt": 1774646388259,
+  "createdAtISO": "2026-03-27T21:19:48.259Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-scripts\\agent-definitions.js",
+  "accessCount": 0
+}

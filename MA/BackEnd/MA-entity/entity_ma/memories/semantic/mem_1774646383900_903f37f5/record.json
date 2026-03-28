@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383900_903f37f5",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _overlaps(pos, len, ranges)\r\n//\r\n// Checks if a text region overlaps with any already-matched regions.\r\n// This prevents the inline parser from re-matching something the block\r\n// parser already found.\r\n//\r\n//   pos    — start position of the region\r\n//   len    — length of the region\r\n//   ranges — array of [start, end] pairs already matched\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction _overlaps(pos, len, ranges) {\r\n  const end = pos + len;\r\n  for (const [s, e] of ranges) {\r\n    if (pos >= s && pos < e) return true;\r\n    if (end > s && end <= e) return true;\r\n    if (pos <= s && end >= e) return true;\r\n  }\r\n  return false;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "tools-parser.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _overlaps(pos, len, ranges)\r\n//\r\n// Checks if a text region overlaps with any already-matched regions.\r\n// This pre",
+  "importance": 0.6,
+  "createdAt": 1774646383901,
+  "createdAtISO": "2026-03-27T21:19:43.901Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-parser.js",
+  "accessCount": 0
+}

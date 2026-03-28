@@ -1,0 +1,26 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Each schema defines what parameters a tool expects.
+//
+// For example, ws_read needs a "path" (a string) — nothing else.
+// entity_create needs a "name" (required) plus optional fields like
+// "traits" (array of strings) and "gender" (defaults to "neutral").
+//
+// The .default() calls set fallback values when the AI doesn't provide them.
+// The .optional() calls mean the field can be left out entirely.
+// ─────────────────────────────────────────────────────────────────────────────
+const ToolSchemas = {
+  // ── Workspace file tools ──────────────────────────────────────────
+  ws_list:    z.object({ path: z.string().default('.') }),
+  ws_read:    z.object({ path: z.string() }),
+  ws_write:   z.object({ path: z.string(), content: z.string().optional() }),
+  ws_append:  z.object({ path: z.string(), content: z.string().optional() }),
+  ws_delete:  z.object({ path: z.string() }),
+  ws_mkdir:   z.object({ path: z.string() }),
+  ws_move:    z.object({ src: z.string(), dst: z.string() }),
+
+  // ── Web tools ─────────────────────────────────────────────────────
+  web_search:     z.object({ query: z.string() }),
+  web_fetch:      z.object({ url: z.string() }),
+
+  // ── Command tool ──────────────────────────────────────────────────
+  cmd_run:        z.object({ cmd: z.string() }),

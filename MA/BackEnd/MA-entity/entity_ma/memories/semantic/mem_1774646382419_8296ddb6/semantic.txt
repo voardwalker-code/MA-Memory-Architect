@@ -1,0 +1,20 @@
+// Create project archive entry
+        try { projectArchive.createProject(slug, { name: rawName, description: message.slice(0, 200) }); } catch { /* may already exist */ }
+
+        if (onActivity) await onActivity('project_create', `Created project folder: ${slug}/`);
+        if (memory) memory.store('episodic', `Created new project "${rawName}" (${slug}) — brief template placed at ${slug}/PROJECT-BRIEF.md`, { topics: ['project'], chainId });
+        worklog.recordTask('project', `Create project: ${rawName}`, 1, 'complete');
+
+        const reply = `I created **${rawName}** in your workspace:\n\n` +
+          `📁 \`${slug}/\`\n📄 \`${slug}/PROJECT-BRIEF.md\`\n\n` +
+          `Open the **PROJECT-BRIEF.md** file in the workspace explorer and fill out the sections — ` +
+          `project name, description, tech stack, features, and any constraints.\n\n` +
+          `When you're done, just tell me **"The brief is ready"** or **"Start building"** and I'll read it and get to work.`;
+
+        return { reply, taskType: 'project', steps: 1, filesChanged: [briefDest] };
+      } catch (e) {
+        console.error('[CORE] Project template fast-path error:', e.message);
+        // Fall through to normal task runner on error
+      }
+    }
+  }

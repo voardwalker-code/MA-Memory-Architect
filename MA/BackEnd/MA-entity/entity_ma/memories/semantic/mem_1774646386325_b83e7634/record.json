@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386325_b83e7634",
+  "type": "semantic",
+  "content": "PROJECT FOLDER: projects/{book-slug}/\r\n  ├── character-registry.md\r\n  ├── memories/{character}_memories.json (× {N} characters)\r\n  ├── ingestion-report.md\r\n  └── ingestion-summary.md\r\n\nENTITIES CREATED (in entities/):\r\n  ★ {Name} (ID: {entityId}, folder: Entity-{entityId})\r\n    Episodic memories: {N} | Semantic memories: {N} | Total: {N}\r\n    Traits: {traits}\r\n    Speech style: {style summary}\r\n    Key relationships: {list with nature}\r\n    Emotional arc: {brief description of how they changed}\r\n\n  ★ {Name} (ID: {entityId}, folder: Entity-{entityId})\r\n    ...\r\n\nSTATISTICS:\r\n  Total characters extracted: {N}\r\n  Total episodic memories: {N}\r\n  Total semantic memories (relationships + beliefs + self-knowledge): {N}\r\n  Total memories injected: {N}\r\n  Average memories per main character: {N}\r\n  Average memories per supporting character: {N}\r\n  Chunks processed: {N}/{total}\r\n\nKNOWLEDGE ISOLATION VERIFIED:\r\n  Each character has memories only from scenes they appeared in.\r\n  Shared scenes generated separate POV-isolated memories per character.\r\n\n📁 NEXT STEP: Use the \"Import Entities from MA\" button in NekoCore's Book Ingest app.\r\n   This will copy entities into NekoCore with proper IDs, memory structure, and user assignment.\r\n```\r\n\nSave this summary to the project folder:\r\n```\r\n[TOOL:ws_write {\"path\": \"projects/{book-slug}/ingestion-summary.md\", \"content\": \"{summary above}\"}]\r\n```\r\n\n---\r\n\n## Memory Writing Guidelines",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "PROJECT FOLDER: projects/{book-slug}/\r\n  ├── character-registry.md\r\n  ├── memories/{character}_memories.json (× {N} characters)\r\n  ├── ingestion-report.md\r\n  └── ingestion-summary.md\r\n\nENTITIES CREATE",
+  "importance": 0.6,
+  "createdAt": 1774646386326,
+  "createdAtISO": "2026-03-27T21:19:46.326Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

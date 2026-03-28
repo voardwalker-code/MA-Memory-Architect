@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384473_d6f2b27c",
+  "type": "semantic",
+  "content": "MA will:\r\n1. **Design the character** — personality, backstory, voice, core traits\r\n2. **Create the entity shell** on NekoCore OS via API\r\n3. **Generate memories chapter by chapter** — each life chapter builds on the previous one\r\n4. **Read cognitive state between rounds** — MA checks the entity's evolving neurochemistry, beliefs, and persona after each memory batch\r\n5. **Adapt subsequent memories** — Later memories reflect the entity's accumulated psychological evolution\r\n6. **Summarize** — Final report of the entity's identity, key memories, and personality profile\r\n\n### Requirements\r\n\n- Integration Mode must be set to `nekocore` in Settings > Integration Mode\r\n- NekoCore OS must be running on port 3847\r\n- Uses the `entity_genesis` task type (auto-detected from keywords like \"create entity\", \"hatch entity\", \"build a character\")\r\n\n### What Makes It Special\r\n\nUnlike simple entity creation, genesis produces entities with deeply layered memories that reference each other — the entity's personality emerges from accumulated experience rather than being declared upfront.\r\n\n---\r\n\n## Optional NekoCore OS Integration\r\n\nMA can be called directly from NekoCore OS using the `/ma` slash command in the OS chat.\r\nThis profile is optional and disabled by default in standalone mode.\r\n\n### Enable Integration Mode\r\n\n1. Open Settings in MA.\r\n2. Set Integration Mode to `NekoCore Integration`.\r\n3. Save config and ensure NekoCore OS is reachable on port 3847.\r\n\n### How the Bridge Works",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "MA will:\r\n1. **Design the character** — personality, backstory, voice, core traits\r\n2. **Create the entity shell** on NekoCore OS via API\r\n3. **Generate memories chapter by chapter** — each life chapt",
+  "importance": 0.6,
+  "createdAt": 1774646384474,
+  "createdAtISO": "2026-03-27T21:19:44.474Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

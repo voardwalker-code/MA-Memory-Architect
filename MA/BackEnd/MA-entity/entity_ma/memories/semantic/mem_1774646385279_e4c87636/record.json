@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385279_e4c87636",
+  "type": "semantic",
+  "content": "// Extracted from ma-ui.js: activity, session, projects, blueprints, todos, chores.\r\nfunction addActivity(category, detail, data) {\r\n  if (!actFeed) return;\r\n  const iconMap = {\r\n    memory_search: '\\u{1F50D}', knowledge_load: '\\u{1F4D6}', workspace_scan: '\\u{1F4C2}',\r\n    tool_call: '\\u{1F527}', tool_result: '\\u2705', llm_call: '\\u{1F916}',\r\n    plan: '\\u{1F4CB}', step_start: '\\u25B6', step_done: '\\u2713',\r\n    file_verify: '\\u{1F4C4}', agent_dispatch: '\\u{1F464}', worklog: '\\u{1F4DD}', error: '\\u274C'\r\n  };\r\n  const classMap = {\r\n    tool_call: 'tool-call', tool_result: 'tool-result',\r\n    llm_call: 'llm-call', error: 'error'\r\n  };\r\n  const now = new Date();\r\n  const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });\r\n  const entry = document.createElement('div');\r\n  entry.className = 'act-entry ' + (classMap[category] || '');\r\n  entry.innerHTML = '<span class=\"act-time\">' + time + '</span><span class=\"act-icon\">' + (iconMap[category] || '\\u00B7') + '</span><span class=\"act-text\">' + escHtml(detail || '') + '</span>';\r\n  actFeed.appendChild(entry);\r\n  actFeed.scrollTop = actFeed.scrollHeight;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "// Extracted from ma-ui.js: activity, session, projects, blueprints, todos, chores.\r\nfunction addActivity(category, detail, data) {\r\n  if (!actFeed) return;\r\n  const iconMap = {\r\n    memory_search: '\\",
+  "importance": 0.6,
+  "createdAt": 1774646385280,
+  "createdAtISO": "2026-03-27T21:19:45.280Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382503_df25ff9f",
+  "type": "semantic",
+  "content": "// Keep the 6 most recent messages verbatim — they have the freshest context\r\n  const keepRecent = Math.min(6, hist.length);\r\n  const recent = hist.slice(-keepRecent);\r\n  const older  = hist.slice(0, -keepRecent);\r\n\n  if (!older.length) return recent;\r\n\n  // Fast path: if older messages are small, just include them as text\r\n  const olderText = older.map(m => `${m.role}: ${(m.content || '').slice(0, 200)}`).join('\\n');\r\n  if (estimateTokens(olderText) <= 600) {\r\n    return [\r\n      { role: 'system', content: `[Compressed Earlier Conversation]\\n${olderText}` },\r\n      ...recent\r\n    ];\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "core-tokens.js",
+    "BackEnd core"
+  ],
+  "summary": "// Keep the 6 most recent messages verbatim — they have the freshest context\r\n  const keepRecent = Math.min(6, hist.length);\r\n  const recent = hist.slice(-keepRecent);\r\n  const older  = hist.slice(0, ",
+  "importance": 0.6,
+  "createdAt": 1774646382504,
+  "createdAtISO": "2026-03-27T21:19:42.504Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-tokens.js",
+  "accessCount": 0
+}

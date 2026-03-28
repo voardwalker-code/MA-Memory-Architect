@@ -1,0 +1,40 @@
+/**
+ * Record a step with automatic temporal edge to previous step.
+ * This is the primary method MA should call for every action.
+ *
+ * @param {string} projectId
+ * @param {object} opts — same as recordNode, plus:
+ * @param {string} [opts.previousNodeId] — explicit previous node to link
+ * @param {object[]} [opts.extraEdges] — additional edges to create
+ * @returns {{ node, edges[] }}
+ */
+function recordStep(projectId, opts = {}) {
+  const node = recordNode(projectId, opts);
+  const edges = [];
+
+  // Auto-create temporal 'precedes' edge from previous node
+  if (opts.previousNodeId) {
+    edges.push(addEdge(projectId, {
+      sourceId: opts.previousNodeId,
+      targetId: node.memory_id,
+      type: 'precedes',
+      strength: 0.8,
+      label: `step ${(opts.stepNumber || 0) - 1} → step ${opts.stepNumber || 0}`
+    }));
+  }
+
+  // Create any extra edges
+  if (Array.isArray(opts.extraEdges)) {
+    for (const e of opts.extraEdges) {
+      edges.push(addEdge(projectId, {
+        sourceId: e.sourceId || node.memory_id,
+        targetId: e.targetId || node.memory_id,
+        type: e.type || 'references',
+        strength: e.strength,
+        label: e.label
+      }));
+    }
+  }
+
+  return { node, edges };
+}

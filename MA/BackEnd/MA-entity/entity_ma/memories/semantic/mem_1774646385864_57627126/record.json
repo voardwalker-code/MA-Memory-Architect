@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385864_57627126",
+  "type": "semantic",
+  "content": "### Skill Tools\r\n| Tool | What it does | When to use |\r\n|------|-------------|-------------|\r\n| `[TOOL:skill_list]` | Lists your skills | Check before creating — avoid duplicates |\r\n| `[TOOL:skill_create {\"name\":\"...\",\"description\":\"...\",\"instructions\":\"...\"}]` | Creates a new skill | When you identify a reusable procedure |\r\n| `[TOOL:skill_edit {\"name\":\"...\",\"instructions\":\"...\"}]` | Updates a skill | When improving an existing procedure |\r\n\n## Tool Rules\r\n\n1. WRITE to files, not to chat. If your output is longer than 2 sentences, it goes in a file.\r\n2. LIST before you READ. Check what exists before opening files blindly.\r\n3. SEARCH before you CREATE memories. Do not save duplicates.\r\n4. One tool per line. Put each tool tag on its own line.\r\n5. Give paths relative to your workspace root — no absolute paths.\r\n\n## Tool Call Format\r\n\nCorrect:\r\n```\r\nI'll create the research notes now.\r\n[TOOL:ws_write {\"path\":\"research-notes.md\"}]\r\n# Solar Panel Efficiency Research\r\n\n## Finding 1\r\nModern panels achieve 22-24% efficiency...\r\n[/TOOL]\r\n```\r\n\nWrong:\r\n```\r\nHere is my full 500-word research paper about solar panels: [entire text dumped into chat]\r\n```\r\n\n## When NOT to Use Tools\r\n\n- Answering a simple question (just reply in chat)\r\n- Giving your opinion or feelings (just reply in chat)\r\n- Short responses under 2 sentences (just reply in chat)",
+  "topics": [
+    "MA Memory Architect",
+    "tool-guide.md",
+    "MA-blueprints core"
+  ],
+  "summary": "### Skill Tools\r\n| Tool | What it does | When to use |\r\n|------|-------------|-------------|\r\n| `[TOOL:skill_list]` | Lists your skills | Check before creating — avoid duplicates |\r\n| `[TOOL:skill_cre",
+  "importance": 0.6,
+  "createdAt": 1774646385866,
+  "createdAtISO": "2026-03-27T21:19:45.866Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\core\\tool-guide.md",
+  "accessCount": 0
+}

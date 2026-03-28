@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389347_9eabeccb",
+  "type": "semantic",
+  "content": "Via API:\r\n```json\r\nPOST /api/chores/add\r\n{\r\n  \"name\": \"Clean up temp files\",\r\n  \"description\": \"Scan MA-workspace for .tmp and .bak files and delete them\",\r\n  \"assignTo\": \"senior-coder\",\r\n  \"intervalMs\": 3600000\r\n}\r\n```\r\n\n### How Chores Execute\r\n1. The chore check pulse fires on its interval\r\n2. MA checks each chore's `lastRun` time against its `intervalMs`\r\n3. If a chore is due, MA dispatches it through the chat engine with full tool access\r\n4. The assigned agent (or MA itself if `assignTo` is blank) executes the task\r\n5. MA evaluates the result with an LLM call and assigns a letter grade (A–F)\r\n6. The grade, result summary, and execution details are logged\r\n\n### Viewing Chores\r\n```\r\n/chores list\r\n```\r\nShows all chores with their ID, name, assigned agent, last grade, run count, and enabled status.\r\n\n### Managing Chores\r\n```\r\n/chores remove chore_abc123    ← delete a chore\r\n/chores run chore_abc123       ← manually trigger a chore right now\r\n```\r\n\n### Grading\r\nMA grades chore results on an A–F scale:\r\n- **A** — Excellent, task completed thoroughly\r\n- **B** — Good, completed with minor issues\r\n- **C** — Acceptable, completed but needs improvement\r\n- **D** — Poor, partially completed or significant issues\r\n- **F** — Failed, task not completed\r\n\nGrades are stored on the chore record and logged in `MA-logs/pulse-chores.log`.\r\n\n---\r\n\n## Model Routing",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "Via API:\r\n```json\r\nPOST /api/chores/add\r\n{\r\n  \"name\": \"Clean up temp files\",\r\n  \"description\": \"Scan MA-workspace for .tmp and .bak files and delete them\",\r\n  \"assignTo\": \"senior-coder\",\r\n  \"intervalM",
+  "importance": 0.6,
+  "createdAt": 1774646389347,
+  "createdAtISO": "2026-03-27T21:19:49.347Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

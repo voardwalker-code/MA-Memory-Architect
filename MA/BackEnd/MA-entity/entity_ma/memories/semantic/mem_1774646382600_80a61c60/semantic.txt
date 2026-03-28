@@ -1,0 +1,21 @@
+const fs   = require('fs');
+const path = require('path');
+
+const MA_ROOT    = path.resolve(__dirname, '..');
+const CONFIG_DIR = path.join(MA_ROOT, 'MA-Config');
+const ROSTER_PATH      = path.join(CONFIG_DIR, 'model-roster.json');
+const PERF_PATH        = path.join(CONFIG_DIR, 'model-performance.json');
+
+// ── Dependencies (injected via init) ────────────────────────────────────────
+let _deps = null;
+
+function init(deps) {
+  _deps = deps;  // { callLLM, webFetch }
+  if (!fs.existsSync(CONFIG_DIR)) fs.mkdirSync(CONFIG_DIR, { recursive: true });
+  if (!fs.existsSync(ROSTER_PATH)) {
+    fs.writeFileSync(ROSTER_PATH, JSON.stringify({ models: [] }, null, 2));
+  }
+  if (!fs.existsSync(PERF_PATH)) {
+    fs.writeFileSync(PERF_PATH, JSON.stringify({ records: {} }, null, 2));
+  }
+}

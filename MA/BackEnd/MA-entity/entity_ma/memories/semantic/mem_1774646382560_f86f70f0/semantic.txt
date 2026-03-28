@@ -1,0 +1,32 @@
+// Strategy 3: DDG HTML scrape (optimistic fallback — may be blocked)
+  if (results.length === 0) {
+    try {
+      const searchUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
+      const res = await fetchUrl(searchUrl);
+      const blocks = res.body.split(/class="result__body"/);
+      for (let i = 1; i < blocks.length && results.length < 8; i++) {
+        const titleMatch = blocks[i].match(/class="result__a"[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/);
+        const snippetMatch = blocks[i].match(/class="result__snippet"[^>]*>([\s\S]*?)<\/td>/);
+        if (titleMatch) {
+          let url = titleMatch[1];
+          const udMatch = url.match(/uddg=([^&]+)/);
+          if (udMatch) url = decodeURIComponent(udMatch[1]);
+          results.push({
+            title: titleMatch[2].replace(/<[^>]+>/g, '').trim(),
+            url,
+            snippet: snippetMatch ? snippetMatch[1].replace(/<[^>]+>/g, '').trim() : ''
+          });
+        }
+      }
+    } catch { /* HTML scrape failed too */ }
+  }
+
+  return results;
+}
+
+// ── Format search results for LLM context ───────────────────────────────────
+function formatSearchResults(results, query) {
+  if (!results.length) return `[WEB SEARCH: "${query}"]\nNo results found.\n[/WEB SEARCH]`;
+  const lines = results.map((r, i) => `${i + 1}. ${r.title}\n   ${r.url}\n   ${r.snippet}`);
+  return `[WEB SEARCH: "${query}"]\n${lines.join('\n\n')}\n[/WEB SEARCH]`;
+}

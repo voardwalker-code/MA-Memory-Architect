@@ -1,0 +1,25 @@
+// ── Banner ──────────────────────────────────────────────────────────────────
+function banner() {
+  console.log('');
+  console.log('  Commands:');
+  console.log('    /health            — run health scan');
+  console.log('    /memory stats      — memory statistics');
+  console.log('    /memory search <q> — search memories');
+  console.log('    /knowledge         — list knowledge docs');
+  console.log('    /knowledge <name>  — show a knowledge doc');
+  console.log('    /ingest <file>     — ingest a file into memory');
+  console.log('    /config            — show current LLM config');
+  console.log('    /projects          — list all project archives');
+  console.log('    /project open <id> — resume a closed project');
+  console.log('    /project close <id>— close a project');
+  console.log('    /project status <id>— show project stats');
+  console.log('    /whitelist         — show allowed commands');
+  console.log('    /whitelist add <b> — allow a command (+ optional subs)');
+  console.log('    /whitelist remove <b>— remove a command');
+  console.log('    /whitelist reset   — reset to defaults');
+  console.log('    /help              — show this help');
+  console.log('    /exit              — quit');
+  console.log('');
+  console.log('  Anything else is sent to MA as a chat message.');
+  console.log('');
+}

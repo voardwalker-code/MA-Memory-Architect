@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385949_38e7abaf",
+  "type": "semantic",
+  "content": "### SVG Icon\r\n\nFor the WINDOW_APPS icon, create a simple inline SVG:\r\n```\r\n<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">{paths}</svg>\r\n```\r\n\nKeep it simple — 1-3 path elements. Match the app's purpose visually.\r\n\n### Accent Colors\r\n\nPick from: `blue`, `green`, `purple`, `orange`, `pink`, `red`, `teal`, `yellow`\r\n\n---\r\n\n## Phase 6 — Install the App\r\n\nRun the installer CLI to register the app:\r\n\n```\r\n[TOOL:cmd_run {\"command\":\"cd /d project && node server/tools/installer-cli.js install --contract server/contracts/installer-{appId}.contract.example.json --root . --dry\"}]\r\n```\r\n\nCheck the dry-run output. If `ok: true`, proceed with actual install:\r\n\n```\r\n[TOOL:cmd_run {\"command\":\"cd /d project && node server/tools/installer-cli.js install --contract server/contracts/installer-{appId}.contract.example.json --root . --log server/contracts/installer-{appId}.install.log.json\"}]\r\n```\r\n\nIf the dry-run fails:\r\n- Check that marker slots exist (`//Open Next json entry id \\n \\n //Close \"`)\r\n- Check that appId matches across all entries\r\n- Check that file paths are relative to `project/`\r\n\n---\r\n\n## Phase 7 — Verify Installation",
+  "topics": [
+    "MA Memory Architect",
+    "app_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "### SVG Icon\r\n\nFor the WINDOW_APPS icon, create a simple inline SVG:\r\n```\r\n<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">{p",
+  "importance": 0.6,
+  "createdAt": 1774646385951,
+  "createdAtISO": "2026-03-27T21:19:45.951Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\app_builder.md",
+  "accessCount": 0
+}

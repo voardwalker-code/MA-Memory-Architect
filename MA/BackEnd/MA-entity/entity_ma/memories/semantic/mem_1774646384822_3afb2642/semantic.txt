@@ -1,0 +1,33 @@
+// ── Task progress widget ────────────────────────────────────────────
+function createProgressWidget() {
+  const widget = document.createElement('div');
+  widget.className = 'task-progress';
+  widget.id = 'task-progress';
+  widget.innerHTML = '<div class="tp-header"><div class="tp-spinner"></div><span>Working...</span></div>' +
+    '<div class="tp-bar"><div class="tp-fill" style="width:0%"></div></div>' +
+    '<div class="tp-steps"></div>';
+  chatEl.appendChild(widget);
+  chatEl.scrollTop = chatEl.scrollHeight;
+  return widget;
+}
+
+function updateProgress(widget, stepInfo) {
+  const pct = Math.round(((stepInfo.stepIndex + 1) / stepInfo.stepTotal) * 100);
+  const fill = widget.querySelector('.tp-fill');
+  const header = widget.querySelector('.tp-header span');
+  const steps = widget.querySelector('.tp-steps');
+
+  fill.style.width = pct + '%';
+  header.textContent = `Step ${stepInfo.stepIndex + 1} of ${stepInfo.stepTotal}`;
+
+  // Mark previous steps as done
+  const existing = steps.querySelectorAll('.tp-step.active');
+  existing.forEach(el => { el.classList.remove('active'); el.classList.add('done'); el.querySelector('.tp-icon').textContent = '✓'; });
+
+  // Add current step
+  const stepEl = document.createElement('div');
+  stepEl.className = 'tp-step active';
+  stepEl.innerHTML = '<span class="tp-icon">►</span><span>' + escHtml(stepInfo.description) + '</span>';
+  steps.appendChild(stepEl);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}

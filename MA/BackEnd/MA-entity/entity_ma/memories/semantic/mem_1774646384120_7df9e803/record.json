@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384120_7df9e803",
+  "type": "semantic",
+  "content": "| Type of code | Folder | Prefix |\r\n|-------------|--------|--------|\r\n| Text/NLP algorithms | `nlp/` | `nlp-` |\r\n| AI model communication | `llm/` | `llm-` |\r\n| Business logic, data managers | `services/` | `svc-` |\r\n| System utilities, HTTP helpers | `infra/` | `infra-` |\r\n| AI tool implementations | `tools/` | `tools-` |\r\n| HTTP endpoint handlers | `routes/` | `route-` |\r\n| Parts of MA-core.js | `core/` | `core-` |\r\n\n---\r\n\n## 4. Naming Conventions\r\n\n### Files\r\n\n- **Prefix matches the folder:** `nlp/nlp-bm25.js`, `services/svc-memory.js`\r\n- **Lowercase with hyphens:** `svc-project-archive.js` not `svcProjectArchive.js`\r\n- **Descriptive but short:** `llm-api.js` not `llm-unified-provider-api-caller.js`\r\n\n### Functions\r\n\n- **camelCase:** `extractToolCalls()`, `bm25Score()`\r\n- **Private functions start with underscore:** `_safe()`, `_dispatch()`\r\n- **Boolean functions use is/has/can:** `isConfigured()`, `hasCapability()`\r\n\n### Constants\r\n\n- **UPPER_SNAKE_CASE:** `MAX_TOKENS`, `DEFAULT_TIMEOUT`\r\n- **Or descriptive camelCase for complex constants:** `PROVIDER_CAPS`\r\n\n### Exports\r\n\nAlways put `module.exports` at the very end of the file. List every\r\nexport explicitly — never use `module.exports = { ...obj }` from a\r\nvariable:\r\n\n```javascript\r\n// ── Exports ─────────────────────────────────────────────────────────────────\r\nmodule.exports = {\r\n  extractToolCalls,\r\n  executeToolCalls,\r\n  formatToolResults,\r\n  stripToolCalls,\r\n  ToolSchemas\r\n};\r\n```\r\n\n---",
+  "topics": [
+    "MA Memory Architect",
+    "02-WRITING-AND-COMMENTING-GUIDE.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "| Type of code | Folder | Prefix |\r\n|-------------|--------|--------|\r\n| Text/NLP algorithms | `nlp/` | `nlp-` |\r\n| AI model communication | `llm/` | `llm-` |\r\n| Business logic, data managers | `servi",
+  "importance": 0.6,
+  "createdAt": 1774646384121,
+  "createdAtISO": "2026-03-27T21:19:44.121Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\02-WRITING-AND-COMMENTING-GUIDE.md",
+  "accessCount": 0
+}

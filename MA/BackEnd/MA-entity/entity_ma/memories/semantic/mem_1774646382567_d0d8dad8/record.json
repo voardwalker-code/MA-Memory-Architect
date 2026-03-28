@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382567_d0d8dad8",
+  "type": "semantic",
+  "content": "const http  = require('http');\r\nconst https = require('https');\r\n\nconst DEFAULT_TIMEOUT  = 180000; // 180s — complex tasks (deep research, projects) need more time\r\nconst DEFAULT_MAX_TOKENS = 12288;\r\nconst ANTHROPIC_API_VERSION = '2023-06-01';\r\nconst ANTHROPIC_DEFAULT_ENDPOINT = 'https://api.anthropic.com/v1/messages';\r\n\n/**\r\n * Call an LLM provider.\r\n * @param {object} config  - { type, endpoint, apiKey, model, capabilities? }\r\n * @param {Array}  messages - [{ role, content }]\r\n * @param {object} opts    - { temperature, maxTokens, timeout, responseFormat, thinking, tools }\r\n * @returns {Promise<string|{content:string, toolCalls:Array}>} String normally; object when tools are active and tool_use blocks returned\r\n */\r\nasync function callLLM(config, messages, opts = {}) {\r\n  if (!config || !config.type) throw new Error('LLM config missing type');\r\n  if (!config.endpoint)        throw new Error('LLM config missing endpoint');\r\n  if (!config.model)           throw new Error('LLM config missing model');\r\n\n  const temperature = opts.temperature ?? 0.7;\r\n  const maxTokens   = opts.maxTokens   ?? DEFAULT_MAX_TOKENS;\r\n  const timeout     = opts.timeout     ?? DEFAULT_TIMEOUT;",
+  "topics": [
+    "MA Memory Architect",
+    "llm-api.js",
+    "BackEnd llm"
+  ],
+  "summary": "const http  = require('http');\r\nconst https = require('https');\r\n\nconst DEFAULT_TIMEOUT  = 180000; // 180s — complex tasks (deep research, projects) need more time\r\nconst DEFAULT_MAX_TOKENS = 12288;\r\n",
+  "importance": 0.6,
+  "createdAt": 1774646382567,
+  "createdAtISO": "2026-03-27T21:19:42.567Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-api.js",
+  "accessCount": 0
+}

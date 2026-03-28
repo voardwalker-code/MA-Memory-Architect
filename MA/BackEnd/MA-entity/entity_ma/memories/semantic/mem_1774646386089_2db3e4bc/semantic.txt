@@ -1,0 +1,10 @@
+- Writing blueprints inside the project workspace instead of `MA-blueprints/{project-name}/`
+- Forgetting to create INDEX.md in the blueprint subfolder
+- Writing vague algorithms ("process the data") instead of specific pseudocode
+- Using placeholder constants ("THRESHOLD = ???") instead of quantified values
+- Creating contracts that don't have validators
+- Writing tests that only check exports exist (they should also validate contracts)
+- Skipping the REQUIREMENTS.md check — always read it first
+- Generating more than 6 layers — if the project needs more, group related modules
+- Making stubs that don't import their contracts
+- Forgetting the dependency chain — each layer-N test MUST reference only layers 0..N

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384577_f576b281",
+  "type": "semantic",
+  "content": "/* File chips */\r\n  #file-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0}\r\n  #file-chips:empty{display:none}\r\n  .file-chip{display:inline-flex;align-items:center;gap:4px;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:3px 8px;font-size:12px;color:var(--accent)}\r\n  .file-chip img{height:28px;width:28px;object-fit:cover;border-radius:4px}\r\n  .file-chip button{background:none;border:none;color:var(--err);cursor:pointer;font-size:14px;padding:0 2px;line-height:1}\r\n  .chat-img{max-width:300px;max-height:200px;border-radius:8px;margin:4px 0;display:block}\r\n\n  /* File links */\r\n  .file-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}\r\n  .file-link{display:inline-flex;align-items:center;gap:4px;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--accent);text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s}\r\n  .file-link:hover{background:var(--hover);border-color:var(--accent)}\r\n  .file-link .fl-icon{font-size:14px}\r\n  .file-link .fl-name{max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.css",
+    "FrontEnd css"
+  ],
+  "summary": "/* File chips */\r\n  #file-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0}\r\n  #file-chips:empty{display:none}\r\n  .file-chip{display:inline-flex;align-items:center;gap:4px;background:var(--surface)",
+  "importance": 0.6,
+  "createdAt": 1774646384577,
+  "createdAtISO": "2026-03-27T21:19:44.577Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\css\\ma-ui.css",
+  "accessCount": 0
+}

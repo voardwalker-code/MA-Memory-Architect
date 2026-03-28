@@ -1,0 +1,23 @@
+/**
+ * Format tool execution results for OpenRouter tool message injection.
+ * @param {Array<{ id: string, tool: string, result: string, ok: boolean }>} results
+ * @returns {Array<object>} OpenRouter-format tool messages
+ */
+function formatOpenRouterToolResults(results) {
+  return results.map(r => ({
+    role: 'tool',
+    tool_call_id: r.id,
+    content: r.ok ? r.result : `ERROR: ${r.result}`
+  }));
+}
+
+module.exports = {
+  TOOL_DEFS,
+  buildToolSchemas,
+  buildAnthropicTools,
+  buildOpenRouterTools,
+  parseAnthropicResponse,
+  parseOpenRouterResponse,
+  formatAnthropicToolResults,
+  formatOpenRouterToolResults
+};

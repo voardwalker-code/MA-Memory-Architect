@@ -1,0 +1,27 @@
+**Inject 2-3 core memories per NPC** (lightweight — these are not full backstories):
+
+Memory 1 — Backstory seed:
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/memories/inject", "method": "POST", "body": {"content": "First-person backstory memory...", "type": "episodic", "emotion": "nostalgia", "topics": ["origin", "occupation"], "importance": 0.7, "narrative": "Third-person summary", "phase": "backstory"}}]
+```
+
+Memory 2 — Current motivation:
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/memories/inject", "method": "POST", "body": {"content": "What drives me right now...", "type": "semantic", "emotion": "determined", "topics": ["goal", "motivation"], "importance": 0.6, "narrative": "Third-person summary", "phase": "current"}}]
+```
+
+Memory 3 — Secret:
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/memories/inject", "method": "POST", "body": {"content": "The thing I can never tell anyone...", "type": "core", "emotion": "fear", "topics": ["secret", "hidden"], "importance": 0.8, "narrative": "Third-person summary", "phase": "secret"}}]
+```
+
+**One cognitive tick per NPC** (quick personality seeding):
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/cognitive/tick", "method": "POST", "body": {}}]
+```
+
+Create all NPCs in sequence. Batch — do not interleave different NPCs' memories.
+
+### Phase 5: Roster Document
+
+Write quick-reference table + detailed entries:

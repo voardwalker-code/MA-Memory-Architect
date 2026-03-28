@@ -1,0 +1,28 @@
+// ── 3. List saved chat sessions ──────────────────────────────────
+    // Returns an array of { id, createdAt, updatedAt, preview } sorted
+    // newest-first.  The "preview" is the first ~80 characters of the
+    // first user message, so you can tell conversations apart.
+    if (url.pathname === '/api/chat/sessions' && method === 'GET') {
+      if (!fs.existsSync(sessionsDir)) {
+        json(res, 200, { sessions: [] });
+        return true;
+      }
+      const files = fs.readdirSync(sessionsDir).filter(f => f.endsWith('.json'));
+      const sessions = [];
+      for (const f of files) {
+        try {
+          const raw = JSON.parse(fs.readFileSync(path.join(sessionsDir, f), 'utf8'));
+          sessions.push({
+            id:        raw.id,
+            createdAt: raw.createdAt,
+            updatedAt: raw.updatedAt,
+            preview:   raw.preview || ''
+          });
+        } catch { /* skip corrupt session files */ }
+      }
+      sessions.sort((a, b) =>
+        (b.updatedAt || b.createdAt || '').localeCompare(a.updatedAt || a.createdAt || '')
+      );
+      json(res, 200, { sessions });
+      return true;
+    }

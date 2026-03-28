@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386190_2cf8e64e",
+  "type": "semantic",
+  "content": "Test at least 3 phrases:\r\n1. \"{phrase that should route to this type}\"\r\n2. \"{phrase that should route to this type}\"\r\n3. \"{phrase that should NOT route to this type}\"\r\n[/TOOL]\r\n```\r\n\n---\r\n\n## Phase 7: Summary\r\n\nPresent the user with:\r\n1. What was created (3 files)\r\n2. The registration snippet they need to add to MA-tasks.js\r\n3. How to test it\r\n4. A brief description of what the new blueprint enables MA to do\r\n\n---\r\n\n## Guidelines\r\n\n**DO:**\r\n- Study 2-3 existing blueprints before designing a new one — match the quality bar\r\n- Make the blueprint self-contained — an LLM reading it for the first time must be able to execute it without external context\r\n- Include concrete examples in every phase (example tool calls, example outputs, example queries)\r\n- Design keywords/regex that are specific enough to avoid collisions with existing 17 task types\r\n- Use interactive pauses where user judgment matters (outlines, plans, structures)\r\n- Write output to organized folders with clear naming conventions\r\n- Include both positive DO guidelines and negative DON'T anti-patterns\r\n- Test classification mentally: would \"create a blueprint for recipe management\" route to `blueprint_builder`? Would \"write a recipe\" route somewhere else? Good.",
+  "topics": [
+    "MA Memory Architect",
+    "blueprint_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Test at least 3 phrases:\r\n1. \"{phrase that should route to this type}\"\r\n2. \"{phrase that should route to this type}\"\r\n3. \"{phrase that should NOT route to this type}\"\r\n[/TOOL]\r\n```\r\n\n---\r\n\n## Phase 7:",
+  "importance": 0.6,
+  "createdAt": 1774646386190,
+  "createdAtISO": "2026-03-27T21:19:46.190Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\blueprint_builder.md",
+  "accessCount": 0
+}

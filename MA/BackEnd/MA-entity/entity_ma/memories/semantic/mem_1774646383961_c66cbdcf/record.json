@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383961_c66cbdcf",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// Each schema defines what parameters a tool expects.\r\n//\r\n// For example, ws_read needs a \"path\" (a string) — nothing else.\r\n// entity_create needs a \"name\" (required) plus optional fields like\r\n// \"traits\" (array of strings) and \"gender\" (defaults to \"neutral\").\r\n//\r\n// The .default() calls set fallback values when the AI doesn't provide them.\r\n// The .optional() calls mean the field can be left out entirely.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nconst ToolSchemas = {\r\n  // ── Workspace file tools ──────────────────────────────────────────\r\n  ws_list:    z.object({ path: z.string().default('.') }),\r\n  ws_read:    z.object({ path: z.string() }),\r\n  ws_write:   z.object({ path: z.string(), content: z.string().optional() }),\r\n  ws_append:  z.object({ path: z.string(), content: z.string().optional() }),\r\n  ws_delete:  z.object({ path: z.string() }),\r\n  ws_mkdir:   z.object({ path: z.string() }),\r\n  ws_move:    z.object({ src: z.string(), dst: z.string() }),\r\n\n  // ── Web tools ─────────────────────────────────────────────────────\r\n  web_search:     z.object({ query: z.string() }),\r\n  web_fetch:      z.object({ url: z.string() }),\r\n\n  // ── Command tool ──────────────────────────────────────────────────\r\n  cmd_run:        z.object({ cmd: z.string() }),",
+  "topics": [
+    "MA Memory Architect",
+    "tools-schemas.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// Each schema defines what parameters a tool expects.\r\n//\r\n// For example, ws_read needs a \"path\" (a string) — nothin",
+  "importance": 0.6,
+  "createdAt": 1774646383962,
+  "createdAtISO": "2026-03-27T21:19:43.962Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-schemas.js",
+  "accessCount": 0
+}

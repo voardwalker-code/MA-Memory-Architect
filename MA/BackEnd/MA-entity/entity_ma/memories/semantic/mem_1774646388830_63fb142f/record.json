@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388830_63fb142f",
+  "type": "semantic",
+  "content": "- **Study Guide**: Foundational → Intermediate → Advanced sections + practice questions + answer key\r\n- **Flashcards**: Structured JSON + readable markdown, tagged by difficulty/topic/cardType\r\n- **Outline**: Hierarchical structure with thesis → sections → subsections → evidence. Interactive pause for restructuring.\r\n- **Timeline**: Events grouped by era, with causal links, significance, and study questions\r\n\n## Tools Used\r\n- `web_search` — research topics when no source material provided\r\n- `web_fetch` — fetch detailed content from discovered sources\r\n- `ws_write` — write output files to workspace",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills study-guide"
+  ],
+  "summary": "- **Study Guide**: Foundational → Intermediate → Advanced sections + practice questions + answer key\r\n- **Flashcards**: Structured JSON + readable markdown, tagged by difficulty/topic/cardType\r\n- **Ou",
+  "importance": 0.6,
+  "createdAt": 1774646388831,
+  "createdAtISO": "2026-03-27T21:19:48.831Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\study-guide\\SKILL.md",
+  "accessCount": 0
+}

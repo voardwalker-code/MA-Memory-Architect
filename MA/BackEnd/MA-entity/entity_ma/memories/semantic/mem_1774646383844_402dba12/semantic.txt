@@ -1,0 +1,33 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// _safe(wp, rel)
+//
+// Resolves a relative path and makes sure it stays inside the workspace.
+// This is the security boundary — no file operation should bypass this.
+//
+//   wp  — absolute path to the workspace root
+//   rel — the relative path the AI requested
+//   Returns: the resolved absolute path (guaranteed inside workspace)
+//   Throws: if path would escape the workspace
+// ─────────────────────────────────────────────────────────────────────────────
+function _safe(wp, rel) {
+  if (!wp) throw new Error('No workspace path');
+  const resolved = path.resolve(wp, rel.trim());
+  if (!resolved.startsWith(path.resolve(wp))) throw new Error('Path outside workspace');
+  return resolved;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// wsList(wp, dirPath)
+//
+// Lists files and folders in a directory.  Folders get a "/" suffix
+// so the AI can tell them apart from files.
+// Returns "(empty)" if the directory has nothing in it.
+// ─────────────────────────────────────────────────────────────────────────────
+function wsList(wp, dirPath) {
+  const dir = dirPath && dirPath !== '.' ? _safe(wp, dirPath) : wp;
+  if (!fs.existsSync(dir)) return 'Directory not found';
+  return fs.readdirSync(dir).map(f => {
+    const full = path.join(dir, f);
+    return fs.statSync(full).isDirectory() ? f + '/' : f;
+  }).join('\n') || '(empty)';
+}

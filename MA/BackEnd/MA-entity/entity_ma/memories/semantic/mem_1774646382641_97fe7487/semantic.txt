@@ -1,0 +1,52 @@
+// ── Schema Builders ─────────────────────────────────────────────────────────
+
+/** Build Anthropic-format tool schemas. */
+function buildAnthropicTools() {
+  return TOOL_DEFS.map(t => ({
+    name: t.name,
+    description: t.description,
+    input_schema: t.parameters
+  }));
+}
+
+/** Build OpenAI/OpenRouter-format tool schemas. */
+function buildOpenRouterTools() {
+  return TOOL_DEFS.map(t => ({
+    type: 'function',
+    function: {
+      name: t.name,
+      description: t.description,
+      parameters: t.parameters
+    }
+  }));
+}
+
+/** Build tool schemas for the given provider type. */
+function buildToolSchemas(providerType) {
+  if (providerType === 'anthropic') return buildAnthropicTools();
+  return buildOpenRouterTools();
+}
+
+// ── Response Parsers ────────────────────────────────────────────────────────
+
+/**
+ * Extract tool calls from an Anthropic response.
+ * @param {object} data - Raw Anthropic API response
+ * @returns {{ content: string, toolCalls: Array<{ id: string, name: string, input: object }> }}
+ */
+function parseAnthropicResponse(data) {
+  const textParts = [];
+  const toolCalls = [];
+
+  for (const block of (data.content || [])) {
+    if (block.type === 'text') {
+      textParts.push(block.text);
+    } else if (block.type === 'tool_use') {
+      toolCalls.push({
+        id: block.id,
+        name: block.name,
+        input: block.input || {}
+      });
+    }
+    // Skip thinking blocks
+  }

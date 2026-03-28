@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382409_6245c4aa",
+  "type": "semantic",
+  "content": "// ── Core Chat ────────────────────────────────────────────────────────────────\r\n//\r\n// The main chat handler — this is where user messages get processed.\r\n//\r\n// HOW IT WORKS:\r\n// When a user sends a message, it goes through several stages:\r\n//\r\n//   1. CLASSIFY — Figure out what the user wants (task, conversation, etc.)\r\n//   2. FAST PATHS — Quick shortcuts for common patterns:\r\n//      a. \"The brief is ready\" → Loads PROJECT-BRIEF.md and starts building\r\n//      b. \"Create new project\" → Scaffolds a project folder + template\r\n//   3. TASK PATH — If it's a task (coding, research, writing), hand it to\r\n//      the task runner which can use tools and run multiple steps\r\n//   4. CONVERSATION PATH — For normal chat, gather context, ask the AI,\r\n//      execute any tool calls the AI makes, then get the final response\r\n//\r\n// Think of it like a mail sorting office:\r\n//   - Some letters get special handling (fast paths)\r\n//   - Some go to the task department (complex work)\r\n//   - The rest get a direct reply (conversation)\r\n//\r\n// WHAT IT EXPORTS:\r\n//   handleChat(chatOpts, state, deps) — Process a user message\r\n//\r\n// USED BY: MA-core.js (wraps this and exposes it as core.handleChat())\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n\nconst fs   = require('fs');\r\nconst path = require('path');",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// ── Core Chat ────────────────────────────────────────────────────────────────\r\n//\r\n// The main chat handler — this is where user messages get processed.\r\n//\r\n// HOW IT WORKS:\r\n// When a user sends ",
+  "importance": 0.6,
+  "createdAt": 1774646382409,
+  "createdAtISO": "2026-03-27T21:19:42.409Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

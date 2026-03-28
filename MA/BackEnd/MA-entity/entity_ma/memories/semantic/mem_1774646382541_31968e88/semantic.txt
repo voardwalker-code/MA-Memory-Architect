@@ -1,0 +1,33 @@
+// ── readBody(req) → Promise<string> ─────────────────────────────────────────
+// Buffers the full request body as a UTF-8 string.  Destroys the socket and
+// rejects if the payload exceeds 10 MB — a simple safeguard against oversized
+// uploads or accidental binary streams.
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    let size = 0;
+    const MAX = 10485760; // 10 MB
+    req.on('data', c => {
+      size += c.length;
+      if (size > MAX) { reject(new Error('Body too large')); req.destroy(); }
+      chunks.push(c);
+    });
+    req.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+    req.on('error', reject);
+  });
+}
+
+// ── resolveInsideRoot(rootDir, requestedPath) → string ──────────────────────
+// Resolves `requestedPath` relative to `rootDir` and verifies the result does
+// not escape the root via ../ tricks.  Throws if the resolved path is outside
+// the root — this is the path-traversal guard used by blueprint and workspace
+// file endpoints.
+function resolveInsideRoot(rootDir, requestedPath) {
+  const normalized = String(requestedPath || '').replace(/\\/g, '/').replace(/^\/+/, '');
+  const resolved = path.resolve(rootDir, normalized);
+  const base = path.resolve(rootDir);
+  if (resolved !== base && !resolved.startsWith(base + path.sep)) {
+    throw new Error('Path escapes allowed root');
+  }
+  return resolved;
+}

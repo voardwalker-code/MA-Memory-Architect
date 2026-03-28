@@ -1,0 +1,14 @@
+Task (code): I need you to write an over engenired Hello World program. 
+
+This needs to use at least 3 diffrent scripts to print hello world. each script will have multiple functions 
+
+This is an exersize 
+
+I need you to follow the How-We-Work.md that I have attached to the message.
+Result: I don't see any attached **How-We-Work.md** file in your message.
+
+Could you please:
+1. **Paste the contents** of `How-We-Work.md` directly into the chat, or
+2. **Re-attach the file** so I can read it
+
+Once I have that, I'll create the task plan following your specified workflow. 🙂

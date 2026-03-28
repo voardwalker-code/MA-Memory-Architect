@@ -1,0 +1,19 @@
+async function saveTaskWorkspace() {
+  try {
+    const r = await fetch('/api/worklog', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        currentTask: document.getElementById('task-current-input').value.trim(),
+        resumePoint: document.getElementById('task-resume-input').value.trim(),
+        taskPlan: readTaskPlanDraft()
+      })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'Could not save task workspace');
+    addSystem('Task workspace updated.');
+    loadWorklog();
+  } catch (e) {
+    addSystem('Task workspace error: ' + e.message);
+  }
+}

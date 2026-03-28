@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382623_1af42a67",
+  "type": "semantic",
+  "content": "// 6. Capability matching — bonus when model has capabilities the job wants\r\n    const modelCaps = m.capabilities || [];\r\n    if (modelCaps.length && jobReqs.desiredCaps && jobReqs.desiredCaps.length) {\r\n      const matched = jobReqs.desiredCaps.filter(c => modelCaps.includes(c));\r\n      if (matched.includes('thinking')) {\r\n        score += 15;\r\n        reason.push('thinking capable');\r\n      }\r\n      if (matched.includes('caching')) {\r\n        score += 10;\r\n        reason.push('prompt caching');\r\n      }\r\n      if (matched.includes('native-tools')) {\r\n        score += 10;\r\n        reason.push('native tool use');\r\n      }\r\n    }\r\n\n    return { model: m, score, reason };\r\n  });\r\n\n  // Sort by score descending\r\n  scored.sort((a, b) => b.score - a.score);\r\n\n  const best = scored[0];\r\n  if (!best) return null;\r\n\n  return {\r\n    model: best.model,\r\n    config: {\r\n      type:     best.model.provider,\r\n      endpoint: best.model.endpoint,\r\n      apiKey:   best.model.apiKey,\r\n      model:    best.model.model,\r\n      maxTokens: Math.min(best.model.contextWindow || 8192, 131072)\r\n    },\r\n    reason: best.reason.join('; '),\r\n    score: best.score,\r\n    alternatives: scored.slice(1, 4).map(s => ({ id: s.model.id, score: s.score, reason: s.reason.join('; ') }))\r\n  };\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "llm-router.js",
+    "BackEnd llm"
+  ],
+  "summary": "// 6. Capability matching — bonus when model has capabilities the job wants\r\n    const modelCaps = m.capabilities || [];\r\n    if (modelCaps.length && jobReqs.desiredCaps && jobReqs.desiredCaps.length)",
+  "importance": 0.6,
+  "createdAt": 1774646382624,
+  "createdAtISO": "2026-03-27T21:19:42.624Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-router.js",
+  "accessCount": 0
+}

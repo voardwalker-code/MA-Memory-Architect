@@ -1,0 +1,20 @@
+// Agent dispatch: find matching agent for this task type
+  let dispatchedAgent = null;
+  let agentCtx = '';
+  if (agentCatalog) {
+    const roleMap = { code: 'coder', research: 'researcher', writing: 'writer', architect: 'architect', analysis: 'researcher', project: 'architect', entity_genesis: 'architect' };
+    const role = roleMap[taskType];
+    if (role) {
+      const agents = agentCatalog.findAgentsByRole(role);
+      if (agents.length) {
+        const seniorityOrder = { lead: 4, senior: 3, mid: 2, junior: 1 };
+        dispatchedAgent = agents.sort((a, b) => (seniorityOrder[b.seniority] || 0) - (seniorityOrder[a.seniority] || 0))[0];
+        agentCtx = `\n[Agent: ${dispatchedAgent.name} (${dispatchedAgent.role}, ${dispatchedAgent.seniority})]\n${dispatchedAgent.systemPrompt || ''}`;
+        if (onActivity) await onActivity('agent_dispatch', `Assigned ${dispatchedAgent.name} (${dispatchedAgent.role}, ${dispatchedAgent.seniority})`, { agentId: dispatchedAgent.id, role: dispatchedAgent.role });
+      }
+    }
+  }
+
+  for (let i = 0; i < plan.steps.length && llmCalls < limits.maxLLM; i++) {
+    const step = plan.steps[i];
+    if (onActivity) await onActivity('step_start', `Step ${i + 1}: ${step.description}`);

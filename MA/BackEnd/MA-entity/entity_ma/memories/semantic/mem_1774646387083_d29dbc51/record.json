@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387083_d29dbc51",
+  "type": "semantic",
+  "content": "1. **Summary** — plain language explanation (not textbook-speak). Aim for \"explain it to a smart friend\" level.\r\n2. **Key Terms Glossary** — term: definition + concrete example\r\n3. **Concept Connections** — how this concept relates to others (indented concept map)\r\n4. **Common Misconceptions** — what people get wrong + corrections\r\n5. **Memory Aids** — mnemonics, analogies, visual descriptions\r\n\n### Phase 4: Practice Questions\r\n\nPer topic section:\r\n- 3-5 multiple choice questions (with answer key + explanations for each option)\r\n- 2-3 short answer questions\r\n- 1 \"explain it like I'm 5\" prompt\r\n\n### Phase 5: Output\r\n\nWrite the complete study guide as markdown:\r\n```\r\n[TOOL:ws_write {\"path\": \"study-guide-{topic-slug}.md\", \"content\": \"...\"}]\r\n```\r\n\nStructure: Table of Contents → Foundational Concepts → Intermediate Concepts → Advanced Concepts → Practice Questions → Answer Key\r\n\n---\r\n\n## FLASHCARD MODE\r\n\n### Phase 1: Source Analysis\r\n\nSame as Study Guide Phase 1.\r\n\n### Phase 2: Card Extraction\r\n\nLLM extracts all testable facts:\r\n- Definitions (term → meaning)\r\n- Processes (step → next step)\r\n- Dates (event → date/significance)\r\n- Formulas (name → formula + variable meanings)\r\n- Vocabulary (word → definition + usage)\r\n- Cause-effect (cause → effect)\r\n\n### Phase 3: Card Generation",
+  "topics": [
+    "MA Memory Architect",
+    "study_guide.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "1. **Summary** — plain language explanation (not textbook-speak). Aim for \"explain it to a smart friend\" level.\r\n2. **Key Terms Glossary** — term: definition + concrete example\r\n3. **Concept Connectio",
+  "importance": 0.6,
+  "createdAt": 1774646387084,
+  "createdAtISO": "2026-03-27T21:19:47.084Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\study_guide.md",
+  "accessCount": 0
+}

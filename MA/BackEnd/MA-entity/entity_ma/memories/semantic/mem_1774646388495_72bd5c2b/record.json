@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388495_72bd5c2b",
+  "type": "semantic",
+  "content": "---\r\nname: dnd-campaign\r\ndescription: Build, run, and manage D&D campaigns with session prep, world lore, and narrative arcs\r\n---\r\n\n# DnD Campaign Skill\r\n\n## Triggers\r\n\n- \"build a campaign\", \"run campaign\", \"start campaign\"\r\n- \"session prep\", \"prepare session\", \"prep next session\"\r\n- \"session recap\", \"write up session\", \"journal session\"\r\n- \"world lore\", \"faction lore\", \"deity lore\", \"region lore\"\r\n- \"campaign arc\", \"adventure\", \"quest line\", \"story arc\"\r\n\n## Mode Detection\r\n\n| Signal | Mode |\r\n|--------|------|\r\n| \"session prep\" / \"prepare session\" / \"prep next\" | SESSION PREP |\r\n| \"recap\" / \"journal\" / \"write up session\" | SESSION RECAP |\r\n| \"lore\" / \"faction\" / \"deity\" / \"region\" / \"world building\" | WORLD LORE |\r\n| Default (campaign / adventure / quest / story arc) | CAMPAIGN BUILDER |\r\n\n## Workflow\r\n\n### Campaign Builder\r\n1. Setup — gather theme/setting, level range, party size, tone, length\r\n2. Campaign arc — villain, 3-5 story beats, branching decision points, themes\r\n3. INTERACTIVE PAUSE — present arc, get DM feedback\r\n4. Session-by-session outlines — hooks, encounters, NPC interactions, loot, cliffhangers\r\n5. NPC entity creation — villain + 2-3 key NPCs as NekoCore entities (3-5 memories each)\r\n6. Campaign bible — write all documents to workspace",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills dnd-campaign"
+  ],
+  "summary": "---\r\nname: dnd-campaign\r\ndescription: Build, run, and manage D&D campaigns with session prep, world lore, and narrative arcs\r\n---\r\n\n# DnD Campaign Skill\r\n\n## Triggers\r\n\n- \"build a campaign\", \"run camp",
+  "importance": 0.6,
+  "createdAt": 1774646388495,
+  "createdAtISO": "2026-03-27T21:19:48.495Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\dnd-campaign\\SKILL.md",
+  "accessCount": 0
+}

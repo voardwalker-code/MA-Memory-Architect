@@ -1,0 +1,41 @@
+/**
+ * Lookup nodes by topic.
+ */
+function lookupByTopic(projectId, topic) {
+  const indexPath = path.join(_projectDir(projectId), 'index', 'topic-index.json');
+  if (!fs.existsSync(indexPath)) return [];
+  const idx = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+  return idx[topic.toLowerCase()] || [];
+}
+
+/**
+ * Get project archive stats.
+ */
+function getArchiveStats(projectId) {
+  const project = getProject(projectId);
+  if (!project) return null;
+  const graph = getGraph(projectId);
+  const indexPath = path.join(_projectDir(projectId), 'index', 'topic-index.json');
+  const topicIdx = fs.existsSync(indexPath) ? JSON.parse(fs.readFileSync(indexPath, 'utf8')) : {};
+  return {
+    projectId,
+    status: project.status,
+    nodeCount: project.nodeCount,
+    edgeCount: graph.count,
+    topicCount: Object.keys(topicIdx).length,
+    createdAt: project.createdAt,
+    updatedAt: project.updatedAt
+  };
+}
+
+// ── Atomic Write Helper ─────────────────────────────────────────────────────
+
+function _atomicWrite(filePath, data) {
+  const dir = path.dirname(filePath);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  const tmp = filePath + '.tmp_' + crypto.randomBytes(4).toString('hex');
+  fs.writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf8');
+  fs.renameSync(tmp, filePath);
+}
+
+// ── Exports ─────────────────────────────────────────────────────────────────

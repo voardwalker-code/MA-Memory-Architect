@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389445_3d0b16cc",
+  "type": "semantic",
+  "content": "| Mode | Behavior |\r\n|------|----------|\r\n| **Dark** | Dark background with light text (default) |\r\n| **Light** | Light background with dark text |\r\n| **System** | Follows your OS/browser preferred color scheme |\r\n\n### Configuring\r\nGo to **File → Settings** (or **⚙** in the rail), then find the **Theme** selector. Your choice persists in localStorage and applies immediately.\r\n\nWhen set to **System**, a live media-query listener keeps the theme in sync if your OS appearance changes while MA is open.\r\n\n---\r\n\n## Tips & Best Practices\r\n\n### For Coding Tasks\r\n- **Be specific:** \"Build a Flask REST API with /users CRUD endpoints and SQLite\" works better than \"build something\"\r\n- **Reference files:** \"Fix the error in myproject/src/api.js\" — MA will read the file automatically\r\n- **Large files:** MA writes in chunks and verifies each one. If it says \"I'll write this in parts,\" let it finish\r\n- **Review:** MA auto-reads files after writing to check completeness. If something was truncated, it will continue\r\n\n### For Research\r\n- **Use web search:** \"Research the latest Node.js 22 features\" — MA uses `web_search` and `web_fetch`\r\n- **Ingest results:** After research, ingest important findings with `/ingest filepath`",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "| Mode | Behavior |\r\n|------|----------|\r\n| **Dark** | Dark background with light text (default) |\r\n| **Light** | Light background with dark text |\r\n| **System** | Follows your OS/browser preferred co",
+  "importance": 0.6,
+  "createdAt": 1774646389445,
+  "createdAtISO": "2026-03-27T21:19:49.445Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

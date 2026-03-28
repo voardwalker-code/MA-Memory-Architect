@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386245_f7aafcf7",
+  "type": "semantic",
+  "content": "Save the running registry to the project folder after each batch:\r\n```\r\n[TOOL:ws_write {\"path\": \"projects/{book-slug}/character-registry.md\", \"content\": \"{updated registry}\"}]\r\n```\r\n\n### 2d. Classify characters after all batches\r\n\nAfter processing ALL chunks, classify each character:\r\n\n| Classification | Criteria |\r\n|---------------|----------|\r\n| **main** | Protagonist, antagonist, or love interest. Appears in >25% of chunks. Has character arc. |\r\n| **supporting** | Significant recurring role. 10-25% chunk appearances. Dialog with main characters. |\r\n| **minor** | Named character, <10% of chunks. Few dialog lines. |\r\n| **background** | Mentioned by name but no meaningful dialog or scene participation. |\r\n\n### 2e. Present to user\r\n\nPresent the character list to the user in this format:\r\n\n```\r\n📚 Character Discovery Complete — \"{Book Title}\"\r\n\nMAIN CHARACTERS:\r\n  ★ {Name} — {Role} | {trait1}, {trait2}, {trait3} | Appears in {N} of {total} chunks\r\n    Relationships: {relationship summary}\r\n\nSUPPORTING CHARACTERS:\r\n  ● {Name} — {Role} | {trait1}, {trait2} | Appears in {N} chunks\r\n    Relationships: {relationship summary}\r\n\nMINOR CHARACTERS:\r\n  ○ {Name} — Appears in {N} chunks\r\n\nSelection options:\r\n  (1) Main Characters Only — extracts {N} characters\r\n  (2) All Characters (excluding background) — extracts {N} characters\r\n  (3) Specific Characters — tell me which names you want\r\n\nWhich would you like?\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Save the running registry to the project folder after each batch:\r\n```\r\n[TOOL:ws_write {\"path\": \"projects/{book-slug}/character-registry.md\", \"content\": \"{updated registry}\"}]\r\n```\r\n\n### 2d. Classify ",
+  "importance": 0.6,
+  "createdAt": 1774646386246,
+  "createdAtISO": "2026-03-27T21:19:46.246Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

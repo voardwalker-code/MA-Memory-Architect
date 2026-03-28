@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387357_ab058405",
+  "type": "semantic",
+  "content": "| Module | File | What to Build |\r\n|--------|------|---------------|\r\n| Auth Service | `server/services/auth-service.js` | Session-based auth (JSON sessions) |\r\n| Boot Service | `server/services/boot.js` | Full boot sequence orchestration (10 steps) |\r\n| Chat Pipeline | `server/services/chat-pipeline.js` | Master turn cycle (classify→snapshot→context→generate→humanize→respond) |\r\n| Config Runtime | `server/services/config-runtime.js` | Live-editable runtime config overlay |\r\n| Config Service | `server/services/config-service.js` | Static config loader + validation |\r\n| Entity Checkout | `server/services/entity-checkout.js` | Check out entity from disk, trigger hatch if new |\r\n| Entity Memory Compat | `server/services/entity-memory-compat.js` | Bridge entity files ↔ memory subsystem |\r\n| Entity Runtime | `server/services/entity-runtime.js` | Live entity state holder |\r\n| Memory Service | `server/services/memory-service.js` | High-level memory API (recall/store/stats) |\r\n| Post-Response Cognitive Feedback | `server/services/post-response-cognitive-feedback.js` | Fire-and-forget cognitive update after turn |\r\n| Post-Response Memory | `server/services/post-response-memory.js` | Fire-and-forget memory encoding after turn |\r\n| Relationship Service | `server/services/relationship-service.js` | Track trust, familiarity, emotional bonds |\r\n| Response Post-Process | `server/services/response-postprocess.js` | Final response validation + metadata |\r\n| Startup Preflight | `server/services/startup-preflight.js` | Pre-boot validation checks |\r\n| Timeline Logger | `server/services/timeline-logger.js` | Append-only event timeline |\r\n| User Profiles | `server/services/user-profiles.js` | User preferences + history |",
+  "topics": [
+    "MA Memory Architect",
+    "part-5-services-transport.md",
+    "MA-blueprints nekocore"
+  ],
+  "summary": "| Module | File | What to Build |\r\n|--------|------|---------------|\r\n| Auth Service | `server/services/auth-service.js` | Session-based auth (JSON sessions) |\r\n| Boot Service | `server/services/boot.",
+  "importance": 0.6,
+  "createdAt": 1774646387358,
+  "createdAtISO": "2026-03-27T21:19:47.358Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\nekocore\\part-5-services-transport.md",
+  "accessCount": 0
+}

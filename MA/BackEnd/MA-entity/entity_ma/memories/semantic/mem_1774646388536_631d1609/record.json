@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388536_631d1609",
+  "type": "semantic",
+  "content": "---\r\nname: dnd-create\r\ndescription: Design D&D encounters, generate NPC rosters with living entities, or create full player characters with backstories and entity integration.\r\n---\r\n\n# DnD Create Skill\r\n\nCreate D&D/tabletop RPG content in three modes: encounters, NPC factories, or full character builds — all with NekoCore OS entity integration.\r\n\n## When This Skill Applies\r\n- User asks to design a combat encounter, battle, or fight scenario\r\n- User asks to populate a location with NPCs (tavern, guild, court, etc.)\r\n- User asks to roll, create, or build a D&D character or character sheet\r\n- User mentions DnD, D&D, 5e, Pathfinder, TTRPG, stat block, or monster\r\n- User asks for NPC generation or an NPC factory\r\n\n## Mode Detection\r\n\n| User Says | Mode |\r\n|-----------|------|\r\n| \"encounter\" / \"combat\" / \"battle\" / \"fight\" / \"CR\" | Encounter Mode |\r\n| \"NPC\" / \"tavern\" / \"populate\" / \"shopkeeper\" | NPC Factory Mode |\r\n| \"character\" / \"roll\" / \"character sheet\" / \"PC\" | Character Mode |\r\n\n## Workflow Overview\r\n\n1. **Detect mode** from user message\r\n2. **Gather parameters** — party level, setting, concept (from message or ask)\r\n3. **Generate content** — stat blocks (encounter), NPC profiles (factory), or character build (character)\r\n4. **Entity creation** (NPC + Character modes) — create NekoCore OS entities via API, inject memories, run cognitive ticks\r\n5. **Output** — write document to MA workspace\r\n\n## API Endpoints (NPC + Character Modes)\r\n\nAll on `http://localhost:3847`:",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills dnd-create"
+  ],
+  "summary": "---\r\nname: dnd-create\r\ndescription: Design D&D encounters, generate NPC rosters with living entities, or create full player characters with backstories and entity integration.\r\n---\r\n\n# DnD Create Skil",
+  "importance": 0.6,
+  "createdAt": 1774646388537,
+  "createdAtISO": "2026-03-27T21:19:48.537Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\dnd-create\\SKILL.md",
+  "accessCount": 0
+}

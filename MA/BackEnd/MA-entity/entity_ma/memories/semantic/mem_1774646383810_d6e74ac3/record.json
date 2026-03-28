@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383810_d6e74ac3",
+  "type": "semantic",
+  "content": "// Find the entity folder by its ID\r\n  const entitiesDir = path.join(wp, 'entities');\r\n  if (!fs.existsSync(entitiesDir)) return 'Error: no entities directory found in workspace';\r\n\n  const folders = fs.readdirSync(entitiesDir);\r\n  const match = folders.find(f => {\r\n    if (f === 'Entity-' + entityId) return true;\r\n    return f.startsWith('Entity-') && f.slice(7) === entityId;\r\n  });\r\n  if (!match) return 'Error: entity folder not found for ID: ' + entityId;\r\n\n  const entityDir = path.join(entitiesDir, match);\r\n  const memType = params.type || 'episodic';\r\n  const targetDir = memType === 'semantic'\r\n    ? path.join(entityDir, 'memories', 'semantic')\r\n    : path.join(entityDir, 'memories', 'episodic');\r\n\n  // Create a unique memory ID\r\n  const prefix = memType === 'semantic' ? 'sem_' : 'mem_';\r\n  const memId = prefix + crypto.randomBytes(4).toString('hex');\r\n  const memDir = path.join(targetDir, memId);\r\n  fs.mkdirSync(memDir, { recursive: true });\r\n\n  const content = params.content;\r\n  const narrative = params.narrative || content;\r\n  const emotion = params.emotion || 'neutral';\r\n  const topics = params.topics || [];\r\n  const importance = params.importance || 0.5;\r\n  const phase = params.phase || 'book_ingestion';\r\n\n  // Write semantic.txt — readable content for LLM context\r\n  fs.writeFileSync(path.join(memDir, 'semantic.txt'), content, 'utf8');",
+  "topics": [
+    "MA Memory Architect",
+    "tools-entity.js",
+    "BackEnd tools"
+  ],
+  "summary": "// Find the entity folder by its ID\r\n  const entitiesDir = path.join(wp, 'entities');\r\n  if (!fs.existsSync(entitiesDir)) return 'Error: no entities directory found in workspace';\r\n\n  const folders = ",
+  "importance": 0.6,
+  "createdAt": 1774646383812,
+  "createdAtISO": "2026-03-27T21:19:43.812Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-entity.js",
+  "accessCount": 0
+}

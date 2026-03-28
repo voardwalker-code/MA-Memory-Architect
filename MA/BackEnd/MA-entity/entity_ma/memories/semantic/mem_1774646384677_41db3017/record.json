@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384677_41db3017",
+  "type": "semantic",
+  "content": "/* Book character selection UI */\r\n  .book-selection-bar{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:8px;border-top:1px solid var(--border)}\r\n  .book-select-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;transition:opacity .15s}\r\n  .book-select-btn:hover{opacity:.85}\r\n  .book-select-btn:disabled{opacity:.4;cursor:default}\r\n  .book-char-input{flex:1;min-width:160px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:12px;font-family:inherit}\r\n  .book-char-input:focus{border-color:var(--accent);outline:none}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.css",
+    "FrontEnd css"
+  ],
+  "summary": "/* Book character selection UI */\r\n  .book-selection-bar{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:8px;border-top:1px solid var(--border)}\r\n  .book-select-btn{background:var(--ac",
+  "importance": 0.6,
+  "createdAt": 1774646384679,
+  "createdAtISO": "2026-03-27T21:19:44.679Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\css\\ma-ui.css",
+  "accessCount": 0
+}

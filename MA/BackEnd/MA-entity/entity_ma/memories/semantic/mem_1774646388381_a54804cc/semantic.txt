@@ -1,0 +1,28 @@
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/book/upload` | POST | Upload + chunk book text. Body: `{text, title?, author?}` or `{filePath, title?, author?}` |
+| `/api/book/{bookId}/chunks` | GET | List chunk metadata (index, preview, charCount) |
+| `/api/book/{bookId}/chunk/{index}` | GET | Read one chunk's full text |
+
+### NekoCore OS (`http://localhost:3847`)
+
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/entities/create` | POST | Create entity. Body: `{entityId, name, gender, traits, introduction}` |
+| `/api/entities/{id}/memories/inject` | POST | Inject one memory. Body: `{content, type, emotion, topics, importance, narrative, phase}` |
+| `/api/entities/{id}/cognitive/tick` | POST | Process memories through cognitive pipeline |
+| `/api/entities/{id}/cognitive/state` | GET | Read neurochemistry, beliefs, mood, persona |
+
+## Character Selection Modes
+
+When presenting the character list, offer three modes:
+
+1. **Main Characters Only** — protagonist, antagonist, love interest. Appears in >25% of chunks.
+2. **All Characters** — all non-background characters (main + supporting + minor).
+3. **Specific Characters** — user names exactly which characters to extract.
+
+**CRITICAL: Always wait for user selection before proceeding to memory extraction.**
+
+## POV Isolation Rules — MANDATORY
+
+These rules define the entire purpose of this system:

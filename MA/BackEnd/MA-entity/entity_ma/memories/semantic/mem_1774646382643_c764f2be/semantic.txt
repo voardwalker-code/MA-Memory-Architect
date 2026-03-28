@@ -1,0 +1,42 @@
+return {
+    content: textParts.join('').trim(),
+    toolCalls
+  };
+}
+
+/**
+ * Extract tool calls from an OpenRouter/OpenAI response.
+ * @param {object} data - Raw OpenRouter API response
+ * @returns {{ content: string, toolCalls: Array<{ id: string, name: string, input: object }> }}
+ */
+function parseOpenRouterResponse(data) {
+  const msg = data.choices?.[0]?.message;
+  if (!msg) return { content: '', toolCalls: [] };
+
+  const toolCalls = (msg.tool_calls || []).map(tc => ({
+    id: tc.id,
+    name: tc.function?.name || '',
+    input: JSON.parse(tc.function?.arguments || '{}')
+  }));
+
+  return {
+    content: (msg.content || '').trim(),
+    toolCalls
+  };
+}
+
+// ── Result Formatters ───────────────────────────────────────────────────────
+
+/**
+ * Format tool execution results for Anthropic tool_result injection.
+ * @param {Array<{ id: string, tool: string, result: string, ok: boolean }>} results
+ * @returns {Array<object>} Anthropic-format tool_result content blocks
+ */
+function formatAnthropicToolResults(results) {
+  return results.map(r => ({
+    type: 'tool_result',
+    tool_use_id: r.id,
+    content: r.ok ? r.result : `ERROR: ${r.result}`,
+    ...(r.ok ? {} : { is_error: true })
+  }));
+}

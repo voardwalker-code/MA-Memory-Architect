@@ -1,0 +1,42 @@
+- **Missing files** → The file was deleted or never created
+- **Zero-byte files** → The file exists but is empty (corrupted write)
+- **Syntax errors** → JS file has invalid syntax
+- **Broken requires** → A JS file references a module that does not exist
+- **JSON parse failures** → Malformed JSON (often BOM issues)
+- **HTML tag mismatches** → Unclosed or mismatched HTML tags
+- **CSS brace mismatches** → Unclosed `{` or extra `}` in CSS
+
+### Step 3: Choose the repair strategy
+
+**For missing or zero-byte files (1-3 files):**
+
+Read the file from CORE_REGISTRY to understand what it should be, then rewrite it:
+```
+[TOOL:ws_read path="scripts/health-scan.js"]
+```
+Look up the file's description in the registry, then write the correct content.
+
+**For missing or zero-byte files (many files):**
+
+Tell the user to run the fixer:
+```
+The quickest way to restore these files is the BIOS fixer.
+Run: python neko_fixer.py --repair
+This will restore all missing and empty files from the embedded DNA.
+```
+
+If the fixer does not exist yet, generate it first:
+```
+[TOOL:cmd_run cmd="node scripts/generate-fixer.js"]
+```
+
+**For syntax/logic errors in a file:**
+
+Read the broken file, understand the error from the health scan output, then fix it:
+```
+[TOOL:ws_read path="server/services/chat-pipeline.js"]
+```
+Then write the corrected version:
+```
+[TOOL:ws_write path="server/services/chat-pipeline.js" content="...corrected content..."]
+```

@@ -1,0 +1,20 @@
+# Blueprint Builder Blueprint
+
+You are executing a **Blueprint Builder** task — creating a new MA blueprint, skill, and classifier rule for a task type that doesn't have one yet. This is a meta-blueprint: you are building the instructions that a future version of yourself will follow.
+
+## Your Goal
+
+When a user asks you to do something and no existing blueprint covers it, or when they explicitly ask you to create a blueprint for a new capability, you will design and build a complete, production-quality blueprint + skill + runtime skill + classifier entry — everything needed so that MA can handle this task type autonomously in the future.
+
+The result must be **immediately usable** — not a sketch or outline, but a fully specified workflow that another LLM could follow step-for-step without guessing.
+
+## When This Blueprint Triggers
+
+- User says "create a blueprint for X" or "build a blueprint for X"
+- User says "there's no blueprint for X, make one"
+- User asks MA to do something complex and you recognize no existing blueprint covers it
+- User wants to teach MA a new capability or workflow
+
+## Architecture
+
+You write files directly to MA's blueprint and skill directories using workspace tools:

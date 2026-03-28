@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386548_a7b4e060",
+  "type": "semantic",
+  "content": "Use the MA-agents module:\r\n```javascript\r\nrequire('./BackEnd/services/svc-agents').createAgent({\r\n  id: '{slug}',\r\n  role: '{role}',\r\n  name: '{Display Name}',\r\n  seniority: '{junior|mid|senior|lead}',\r\n  systemPrompt: '{detailed system prompt}',\r\n  capabilities: ['{cap1}', '{cap2}'],\r\n  tools: ['{tool1}', '{tool2}'],\r\n  constraints: ['{constraint1}']\r\n});\r\n```\r\n\n### Step 6: Record the Dispatch\r\n\nAfter dispatching work, always record it:\r\n\n```javascript\r\nrequire('./BackEnd/services/svc-agents').recordPrompt('{agent-id}', {\r\n  task: '{short task label}',\r\n  prompt: '{full prompt sent}',\r\n  result: '{summary of what agent produced}',\r\n  success: true,\r\n  project: '{project-name}',\r\n  tags: ['{tag1}', '{tag2}']\r\n});\r\n```\r\n\n---\r\n\n## Common Mistakes to Avoid\r\n\n- Delegating without checking the roster first (may create duplicates)\r\n- Writing prompts from scratch when history has a working template\r\n- Not recording dispatches (breaks the reusable prompt library)\r\n- Sending junior agents complex multi-module tasks\r\n- Forgetting to include constraint lists in the delegation prompt",
+  "topics": [
+    "MA Memory Architect",
+    "delegate.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Use the MA-agents module:\r\n```javascript\r\nrequire('./BackEnd/services/svc-agents').createAgent({\r\n  id: '{slug}',\r\n  role: '{role}',\r\n  name: '{Display Name}',\r\n  seniority: '{junior|mid|senior|lead}'",
+  "importance": 0.6,
+  "createdAt": 1774646386550,
+  "createdAtISO": "2026-03-27T21:19:46.550Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\delegate.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383966_75db2dd3",
+  "type": "semantic",
+  "content": "// ── Memory tool ───────────────────────────────────────────────────\r\n  memory_search:  z.object({\r\n    query: z.string(),\r\n    limit: z.number().int().min(1).max(50).default(5)\r\n  }),\r\n\n  // ── Entity tools (create AI characters, inject their memories) ────\r\n  entity_create:  z.object({\r\n    name: z.string(),\r\n    gender: z.string().default('neutral'),\r\n    traits: z.array(z.string()).default([]),\r\n    introduction: z.string().default(''),\r\n    source: z.string().optional(),\r\n    personality_summary: z.string().optional(),\r\n    speech_style: z.string().optional(),\r\n    beliefs: z.array(z.string()).optional(),\r\n    behavior_rules: z.array(z.string()).optional(),\r\n  }),\r\n\n  entity_inject_memory: z.object({\r\n    entityId: z.string(),\r\n    content: z.string(),\r\n    type: z.string().default('episodic'),\r\n    emotion: z.string().default('neutral'),\r\n    topics: z.array(z.string()).default([]),\r\n    importance: z.number().min(0).max(1).default(0.5),\r\n    narrative: z.string().optional(),\r\n    phase: z.string().default('book_ingestion'),\r\n  }),\r\n\n  // ── Book chunk tools (for reading ingested books) ─────────────────\r\n  book_list_chunks: z.object({ bookId: z.string() }),\r\n  book_read_chunk:  z.object({ bookId: z.string(), index: z.number().int().min(0) }),\r\n};\r\n\nmodule.exports = { ToolSchemas };",
+  "topics": [
+    "MA Memory Architect",
+    "tools-schemas.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ── Memory tool ───────────────────────────────────────────────────\r\n  memory_search:  z.object({\r\n    query: z.string(),\r\n    limit: z.number().int().min(1).max(50).default(5)\r\n  }),\r\n\n  // ── Enti",
+  "importance": 0.6,
+  "createdAt": 1774646383966,
+  "createdAtISO": "2026-03-27T21:19:43.966Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-schemas.js",
+  "accessCount": 0
+}

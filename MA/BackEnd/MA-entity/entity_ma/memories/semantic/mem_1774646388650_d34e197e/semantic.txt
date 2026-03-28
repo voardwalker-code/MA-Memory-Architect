@@ -1,0 +1,69 @@
+class TestAdd(unittest.TestCase):
+    def test_positive(self):
+        self.assertEqual(add(2, 3), 5)
+
+    def test_negative(self):
+        self.assertEqual(add(-1, 1), 0)
+
+    def test_zero(self):
+        self.assertEqual(add(0, 0), 0)
+
+if __name__ == "__main__":
+    unittest.main()
+```
+
+### Writing tests with pytest
+```python
+from src.core import add
+
+def test_positive():
+    assert add(2, 3) == 5
+
+def test_negative():
+    assert add(-1, 1) == 0
+```
+
+### Running tests
+```
+[TOOL:cmd_run cmd="python -m pytest tests/ -v"]
+[TOOL:cmd_run cmd="python -m unittest tests/test_core.py"]
+[TOOL:cmd_run cmd="python -m pytest tests/test_core.py -v"]
+```
+
+## requirements.txt Patterns
+
+### Pinned versions (production)
+```
+requests==2.31.0
+beautifulsoup4==4.12.2
+pydantic==2.5.0
+```
+
+### Minimum versions (libraries)
+```
+requests>=2.28
+beautifulsoup4>=4.12
+```
+
+### With extras
+```
+fastapi[all]>=0.104
+uvicorn[standard]>=0.24
+```
+
+## Debugging Workflow
+
+When code fails:
+
+1. **Read the traceback bottom-to-top** — the last line is the actual error
+2. **Find the file and line number** — the traceback shows exactly where it failed
+3. **Read the source file:**
+   ```
+   [TOOL:ws_read path="src/app.py"]
+   ```
+4. **Fix the specific issue** — change only what's broken
+5. **Write the fixed file and re-run:**
+   ```
+   [TOOL:ws_write path="src/app.py" content="...fixed code..."]
+   [TOOL:cmd_run cmd="python src/app.py"]
+   ```

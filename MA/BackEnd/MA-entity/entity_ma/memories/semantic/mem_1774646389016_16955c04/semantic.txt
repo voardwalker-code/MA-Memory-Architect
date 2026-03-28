@@ -1,0 +1,40 @@
+---
+
+## Tools Available to MA
+
+MA uses these tools via `[TOOL:name {json}]` blocks in LLM output. Params are validated with Zod schemas.
+
+| Tool | Usage | Description |
+|------|-------|-------------|
+| `ws_list` | `[TOOL:ws_list {"path":"dir/"}]` | List directory |
+| `ws_read` | `[TOOL:ws_read {"path":"file"}]` | Read file (≤32KB) |
+| `ws_write` | `[TOOL:ws_write {"path":"file"}]`content`[/TOOL]` | Write file |
+| `ws_append` | `[TOOL:ws_append {"path":"file"}]`content`[/TOOL]` | Append to file |
+| `ws_delete` | `[TOOL:ws_delete {"path":"file"}]` | Delete file/folder |
+| `ws_mkdir` | `[TOOL:ws_mkdir {"path":"dir/"}]` | Create directory |
+| `ws_move` | `[TOOL:ws_move {"src":"old","dst":"new"}]` | Move/rename file |
+| `web_search` | `[TOOL:web_search {"query":"search"}]` | Web search |
+| `web_fetch` | `[TOOL:web_fetch {"url":"https://..."}]` | Fetch page text |
+| `cmd_run` | `[TOOL:cmd_run {"cmd":"command"}]` | Run shell command |
+
+All file tools are sandboxed to `MA-workspace/`. Command execution is sandboxed via the whitelist.
+
+---
+
+## Health Check
+
+```bash
+node -e "const h=require('./BackEnd/infra/infra-health');console.log(h.formatReport(h.scan()))"
+```
+
+Reports: file count, critical errors, warnings. Checks JS syntax, JSON validity, HTML tag balance.
+
+---
+
+## Version
+
+MA v1.0 — Standalone-first.
+
+**Standalone repository:** [github.com/voardwalker-code/MA-Memory-Architect](https://github.com/voardwalker-code/MA-Memory-Architect)
+
+## License

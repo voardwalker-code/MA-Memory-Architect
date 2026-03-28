@@ -1,0 +1,24 @@
+// Write entity.json — the entity's "ID card"
+  const entity = {
+    id: canonicalId,
+    name,
+    gender,
+    isPublic: false,
+    skillApprovalRequired: true,
+    personality_traits: traits,
+    emotional_baseline: { curiosity: 0.7, confidence: 0.6, openness: 0.7, stability: 0.5 },
+    introduction,
+    source_material: params.source || 'original',
+    creation_mode: 'ma_book_ingestion',
+    memory_count: 0,
+    core_memories: 0,
+    chapters: [],
+    voice: {},
+    configProfileRef: null,
+    created: new Date().toISOString(),
+    blueprint_metadata: {
+      beliefs: params.beliefs || [],
+      behavior_rules: params.behavior_rules || [],
+    }
+  };
+  fs.writeFileSync(path.join(entityDir, 'entity.json'), JSON.stringify(entity, null, 2), 'utf8');

@@ -1,0 +1,36 @@
+// ── Folder tree ──────────────────────────────────────────────────
+    // Returns { root: "/path/to/workspace", items: [...] }
+    // Items include files and folders up to 6 levels deep.
+    if (url.pathname === '/api/workspace/tree' && method === 'GET') {
+      json(res, 200, {
+        root:  core.WORKSPACE_DIR,
+        items: listWorkspaceTree(core.WORKSPACE_DIR)
+      });
+      return true;
+    }
+
+    // ── Read a file ──────────────────────────────────────────────────
+    // Query: ?path=src/app.js
+    // Returns { path: "src/app.js", content: "..." }
+    if (url.pathname === '/api/workspace/read' && method === 'GET') {
+      const reqPath = url.searchParams.get('path');
+      if (!reqPath) { json(res, 400, { error: 'Need path param' }); return true; }
+
+      // Safety: make sure the resolved path stays inside the workspace
+      const wsRoot = path.resolve(core.WORKSPACE_DIR);
+      const safe   = path.resolve(wsRoot, reqPath);
+      if (!safe.startsWith(wsRoot + path.sep) && safe !== wsRoot) {
+        json(res, 403, { error: 'Path outside workspace' });
+        return true;
+      }
+      if (!fs.existsSync(safe) || !fs.statSync(safe).isFile()) {
+        json(res, 404, { error: 'File not found' });
+        return true;
+      }
+
+      json(res, 200, {
+        path:    path.relative(wsRoot, safe).replace(/\\/g, '/'),
+        content: fs.readFileSync(safe, 'utf8')
+      });
+      return true;
+    }

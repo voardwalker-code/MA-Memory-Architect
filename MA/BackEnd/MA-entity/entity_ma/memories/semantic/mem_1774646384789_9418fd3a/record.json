@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384789_9418fd3a",
+  "type": "semantic",
+  "content": "function _showLongRequestPopup() {\r\n  const overlay = document.getElementById('long-request-overlay');\r\n  const elapsedEl = document.getElementById('lr-elapsed');\r\n  if (!overlay) return;\r\n  const elapsed = Math.round((Date.now() - _lrStartTime) / 1000);\r\n  if (elapsedEl) elapsedEl.textContent = elapsed;\r\n  overlay.classList.remove('hidden');\r\n}\r\n\nfunction dismissLongRequest() {\r\n  const overlay = document.getElementById('long-request-overlay');\r\n  if (overlay) overlay.classList.add('hidden');\r\n  _lrDismissed = true;\r\n  _clearLongRequestTimer();\r\n}\r\n\nfunction cancelLongRequest() {\r\n  const overlay = document.getElementById('long-request-overlay');\r\n  if (overlay) overlay.classList.add('hidden');\r\n  _clearLongRequestTimer();\r\n  if (_lrAbortController) { _lrAbortController.abort(); _lrAbortController = null; }\r\n  hideTyping();\r\n  addSystem('Request cancelled.');\r\n  sending = false;\r\n  sendBtn.disabled = false;\r\n  inputEl.focus();\r\n}\r\n\nfunction toggleAutoPilotFromPopup(checked) {\r\n  setAutoPilot(checked);\r\n  if (checked) dismissLongRequest();\r\n}\r\n\n// ── Session picker ────────────────────────────────────────────────────────\r\nasync function loadSessionList() {\r\n  try {\r\n    const r = await fetch('/api/chat/sessions');\r\n    const d = await r.json();\r\n    allSessions = d.sessions || [];\r\n  } catch (_) { allSessions = []; }\r\n  renderSessionPicker();\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-chat.js",
+    "FrontEnd js"
+  ],
+  "summary": "function _showLongRequestPopup() {\r\n  const overlay = document.getElementById('long-request-overlay');\r\n  const elapsedEl = document.getElementById('lr-elapsed');\r\n  if (!overlay) return;\r\n  const ela",
+  "importance": 0.6,
+  "createdAt": 1774646384789,
+  "createdAtISO": "2026-03-27T21:19:44.789Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-chat.js",
+  "accessCount": 0
+}

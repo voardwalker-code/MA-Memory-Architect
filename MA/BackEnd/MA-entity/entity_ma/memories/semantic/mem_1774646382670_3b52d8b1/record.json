@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382670_3b52d8b1",
+  "type": "semantic",
+  "content": "/** Start the memory system (delegates to core-bootstrap). */\nfunction initMemory() {\n  if (!coreBoot) return;\n  memory = coreBoot.initMemory(createMemoryStore);\n}\n\n/**\n * Full boot sequence — call once at startup.\n * Each step is wrapped so one failure doesn't stop the rest.\n */\nfunction boot() {\n  console.log('\\n  MA — Memory Architect');\n  console.log('  ' + '─'.repeat(36));\n  ensureDirs();\n  loadConfig();\n  if (coreBoot) coreBoot.ensureEntity(ENTITY_DIR, DEFAULT_ENTITY);\n  loadEntity();\n  if (coreBoot) skills = coreBoot.loadSkills(ENTITY_DIR, path.join(MA_ROOT, 'MA-skills'));\n  if (coreBoot) coreBoot.ensureAgents(agentCatalog, DEFAULT_AGENTS);\n  initMemory();\n}\n\n// ── State getters ───────────────────────────────────────────────────────────\nfunction getConfig()    { return config; }\nfunction getMemory()    { return memory; }\nfunction getEntity()    { return entity; }\nfunction isConfigured() { return !!config; }",
+  "topics": [
+    "MA Memory Architect",
+    "MA-core.js",
+    "BackEnd"
+  ],
+  "summary": "/** Start the memory system (delegates to core-bootstrap). */\nfunction initMemory() {\n  if (!coreBoot) return;\n  memory = coreBoot.initMemory(createMemoryStore);\n}\n\n/**\n * Full boot sequence — call on",
+  "importance": 0.6,
+  "createdAt": 1774646382670,
+  "createdAtISO": "2026-03-27T21:19:42.670Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-core.js",
+  "accessCount": 0
+}

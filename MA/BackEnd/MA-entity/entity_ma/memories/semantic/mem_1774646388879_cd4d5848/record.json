@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388879_cd4d5848",
+  "type": "semantic",
+  "content": "---\r\nname: ws_move\r\ndescription: Move or rename a file/folder in the workspace\r\n---\r\n\n# ws_move\r\n\nMove or rename a file or folder inside the configured workspace.\r\n\n## Tool\r\n\n### ws_move\r\nMoves (or renames) a file or directory.\r\n\nParameters:\r\n- src (string): Source path relative to workspace root.\r\n- dst (string): Destination path relative to workspace root.\r\n\nGuidelines:\r\n- Use workspace-relative paths only.\r\n- Prefer explicit destination folders (for example, ./archive/file.txt).\r\n- Use this operation for both moves and simple renames.\r\n\nExample:\r\n[TOOL:ws_move src=\"./old.txt\" dst=\"./archive/old.txt\"]",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills ws_move"
+  ],
+  "summary": "---\r\nname: ws_move\r\ndescription: Move or rename a file/folder in the workspace\r\n---\r\n\n# ws_move\r\n\nMove or rename a file or folder inside the configured workspace.\r\n\n## Tool\r\n\n### ws_move\r\nMoves (or re",
+  "importance": 0.6,
+  "createdAt": 1774646388879,
+  "createdAtISO": "2026-03-27T21:19:48.879Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\ws_move\\SKILL.md",
+  "accessCount": 0
+}

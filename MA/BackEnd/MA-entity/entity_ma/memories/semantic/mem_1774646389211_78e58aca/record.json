@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389211_78e58aca",
+  "type": "semantic",
+  "content": "| Command | Description |\r\n|---------|-------------|\r\n| `/whitelist` | Show all currently allowed shell commands and their permitted subcommands. |\r\n| `/whitelist add <binary> [sub1,sub2,...]` | Allow a new command. Subcommands are comma-separated. Blank = allow all subcommands. Example: `/whitelist add deno run,test,fmt` |\r\n| `/whitelist remove <binary>` | Remove a command from the whitelist. Example: `/whitelist remove deno` |\r\n| `/whitelist reset` | Reset the whitelist back to factory defaults. |\r\n\n### Pulse & Chores\r\n\n| Command | Description |\r\n|---------|-------------|\r\n| `/pulse` | Show pulse engine status (active timers, intervals, last-run times). |\r\n| `/pulse start` | Start all enabled pulses. |\r\n| `/pulse stop` | Stop all running pulses. |\r\n| `/pulse log health` | Show recent health scan pulse log entries. |\r\n| `/pulse log chores` | Show recent chore execution log entries. |\r\n| `/chores list` | List all chores with status, grade, and run count. |\r\n| `/chores add <name> \\| <description>` | Add a new chore. Use pipe to separate name and description. |\r\n| `/chores remove <id>` | Remove a chore by ID. |\r\n| `/chores run <id>` | Manually trigger a chore immediately. |\r\n\n### Model Roster",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "| Command | Description |\r\n|---------|-------------|\r\n| `/whitelist` | Show all currently allowed shell commands and their permitted subcommands. |\r\n| `/whitelist add <binary> [sub1,sub2,...]` | Allow",
+  "importance": 0.6,
+  "createdAt": 1774646389212,
+  "createdAtISO": "2026-03-27T21:19:49.212Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

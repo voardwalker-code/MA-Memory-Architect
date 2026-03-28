@@ -1,0 +1,35 @@
+function menuNewFolder() {
+  closeMenus();
+  const name = prompt('New folder name (relative to workspace):');
+  if (!name || !name.trim()) return;
+  fetch('/api/workspace/mkdir', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ path: name.trim() })
+  }).then(r => r.json()).then(d => {
+    if (!d.ok) { addSystem('Error: ' + (d.error || 'Could not create folder')); return; }
+    addSystem('Created folder ' + name.trim());
+    if (currentInspector === 'workspace') loadWorkspaceTree();
+  }).catch(e => addSystem('Create folder error: ' + e.message));
+}
+
+function menuOpenFile() {
+  closeMenus();
+  const path = prompt('File path to open (relative to workspace):');
+  if (!path || !path.trim()) return;
+  openFileInEditor(path.trim());
+}
+
+function menuOpenFolder() {
+  closeMenus();
+  const path = prompt('Folder path to open in workspace:');
+  if (!path || !path.trim()) return;
+  addSystem('Folder navigation is controlled by the workspace tree. Use the Workspace section in the left rail.');
+  selectWorkspaceSection('workspace');
+}
+
+function menuSave() {
+  closeMenus();
+  if (activeTabId) saveEditorTab();
+  else addSystem('No file open to save.');
+}

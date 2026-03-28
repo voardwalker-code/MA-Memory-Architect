@@ -1,0 +1,26 @@
+# MA v1.0 — Memory Architect
+
+**MA** is a standalone AI development agent. It builds, researches, writes code, manages projects, runs recurring tasks, and maintains its own memory — all from a browser GUI or terminal CLI.
+
+MA runs as a self-contained Node.js server with a single dependency: [Zod](https://zod.dev) for schema validation. Run `npm install` to set up.
+
+---
+
+## Quick Start
+
+```bash
+# 1. Start the server
+node MA-Server-standalone.js
+
+# 2. Open the GUI
+# → http://localhost:3850
+
+# 3. Configure your LLM (click ⚙ in the GUI, or use the CLI)
+node MA-cli.js
+```
+
+On first launch, MA copies `ma-config.example.json` → `MA-Config/ma-config.json`. Edit it or configure via the GUI.
+
+---
+
+## Features

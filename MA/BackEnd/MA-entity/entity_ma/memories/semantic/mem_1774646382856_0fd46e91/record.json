@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382856_0fd46e91",
+  "type": "semantic",
+  "content": "// ── Route Module: Commands & Whitelist ───────────────────────────────────────\r\n//\r\n// This module handles two related things:\r\n//\r\n// 1. SLASH COMMANDS — The list of commands the user can type in the chat\r\n//    (like /health, /memory stats, /projects, etc.) and the endpoint that\r\n//    actually runs them.\r\n//\r\n// 2. COMMAND WHITELIST — A safety system that controls which terminal\r\n//    commands the AI is allowed to run.  Think of it like a guest list\r\n//    at a party: only commands on the list get in.\r\n//\r\n// Why are these together?  Both are about \"commands\" — one is the catalog\r\n// of what the user can type, and the other is the security list of what\r\n// the AI can execute.\r\n//\r\n// ── Slash Command endpoints ─────────────────────────────────────────────────\r\n//   GET  /api/commands — Get the catalog of available slash commands\r\n//   POST /api/slash    — Execute a slash command.  Body: { command: \"/health\" }\r\n//\r\n// ── Whitelist endpoints ─────────────────────────────────────────────────────\r\n//   GET  /api/whitelist        — View the current command whitelist\r\n//   POST /api/whitelist/add    — Allow a new command.  Body: { binary, subcommands? }\r\n//   POST /api/whitelist/remove — Remove a command.  Body: { binary }\r\n//   POST /api/whitelist/reset  — Reset whitelist back to defaults\r\n//\r\n// ── What this module needs ──────────────────────────────────────────────────\r\n//   deps.handleSlashCommand — Function from MA-slash-commands (runs /commands)\r\n//   deps.cmdExec            — MA-cmd-executor (whitelist management)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "route-commands.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Route Module: Commands & Whitelist ───────────────────────────────────────\r\n//\r\n// This module handles two related things:\r\n//\r\n// 1. SLASH COMMANDS — The list of commands the user can type in t",
+  "importance": 0.6,
+  "createdAt": 1774646382856,
+  "createdAtISO": "2026-03-27T21:19:42.856Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-commands.js",
+  "accessCount": 0
+}

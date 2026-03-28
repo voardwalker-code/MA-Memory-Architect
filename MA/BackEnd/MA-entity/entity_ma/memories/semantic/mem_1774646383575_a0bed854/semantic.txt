@@ -1,0 +1,21 @@
+const limits = TASK_TYPES[taskType] || { maxSteps: 6, maxLLM: 20 };
+  const taskTimeout = limits.timeout || undefined; // per-task-type timeout for LLM calls
+  let llmCalls = 0;
+  const allWrittenFiles = [];
+
+  // Phase 1: Generate plan
+  const planBP = getBlueprint(taskType, 'plan');
+  let planFolderHint = '';
+  if (taskType === 'book_ingestion') {
+    const pfm = message.match(/YOUR PROJECT FOLDER IS:\s*"([^"]+)"/);
+    if (pfm) planFolderHint = `\nAll output files MUST be written inside "${pfm[1]}/". Never write to the workspace root.`;
+  }
+  const planSys = `You are ${entityName}. Create a step-by-step task plan using [TASK_PLAN]...[/TASK_PLAN] blocks.` +
+    planFolderHint +
+    (planBP ? `\n\n[Planning Instructions]\n${planBP}` : '');
+  if (onActivity) await onActivity('llm_call', 'Generating task plan...');
+  const planResp = await callLLM([
+    { role: 'system', content: planSys },
+    { role: 'user', content: `${message}\n\nCreate a concise task plan.` }
+  ], { temperature: 0.7, ...(taskTimeout ? { timeout: taskTimeout } : {}) });
+  llmCalls++;

@@ -1,0 +1,36 @@
+// ── Services · Memory System ───────────────────────────────────────────────
+//
+// HOW THE AI'S MEMORY WORKS:
+// Just like you remember things from yesterday and facts you learned,
+// MA has two types of memory:
+//
+//   • Episodic — events that happened ("user asked me to build X")
+//   • Semantic — knowledge/facts ("the project uses React + TypeScript")
+//
+// When you tell MA something important, it:
+//   1. Extracts topics using RAKE (phrases) and YAKE (keywords)
+//   2. Stores the memory with those topics as search tags
+//   3. When it needs to recall something, it searches by topic
+//      using BM25 relevance scoring (like a mini search engine)
+//
+// Memories are stored as flat JSON files in the entity's memory folder.
+// No fancy database — just simple files that are easy to inspect,
+// back up, and version control.
+//
+// THE MEMORY STORE:
+// createMemoryStore(entityDir) returns an object with methods:
+//   .store(type, content, meta)  — save a new memory
+//   .search(query, limit)        — find relevant memories
+//   .retrieve(id)                — get a specific memory
+//   .ingest(type, entries)       — bulk import memories
+//   .list(type, limit)           — list recent memories
+//   .getStats()                  — memory count statistics
+//
+// WHAT USES THIS:
+//   MA-core.js (via core-bootstrap.js) — creates the memory store at boot
+//   tools-fs.js — memory_search tool delegates to .search()
+//
+// EXPORTS:
+//   createMemoryStore(entityDir)  → memory store object
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

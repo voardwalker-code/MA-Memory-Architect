@@ -1,0 +1,23 @@
+// Save everything
+      core.setConfig({
+        type:            body.type,
+        endpoint:        body.endpoint,
+        apiKey,
+        model:           body.model,
+        maxTokens:       Math.max(normalizedMaxTokens, minThinkingTokens),
+        vision:          body.vision === true,
+        workspacePath:   body.workspacePath || '',
+        integrationMode,
+        memoryLimit,
+        memoryRecall:    body.memoryRecall !== false,
+        ...(body.capabilities ? { capabilities: body.capabilities } : {})
+      });
+
+      json(res, 200, { ok: true });
+      return true;
+    }
+
+    // None of our routes matched
+    return false;
+  };
+};

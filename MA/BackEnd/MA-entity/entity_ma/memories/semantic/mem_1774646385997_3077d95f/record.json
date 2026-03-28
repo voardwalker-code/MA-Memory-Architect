@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385997_3077d95f",
+  "type": "semantic",
+  "content": "**IMPORTANT**: Determine the project's namespace prefix (usually the project name or abbreviation). ALL folders must use `{prefix}-{purpose}` naming. Generic folder names like `server/`, `client/`, `contracts/` are FORBIDDEN.\r\n\n### Step 2: BUILD-ORDER.md\r\n\nThe master project document. Write to `workspace/{project}/BUILD-ORDER.md`:\r\n\n```markdown\r\n# {Project Name} — Build Order\r\n\n## Vision\r\n{1-2 paragraphs from requirements — what, who, why}\r\n\n## Core Pillars\r\n{3-6 major capability areas derived from features. Each pillar = one sentence.}\r\n\n## Layer Map\r\n\n| Layer | Name | Modules | Depends On |\r\n|-------|------|---------|------------|\r\n| 0 | {Foundation} | N | — |\r\n| 1 | {Operations} | N | 0 |\r\n| 2 | {Pipeline/Core} | N | 1 |\r\n| ... | ... | ... | ... |\r\n\n### Layer 0: {Foundation}\r\n{What this layer provides. Which modules. What gets tested.}\r\n\n### Layer 1: {Operations}\r\n{Same structure for each layer.}\r\n\n## Build Rules\r\n- Layer N tests MUST pass before starting Layer N+1\r\n- Every module has a contract (data shape definition in contracts/)\r\n- Every module has a stub with algorithm comments\r\n- Contract validation runs before implementation\r\n- No module exceeds 300 lines where practical\r\n```\r\n\n### Step 3: PROJECT-MANIFEST.json\r\n\nStructured build tracker. Write to `workspace/{project}/PROJECT-MANIFEST.json`:",
+  "topics": [
+    "MA Memory Architect",
+    "architect.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "**IMPORTANT**: Determine the project's namespace prefix (usually the project name or abbreviation). ALL folders must use `{prefix}-{purpose}` naming. Generic folder names like `server/`, `client/`, `c",
+  "importance": 0.6,
+  "createdAt": 1774646385997,
+  "createdAtISO": "2026-03-27T21:19:45.997Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\architect.md",
+  "accessCount": 0
+}

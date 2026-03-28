@@ -1,0 +1,19 @@
+// ── Read one blueprint ───────────────────────────────────────────
+    // Query param: ?path=core/output-format.md
+    // Returns { path: "core/output-format.md", content: "# ..." }
+    if (url.pathname === '/api/blueprints/file' && method === 'GET') {
+      const requestedPath = url.searchParams.get('path');
+      if (!requestedPath) { json(res, 400, { error: 'Need blueprint path' }); return true; }
+      try {
+        // resolveInsideRoot makes sure the path can't escape the blueprints folder
+        const fullPath = resolveInsideRoot(BLUEPRINT_DIR, requestedPath);
+        if (!fs.existsSync(fullPath)) { json(res, 404, { error: 'Blueprint not found' }); return true; }
+        json(res, 200, {
+          path:    path.relative(BLUEPRINT_DIR, fullPath).replace(/\\/g, '/'),
+          content: fs.readFileSync(fullPath, 'utf8')
+        });
+      } catch (e) {
+        json(res, 400, { error: e.message });
+      }
+      return true;
+    }

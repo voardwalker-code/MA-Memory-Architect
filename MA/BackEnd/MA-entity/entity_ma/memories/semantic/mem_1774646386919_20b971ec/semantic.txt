@@ -1,0 +1,5 @@
+- Starting from scratch instead of reading prior phase files
+- Writing code snippets in chat instead of using `ws_write`
+- Doing work that belongs to a different phase
+- Leaving placeholder code (`// TODO`, `pass`, `...`) instead of real implementations
+- Not reading existing files before overwriting them

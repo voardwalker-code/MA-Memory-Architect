@@ -1,0 +1,34 @@
+// ── Infra · Web Fetch ──────────────────────────────────────────────────────
+//
+// HOW WEB SEARCH AND FETCHING WORKS:
+// When the AI needs to look something up on the internet, this module
+// handles two things:
+//
+//   1. WEB SEARCH — queries DuckDuckGo and returns ranked results
+//      using DDG's instant answer API (no API key needed)
+//
+//   2. URL FETCH — downloads a web page and extracts readable text
+//      by stripping HTML tags, scripts, and CSS
+//
+// SECURITY (SSRF PROTECTION):
+// "SSRF" means tricking the server into fetching internal resources.
+// This module blocks dangerous URLs:
+//   • No fetching localhost or 127.0.0.1 (unless explicitly allowed)
+//   • No fetching private IP ranges (10.x.x.x, 192.168.x.x, etc.)
+//   • Body size limited to 512 KB (prevents memory exhaustion)
+//   • Redirect limit of 5 hops (prevents infinite loops)
+//
+// PURE NODE.JS:
+// Uses only built-in http/https modules — no external fetch library.
+//
+// WHAT USES THIS:
+//   tools-web.js — web_search and web_fetch tools call these functions
+//
+// EXPORTS:
+//   fetchUrl(url)              → raw HTTP response body
+//   fetchAndExtract(url)       → cleaned text content
+//   extractText(html)          → plain text from HTML
+//   webSearch(query)           → [{title, url, snippet}]
+//   formatSearchResults(data)  → formatted string
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385235_e92e35fc",
+  "type": "semantic",
+  "content": "function menuNewFolder() {\r\n  closeMenus();\r\n  const name = prompt('New folder name (relative to workspace):');\r\n  if (!name || !name.trim()) return;\r\n  fetch('/api/workspace/mkdir', {\r\n    method: 'POST',\r\n    headers: { 'Content-Type': 'application/json' },\r\n    body: JSON.stringify({ path: name.trim() })\r\n  }).then(r => r.json()).then(d => {\r\n    if (!d.ok) { addSystem('Error: ' + (d.error || 'Could not create folder')); return; }\r\n    addSystem('Created folder ' + name.trim());\r\n    if (currentInspector === 'workspace') loadWorkspaceTree();\r\n  }).catch(e => addSystem('Create folder error: ' + e.message));\r\n}\r\n\nfunction menuOpenFile() {\r\n  closeMenus();\r\n  const path = prompt('File path to open (relative to workspace):');\r\n  if (!path || !path.trim()) return;\r\n  openFileInEditor(path.trim());\r\n}\r\n\nfunction menuOpenFolder() {\r\n  closeMenus();\r\n  const path = prompt('Folder path to open in workspace:');\r\n  if (!path || !path.trim()) return;\r\n  addSystem('Folder navigation is controlled by the workspace tree. Use the Workspace section in the left rail.');\r\n  selectWorkspaceSection('workspace');\r\n}\r\n\nfunction menuSave() {\r\n  closeMenus();\r\n  if (activeTabId) saveEditorTab();\r\n  else addSystem('No file open to save.');\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-nav.js",
+    "FrontEnd js"
+  ],
+  "summary": "function menuNewFolder() {\r\n  closeMenus();\r\n  const name = prompt('New folder name (relative to workspace):');\r\n  if (!name || !name.trim()) return;\r\n  fetch('/api/workspace/mkdir', {\r\n    method: 'P",
+  "importance": 0.6,
+  "createdAt": 1774646385235,
+  "createdAtISO": "2026-03-27T21:19:45.235Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-nav.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383277_ff121b22",
+  "type": "semantic",
+  "content": "// ── Chunking helper ─────────────────────────────────────────────────────────\r\nfunction _chunkText(text, maxLen) {\r\n  const chunks = [];\r\n  const paragraphs = text.split(/\\n\\s*\\n/);\r\n  let current = '';\r\n  for (const p of paragraphs) {\r\n    if ((current + '\\n\\n' + p).length > maxLen && current) {\r\n      chunks.push(current.trim());\r\n      current = p;\r\n    } else {\r\n      current = current ? current + '\\n\\n' + p : p;\r\n    }\r\n  }\r\n  if (current.trim()) chunks.push(current.trim());\r\n  return chunks.length ? chunks : [text];\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// ── Chunking helper ─────────────────────────────────────────────────────────\r\nfunction _chunkText(text, maxLen) {\r\n  const chunks = [];\r\n  const paragraphs = text.split(/\\n\\s*\\n/);\r\n  let current =",
+  "importance": 0.6,
+  "createdAt": 1774646383278,
+  "createdAtISO": "2026-03-27T21:19:43.278Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

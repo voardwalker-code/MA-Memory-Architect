@@ -1,0 +1,42 @@
+Extract or **ASK** if missing:
+- **Subject** — what the exam covers
+- **Exam Format** — multiple choice / essay / problem-solving / mixed
+- **Topics Covered** — list of topics, chapters, or units on the exam
+- **Exam Date** — if provided, used for scheduling the study plan
+- **Practice Materials** — any previous exams, study guides, or textbook references
+
+### Phase 2: Study Plan
+
+**If exam date is provided:**
+Generate a day-by-day study schedule:
+- Harder/weaker topics get more time
+- Spaced repetition built in (review Day 1 topics on Day 3, etc.)
+- Active recall sessions every 2-3 days
+- Last day is light review only — no new material
+- Total hours per day kept realistic (2-4 hours)
+
+**If no exam date:**
+Generate a topic-ordered plan:
+- Weakest-first approach (tackle hardest concepts first while energy is high)
+- Logical topic progression
+- Review checkpoints after every 3-4 topics
+
+### Phase 3: Topic Review
+
+For each topic on the exam:
+
+**Concept Review:**
+- Key facts only — concise, not textbook-length
+- Formulas, definitions, and core principles
+- "What you NEED to know" vs "nice to know"
+
+**Practice Questions:**
+- 5-10 questions per topic
+- Match the exam format (MC, essay, problem-solving)
+- Increasing difficulty
+- Full answer keys with step-by-step explanations
+
+**Worked Examples:**
+- 2-3 fully worked problems per topic
+- Show the thinking process, not just the answer
+- Common pitfalls highlighted

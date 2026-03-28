@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382396_9e4769a2",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// ensureEntity(entityDir, defaults)\r\n//\r\n// Checks if the entity.json file exists.  If it doesn't, creates one\r\n// using the default entity template.  Also creates the skills folder.\r\n//\r\n// The entity is like MA's \"ID card\" — it stores the name, personality,\r\n// and other identity info.  Without it, MA doesn't know who it is!\r\n//\r\n//   entityDir — path to the entity folder (e.g. MA-entity/entity_ma)\r\n//   defaults  — the DEFAULT_ENTITY object from agent-definitions.js\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction ensureEntity(entityDir, defaults) {\r\n  const p = path.join(entityDir, 'entity.json');\r\n  if (fs.existsSync(p)) return;\r\n  console.log('  Entity missing — provisioning default MA entity...');\r\n  fs.mkdirSync(entityDir, { recursive: true });\r\n  const entityDef = { ...defaults, createdAt: new Date().toISOString() };\r\n  fs.writeFileSync(p, JSON.stringify(entityDef, null, 2));\r\n  // Ensure skills directory exists too\r\n  const skillsDir = path.join(entityDir, 'skills');\r\n  if (!fs.existsSync(skillsDir)) fs.mkdirSync(skillsDir, { recursive: true });\r\n  console.log('  Entity provisioned: MA');\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-bootstrap.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// ensureEntity(entityDir, defaults)\r\n//\r\n// Checks if the entity.json file exists.  If it doesn't, creates one\r\n// us",
+  "importance": 0.6,
+  "createdAt": 1774646382396,
+  "createdAtISO": "2026-03-27T21:19:42.396Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-bootstrap.js",
+  "accessCount": 0
+}

@@ -1,0 +1,44 @@
+console.log(`\n  ${m.project || 'Project'} Status`);
+  console.log(`  ${'─'.repeat(40)}`);
+  console.log(`  Modules: ${total}  |  Implemented: ${done}  |  Stubs: ${stubs}`);
+  console.log(`  Progress: ${total ? Math.round(done / total * 100) : 0}%\n`);
+
+  // Per-layer breakdown
+  const layers = m.layers || {};
+  for (const [num, info] of Object.entries(layers).sort((a, b) => a[0] - b[0])) {
+    const layerMods = mods.filter(x => String(x.layer) === String(num));
+    const layerDone = layerMods.filter(x => x.status === 'complete' || x.status === 'implemented').length;
+    const mark = layerDone === layerMods.length ? '✓' : ' ';
+    console.log(`  [${mark}] Layer ${num}: ${info.name} — ${layerDone}/${layerMods.length}`);
+  }
+  console.log();
+}
+
+run();
+```
+
+Adapt the field names and status values to match the project's actual manifest schema.
+
+**package.json** — Write `workspace/{project}/package.json`:
+
+```json
+{
+  "name": "{project-name}",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node {prefix}-tests/test-runner.js",
+    "test:0": "node {prefix}-tests/test-runner.js 0",
+    "test:1": "node {prefix}-tests/test-runner.js 1",
+    "status": "node {prefix}-scripts/project-status.js"
+  }
+}
+```
+
+Add a `test:N` script for each layer.
+
+Then verify:
+```
+[TOOL:cmd_run command="node -c {each .js file}" timeout="5000"]
+[TOOL:cmd_run command="node tests/test-runner.js" timeout="30000"]
+```

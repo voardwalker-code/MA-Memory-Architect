@@ -1,0 +1,32 @@
+for (const t of actions) {
+    const full = path.join(ROOT, t.path);
+    if (t.type === 'dir') {
+      const count = deleteDir(full);
+      // Recreate the empty directory
+      fs.mkdirSync(full, { recursive: true });
+      console.log(`  \x1b[31m✗\x1b[0m ${t.label}: removed ${count} file(s)`);
+      totalFiles += count;
+    } else if (t.type === 'agents') {
+      const count = deleteAgents(full);
+      console.log(`  \x1b[31m✗\x1b[0m ${t.label}: removed ${count} item(s)`);
+      totalFiles += count;
+    } else if (t.type === 'dir-shallow') {
+      const { deleted, preserved } = deleteDirShallow(full);
+      console.log(`  \x1b[31m✗\x1b[0m ${t.label}: removed ${deleted} file(s)`);
+      if (preserved.length) {
+        console.log(`    \x1b[32m✓\x1b[0m Preserved ${preserved.length} project(s): ${preserved.join(', ')}`);
+      }
+      totalFiles += deleted;
+    } else {
+      if (deleteFile(full)) {
+        console.log(`  \x1b[31m✗\x1b[0m ${t.label}: deleted`);
+        totalFiles++;
+      }
+    }
+  }
+
+  console.log(`\n  Done — removed ${totalFiles} file(s). MA is ready for a fresh start.`);
+  console.log('  Entity and agents will be auto-provisioned on next boot.\n');
+}
+
+main().catch(e => { console.error('Reset error:', e.message); process.exit(1); });

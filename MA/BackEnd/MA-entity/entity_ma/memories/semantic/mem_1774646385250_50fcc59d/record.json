@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385250_50fcc59d",
+  "type": "semantic",
+  "content": "async function runTerminalCmd() {\r\n  const input = document.getElementById('terminal-input');\r\n  const output = document.getElementById('terminal-output');\r\n  if (!input || !output) return;\r\n  const cmd = input.value.trim();\r\n  if (!cmd) return;\r\n  input.value = '';\r\n  // Show command in output\r\n  const cmdLine = document.createElement('div');\r\n  cmdLine.className = 'term-cmd';\r\n  cmdLine.textContent = '> ' + cmd;\r\n  output.appendChild(cmdLine);\r\n  output.scrollTop = output.scrollHeight;\r\n  try {\r\n    const r = await fetch('/api/terminal/exec', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({ command: cmd })\r\n    });\r\n    const d = await r.json();\r\n    const result = document.createElement('div');\r\n    if (d.error) {\r\n      result.className = 'term-err';\r\n      result.textContent = d.error;\r\n    } else if (d.timedOut) {\r\n      result.className = 'term-err';\r\n      result.textContent = (d.stdout || '') + (d.stderr ? '\\n' + d.stderr : '') + '\\n[Command timed out]';\r\n    } else {\r\n      result.className = d.code === 0 ? 'term-out' : 'term-err';\r\n      const text = (d.stdout || '') + (d.stderr ? '\\n' + d.stderr : '');\r\n      result.textContent = text || '(no output)';\r\n    }\r\n    output.appendChild(result);\r\n  } catch (e) {\r\n    const errLine = document.createElement('div');\r\n    errLine.className = 'term-err';\r\n    errLine.textContent = 'Connection error: ' + e.message;\r\n    output.appendChild(errLine);\r\n  }\r\n  output.scrollTop = output.scrollHeight;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-nav.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function runTerminalCmd() {\r\n  const input = document.getElementById('terminal-input');\r\n  const output = document.getElementById('terminal-output');\r\n  if (!input || !output) return;\r\n  const c",
+  "importance": 0.6,
+  "createdAt": 1774646385251,
+  "createdAtISO": "2026-03-27T21:19:45.251Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-nav.js",
+  "accessCount": 0
+}

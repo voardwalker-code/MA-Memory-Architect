@@ -1,0 +1,42 @@
+function _showLongRequestPopup() {
+  const overlay = document.getElementById('long-request-overlay');
+  const elapsedEl = document.getElementById('lr-elapsed');
+  if (!overlay) return;
+  const elapsed = Math.round((Date.now() - _lrStartTime) / 1000);
+  if (elapsedEl) elapsedEl.textContent = elapsed;
+  overlay.classList.remove('hidden');
+}
+
+function dismissLongRequest() {
+  const overlay = document.getElementById('long-request-overlay');
+  if (overlay) overlay.classList.add('hidden');
+  _lrDismissed = true;
+  _clearLongRequestTimer();
+}
+
+function cancelLongRequest() {
+  const overlay = document.getElementById('long-request-overlay');
+  if (overlay) overlay.classList.add('hidden');
+  _clearLongRequestTimer();
+  if (_lrAbortController) { _lrAbortController.abort(); _lrAbortController = null; }
+  hideTyping();
+  addSystem('Request cancelled.');
+  sending = false;
+  sendBtn.disabled = false;
+  inputEl.focus();
+}
+
+function toggleAutoPilotFromPopup(checked) {
+  setAutoPilot(checked);
+  if (checked) dismissLongRequest();
+}
+
+// ── Session picker ────────────────────────────────────────────────────────
+async function loadSessionList() {
+  try {
+    const r = await fetch('/api/chat/sessions');
+    const d = await r.json();
+    allSessions = d.sessions || [];
+  } catch (_) { allSessions = []; }
+  renderSessionPicker();
+}

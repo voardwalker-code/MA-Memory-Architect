@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387526_f49506d9",
+  "type": "semantic",
+  "content": "# Layer 4 — Dream / Brain Loop / Beliefs\r\n\n## Pre-Requisite\r\n- Layer 3 tests pass: `node tests/test-runner.js 3`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/cognition/brain-loop.js` — 5-phase sleep cycle orchestrator\r\n2. `server/cognition/decay.js` — Memory decay with importance shielding\r\n3. `server/cognition/consolidation.js` — Episodic → semantic compression\r\n4. `server/cognition/dream-engine.js` — Dream generation from memory seeds\r\n5. `server/cognition/belief-graph.js` — Emergent belief discovery\r\n\n## Instructions Per Module\r\n\n### decay.js — `runDecayPhase(memoryOps)`\r\n- Walk all memories via `memoryOps` underlying storage\r\n- For each non-exempt memory:\r\n  ```\r\n  newDecay = currentDecay × (1 - 0.01 × (1 - importance × 0.7))\r\n  newDecay = Math.max(newDecay, 0.1)  // floor\r\n  ```\r\n- Skip memories where `semantic_exempt === true`\r\n- Update each record with new decay value\r\n- Return { processed: N, decayed: N, exempt: N, belowFloor: N }\r\n\n### consolidation.js — `runConsolidationPhase(memoryOps)`\r\n- **findConsolidationGroups(memories)**:\r\n  1. Filter memories with decay < 0.3 (heavily decayed)\r\n  2. Group by shared topics (2+ topics in common = same group)\r\n  3. Each group needs 3+ memories to be worth consolidating\r\n  4. Return array of groups",
+  "topics": [
+    "MA Memory Architect",
+    "layer-4-cognition.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "# Layer 4 — Dream / Brain Loop / Beliefs\r\n\n## Pre-Requisite\r\n- Layer 3 tests pass: `node tests/test-runner.js 3`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/cognition/brain-loop.js` ",
+  "importance": 0.6,
+  "createdAt": 1774646387527,
+  "createdAtISO": "2026-03-27T21:19:47.527Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-4-cognition.md",
+  "accessCount": 0
+}

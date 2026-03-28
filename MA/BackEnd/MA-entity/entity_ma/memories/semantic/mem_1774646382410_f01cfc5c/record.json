@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382410_f01cfc5c",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// CHAT_MODE_BLOCKED\r\n//\r\n// Tools that are NOT allowed when MA is in \"Chat Mode\" (read-only).\r\n// In Chat Mode, MA can read files and search, but can't create, edit,\r\n// delete, or run commands.  This keeps things safe for browsing.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nconst CHAT_MODE_BLOCKED = new Set([\r\n  'ws_write', 'ws_append', 'ws_delete', 'ws_mkdir', 'ws_move', 'cmd_run'\r\n]);",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// CHAT_MODE_BLOCKED\r\n//\r\n// Tools that are NOT allowed when MA is in \"Chat Mode\" (read-only).\r\n// In Chat Mode, MA ca",
+  "importance": 0.6,
+  "createdAt": 1774646382411,
+  "createdAtISO": "2026-03-27T21:19:42.411Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

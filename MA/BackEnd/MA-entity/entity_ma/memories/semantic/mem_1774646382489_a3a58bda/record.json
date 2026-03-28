@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382489_a3a58bda",
+  "type": "semantic",
+  "content": "[Script Review — MANDATORY]\r\nAfter you finish writing or editing ANY script/code file:\r\n1. ALWAYS read it back with [TOOL:ws_read {\"path\":\"file\"}] to verify it's complete\r\n2. Check for: missing closing brackets, incomplete functions, truncated content, syntax errors\r\n3. If the file is incomplete or has errors, continue writing the missing parts using [TOOL:ws_append {\"path\":\"file\"}] with [/TOOL] then verify again\r\n4. Only tell the user you're done AFTER you've verified the file is complete\r\n`}\r\n[Token Budget Awareness]\r\nYour max response is ~${responseReserve} tokens (~${responseReserve * 4} chars). Context budget: ~${contextBudget} tokens.\r\nIf you are writing a long response or large file and feel you are getting close to your limit:\r\n1. STOP at a logical breakpoint (end of a function, end of a section)\r\n2. Output this marker on its own line: [CONTINUE_FROM: <brief description of where you stopped>]\r\n3. Tell the user what was completed and what remains\r\nThe user can then say \"continue\" and you will resume from that point.\r\nDo NOT try to rush or compress your output to fit — it's better to stop cleanly and continue.\r\n\n[Integration Mode]\r\nCurrent integration mode: ${integrationMode}.\r\nIf integration mode is off, requests that depend on NekoCore OS endpoints (localhost:3847) are optional and may be unavailable. Prefer local MA entity/workspace tools.${skillsCtx}${memCtx}${knowledgeCtx}${workspaceCtx}${archiveCtx}${fileCtx}${attachCtx}`;",
+  "topics": [
+    "MA Memory Architect",
+    "core-context.js",
+    "BackEnd core"
+  ],
+  "summary": "[Script Review — MANDATORY]\r\nAfter you finish writing or editing ANY script/code file:\r\n1. ALWAYS read it back with [TOOL:ws_read {\"path\":\"file\"}] to verify it's complete\r\n2. Check for: missing closin",
+  "importance": 0.6,
+  "createdAt": 1774646382490,
+  "createdAtISO": "2026-03-27T21:19:42.490Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-context.js",
+  "accessCount": 0
+}

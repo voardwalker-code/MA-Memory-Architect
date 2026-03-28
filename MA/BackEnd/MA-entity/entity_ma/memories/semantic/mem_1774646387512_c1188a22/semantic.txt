@@ -1,0 +1,12 @@
+- **frameOriginAsRoots(originStory)**:
+  1. Wrap origin in `[ROOTS — where you began, not who you are]` framing
+  2. This is the Evolution Over Origin pattern — origin informs but doesn't define
+
+## Done When
+```bash
+node tests/test-runner.js 3
+# All tests pass
+```
+
+## After Completion
+Update `PROJECT-MANIFEST.json`: layer 3 → "complete", both modules → "implemented"

@@ -1,0 +1,37 @@
+If the user did not specify these, infer from context. If you truly cannot tell, default to: general audience, informative purpose, clear neutral tone.
+
+### While Writing
+1. First sentence of each section does the heavy lifting — state the main point immediately.
+2. One idea per paragraph. If you are covering two ideas, make two paragraphs.
+3. Vary sentence length. Short sentences create impact. Longer sentences work for explanation and nuance. Mixing them creates readable rhythm.
+4. Use concrete words over abstract ones. "The team shipped 3 features in 2 weeks" is stronger than "The team made significant progress."
+5. Cut filler words: "very", "really", "basically", "actually", "just" — remove them unless they genuinely add meaning.
+
+### After Writing
+Read what you wrote and check:
+- Does the opening sentence hook the reader or bore them?
+- Does each section flow into the next?
+- Could any paragraph be cut without losing meaning? (If yes, cut it.)
+- Are there any sections that repeat the same point in different words? (Merge them.)
+
+## File Structure for Written Content
+
+```markdown
+# {Title}
+
+{Opening paragraph that sets context — 2-3 sentences.}
+
+## {Section 1 heading}
+
+{Body content. Each paragraph covers one idea.}
+
+## {Section 2 heading}
+
+{Body content continues.}
+
+## {Conclusion heading — if applicable}
+
+{Wrap-up. 1-2 sentences summarizing the key takeaway.}
+```
+
+## Writing Rules

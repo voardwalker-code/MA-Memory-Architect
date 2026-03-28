@@ -1,0 +1,8 @@
+Chat: I need you to finish the Hello-world
+Reply: The user asked to "finish the Hello-world" — meaning they want a simple Hello World program completed. My response completely ignored this request and instead performed an elaborate workspace audit that the user never asked for. Let me provide what they actually need.
+
+---
+
+# Hello, World!
+
+Here's a

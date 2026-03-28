@@ -1,0 +1,43 @@
+// Progress callback — fires once per task step
+          onStep: async (stepInfo) => {
+            sendEvent('step', {
+              stepIndex:   stepInfo.stepIndex,
+              stepTotal:   stepInfo.stepTotal,
+              description: stepInfo.description,
+              summary:     (stepInfo.output || '').slice(0, 300)
+            });
+          },
+
+          // Activity callback — fires for classifier, tool use, search, etc.
+          onActivity: async (category, detail, data) => {
+            sendEvent('activity', {
+              category, detail, data,
+              ts: new Date().toISOString()
+            });
+          }
+        });
+
+        // Send the completed result
+        sendEvent('done', result);
+      } catch (e) {
+        sendEvent('error', { error: e.message });
+      }
+
+      // Always close the stream cleanly
+      res.write('event: close\ndata: {}\n\n');
+      res.end();
+      return true;
+    }
+
+    // ── 2. Non-streaming chat ────────────────────────────────────────
+    // Simpler version: send a message, wait, get the full answer back.
+    if (url.pathname === '/api/chat' && method === 'POST') {
+      const body = JSON.parse(await readBody(req));
+      const result = await core.handleChat({
+        message:     body.message,
+        history:     body.history,
+        attachments: body.attachments
+      });
+      json(res, 200, result);
+      return true;
+    }

@@ -1,0 +1,54 @@
+async function loadBlueprints() {
+  const list = document.getElementById('bp-list');
+  if (!list) return;
+  list.innerHTML = '<div class="side-empty">Loading blueprints...</div>';
+  try {
+    const r = await fetch('/api/blueprints');
+    const d = await r.json();
+    const files = d.files || [];
+    if (!files.length) {
+      list.innerHTML = '<div class="side-empty">No blueprint files found.</div>';
+      return;
+    }
+    // Group files by folder
+    var groups = {};
+    files.forEach(function(file) {
+      var folder = file.group || 'root';
+      if (!groups[folder]) groups[folder] = [];
+      groups[folder].push(file);
+    });
+    // Render folder tree
+    var html = '';
+    var folderDescriptions = {
+      core: 'Core — Task execution rules',
+      modules: 'Modules — Task-type blueprints',
+      nekocore: 'NekoCore — OS architecture docs',
+      'rem-system': 'REM System — Layer specifications',
+      root: 'Root'
+    };
+    Object.keys(groups).sort().forEach(function(folder) {
+      var label = folderDescriptions[folder] || folder;
+      html += '<div class="bp-folder">';
+      html += '<button class="bp-folder-toggle" onclick="this.parentElement.classList.toggle(\'collapsed\')">';
+      html += '<span class="bp-folder-icon">▾</span> ' + escHtml(label);
+      html += '<span class="bp-folder-count">' + groups[folder].length + '</span>';
+      html += '</button>';
+      html += '<div class="bp-folder-items">';
+      groups[folder].forEach(function(file) {
+        var active = file.path === selectedBlueprintPath ? ' active' : '';
+        html += '<button class="bp-item' + active + '" data-bp-path="' + escHtml(file.path) + '" onclick="openBlueprint(\'' + file.path.replace(/'/g, '\\&#39;') + '\')">';
+        html += '<div class="name">' + escHtml(file.name.replace(/\.md$/, '')) + '</div>';
+        html += '</button>';
+      });
+      html += '</div></div>';
+    });
+    list.innerHTML = html;
+    var hasSelection = selectedBlueprintPath && files.some(function(file) { return file.path === selectedBlueprintPath; });
+    if (!hasSelection) {
+      selectedBlueprintPath = files[0].path;
+      return openBlueprint(selectedBlueprintPath);
+    }
+  } catch (e) {
+    list.innerHTML = '<div class="side-empty">Could not load blueprints: ' + escHtml(e.message) + '</div>';
+  }
+}

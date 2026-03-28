@@ -1,0 +1,18 @@
+| Subsystem | Key Files | Purpose |
+|-----------|-----------|---------|
+| Cognitive Pipeline | server/brain/core/orchestrator.js | 1A+1D parallel, then 1C, then Final |
+| Task Orchestration | server/brain/tasks/, server/services/chat-pipeline.js | Pre-orchestrator task fork |
+| Memory Retrieval | server/services/memory-retrieval.js | Subconscious context assembly |
+| Memory Operations | server/services/memory-operations.js | createCoreMemory, createSemanticKnowledge |
+| Memory Storage | server/brain/memory/memory-storage.js | Atomic read/write for episodic/semantic/ltm |
+| Memory Index | server/brain/memory/memory-index-cache.js | O(1) lookups, divergence repair |
+| Belief Graph | server/brain/knowledge/beliefGraph.js | Emergent beliefs from memory cross-reference |
+| Dream Intuition | server/brain/cognition/dream-intuition-adapter.js | Live-loop abstract associations (1D) |
+| Dream Maintenance | server/brain/cognition/dream-maintenance-selector.js | Offline sleep-cycle processing |
+| Entity Runtime | server/services/entity-runtime.js | Entity state lifecycle |
+| Context Assembly | server/brain/generation/context-consolidator.js | Builds context.md before each LLM call |
+| User Profiles | server/services/user-profiles.js | Per-entity user registry |
+| Relationship Service | server/services/relationship-service.js | Per-user feeling/trust/rapport |
+| LLM Interface | server/services/llm-interface.js | callLLMWithRuntime, reranker |
+| Topic Archive | server/brain/utils/archive-index.js | RAKE+BM25 sharded topic archive |
+| Skills | skills/ | Pluggable tools (web search, file ops, memory tools) |

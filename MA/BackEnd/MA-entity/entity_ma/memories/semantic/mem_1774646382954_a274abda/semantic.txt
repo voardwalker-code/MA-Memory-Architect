@@ -1,0 +1,25 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// createOllamaRoutes(deps)
+//
+// Called once when the server starts.  Returns a handler that checks every
+// incoming request.  Returns true if handled, false if not ours.
+// ─────────────────────────────────────────────────────────────────────────────
+module.exports = function createOllamaRoutes(deps) {
+  const { core, llm } = deps;
+
+  return async function handle(url, method, req, res) {
+
+    // ── List all installed Ollama models ─────────────────────────────
+    // You can pass ?endpoint=http://... to override the default.
+    // Returns { models: [ { name, size, ... }, ... ] }
+    if (url.pathname === '/api/ollama/models' && method === 'GET') {
+      const endpoint = url.searchParams.get('endpoint') || core.getConfig()?.endpoint;
+      if (!endpoint) { json(res, 400, { error: 'No Ollama endpoint' }); return true; }
+      try {
+        const models = await llm.ollamaListModels(endpoint);
+        json(res, 200, { models });
+      } catch (e) {
+        json(res, 502, { error: e.message });
+      }
+      return true;
+    }

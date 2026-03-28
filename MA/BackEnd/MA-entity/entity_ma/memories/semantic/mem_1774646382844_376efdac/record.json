@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382844_376efdac",
+  "type": "semantic",
+  "content": "// ── 3. List saved chat sessions ──────────────────────────────────\r\n    // Returns an array of { id, createdAt, updatedAt, preview } sorted\r\n    // newest-first.  The \"preview\" is the first ~80 characters of the\r\n    // first user message, so you can tell conversations apart.\r\n    if (url.pathname === '/api/chat/sessions' && method === 'GET') {\r\n      if (!fs.existsSync(sessionsDir)) {\r\n        json(res, 200, { sessions: [] });\r\n        return true;\r\n      }\r\n      const files = fs.readdirSync(sessionsDir).filter(f => f.endsWith('.json'));\r\n      const sessions = [];\r\n      for (const f of files) {\r\n        try {\r\n          const raw = JSON.parse(fs.readFileSync(path.join(sessionsDir, f), 'utf8'));\r\n          sessions.push({\r\n            id:        raw.id,\r\n            createdAt: raw.createdAt,\r\n            updatedAt: raw.updatedAt,\r\n            preview:   raw.preview || ''\r\n          });\r\n        } catch { /* skip corrupt session files */ }\r\n      }\r\n      sessions.sort((a, b) =>\r\n        (b.updatedAt || b.createdAt || '').localeCompare(a.updatedAt || a.createdAt || '')\r\n      );\r\n      json(res, 200, { sessions });\r\n      return true;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "route-chat.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── 3. List saved chat sessions ──────────────────────────────────\r\n    // Returns an array of { id, createdAt, updatedAt, preview } sorted\r\n    // newest-first.  The \"preview\" is the first ~80 char",
+  "importance": 0.6,
+  "createdAt": 1774646382845,
+  "createdAtISO": "2026-03-27T21:19:42.845Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-chat.js",
+  "accessCount": 0
+}

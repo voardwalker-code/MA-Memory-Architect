@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382709_1884e648",
+  "type": "semantic",
+  "content": "{\n  \"id\": \"mem_1774646062806_2bc5d2c4\",\n  \"type\": \"episodic\",\n  \"content\": \"Chat: Really only shows once on my end\\nReply: Ah, got it — so it was just a rendering hiccup on my side. All good! 👍\\n\\nWe're both functioning normally. Let me know if you need anything!\",\n  \"topics\": [\n    \"conversation\",\n    \"rendering hiccup\",\n    \"functioning normally\",\n    \"need anything\",\n    \"chat\",\n    \"really\",\n    \"shows\",\n    \"end\",\n    \"reply\",\n    \"chat really\",\n    \"really shows\",\n    \"reply ah\"\n  ],\n  \"summary\": \"Chat: Really only shows once on my end\\nReply: Ah, got it — so it was just a rendering hiccup on my side. All good! 👍\\n\\nWe're both functioning normally. Let me know if you need anything!\",\n  \"importance\": 0.5,\n  \"createdAt\": 1774646062810,\n  \"createdAtISO\": \"2026-03-27T21:14:22.810Z\",\n  \"chainId\": \"chain_1774646058076_esi0oj\",\n  \"archive\": null,\n  \"sourcePath\": null,\n  \"accessCount\": 0\n}",
+  "topics": [
+    "MA Memory Architect",
+    "record.json",
+    "BackEnd MA-entity entity_ma memories episodic mem_1774646062806_2bc5d2c4"
+  ],
+  "summary": "{\n  \"id\": \"mem_1774646062806_2bc5d2c4\",\n  \"type\": \"episodic\",\n  \"content\": \"Chat: Really only shows once on my end\\nReply: Ah, got it — so it was just a rendering hiccup on my side. All good! 👍\\n\\nWe",
+  "importance": 0.6,
+  "createdAt": 1774646382710,
+  "createdAtISO": "2026-03-27T21:19:42.710Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-entity\\entity_ma\\memories\\episodic\\mem_1774646062806_2bc5d2c4\\record.json",
+  "accessCount": 0
+}

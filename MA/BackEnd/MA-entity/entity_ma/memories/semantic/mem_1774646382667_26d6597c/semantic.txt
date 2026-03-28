@@ -1,0 +1,41 @@
+// ── Mode getters/setters ────────────────────────────────────────────────────
+// MA has two modes:
+//   'work'  — full access to all tools (read, write, execute)
+//   'chat'  — read-only mode (can search and read, but can't change things)
+function getMode()  { return maMode; }
+function setMode(m) { maMode = (m === 'chat') ? 'chat' : 'work'; }
+function getIntegrationMode() {
+  return (config && config.integrationMode) ? config.integrationMode : 'off';
+}
+
+// ── Bootstrap functions ─────────────────────────────────────────────────────
+// These are called during boot() to set everything up.
+
+/** Create required folders if they don't exist yet. */
+function ensureDirs() {
+  if (!coreBoot) return;
+  coreBoot.ensureDirs([
+    WORKSPACE_DIR,
+    path.join(ENTITY_DIR, 'memories', 'episodic'),
+    path.join(ENTITY_DIR, 'memories', 'semantic'),
+    path.join(ENTITY_DIR, 'index')
+  ]);
+}
+
+/** Load the LLM config from disk (delegates to core-config module). */
+function loadConfig() {
+  if (!coreConfig) return;
+  const result = coreConfig.loadConfig({
+    CONFIG_PATH,
+    LEGACY_CONFIG_PATH: LEGACY_GLOBAL_CONFIG_PATH,
+    MA_ROOT
+  });
+  if (result.config) config = result.config;
+  if (result.workspacePath) WORKSPACE_DIR = result.workspacePath;
+}
+
+/** Load the entity identity from disk (delegates to core-bootstrap). */
+function loadEntity() {
+  if (!coreBoot) return;
+  entity = coreBoot.loadEntity(ENTITY_DIR);
+}

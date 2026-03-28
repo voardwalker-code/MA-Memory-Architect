@@ -1,0 +1,5 @@
+// ── Re-export schemas and parser functions ──────────────────────────────────
+// These are used directly by other MA modules (MA-tool-adapter, core-chat, etc.)
+const ToolSchemas      = schemas ? schemas.ToolSchemas : {};
+const extractToolCalls = parser  ? parser.extractToolCalls : () => [];
+const stripToolCalls   = parser  ? parser.stripToolCalls   : (t) => t || '';

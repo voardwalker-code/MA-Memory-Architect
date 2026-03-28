@@ -1,0 +1,28 @@
+| Location | What goes there |
+|----------|----------------|
+| `MA-blueprints/modules/{task_type}.md` | The full blueprint — loaded during plan + execute phases |
+| `MA-skills/{skill-name}/SKILL.md` | Skill registration file with YAML frontmatter |
+| `MA-entity/entity_ma/skills/{skill-name}.md` | Compact runtime skill loaded at entity boot |
+
+You also need to tell the user what to add to `MA-tasks.js` — the classifier rules. You cannot edit that file directly (it's code), so you will generate the exact code snippet for the user to paste or for a code task to apply.
+
+## Step Pattern
+
+```
+[TASK_PLAN]
+- [ ] Analyze the target capability: what does the user want MA to be able to do?
+- [ ] Research: check existing blueprints for overlap, review available tools, check if APIs are needed
+- [ ] Design the blueprint structure: modes, phases, interactive pauses, output format
+- [ ] Write the full blueprint to MA-blueprints/modules/{task_type}.md
+- [ ] Write the SKILL.md to MA-skills/{skill-name}/SKILL.md
+- [ ] Write the runtime skill to MA-entity/entity_ma/skills/{skill-name}.md
+- [ ] Generate the MA-tasks.js registration snippet (TASK_TYPES + COMPLEX + RULES)
+- [ ] Write a summary document with the registration snippet and verification instructions
+[/TASK_PLAN]
+```
+
+---
+
+## Phase 1: Capability Analysis
+
+Before writing anything, understand what you're building:

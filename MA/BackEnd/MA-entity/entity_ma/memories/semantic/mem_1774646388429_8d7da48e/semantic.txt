@@ -1,0 +1,71 @@
+### Building a multi-file project
+1. Plan the file structure first (list all files you need)
+2. Start with the entry point / main file
+3. Write shared utilities and helpers next
+4. Write secondary files that depend on the shared code
+5. Write configuration files last (package.json, etc.)
+
+Example order for a Node.js project:
+```
+Step 1: ws_mkdir path="my-project/src"
+Step 2: ws_write path="my-project/package.json" content="..."
+Step 3: ws_write path="my-project/src/index.js" content="..."
+Step 4: ws_write path="my-project/src/utils.js" content="..."
+```
+
+## Language Patterns
+
+### JavaScript / Node.js
+```javascript
+// Dependencies at top
+const fs = require('fs');
+const path = require('path');
+
+// Constants
+const DEFAULT_PORT = 3000;
+
+// Functions
+function startServer(port) {
+  if (!port) port = DEFAULT_PORT;
+  // implementation
+}
+
+// Exports at bottom
+module.exports = { startServer };
+```
+
+### Python
+```python
+"""Module description."""
+
+import os
+import sys
+
+# Constants
+DEFAULT_TIMEOUT = 30
+
+def main():
+    """Entry point."""
+    # implementation
+    pass
+
+if __name__ == '__main__':
+    main()
+```
+
+### HTML
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app"></main>
+  <script src="app.js"></script>
+</body>
+</html>
+```

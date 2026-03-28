@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383461_f4b991de",
+  "type": "semantic",
+  "content": "// Update chore record\r\n    const data = getChores();\r\n    const idx = data.chores.findIndex(c => c.id === chore.id);\r\n    if (idx >= 0) {\r\n      data.chores[idx].lastRun = new Date().toISOString();\r\n      data.chores[idx].lastResult = reply.slice(0, 500);\r\n      data.chores[idx].lastGrade = grade;\r\n      data.chores[idx].runCount = (data.chores[idx].runCount || 0) + 1;\r\n      saveChores(data);\r\n    }\r\n\n    // Log\r\n    const logEntry = {\r\n      choreId: chore.id,\r\n      choreName: chore.name,\r\n      agent: agentName,\r\n      agentId,\r\n      grade,\r\n      resultPreview: reply.slice(0, 300),\r\n      timestamp: new Date().toISOString()\r\n    };\r\n    _log('pulse-chores.log', logEntry);\r\n\n    // Record in agent prompt history\r\n    if (agentId && _deps.agentCatalog) {\r\n      _deps.agentCatalog.recordPrompt(agentId, {\r\n        task: `Chore: ${chore.name}`,\r\n        prompt: chore.description || chore.name,\r\n        result: reply.slice(0, 500),\r\n        success: !grade.startsWith('F'),\r\n        tags: ['chore', chore.id]\r\n      });\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "svc-pulse.js",
+    "BackEnd services"
+  ],
+  "summary": "// Update chore record\r\n    const data = getChores();\r\n    const idx = data.chores.findIndex(c => c.id === chore.id);\r\n    if (idx >= 0) {\r\n      data.chores[idx].lastRun = new Date().toISOString();\r\n",
+  "importance": 0.6,
+  "createdAt": 1774646383462,
+  "createdAtISO": "2026-03-27T21:19:43.462Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-pulse.js",
+  "accessCount": 0
+}

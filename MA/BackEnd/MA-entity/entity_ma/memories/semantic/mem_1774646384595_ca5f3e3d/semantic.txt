@@ -1,0 +1,13 @@
+/* Ollama model management */
+  .model-row{display:flex;gap:8px;align-items:center}
+  .model-row select{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 12px;font-size:14px}
+  .model-row select:focus{outline:none;border-color:var(--accent)}
+  .model-row button{background:var(--border);color:var(--text);border:none;border-radius:6px;padding:8px 12px;font-size:14px;cursor:pointer}
+  .model-row button:hover{background:var(--accent);color:#fff}
+  .pull-row{display:flex;gap:8px;margin-top:8px}
+  .pull-row input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:6px 10px;font-size:13px}
+  .pull-row input:focus{outline:none;border-color:var(--accent)}
+  .pull-row button{background:var(--ma);color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;white-space:nowrap}
+  .pull-row button:hover{opacity:.9}
+  #pull-status{font-size:12px;color:var(--dim);margin-top:4px;min-height:16px}
+  #model-info{font-size:12px;color:var(--dim);margin-top:4px}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383316_bbcfe167",
+  "type": "semantic",
+  "content": "// Initialize empty indexes\r\n  _atomicWrite(path.join(root, 'index', 'topic-index.json'), {});\r\n  _atomicWrite(path.join(root, 'index', 'temporal-index.json'), []);\r\n\n  return project;\r\n}\r\n\n/**\r\n * Get project metadata.\r\n */\r\nfunction getProject(projectId) {\r\n  const metaPath = path.join(_projectDir(projectId), 'project-meta.json');\r\n  if (!fs.existsSync(metaPath)) return null;\r\n  return JSON.parse(fs.readFileSync(metaPath, 'utf8'));\r\n}\r\n\n/**\r\n * List all project archives.\r\n */\r\nfunction listProjects() {\r\n  if (!fs.existsSync(ARCHIVES_DIR)) return [];\r\n  return fs.readdirSync(ARCHIVES_DIR)\r\n    .filter(d => d.startsWith('proj_') && fs.statSync(path.join(ARCHIVES_DIR, d)).isDirectory())\r\n    .map(d => {\r\n      const metaPath = path.join(ARCHIVES_DIR, d, 'project-meta.json');\r\n      if (!fs.existsSync(metaPath)) return null;\r\n      try { return JSON.parse(fs.readFileSync(metaPath, 'utf8')); }\r\n      catch { return null; }\r\n    })\r\n    .filter(Boolean);\r\n}\r\n\n/**\r\n * Close a project archive (mark as complete, freeze for predictive).\r\n */\r\nfunction closeProject(projectId) {\r\n  const meta = getProject(projectId);\r\n  if (!meta) throw new Error(`Project not found: ${projectId}`);\r\n  meta.status = 'closed';\r\n  meta.closedAt = new Date().toISOString();\r\n  meta.updatedAt = new Date().toISOString();\r\n  _atomicWrite(path.join(_projectDir(projectId), 'project-meta.json'), meta);\r\n  return meta;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "svc-project-archive.js",
+    "BackEnd services"
+  ],
+  "summary": "// Initialize empty indexes\r\n  _atomicWrite(path.join(root, 'index', 'topic-index.json'), {});\r\n  _atomicWrite(path.join(root, 'index', 'temporal-index.json'), []);\r\n\n  return project;\r\n}\r\n\n/**\r\n * Ge",
+  "importance": 0.6,
+  "createdAt": 1774646383317,
+  "createdAtISO": "2026-03-27T21:19:43.317Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-project-archive.js",
+  "accessCount": 0
+}

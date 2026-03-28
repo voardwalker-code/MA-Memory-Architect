@@ -1,0 +1,28 @@
+// json()     — send a JSON response with a status code
+// readBody() — read the full body of a POST request
+const { json, readBody } = require('../infra/infra-http-utils');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// createPulseRoutes(deps)
+//
+// Called once when the server starts.  Returns a handler that checks every
+// incoming request.  Returns true if handled, false if not ours.
+// ─────────────────────────────────────────────────────────────────────────────
+module.exports = function createPulseRoutes(deps) {
+  const { pulse } = deps;
+
+  return async function handle(url, method, req, res) {
+
+    // ═════════════════════════════════════════════════════════════════
+    // PULSE — Background timer management
+    // ═════════════════════════════════════════════════════════════════
+
+    // ── Pulse status ─────────────────────────────────────────────────
+    // Returns which timers are active and their current configuration.
+    if (url.pathname === '/api/pulse/status' && method === 'GET') {
+      json(res, 200, {
+        timers: pulse.getPulseStatus(),
+        config: pulse.getPulseConfig()
+      });
+      return true;
+    }

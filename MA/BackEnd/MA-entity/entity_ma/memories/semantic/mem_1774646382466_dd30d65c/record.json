@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382466_dd30d65c",
+  "type": "semantic",
+  "content": "// Start with empty context — we'll fill in what we find\r\n  const result = {\r\n    fileCtx: '',\r\n    attachCtx: '',\r\n    imageAttachments: [],\r\n    memCtx: '',\r\n    knowledgeCtx: '',\r\n    workspaceCtx: '',\r\n    archiveCtx: '',\r\n    skillsCtx: '',\r\n    worklogCtx: ''\r\n  };",
+  "topics": [
+    "MA Memory Architect",
+    "core-context.js",
+    "BackEnd core"
+  ],
+  "summary": "// Start with empty context — we'll fill in what we find\r\n  const result = {\r\n    fileCtx: '',\r\n    attachCtx: '',\r\n    imageAttachments: [],\r\n    memCtx: '',\r\n    knowledgeCtx: '',\r\n    workspaceCtx:",
+  "importance": 0.6,
+  "createdAt": 1774646382466,
+  "createdAtISO": "2026-03-27T21:19:42.466Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-context.js",
+  "accessCount": 0
+}

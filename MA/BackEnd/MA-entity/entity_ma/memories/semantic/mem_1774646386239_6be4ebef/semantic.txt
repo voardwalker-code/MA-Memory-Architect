@@ -1,0 +1,22 @@
+> "Analyze these passages exhaustively. For every named character that appears, record:
+> - Full name and ALL aliases (nicknames, titles, last names, honorifics, pet names)
+> - Gender and approximate age if mentioned
+> - Role: protagonist / antagonist / love-interest / mentor / rival / supporting / minor / background
+> - Personality traits observed in this batch — be SPECIFIC: not 'kind' but 'spontaneously generous despite own hardship'
+> - Speech patterns: formal/informal, dialect, verbal tics, vocabulary level, sentence rhythm
+> - Which chunk indices they appear in and what they DO in each
+> - Dialog count (approximate number of speaking lines)
+> - Internal thoughts or narrator commentary about them
+> - Relationships with other characters mentioned — include the NATURE of each (hostile, warm, fearful, admiring, etc.)
+> - Key actions, decisions, or events involving them
+> - Emotional states observed across the batch — track how they change
+> - Physical descriptions, mannerisms, habits mentioned
+> - Beliefs, values, or moral positions expressed or implied"
+
+### 2c. Build running character registry
+
+After each batch, merge new findings into your running registry:
+- Unify aliases (e.g., "Elizabeth", "Lizzy", "Miss Bennet" → same character)
+- Accumulate scene appearances across batches
+- Update trait observations as character develops
+- Track relationships discovered

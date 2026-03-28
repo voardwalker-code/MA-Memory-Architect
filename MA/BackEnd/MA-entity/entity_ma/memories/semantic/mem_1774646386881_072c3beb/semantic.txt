@@ -1,0 +1,16 @@
+RISKS I SEE:
+- {Risk 1: what could go wrong}
+- {Risk 2: what could go wrong}
+
+WHAT I NEED FROM OTHERS:
+- {Gap 1: expertise I lack that another entity should cover}
+```
+
+## Planning Session Limits
+
+- Maximum 3 rounds of deliberation
+- Maximum 4 entities per session
+- Maximum 800 tokens per entity response
+- 120 second timeout per entity
+
+If an entity times out or fails, note it and proceed without their input. The session continues.

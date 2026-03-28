@@ -1,0 +1,35 @@
+# Source of Truth: Standalone Engineering Standard
+
+## Purpose
+This document is the authoritative standard for all changes made during the MA standalone migration.
+
+## Priority Order
+1. Runtime safety and standalone operability.
+2. Backward compatibility where low-risk.
+3. Clear observability and rollback paths.
+4. Documentation and user clarity.
+
+## Standalone Rules
+- Runtime code must not require modules outside MA root.
+- Default config source must be inside MA/MA-Config.
+- External integrations must be optional and explicitly gated.
+- Failure of optional integrations must not break core MA operation.
+- No silent fallback that hides critical errors.
+
+## Engineering Practices
+- Keep changes minimal and scoped.
+- Prefer single-responsibility refactors over broad rewrites.
+- Preserve existing public APIs unless migration requires explicit change.
+- Add clear log messages for config source and integration mode.
+- Avoid introducing new dependencies unless justified and reviewed.
+
+## Validation Practices
+- Validate each phase before moving forward.
+- Run startup and health checks after runtime changes.
+- Run tests impacted by edited modules.
+- Record expected vs actual outcomes in Change Ledger.
+
+## Documentation Practices
+- Keep README and user guidance aligned with current behavior.
+- Label integration content as optional where relevant.
+- Ensure quickstart steps work in an isolated MA-only environment.

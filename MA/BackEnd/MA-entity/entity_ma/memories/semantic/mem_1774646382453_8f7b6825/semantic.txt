@@ -1,0 +1,22 @@
+// Check for a custom workspace path in the config
+    const wsPath = String(config?.workspacePath || '').trim();
+    if (wsPath) {
+      const resolved = path.resolve(wsPath);
+      if (fs.existsSync(resolved)) {
+        workspacePath = resolved;
+        console.log(`  Workspace path: ${workspacePath}`);
+      } else {
+        console.warn(`  Workspace path not found: ${resolved} — using default`);
+      }
+    }
+  } catch (e) { console.warn('  Config load failed:', e.message); }
+
+  // Figure out what capabilities this AI model has (tool use, vision, etc.)
+  if (config) {
+    config.capabilities = resolveCapabilities(config);
+    config.contextWindow = config.contextWindow || inferContextWindow(config);
+    console.log(`  Capabilities resolved: ${Object.entries(config.capabilities).filter(([,v]) => v && v !== false).map(([k]) => k).join(', ') || 'none'}`);
+  }
+
+  return { config, workspacePath };
+}

@@ -1,0 +1,17 @@
+**RIGHT (full depth):**
+```json
+{"content": "The knocker on my door — Marley's face. I swear it. His dead eyes stared out from the brass, jaw hanging loose as if the wire had snapped. The cold shot through me as I fumbled with the key. Inside, I checked every room — behind doors, under the bed. Nothing. But the cellar bells began to ring, all at once, then one by one the chains dragged across the floor below. When he came through the door — through it, without opening it — I knew. Marley. Seven years dead and wrapped in ledgers and padlocks and cashboxes. 'You will be haunted by Three Spirits,' he said. I told him I'd rather not.", "emotion": "fear", "topics": ["marley-ghost", "door-knocker", "chains", "warning", "supernatural", "denial"]}
+```
+
+#### Importance Scoring Guide
+
+| Event type | Importance range |
+|-----------|-----------------|
+| Core identity moments — who they ARE changes | 0.85–0.95 |
+| Life-changing revelation, betrayal, love confession, death | 0.75–0.85 |
+| Major confrontation, pivotal decision, supernatural encounter | 0.6–0.75 |
+| Meaningful conversation, relationship milestone, key observation | 0.45–0.6 |
+| Notable social interaction, humor, atmosphere | 0.3–0.45 |
+| Routine moment, passing observation, setting detail | 0.2–0.3 |
+
+#### Extraction philosophy: EXHAUST THE TEXT

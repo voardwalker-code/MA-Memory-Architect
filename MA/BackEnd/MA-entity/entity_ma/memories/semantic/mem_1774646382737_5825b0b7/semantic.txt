@@ -1,0 +1,27 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// createRouteHandler(deps) → async function handleRequest(req, res)
+//
+// This is the main function that MA-Server-standalone.js calls.
+// It receives all the services (deps) and returns the request handler
+// that gets passed to http.createServer().
+//
+// deps = {
+//   core,                — MA-core (boot, handleChat, getConfig, etc.)
+//   llm,                 — MA-llm  (callLLM, ollamaListModels, …)
+//   pulse,               — MA-pulse (timers, chores)
+//   modelRouter,         — MA-model-router (roster, routing, perf)
+//   cmdExec,             — MA-cmd-executor (whitelist, exec)
+//   handleSlashCommand,  — from MA-slash-commands
+//   renderMarkdownToHtml,— from MA-markdown
+//   BLUEPRINT_DIR,       — absolute path to blueprints folder
+//   CLIENT_DIR           — absolute path to browser client folder
+// }
+// ─────────────────────────────────────────────────────────────────────────────
+function createRouteHandler(deps) {
+
+  // ── Step 1: Load and initialize all route modules ─────────────────
+  // For each module in ROUTE_MODULES:
+  //   1. Try to require() it (safeRequire handles errors)
+  //   2. Call the factory function with deps to get a handler
+  //   3. If anything goes wrong, log a warning and skip it
+  const handlers = [];

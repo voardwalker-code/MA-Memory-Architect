@@ -1,0 +1,30 @@
+### Phase 1: Context Loading
+
+Check if campaign files exist in MA workspace:
+```
+[TOOL:ws_read {"path": "campaign-{name}/campaign-overview.md"}]
+```
+
+If campaign bible exists → use it as context.
+If not → **ASK** for:
+- Where did last session end?
+- What's the party composition and level?
+- Any player decisions to account for?
+- Session number?
+
+### Phase 2: Direction Planning
+
+Generate 2-3 possible directions based on the last session's end state. Present them briefly: "The party could go to [A], investigate [B], or confront [C]."
+
+### Phase 3: Session Package
+
+Generate a complete session prep document:
+
+1. **Recap Text** — "Previously on..." (2-3 paragraphs summarizing recent events)
+2. **Encounters** — 2-3 encounters with stat blocks, terrain descriptions, and narrative hooks
+3. **NPC Dialog Trees** — key lines for each NPC the party might meet, organized by topic
+4. **Random Encounter Table** — d6 or d8, with brief descriptions and CR ratings
+5. **Loot Drops** — 3-5 items with flavor text, level-appropriate
+6. **Cliffhanger Hooks** — 2-3 options depending on player choices
+
+### Phase 4: NPC Updates

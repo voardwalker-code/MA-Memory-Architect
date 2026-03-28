@@ -1,0 +1,35 @@
+// ── Services · Slash Commands ──────────────────────────────────────────────
+//
+// HOW SLASH COMMANDS WORK:
+// When a user types something starting with "/" in the chat, it's a
+// slash command — a shortcut for common operations like:
+//
+//   /help             — show available commands
+//   /mode work        — switch to Work Mode
+//   /model list       — show available AI models
+//   /pulse status     — check background task status
+//   /chore add ...    — add a recurring chore
+//   /cmd ls           — run a whitelisted shell command
+//
+// Each command maps to the same module calls that the HTTP route
+// endpoints use — the slash command is just a different way to
+// trigger the same functionality.
+//
+// WHAT USES THIS:
+//   MA-Server-standalone.js — passes handleSlashCommand to routes
+//   route-commands.js       — routes /command API calls here
+//
+// EXPORTS:
+//   handleSlashCommand(line)  → string (command output)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';
+
+const core        = require('../MA-core');
+const cmdExec     = require('../infra/infra-cmd-executor');
+const pulse       = require('./svc-pulse');
+const modelRouter = require('../llm/llm-router');
+
+async function handleSlashCommand(line) {
+  const parts = line.slice(1).split(/\s+/);
+  const cmd = (parts[0] || '').toLowerCase();
+  const arg = parts.slice(1).join(' ').trim();

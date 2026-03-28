@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388158_ca5ee031",
+  "type": "semantic",
+  "content": "function deleteDir(dirPath) {\r\n  if (!fs.existsSync(dirPath)) return 0;\r\n  let count = 0;\r\n  for (const entry of fs.readdirSync(dirPath)) {\r\n    const full = path.join(dirPath, entry);\r\n    const stat = fs.statSync(full);\r\n    if (stat.isDirectory()) {\r\n      count += deleteDir(full);\r\n      fs.rmdirSync(full);\r\n    } else {\r\n      fs.unlinkSync(full);\r\n      count++;\r\n    }\r\n  }\r\n  return count;\r\n}\r\n\n// Delete only loose files and non-project subdirs (preserves dirs with PROJECT-MANIFEST.json)\r\nfunction deleteDirShallow(dirPath) {\r\n  if (!fs.existsSync(dirPath)) return { deleted: 0, preserved: [] };\r\n  let deleted = 0;\r\n  const preserved = [];\r\n  for (const entry of fs.readdirSync(dirPath)) {\r\n    const full = path.join(dirPath, entry);\r\n    const stat = fs.statSync(full);\r\n    if (stat.isDirectory()) {\r\n      const manifest = path.join(full, 'PROJECT-MANIFEST.json');\r\n      if (fs.existsSync(manifest)) {\r\n        preserved.push(entry);\r\n        continue;\r\n      }\r\n      deleted += deleteDir(full);\r\n      fs.rmdirSync(full);\r\n    } else {\r\n      fs.unlinkSync(full);\r\n      deleted++;\r\n    }\r\n  }\r\n  return { deleted, preserved };\r\n}\r\n\nfunction deleteFile(filePath) {\r\n  if (!fs.existsSync(filePath)) return false;\r\n  fs.unlinkSync(filePath);\r\n  return true;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Reset-All.js",
+    "."
+  ],
+  "summary": "function deleteDir(dirPath) {\r\n  if (!fs.existsSync(dirPath)) return 0;\r\n  let count = 0;\r\n  for (const entry of fs.readdirSync(dirPath)) {\r\n    const full = path.join(dirPath, entry);\r\n    const stat",
+  "importance": 0.6,
+  "createdAt": 1774646388158,
+  "createdAtISO": "2026-03-27T21:19:48.158Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-Reset-All.js",
+  "accessCount": 0
+}

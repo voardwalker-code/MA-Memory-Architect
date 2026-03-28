@@ -1,0 +1,35 @@
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `http://localhost:3847/api/entities/create` | POST | Create an entity (for NPCs and characters) |
+| `http://localhost:3847/api/entities/{id}/memories/inject` | POST | Inject a memory into the entity |
+| `http://localhost:3847/api/entities/{id}/cognitive/tick` | POST | Run one cognitive processing cycle |
+| `http://localhost:3847/api/entities/{id}/cognitive/state` | GET | Read current neurochemistry, beliefs, mood |
+
+## Step Pattern
+
+```
+[TASK_PLAN]
+- [ ] Detect mode from user message (encounter / NPC factory / character)
+- [ ] Gather parameters (party level, setting, concept — from message or ASK)
+- [ ] Generate content (stat blocks, NPCs, or character build)
+- [ ] For NPC/Character modes: create NekoCore entities + inject memories
+- [ ] Write output document to MA workspace
+- [ ] Present summary to user
+[/TASK_PLAN]
+```
+
+---
+
+## ENCOUNTER MODE
+
+### Phase 1: Parameters
+
+Extract from user message or **ASK** if missing:
+- **Party level** (1-20)
+- **Party size** (default: 4)
+- **Difficulty** — easy / medium / hard / deadly (default: medium)
+- **Theme** (optional) — undead, political intrigue, puzzle, ambush, wilderness, urban, underwater, planar
+
+### Phase 2: Encounter Design
+
+Generate the encounter:

@@ -1,0 +1,28 @@
+// ── Route Module: Pulse & Chores ─────────────────────────────────────────────
+//
+// This module manages the "Pulse" system — MA's background heartbeat.
+// Pulse runs on a timer and does things automatically, like:
+//   • Checking the system's health every X minutes
+//   • Running "chores" — small recurring tasks the user sets up
+//
+// Think of Pulse like an alarm clock that goes off on a schedule and does
+// helpful things while you're away.  Chores are the specific tasks that
+// Pulse runs when the alarm goes off.
+//
+// ── Pulse endpoints ─────────────────────────────────────────────────────────
+//   GET  /api/pulse/status  — Are the timers running?  What's their config?
+//   POST /api/pulse/config  — Change timer intervals (e.g. health every 5 min)
+//   POST /api/pulse/start   — Start all background timers
+//   POST /api/pulse/stop    — Stop all background timers
+//   GET  /api/pulse/logs    — Read recent pulse log lines
+//
+// ── Chore endpoints ─────────────────────────────────────────────────────────
+//   GET  /api/chores        — List all recurring chores
+//   POST /api/chores/add    — Create a new chore.  Body: { name, ... }
+//   POST /api/chores/update — Edit a chore.  Body: { id, ...changes }
+//   POST /api/chores/remove — Delete a chore.  Body: { id }
+//
+// ── What this module needs ──────────────────────────────────────────────────
+//   deps.pulse — MA-pulse (timer management, chore CRUD, log reading)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

@@ -1,0 +1,18 @@
+async function openBlueprint(filePath) {
+  if (!document.getElementById('bp-path') || !document.getElementById('bp-status')) return;
+  selectedBlueprintPath = filePath;
+  document.getElementById('bp-path').textContent = filePath;
+  document.getElementById('bp-status').textContent = 'Loading blueprint...';
+  try {
+    const r = await fetch('/api/blueprints/file?path=' + encodeURIComponent(filePath));
+    const d = await r.json();
+    if (d.error) throw new Error(d.error);
+    document.getElementById('bp-editor').value = d.content || '';
+    document.getElementById('bp-status').textContent = 'Editing ' + filePath;
+    document.querySelectorAll('.bp-item').forEach(function(item) {
+      item.classList.toggle('active', item.getAttribute('data-bp-path') === filePath);
+    });
+  } catch (e) {
+    document.getElementById('bp-status').textContent = 'Blueprint error: ' + e.message;
+  }
+}

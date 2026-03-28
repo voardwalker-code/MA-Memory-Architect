@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386172_13e1fc24",
+  "type": "semantic",
+  "content": "```\r\n[TOOL:ws_write {\"path\": \"MA-skills/{skill-name}/SKILL.md\"}]\r\n---\r\nname: {skill-name}\r\ndescription: \"Use when the user asks for {task_type} workflows, automation, or guidance.\"\r\nuser-invocable: true\r\n---\r\n\n# {Skill Name} Skill\r\n\n## Triggers\r\n\n- {List of trigger phrases/keywords}\r\n\n## Mode Detection (if multi-mode)\r\n\n| Signal | Mode |\r\n|--------|------|\r\n| ... | ... |\r\n\n## Workflow\r\n\n{Condensed workflow description — one paragraph per mode or major phase}\r\n\n## API Endpoints (if any)\r\n\n- `POST /api/...` — Description\r\n- `GET /api/...` — Description\r\n\n## Tools Used\r\n\n- `tool_name` — When/why it's used\r\n[/TOOL]\r\n```\r\n\n---\r\n\n## Phase 5: Write the Runtime Skill\r\n\nWrite the compact runtime skill (loaded into MA's entity at boot — keep it concise):\r\n\n```\r\n[TOOL:ws_write {\"path\": \"MA-entity/entity_ma/skills/{skill-name}.md\"}]\r\n# {Skill Name}\r\n\n{One-sentence description.}\r\n\n## When to activate\r\n\n- {Trigger conditions — keywords, user intent patterns}\r\n\n## Core workflow\r\n\n{Condensed workflow — key phases only, 1-2 sentences each. This is a quick reference, not the full blueprint.}\r\n\n## Output\r\n\n{Where output files go — naming convention and folder structure.}\r\n[/TOOL]\r\n```\r\n\nRuntime skills are limited to ~1500 chars when injected into context, so keep this file SHORT — under 80 lines.\r\n\n---\r\n\n## Phase 6: Generate the Classifier Registration\r\n\nGenerate the exact code that needs to be added to `MA-tasks.js`. Write it to a summary file:",
+  "topics": [
+    "MA Memory Architect",
+    "blueprint_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "```\r\n[TOOL:ws_write {\"path\": \"MA-skills/{skill-name}/SKILL.md\"}]\r\n---\r\nname: {skill-name}\r\ndescription: \"Use when the user asks for {task_type} workflows, automation, or guidance.\"\r\nuser-invocable: tr",
+  "importance": 0.6,
+  "createdAt": 1774646386173,
+  "createdAtISO": "2026-03-27T21:19:46.173Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\blueprint_builder.md",
+  "accessCount": 0
+}

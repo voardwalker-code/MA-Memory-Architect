@@ -1,0 +1,25 @@
+# Layer 0 — Memory Storage + Index + NLP
+
+## Pre-Requisite
+- Contracts load without error: `node -e "require('./contracts/memory-schema')"`
+- All 4 contract files parse cleanly
+
+## Scope
+Fill in all NOT_IMPLEMENTED stubs in:
+1. `server/memory/memory-storage.js` — Atomic file read/write for memory records
+2. `server/memory/memory-index.js` — In-memory indexes with disk persistence
+3. `server/nlp/rake.js` — RAKE keyword extraction
+4. `server/nlp/bm25.js` — BM25 scoring
+5. `server/nlp/yake.js` — YAKE keyword extraction
+
+## Instructions Per Module
+
+### memory-storage.js
+- **Pattern**: Atomic write = write to `.tmp` file, then `fs.rename` to final path
+- **Memory folder structure**: Each memory is a folder containing `log.json` + `semantic.txt`
+- **Read**: `readMemory(id)` → read `log.json`, parse, return object
+- **Write**: `writeMemory(record, content)` → create folder, write `log.json` + `semantic.txt`
+- **Content**: `getMemoryContent(id)` → read `semantic.txt`, return string
+- **Delete**: `deleteMemory(id)` → remove entire folder (fs.rm recursive)
+- **List**: `listMemories()` → readdir, filter folders containing `log.json`
+- **Update**: `updateMemory(id, patch)` → read, merge, atomic write back

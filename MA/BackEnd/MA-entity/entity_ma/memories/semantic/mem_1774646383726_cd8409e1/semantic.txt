@@ -1,0 +1,31 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// _findBookDir(wp, bookId)
+//
+// Searches for a book's folder in the workspace.  Checks the new project
+// layout first, then falls back to the legacy standalone layout.
+//
+//   wp     — absolute path to the workspace
+//   bookId — the book's unique identifier
+//   Returns: absolute path to the book directory, or null if not found
+// ─────────────────────────────────────────────────────────────────────────────
+function _findBookDir(wp, bookId) {
+  // Sanitize bookId — no slashes allowed (prevents path traversal)
+  if (!bookId || /[/\\]/.test(bookId)) return null;
+
+  // New layout: projects/{slug}/books/{bookId}
+  const projDir = path.join(wp, 'projects');
+  if (fs.existsSync(projDir)) {
+    try {
+      for (const slug of fs.readdirSync(projDir)) {
+        const candidate = path.join(projDir, slug, 'books', bookId);
+        if (fs.existsSync(path.join(candidate, 'meta.json'))) return candidate;
+      }
+    } catch (_) {}
+  }
+
+  // Legacy layout: books/{bookId}
+  const legacy = path.join(wp, 'books', bookId);
+  if (fs.existsSync(path.join(legacy, 'meta.json'))) return legacy;
+
+  return null;
+}

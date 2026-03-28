@@ -1,0 +1,37 @@
+### Validation Gate
+- [x] MA works end-to-end with integration mode disabled.
+- [x] No core user path fails because external app is not running.
+- [x] Integration mode can be enabled deliberately and behaves as expected.
+
+### Agent Continuation Message
+Use this exactly after Phase 3 is complete:
+
+```text
+Phase 3 complete. Optional integration boundary is in place and fail-safe. Proceed to Phase 4 for documentation and UX alignment.
+```
+
+---
+
+## Phase 4: Documentation and UX Alignment
+**Goal:** Ensure standalone messaging is accurate and operationally clear.
+
+### Tasks
+- [x] Remove or rewrite parent-relative links that break in standalone distribution.
+- [x] Update README and USER-GUIDE to define standalone-first behavior.
+- [x] Move integration details to an Optional Integrations section.
+- [x] Update UI labels/descriptions that imply mandatory external app dependency.
+- [x] Add a clean standalone quickstart and verification checklist.
+
+### Validation Gate
+- [x] No critical broken links in standalone docs.
+- [x] New user can run MA using only local instructions.
+- [x] Integration references are clearly labeled optional.
+
+### Agent Continuation Message
+Use this exactly after Phase 4 is complete:
+
+```text
+Phase 4 complete. Docs and UX now reflect standalone-first behavior. Proceed to Phase 5 for guardrails and regression prevention.
+```
+
+---

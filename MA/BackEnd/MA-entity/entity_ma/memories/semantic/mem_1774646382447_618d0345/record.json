@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382447_618d0345",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _extractLegacyRuntimeConfig(globalCfg)\r\n//\r\n// The old parent config used a \"profiles\" system with nested settings.\r\n// This digs the actual MA runtime config out of that nested structure.\r\n//\r\n//   globalCfg — the parsed old config object (or null)\r\n//   Returns: a normalised config, or null\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction _extractLegacyRuntimeConfig(globalCfg) {\r\n  if (!globalCfg || typeof globalCfg !== 'object') return null;\r\n  const profileName = String(globalCfg.lastActive || '').trim() || 'default-multi-llm';\r\n  const profile = globalCfg.profiles && globalCfg.profiles[profileName];\r\n  if (!profile || typeof profile !== 'object') return null;\r\n\n  const candidate = normalizeRuntime(profile.ma) || normalizeRuntime(profile.nekocore);\r\n  if (!candidate) return null;\r\n\n  if (globalCfg.workspacePath && !candidate.workspacePath) {\r\n    candidate.workspacePath = String(globalCfg.workspacePath).trim();\r\n  }\r\n  return candidate;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-config.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _extractLegacyRuntimeConfig(globalCfg)\r\n//\r\n// The old parent config used a \"profiles\" system with nested settings.",
+  "importance": 0.6,
+  "createdAt": 1774646382448,
+  "createdAtISO": "2026-03-27T21:19:42.448Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-config.js",
+  "accessCount": 0
+}

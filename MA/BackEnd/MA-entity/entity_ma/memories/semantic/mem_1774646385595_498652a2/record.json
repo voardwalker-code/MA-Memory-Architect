@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385595_498652a2",
+  "type": "semantic",
+  "content": "# MA Refactor and Cleanup Plan\r\n\n## Purpose\r\nThis plan refactors MA into a cleaner, easier-to-maintain codebase by:\r\n- removing dead or temporary scripts,\r\n- extracting reusable logic into focused modules,\r\n- improving script-level readability with human-friendly comments,\r\n- cleaning up client HTML/CSS/JS structure and maintainability.\r\n\n## Outcomes (Definition of Done)\r\n- No dead scripts remain in runtime paths.\r\n- Temporary/debug scripts are either removed or moved to a clearly non-runtime archive folder.\r\n- Core files are broken into smaller, cohesive modules with clear responsibilities.\r\n- All major runtime files include concise, high-value comments describing what/why/how.\r\n- Frontend layout and styles are organized into predictable sections/components.\r\n- Smoke tests pass for server startup, config, and key UI flows.\r\n\n---\r\n\n## Baseline Findings (Current Snapshot)\r\n\n### Candidate Dead/Temporary Scripts\r\n- Root candidates:\r\n  - `tmp-diag.js`\r\n  - `tmp-search-test.js`\r\n  - `test-zod-tools.js`\r\n  - `_test_tools.js`\r\n  - `_health-check.js`\r\n- Client candidate:\r\n  - `MA-client/js/_test-load.js`\r\n\n### Hotspot Files by Size/Complexity\r\n- `MA-client/css/ma-ui.css` (largest CSS)\r\n- `MA-client/MA-index.html` (large and structurally dense)\r\n- `MA-client/js/ma-ui-workspace.js`\r\n- `MA-client/js/ma-ui-config.js`\r\n- `MA-client/js/ma-ui-editor.js`\r\n- `MA-client/js/ma-ui-chat.js`",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Refactor-Cleanup-Plan.md",
+    "MA Refactor Plan"
+  ],
+  "summary": "# MA Refactor and Cleanup Plan\r\n\n## Purpose\r\nThis plan refactors MA into a cleaner, easier-to-maintain codebase by:\r\n- removing dead or temporary scripts,\r\n- extracting reusable logic into focused mod",
+  "importance": 0.6,
+  "createdAt": 1774646385596,
+  "createdAtISO": "2026-03-27T21:19:45.596Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Refactor Plan\\MA-Refactor-Cleanup-Plan.md",
+  "accessCount": 0
+}

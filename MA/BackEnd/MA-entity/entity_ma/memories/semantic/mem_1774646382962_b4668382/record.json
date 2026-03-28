@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382962_b4668382",
+  "type": "semantic",
+  "content": "// ── Pull (download) a model ──────────────────────────────────────\r\n    // Body: { model: \"llama3\", endpoint?: \"http://...\" }\r\n    // Downloads the model from the Ollama registry.  This can take a\r\n    // while for large models (several GB).\r\n    if (url.pathname === '/api/ollama/pull' && method === 'POST') {\r\n      const body     = JSON.parse(await readBody(req));\r\n      const endpoint = body.endpoint || core.getConfig()?.endpoint;\r\n      if (!endpoint || !body.model) { json(res, 400, { error: 'Need endpoint and model' }); return true; }\r\n      try {\r\n        const result = await llm.ollamaPullModel(endpoint, body.model);\r\n        json(res, 200, { ok: true, status: result.status || 'success' });\r\n      } catch (e) {\r\n        json(res, 502, { error: e.message });\r\n      }\r\n      return true;\r\n    }\r\n\n    // None of our routes matched\r\n    return false;\r\n  };\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "route-ollama.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Pull (download) a model ──────────────────────────────────────\r\n    // Body: { model: \"llama3\", endpoint?: \"http://...\" }\r\n    // Downloads the model from the Ollama registry.  This can take a\r\n",
+  "importance": 0.6,
+  "createdAt": 1774646382963,
+  "createdAtISO": "2026-03-27T21:19:42.963Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-ollama.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383447_b1803871",
+  "type": "semantic",
+  "content": "function saveChores(data) {\r\n  _ensureChoresFile();\r\n  fs.writeFileSync(CHORE_PATH, JSON.stringify(data, null, 2));\r\n}\r\n\nfunction addChore(chore) {\r\n  if (!chore.name) throw new Error('Chore must have a name');\r\n  const data = getChores();\r\n  const id = 'chore_' + Date.now() + '_' + Math.random().toString(36).slice(2, 5);\r\n  const entry = {\r\n    id,\r\n    name: chore.name,\r\n    description: chore.description || '',\r\n    assignTo: chore.assignTo || null,       // agent id or null (MA picks)\r\n    intervalMs: chore.intervalMs || 3600000, // default 1 hour\r\n    lastRun: null,\r\n    lastResult: null,\r\n    lastGrade: null,\r\n    runCount: 0,\r\n    enabled: true,\r\n    createdAt: new Date().toISOString()\r\n  };\r\n  data.chores.push(entry);\r\n  saveChores(data);\r\n  return entry;\r\n}\r\n\nfunction updateChore(id, updates) {\r\n  const data = getChores();\r\n  const idx = data.chores.findIndex(c => c.id === id);\r\n  if (idx < 0) throw new Error('Chore not found: ' + id);\r\n  const safe = { ...updates };\r\n  delete safe.id;\r\n  delete safe.createdAt;\r\n  data.chores[idx] = { ...data.chores[idx], ...safe };\r\n  saveChores(data);\r\n  return data.chores[idx];\r\n}\r\n\nfunction removeChore(id) {\r\n  const data = getChores();\r\n  const idx = data.chores.findIndex(c => c.id === id);\r\n  if (idx < 0) throw new Error('Chore not found: ' + id);\r\n  const removed = data.chores.splice(idx, 1)[0];\r\n  saveChores(data);\r\n  return removed;\r\n}\r\n\n// ── Chore Execution ─────────────────────────────────────────────────────────",
+  "topics": [
+    "MA Memory Architect",
+    "svc-pulse.js",
+    "BackEnd services"
+  ],
+  "summary": "function saveChores(data) {\r\n  _ensureChoresFile();\r\n  fs.writeFileSync(CHORE_PATH, JSON.stringify(data, null, 2));\r\n}\r\n\nfunction addChore(chore) {\r\n  if (!chore.name) throw new Error('Chore must have",
+  "importance": 0.6,
+  "createdAt": 1774646383448,
+  "createdAtISO": "2026-03-27T21:19:43.448Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-pulse.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382875_9a0d367a",
+  "type": "semantic",
+  "content": "// ── Reset the whitelist to defaults ──────────────────────────────\r\n    // Puts back the original safe commands (git, ls, cat, etc.)\r\n    if (url.pathname === '/api/whitelist/reset' && method === 'POST') {\r\n      const result = cmdExec.whitelistReset();\r\n      json(res, 200, { ok: true, ...result });\r\n      return true;\r\n    }\r\n\n    // None of our routes matched\r\n    return false;\r\n  };\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "route-commands.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Reset the whitelist to defaults ──────────────────────────────\r\n    // Puts back the original safe commands (git, ls, cat, etc.)\r\n    if (url.pathname === '/api/whitelist/reset' && method === 'P",
+  "importance": 0.6,
+  "createdAt": 1774646382875,
+  "createdAtISO": "2026-03-27T21:19:42.875Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-commands.js",
+  "accessCount": 0
+}

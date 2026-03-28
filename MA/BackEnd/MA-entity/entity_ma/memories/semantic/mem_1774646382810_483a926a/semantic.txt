@@ -1,0 +1,36 @@
+function dedup(candidates) {
+  const sorted = candidates.sort((a, b) => a.score - b.score);
+  const kept = [], usedWords = new Set();
+  for (const c of sorted) {
+    const words = c.keyword.split(' ');
+    if (words.every(w => usedWords.has(w))) continue;
+    kept.push(c);
+    for (const w of words) usedWords.add(w);
+  }
+  return kept;
+}
+
+/**
+ * Extract keywords from text using YAKE statistical features.
+ * @param {string} text
+ * @param {number} [maxKeywords=10]
+ * @returns {string[]}
+ */
+function extractKeywords(text, maxKeywords = 10) {
+  if (!text || typeof text !== 'string') return [];
+  const tokens = tokenize(text);
+  if (tokens.length === 0) return [];
+
+  const wordFeatures = computeWordFeatures(tokens);
+  const bigramScores = scoreBigrams(tokens, wordFeatures);
+
+  const candidates = [];
+  for (const [word, feat] of wordFeatures) candidates.push({ keyword: word, score: feat.score });
+  for (const [bigram, feat] of bigramScores) {
+    if (feat.count >= 1) candidates.push({ keyword: bigram, score: feat.score });
+  }
+
+  return dedup(candidates).slice(0, maxKeywords).map(c => c.keyword);
+}
+
+module.exports = { extractKeywords };

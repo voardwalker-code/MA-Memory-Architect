@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382571_af555bb3",
+  "type": "semantic",
+  "content": "// ── OpenRouter / OpenAI-compatible ──────────────────────────────────────────\r\nasync function _callOpenRouter(config, messages, opts) {\r\n  const body = JSON.stringify(_sanitizeJsonValue({\r\n    model:       config.model,\r\n    messages,\r\n    temperature: opts.temperature,\r\n    max_tokens:  opts.maxTokens,\r\n    ...(opts.responseFormat === 'json' ? { response_format: { type: 'json_object' } } : {}),\r\n    ...(opts.tools && opts.tools.length ? { tools: opts.tools } : {})\r\n  }));\r\n\n  const url = new URL(config.endpoint);\r\n  const headers = {\r\n    'Content-Type': 'application/json',\r\n    ...(config.apiKey ? { 'Authorization': `Bearer ${config.apiKey}` } : {})\r\n  };\r\n\n  const raw = await _fetch(url, body, headers, opts.timeout);\r\n  const data = JSON.parse(raw);\r\n\n  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));\r\n  if (!data.choices || !data.choices.length) throw new Error('No choices in LLM response');\r\n\n  // If native tools were used and tool_calls are in the response, return structured result\r\n  const msg = data.choices[0].message;\r\n  if (opts.tools && opts.tools.length && msg.tool_calls && msg.tool_calls.length) {\r\n    return {\r\n      content: (msg.content || '').trim(),\r\n      toolCalls: msg.tool_calls.map(tc => ({\r\n        id: tc.id,\r\n        name: tc.function?.name || '',\r\n        input: JSON.parse(tc.function?.arguments || '{}')\r\n      })),\r\n      _raw: msg  // preserve for re-injection\r\n    };\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "llm-api.js",
+    "BackEnd llm"
+  ],
+  "summary": "// ── OpenRouter / OpenAI-compatible ──────────────────────────────────────────\r\nasync function _callOpenRouter(config, messages, opts) {\r\n  const body = JSON.stringify(_sanitizeJsonValue({\r\n    model",
+  "importance": 0.6,
+  "createdAt": 1774646382572,
+  "createdAtISO": "2026-03-27T21:19:42.572Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-api.js",
+  "accessCount": 0
+}

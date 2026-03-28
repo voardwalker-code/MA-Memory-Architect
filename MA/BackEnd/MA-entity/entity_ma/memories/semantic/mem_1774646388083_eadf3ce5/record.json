@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388083_eadf3ce5",
+  "type": "semantic",
+  "content": "1. Research the topic — use `[TOOL:web_search query=\"...\"]` or your own knowledge\r\n2. Propose a SPECIFIC default with clear reasoning:\r\n   > \"Based on what you've described, I'd suggest Node.js for the runtime — it handles your async I/O needs well and you already use it in your stack. Want to go with that, use something else, or skip this for now?\"\r\n3. Accept their answer — approve, edit, or deny. Don't push.\r\n4. Record whatever they decide in REQUIREMENTS.md\r\n\n## Phase 2: Accumulate Requirements\r\n\nAs you gather answers, write them to the workspace:\r\n\n```\r\n[TOOL:ws_write path=\"workspace/{project-name}/REQUIREMENTS.md\" content=\"...\"]\r\n```\r\n\nUpdate this file every turn. Structure it as:\r\n```\r\n# {Project Name} — Requirements\r\n## Vision: ...\r\n## Core Features: ...\r\n## Tech Stack: ...\r\n## Data Shapes: ...\r\n## Interfaces: ...\r\n## Scale: ...\r\n## Constraints: ...\r\n## Design Philosophy: ...\r\n## Open Questions: ...\r\n```\r\n\n## Phase 3: Trigger Generation\r\n\nWhen all 5 Must-Have areas are covered, tell the user:\r\n\n> I have enough to build your project plan. When you're ready, say **\"generate the project plan\"** and I'll create the full scaffold — build order, contracts, layer blueprints, test harness, and module stubs.\r\n\nDo NOT generate until the user confirms.\r\n\n## What Gets Generated",
+  "topics": [
+    "MA Memory Architect",
+    "project-architect.md",
+    "MA-knowledge"
+  ],
+  "summary": "1. Research the topic — use `[TOOL:web_search query=\"...\"]` or your own knowledge\r\n2. Propose a SPECIFIC default with clear reasoning:\r\n   > \"Based on what you've described, I'd suggest Node.js for th",
+  "importance": 0.6,
+  "createdAt": 1774646388085,
+  "createdAtISO": "2026-03-27T21:19:48.085Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\project-architect.md",
+  "accessCount": 0
+}

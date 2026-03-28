@@ -1,0 +1,45 @@
+### Continuation
+When MA is writing a large file or long response and approaches the limit:
+1. It stops at a **logical breakpoint** (end of a function, end of a section)
+2. It tells you what was completed and what remains
+3. A **"Continue"** button appears in the chat
+4. Click it → MA resumes from where it left off
+
+You can also manually continue:
+```
+You: continue
+```
+
+### Adjusting the Budget
+Use the Max Tokens slider in Settings (⚙ → LLM tab):
+- **4096** — small, fast responses (good for quick chat with local models)
+- **12288** — default, balanced
+- **32768** — large context for complex projects
+- **131072** — extended context for frontier models
+- **1000000** — maximum (1M tokens, for models that support ultra-long context)
+
+---
+
+## Agent Roster
+
+MA has 6 specialist agents for delegation:
+
+| Agent | Role |
+|-------|------|
+| `senior-coder` | Experienced developer for complex code |
+| `junior-coder` | Simple coding tasks |
+| `code-reviewer` | Code review and quality checks |
+| `test-engineer` | Test writing and verification |
+| `nlp-researcher` | NLP and language processing research |
+| `contract-architect` | API contracts and schema design |
+
+Ask MA to delegate:
+```
+You: Delegate a code review of myproject/src/auth.js to the code reviewer
+```
+
+---
+
+## Pulse Engine
+
+The pulse engine runs recurring background tasks on configurable timers. Two built-in pulses ship with MA:

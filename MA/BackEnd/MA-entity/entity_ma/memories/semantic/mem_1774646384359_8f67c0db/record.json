@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384359_8f67c0db",
+  "type": "semantic",
+  "content": "| Type | Trigger Keywords |\r\n|------|-----------------|\r\n| **code** | write, build, create, implement, fix, debug, refactor, script, function |\r\n| **research** | research, find, search, investigate, what is, how does |\r\n| **writing** | compose, draft, article, blog, document, summarize |\r\n| **analysis** | analyze, compare, evaluate, assess, breakdown, pros/cons |\r\n| **project** | project, scaffold, setup, boilerplate, full app |\r\n| **architect** | architect, project plan, blueprint, specification, design |\r\n| **delegate** | delegate, assign, agent, who can, available agents |\r\n| **memory_query** | remember, recall, what did we, past, previous |\r\n\n---\r\n\n## Working on Projects\r\n\nMA can scaffold and manage multi-file projects in its workspace (`MA-workspace/`).\r\n\n### Start a Project\r\n```\r\nYou: Create a Node.js REST API for a bookshelf app with SQLite\r\n```\r\nMA will:\r\n1. Plan the project structure\r\n2. Create directories and files step by step\r\n3. Write code, tests, and config\r\n4. Verify each file after writing\r\n5. Summarize what was built\r\n\n### Resume a Project\r\n```\r\n/projects                    ← see all projects\r\n/project open proj_001       ← resume one\r\nYou: Add pagination to the /books endpoint\r\n```\r\n\n### Project Context\r\nMA automatically scans `MA-workspace/` and shows project directories in its context so it knows what exists.\r\n\n---\r\n\n## File Context & Drag-and-Drop",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "| Type | Trigger Keywords |\r\n|------|-----------------|\r\n| **code** | write, build, create, implement, fix, debug, refactor, script, function |\r\n| **research** | research, find, search, investigate, w",
+  "importance": 0.6,
+  "createdAt": 1774646384360,
+  "createdAtISO": "2026-03-27T21:19:44.360Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

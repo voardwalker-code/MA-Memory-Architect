@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385913_2cf39d8f",
+  "type": "semantic",
+  "content": "For API-connected apps, identify:\r\n- Which NekoCore OS API endpoints to call\r\n- Request/response shapes\r\n- Error handling strategy\r\n\n---\r\n\n## Phase 3 — Build HTML Payload\r\n\nWrite the complete HTML payload file.\r\n\n### HTML Structure Template\r\n\n```html\r\n<div class=\"tab-content\" id=\"tab-{appId}\">\r\n  <section class=\"card\" style=\"height:100%;display:flex;flex-direction:column;gap:12px;\">\r\n    <div class=\"card-hd\" style=\"display:flex;justify-content:space-between;align-items:center;\">\r\n      <h3 style=\"margin:0;\">{App Name}</h3>\r\n      <div class=\"text-xs-c text-tertiary-c\">{Subtitle}</div>\r\n    </div>\r\n\n    <!-- App content sections go here -->\r\n\n  </section>\r\n</div>\r\n\n<script>\r\n(function () {\r\n  // Idempotent guard — prevent double-init on tab reload\r\n  if (window.__{appIdCamel}Init) return;\r\n  window.__{appIdCamel}Init = true;\r\n\n  // App logic here — all variables are function-scoped\r\n\n  // Cleanup function for tab reload\r\n  window.__{appIdCamel}State = {\r\n    dispose: function () {\r\n      window.__{appIdCamel}Init = false;\r\n      // Cancel any intervals, listeners, etc.\r\n    }\r\n  };\r\n})();\r\n</script>\r\n```\r\n\n### CRITICAL Rules for HTML Payloads",
+  "topics": [
+    "MA Memory Architect",
+    "app_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "For API-connected apps, identify:\r\n- Which NekoCore OS API endpoints to call\r\n- Request/response shapes\r\n- Error handling strategy\r\n\n---\r\n\n## Phase 3 — Build HTML Payload\r\n\nWrite the complete HTML pay",
+  "importance": 0.6,
+  "createdAt": 1774646385913,
+  "createdAtISO": "2026-03-27T21:19:45.913Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\app_builder.md",
+  "accessCount": 0
+}

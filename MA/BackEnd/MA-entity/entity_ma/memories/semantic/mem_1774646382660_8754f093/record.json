@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382660_8754f093",
+  "type": "semantic",
+  "content": "const path = require('path');\n\n// ── External MA modules (NOT part of the core/* extraction) ─────────────────\n// These are other BackEnd modules that core orchestrates and re-exports.\nconst { callLLM }           = require('./llm/llm-api');\nconst { createMemoryStore } = require('./services/svc-memory');\nconst { hasCapability }     = require('./llm/llm-capabilities');\nconst { buildToolSchemas }  = require('./llm/llm-tool-adapter');\nconst tasks                 = require('./services/svc-tasks');\nconst wsTools               = require('./MA-workspace-tools');\nconst health                = require('./infra/infra-health');\nconst agentCatalog          = require('./services/svc-agents');\nconst projectArchive        = require('./services/svc-project-archive');\nconst modelRouter           = require('./llm/llm-router');\nconst worklog               = require('./services/svc-worklog');\nconst { DEFAULT_AGENTS, DEFAULT_ENTITY } = require('../MA-scripts/agent-definitions');",
+  "topics": [
+    "MA Memory Architect",
+    "MA-core.js",
+    "BackEnd"
+  ],
+  "summary": "const path = require('path');\n\n// ── External MA modules (NOT part of the core/* extraction) ─────────────────\n// These are other BackEnd modules that core orchestrates and re-exports.\nconst { callLLM",
+  "importance": 0.6,
+  "createdAt": 1774646382661,
+  "createdAtISO": "2026-03-27T21:19:42.661Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-core.js",
+  "accessCount": 0
+}

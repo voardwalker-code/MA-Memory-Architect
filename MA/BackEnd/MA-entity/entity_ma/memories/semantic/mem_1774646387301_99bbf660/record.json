@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387301_99bbf660",
+  "type": "semantic",
+  "content": "1. Fill `textrank.js` — reference existing NLP in MA (MA-rake.js, MA-bm25.js, MA-yake.js)\r\n2. Fill `memory-encoder-nlp.js` — uses textrank + RAKE + YAKE for topic extraction\r\n3. Fill `semantic-cache.js` — LRU with TTL\r\n4. Fill `conscious-memory.js` — STM array + LTM map + promotion logic\r\n5. Fill `dream-memory.js` — 3-tier storage with demotion timers\r\n6. Fill `memory-graph.js` — adjacency list + spreading activation algorithm\r\n7. Fill `memory-graph-builder.js` — link creation based on similarity/temporal/emotion\r\n8. Fill `archive-manager.js` — gzip + index management\r\n9. Fill `trace-graph.js` — directed graph for cause→effect\r\n10. Fill `trace-graph-builder.js` — analyze conversation for trace edges\r\n11. Fill `dream-link-writer.js` — cross-reference dream memories with waking memories\r\n\n## Done When\r\n\n```\r\nnode tests/test-runner.js 2\r\n→ 22 passed, 0 failed\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "part-2-memory-knowledge.md",
+    "MA-blueprints nekocore"
+  ],
+  "summary": "1. Fill `textrank.js` — reference existing NLP in MA (MA-rake.js, MA-bm25.js, MA-yake.js)\r\n2. Fill `memory-encoder-nlp.js` — uses textrank + RAKE + YAKE for topic extraction\r\n3. Fill `semantic-cache.j",
+  "importance": 0.6,
+  "createdAt": 1774646387302,
+  "createdAtISO": "2026-03-27T21:19:47.302Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\nekocore\\part-2-memory-knowledge.md",
+  "accessCount": 0
+}

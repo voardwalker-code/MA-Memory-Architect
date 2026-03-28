@@ -1,0 +1,39 @@
+### Via Slash Commands
+```
+/whitelist                          ← view current whitelist
+/whitelist add deno run,test,fmt    ← add deno with specific subcommands
+/whitelist add ruby                 ← add ruby with all subcommands
+/whitelist remove deno              ← remove deno
+/whitelist reset                    ← reset to defaults
+```
+
+### Via Config File
+Direct edit `MA-Config/cmd-whitelist.json`:
+```json
+{
+  "cargo": ["build","run","test"],
+  "python": null,
+  "node": null
+}
+```
+(`null` = all subcommands allowed, array = only those subcommands)
+
+---
+
+## Token Budget & Continuation
+
+MA is aware of its context window limits and manages them actively.
+
+### How It Works
+- **20% of maxTokens** is reserved for MA's response
+- The rest is the **context budget** (system prompt + history + your message)
+- The GUI shows a **color-coded bar** after each response:
+  - 🔵 Blue = under 65% — plenty of room
+  - 🟡 Yellow = 65–85% — getting close
+  - 🔴 Red = over 85% — near the limit
+
+### History Compression
+When your conversation gets long, MA automatically compresses older turns:
+- The 4 most recent messages are kept verbatim
+- Older turns are compressed into a bullet-point summary
+- This happens transparently — you don't need to do anything

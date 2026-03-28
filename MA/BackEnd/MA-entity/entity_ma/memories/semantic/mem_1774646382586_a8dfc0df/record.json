@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382586_a8dfc0df",
+  "type": "semantic",
+  "content": "// ── Ollama model management ─────────────────────────────────────────────────\r\nasync function ollamaListModels(endpoint) {\r\n  if (!endpoint) throw new Error('No Ollama endpoint provided');\r\n  const url = new URL(endpoint.replace(/\\/+$/, '') + '/api/tags');\r\n  const raw = await _get(url, 15000);\r\n  const data = JSON.parse(raw);\r\n  return (data.models || []).map(m => ({\r\n    name: m.name, size: m.size, modified: m.modified_at\r\n  }));\r\n}\r\n\nasync function ollamaShowModel(endpoint, model) {\r\n  if (!endpoint) throw new Error('No Ollama endpoint provided');\r\n  if (!model) throw new Error('No model name provided');\r\n  const url = new URL(endpoint.replace(/\\/+$/, '') + '/api/show');\r\n  const body = JSON.stringify({ model });\r\n  const raw = await _fetch(url, body, { 'Content-Type': 'application/json' }, 15000);\r\n  const data = JSON.parse(raw);\r\n  let contextLength = null;\r\n  if (data.model_info) {\r\n    for (const key of Object.keys(data.model_info)) {\r\n      if (key.endsWith('.context_length')) { contextLength = data.model_info[key]; break; }\r\n    }\r\n  }\r\n  return {\r\n    contextLength,\r\n    parameterSize: data.details?.parameter_size || null,\r\n    family: data.details?.family || null,\r\n    quantization: data.details?.quantization_level || null\r\n  };\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "llm-api.js",
+    "BackEnd llm"
+  ],
+  "summary": "// ── Ollama model management ─────────────────────────────────────────────────\r\nasync function ollamaListModels(endpoint) {\r\n  if (!endpoint) throw new Error('No Ollama endpoint provided');\r\n  const ",
+  "importance": 0.6,
+  "createdAt": 1774646382586,
+  "createdAtISO": "2026-03-27T21:19:42.586Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-api.js",
+  "accessCount": 0
+}

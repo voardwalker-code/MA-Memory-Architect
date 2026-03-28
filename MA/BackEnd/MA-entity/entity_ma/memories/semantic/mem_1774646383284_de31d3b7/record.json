@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383284_de31d3b7",
+  "type": "semantic",
+  "content": "// ── Collect text files recursively ──────────────────────────────────────────\r\nconst TEXT_EXTS = new Set(['.js', '.ts', '.jsx', '.tsx', '.json', '.md', '.txt', '.html', '.css', '.py', '.rs', '.toml', '.yaml', '.yml', '.xml', '.csv', '.sh', '.bat', '.ps1', '.cfg', '.ini', '.env', '.sql', '.graphql', '.vue', '.svelte']);\r\nfunction _collectTextFiles(dir) {\r\n  const results = [];\r\n  const SKIP = new Set(['node_modules', '.git', 'dist', 'build', '__pycache__']);\r\n  function walk(d) {\r\n    let entries;\r\n    try { entries = fs.readdirSync(d, { withFileTypes: true }); } catch { return; }\r\n    for (const e of entries) {\r\n      if (SKIP.has(e.name)) continue;\r\n      const full = path.join(d, e.name);\r\n      if (e.isDirectory()) { walk(full); }\r\n      else if (e.isFile() && TEXT_EXTS.has(path.extname(e.name).toLowerCase())) {\r\n        try { if (fs.statSync(full).size < 512000) results.push(full); } catch { /* skip */ }\r\n      }\r\n    }\r\n  }\r\n  walk(dir);\r\n  return results;\r\n}\r\n\nmodule.exports = { createMemoryStore };",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// ── Collect text files recursively ──────────────────────────────────────────\r\nconst TEXT_EXTS = new Set(['.js', '.ts', '.jsx', '.tsx', '.json', '.md', '.txt', '.html', '.css', '.py', '.rs', '.toml'",
+  "importance": 0.6,
+  "createdAt": 1774646383285,
+  "createdAtISO": "2026-03-27T21:19:43.285Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

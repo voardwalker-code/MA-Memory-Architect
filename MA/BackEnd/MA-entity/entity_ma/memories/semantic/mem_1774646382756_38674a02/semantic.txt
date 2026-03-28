@@ -1,0 +1,25 @@
+// ── Web tools ───────────────────────────────────────────────────
+    case 'web_search':
+      if (opts.webFetchEnabled === false) return 'web_search disabled';
+      return web ? await web.webSearch(p.query) : 'web_search: web module not available';
+    case 'web_fetch':
+      if (opts.webFetchEnabled === false) return 'web_fetch disabled';
+      if (web && web.isIntegrationBlocked(p.url, opts.integrationMode)) {
+        return 'web_fetch blocked: integrationMode is off. Set integrationMode to "nekocore" to access localhost:3847 endpoints.';
+      }
+      return web ? await web.webFetch(p.url) : 'web_fetch: web module not available';
+
+    // ── Command tool ────────────────────────────────────────────────
+    case 'cmd_run':
+      if (opts.cmdRunEnabled === false) return 'cmd_run disabled';
+      return web ? await web.cmdRun(wp, p.cmd) : 'cmd_run: web module not available';
+
+    // ── Memory tool ─────────────────────────────────────────────────
+    case 'memory_search':
+      if (opts.memorySearch) {
+        const hits = opts.memorySearch(p.query, p.limit || 5);
+        return hits.length
+          ? hits.map(m => `- [${m.type || 'memory'}] ${(m.summary || m.content || '').slice(0, 300)}`).join('\n')
+          : 'No matching memories found.';
+      }
+      return 'memory_search: memory module not available';

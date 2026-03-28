@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383147_c0023da2",
+  "type": "semantic",
+  "content": "const PROMPT_ENTRY_SCHEMA = {\r\n  required: ['id', 'agentId', 'task', 'prompt', 'timestamp'],\r\n  shape: {\r\n    id:        { type: 'string',  description: 'Unique prompt ID' },\r\n    agentId:   { type: 'string',  description: 'Agent this prompt was sent to' },\r\n    task:      { type: 'string',  description: 'Short task label' },\r\n    prompt:    { type: 'string',  description: 'Full prompt text sent to agent' },\r\n    result:    { type: 'string',  description: 'Summary of agent output' },\r\n    success:   { type: 'boolean', description: 'Whether the task succeeded' },\r\n    project:   { type: 'string',  description: 'Project context (e.g. rem-system)' },\r\n    timestamp: { type: 'string',  description: 'ISO timestamp' },\r\n    tags:      { type: 'array',   description: 'Searchable tags' }\r\n  }\r\n};\r\n\n// ── Agent CRUD ──────────────────────────────────────────────────────────────\r\n\nfunction _agentDir(id) { return path.join(ENTITY_DIR, AGENT_PREFIX + id); }\r\nfunction _agentFile(id) { return path.join(_agentDir(id), 'agent.json'); }\r\nfunction _historyDir(id) { return path.join(_agentDir(id), 'prompt-history'); }\r\n\nfunction createAgent(def) {\r\n  const errors = validateAgent(def);\r\n  if (errors.length) return { ok: false, errors };\r\n\n  const dir = _agentDir(def.id);\r\n  if (fs.existsSync(dir)) return { ok: false, errors: ['Agent already exists: ' + def.id] };",
+  "topics": [
+    "MA Memory Architect",
+    "svc-agents.js",
+    "BackEnd services"
+  ],
+  "summary": "const PROMPT_ENTRY_SCHEMA = {\r\n  required: ['id', 'agentId', 'task', 'prompt', 'timestamp'],\r\n  shape: {\r\n    id:        { type: 'string',  description: 'Unique prompt ID' },\r\n    agentId:   { type: '",
+  "importance": 0.6,
+  "createdAt": 1774646383149,
+  "createdAtISO": "2026-03-27T21:19:43.149Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-agents.js",
+  "accessCount": 0
+}

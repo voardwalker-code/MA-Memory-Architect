@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382758_2b0e1ff9",
+  "type": "semantic",
+  "content": "// ── Entity tools ────────────────────────────────────────────────\n    case 'entity_create':\n      return entity ? entity.entityCreate(wp, p) : 'entity_create: entity module not available';\n    case 'entity_inject_memory':\n      return entity ? entity.entityInjectMemory(wp, p) : 'entity_inject_memory: entity module not available';\n\n    // ── Book tools ──────────────────────────────────────────────────\n    case 'book_list_chunks':\n      return book ? book.bookListChunks(wp, p.bookId) : 'book_list_chunks: book module not available';\n    case 'book_read_chunk':\n      return book ? book.bookReadChunk(wp, p.bookId, p.index) : 'book_read_chunk: book module not available';\n\n    default:\n      return `Unknown tool: ${name}`;\n  }\n}",
+  "topics": [
+    "MA Memory Architect",
+    "MA-workspace-tools.js",
+    "BackEnd"
+  ],
+  "summary": "// ── Entity tools ────────────────────────────────────────────────\n    case 'entity_create':\n      return entity ? entity.entityCreate(wp, p) : 'entity_create: entity module not available';\n    case ",
+  "importance": 0.6,
+  "createdAt": 1774646382759,
+  "createdAtISO": "2026-03-27T21:19:42.759Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-workspace-tools.js",
+  "accessCount": 0
+}

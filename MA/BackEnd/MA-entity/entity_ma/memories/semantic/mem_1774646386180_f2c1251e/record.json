@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386180_f2c1251e",
+  "type": "semantic",
+  "content": "```\r\n[TOOL:ws_write {\"path\": \"blueprint-registration-{task_type}.md\"}]\r\n# Blueprint Registration: {task_type}\r\n\n## Files Created\r\n\n- `MA-blueprints/modules/{task_type}.md` — Full blueprint\r\n- `MA-skills/{skill-name}/SKILL.md` — Skill registration\r\n- `MA-entity/entity_ma/skills/{skill-name}.md` — Runtime skill\r\n\n## MA-tasks.js Changes Required\r\n\nAdd to `TASK_TYPES` object:\r\n```js\r\n  {task_type}: { maxSteps: {N}, maxLLM: {N}, timeout: {N} },\r\n```\r\n\nAdd to `COMPLEX_TASK_TYPES` Set (if complex reasoning needed):\r\n```js\r\nconst COMPLEX_TASK_TYPES = new Set([...existing..., '{task_type}']);\r\n```\r\n\nAdd to `RULES` object:\r\n```js\r\n  {task_type}: {\r\n    kw: [{keyword list}],\r\n    re: [{regex list}]\r\n  },\r\n```\r\n\n### Keyword Design Rules\r\n- Use 10-20 keywords that a user would naturally say\r\n- Include both short forms (\"NPC\") and long forms (\"non-player character\")\r\n- Overlap with existing task types is OK — the scoring system handles priority\r\n- Include action verbs + nouns: \"create a {thing}\", \"build a {thing}\", \"design a {thing}\"\r\n\n### Regex Design Rules\r\n- 2-4 regex patterns covering the main use cases\r\n- Use `.{0,30}` for flexible gaps (not `.*` — too greedy)\r\n- Use `/i` flag for case-insensitive\r\n- Test that your patterns match common phrasings\r\n\n## Verification\r\n\nAfter registration, test classification:\r\n```js\r\nnode -e \"const t = require('./MA/BackEnd/services/svc-tasks.js'); console.log(t.classify('{test phrase}'));\"\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "blueprint_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "```\r\n[TOOL:ws_write {\"path\": \"blueprint-registration-{task_type}.md\"}]\r\n# Blueprint Registration: {task_type}\r\n\n## Files Created\r\n\n- `MA-blueprints/modules/{task_type}.md` — Full blueprint\r\n- `MA-skil",
+  "importance": 0.6,
+  "createdAt": 1774646386182,
+  "createdAtISO": "2026-03-27T21:19:46.182Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\blueprint_builder.md",
+  "accessCount": 0
+}

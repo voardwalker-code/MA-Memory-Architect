@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388559_15d97b2a",
+  "type": "semantic",
+  "content": "---\r\nname: entity-genesis\r\ndescription: Create deeply-evolved entities for NekoCore OS through iterative backstory generation, memory injection, and cognitive evolution tracking.\r\n---\r\n\n# Entity Genesis Skill\r\n\nCreate living entities for NekoCore OS with rich backstories, layered memories, and emergent cognitive states.\r\n\n## When This Skill Applies\r\n- User asks to create, forge, birth, or spawn an entity/character/persona\r\n- User wants to build a new being for the OS with backstory and memories\r\n- User mentions entity genesis, character creation, or personality forging\r\n\n## Workflow Overview\r\n\nEntity genesis is an **iterative** process:\r\n1. Design the character (name, traits, emotional baseline, backstory arc)\r\n2. Create the entity via the NekoCore OS API (generates unique ID, creates folder structure)\r\n3. For each backstory chapter:\r\n   a. Generate 3-5 first-person memories\r\n   b. Inject them via the OS enrichment API\r\n   c. Trigger a cognitive tick to process them\r\n   d. Read the evolved state to inform the next chapter\r\n4. Finalize with a genesis report\r\n\n## API Endpoints\r\n\nAll endpoints target the NekoCore OS server at `http://localhost:3847`:",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills entity-genesis"
+  ],
+  "summary": "---\r\nname: entity-genesis\r\ndescription: Create deeply-evolved entities for NekoCore OS through iterative backstory generation, memory injection, and cognitive evolution tracking.\r\n---\r\n\n# Entity Genes",
+  "importance": 0.6,
+  "createdAt": 1774646388560,
+  "createdAtISO": "2026-03-27T21:19:48.560Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\entity-genesis\\SKILL.md",
+  "accessCount": 0
+}

@@ -1,0 +1,2 @@
+## After Completion
+Update `PROJECT-MANIFEST.json`: layer 2 → "complete", all 5 modules → "implemented"

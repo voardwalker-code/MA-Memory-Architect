@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383836_952a1d78",
+  "type": "semantic",
+  "content": "// ── Tool FS (File System Tools) ──────────────────────────────────────────────\r\n//\r\n// Workspace file operations: list, read, write, append, delete, mkdir, move.\r\n//\r\n// HOW IT WORKS:\r\n// These are the tools the AI uses to interact with files in the workspace.\r\n// Each function takes the workspace root path (wp) and the parameters\r\n// from the AI's tool call, then performs the file operation safely.\r\n//\r\n// SAFETY:\r\n// Every path goes through _safe() first, which makes sure the AI can't\r\n// read or write files OUTSIDE the workspace.  If the AI tries to sneak\r\n// a path like \"../../secrets.txt\", _safe() will catch it and throw an error.\r\n// Think of it like a fence around the playground — you can play inside,\r\n// but you can't wander off.\r\n//\r\n// WHAT IT EXPORTS:\r\n//   wsList(wp, dirPath)              — List files in a directory\r\n//   wsRead(wp, filePath)             — Read a file's contents\r\n//   wsWrite(wp, filePath, content)   — Write content to a file (creates dirs)\r\n//   wsAppend(wp, filePath, content)  — Append content to a file\r\n//   wsDelete(wp, filePath)           — Delete a file or folder\r\n//   wsMkdir(wp, dirPath)             — Create a directory\r\n//   wsMove(wp, src, dst)             — Move/rename a file or folder\r\n//\r\n// USED BY: MA-workspace-tools.js (the orchestrator's executeToolCalls)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n\nconst fs   = require('fs');\r\nconst path = require('path');",
+  "topics": [
+    "MA Memory Architect",
+    "tools-fs.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ── Tool FS (File System Tools) ──────────────────────────────────────────────\r\n//\r\n// Workspace file operations: list, read, write, append, delete, mkdir, move.\r\n//\r\n// HOW IT WORKS:\r\n// These are ",
+  "importance": 0.6,
+  "createdAt": 1774646383837,
+  "createdAtISO": "2026-03-27T21:19:43.837Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-fs.js",
+  "accessCount": 0
+}

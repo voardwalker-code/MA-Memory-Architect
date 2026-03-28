@@ -1,0 +1,22 @@
+let resp = await callLLM([
+      { role: 'system', content: sysMsg },
+      { role: 'user', content: prompt }
+    ], { temperature: 0.7, ...(COMPLEX_TASK_TYPES.has(taskType) ? { thinking: true } : {}), ...(taskTimeout ? { timeout: taskTimeout } : {}), ...(nativeToolSchemas ? { tools: nativeToolSchemas } : {}) });
+    llmCalls++;
+
+    // Handle native tool_use response (object with toolCalls) vs text string
+    let nativeToolResults = [];
+    if (resp && typeof resp === 'object' && resp.toolCalls && resp.toolCalls.length) {
+      const respText = resp.content || '';
+      if (execNativeTools) {
+        nativeToolResults = await execNativeTools(resp.toolCalls, { workspacePath, webFetchEnabled: true, cmdRunEnabled: true, memorySearch });
+      }
+      resp = respText;
+    } else {
+      resp = typeof resp === 'object' ? (resp.content || '') : (resp || '');
+    }
+
+    // Strip thinking tags before tool parsing (prompt-based fallback path)
+    resp = _stripThinkingTags(resp);
+
+    if (onActivity) await onActivity('llm_call', `LLM response for step ${i + 1}`);

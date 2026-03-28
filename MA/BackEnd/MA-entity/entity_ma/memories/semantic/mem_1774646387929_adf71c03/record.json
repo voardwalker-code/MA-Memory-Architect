@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387929_adf71c03",
+  "type": "semantic",
+  "content": "# Code Quality Standards\r\n\nReference doc for MA when writing or reviewing code for the REM System.\r\n\n---\r\n\n## Module Size\r\n\n- Target: <= 300 lines for new modules\r\n- Hard limit: 800 lines before extraction plan required\r\n- Extraction threshold: 1200 lines — must extract before modifying\r\n\n---\r\n\n## File Organization\r\n\n- `server.js` is bootstrap/composition ONLY — no business logic\r\n- Routes in `server/routes/` — never in server.js\r\n- Schemas/validators in `server/contracts/`\r\n- Business logic in `server/services/` or `server/brain/`\r\n- One concern per file — don't mix transport with logic\r\n\n---\r\n\n## Async Patterns\r\n\n- Use `Promise.all` for parallel independent work (e.g., pipeline contributors)\r\n- Never revert async to sync (especially in HTML loaders)\r\n- Post-response work must be async — never block response delivery\r\n- Race patterns for timeout guards (e.g., 35s latency guard)\r\n\n---\r\n\n## Error Handling\r\n\n- Fail fast at boundaries — validate inputs at module entry\r\n- Atomic writes: temp file + rename — prevents partial data\r\n- Transaction semantics for multi-file operations — all-or-nothing\r\n- Graceful degradation: fallback paths when optional systems fail\r\n\n---\r\n\n## Memory Safety\r\n\n- Always read `semantic.txt` for memory content — never `log.json`\r\n- Normalize to schema v1 before persisting\r\n- Index updates synchronous with writes — no eventual consistency\r\n- Filter corrupted entries (boilerplate markers, doc_* in retrieval)\r\n\n---\r\n\n## Naming Conventions",
+  "topics": [
+    "MA Memory Architect",
+    "code-quality.md",
+    "MA-knowledge"
+  ],
+  "summary": "# Code Quality Standards\r\n\nReference doc for MA when writing or reviewing code for the REM System.\r\n\n---\r\n\n## Module Size\r\n\n- Target: <= 300 lines for new modules\r\n- Hard limit: 800 lines before extra",
+  "importance": 0.6,
+  "createdAt": 1774646387929,
+  "createdAtISO": "2026-03-27T21:19:47.929Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\code-quality.md",
+  "accessCount": 0
+}

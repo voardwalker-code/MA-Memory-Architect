@@ -1,0 +1,24 @@
+// ── Route a task ─────────────────────────────────────────────────
+    // Given a message and task type, the router picks the best model.
+    // Body: { message?, taskType?: "code"|"writing"|..., agentRole? }
+    // This doesn't actually send anything to the AI — it just tells you
+    // which model the router WOULD pick.
+    if (url.pathname === '/api/models/route' && method === 'POST') {
+      const body   = JSON.parse(await readBody(req));
+      const routed = modelRouter.routeModel(
+        body.message  || '',
+        body.taskType || 'code',
+        body.agentRole || null,
+        core.getConfig()
+      );
+      json(res, 200, routed);
+      return true;
+    }
+
+    // ── Performance stats ────────────────────────────────────────────
+    // Returns timing data, success rates, and usage counts for every
+    // model that has been used at least once.
+    if (url.pathname === '/api/models/performance' && method === 'GET') {
+      json(res, 200, modelRouter.getAllPerformance());
+      return true;
+    }

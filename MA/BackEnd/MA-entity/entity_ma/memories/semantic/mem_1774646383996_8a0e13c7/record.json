@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383996_8a0e13c7",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// isIntegrationBlocked(url, integrationMode)\r\n//\r\n// Checks if a URL should be blocked because it points to a NekoCore OS\r\n// endpoint (localhost:3847) and integration mode is turned off.\r\n//\r\n// When integration mode is 'nekocore', localhost:3847 is allowed.\r\n// When integration mode is 'off' (default), it's blocked.\r\n// All other URLs are always allowed.\r\n//\r\n//   url             — the URL to check\r\n//   integrationMode — 'nekocore' or 'off'\r\n//   Returns: true if blocked, false if allowed\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction isIntegrationBlocked(url, integrationMode) {\r\n  if (integrationMode === 'nekocore') return false;\r\n  let host;\r\n  let port;\r\n  try {\r\n    const parsed = new URL(url);\r\n    host = parsed.hostname;\r\n    port = parsed.port;\r\n  } catch (_) {\r\n    // If URL parsing fails, don't block — let downstream fetch show errors\r\n    return false;\r\n  }\r\n  const isLocalhost = host === 'localhost' || host === '127.0.0.1';\r\n  return isLocalhost && port === '3847';\r\n}\r\n\nmodule.exports = { webSearch, webFetch, cmdRun, isIntegrationBlocked };",
+  "topics": [
+    "MA Memory Architect",
+    "tools-web.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// isIntegrationBlocked(url, integrationMode)\r\n//\r\n// Checks if a URL should be blocked because it points to a NekoCor",
+  "importance": 0.6,
+  "createdAt": 1774646383997,
+  "createdAtISO": "2026-03-27T21:19:43.997Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-web.js",
+  "accessCount": 0
+}

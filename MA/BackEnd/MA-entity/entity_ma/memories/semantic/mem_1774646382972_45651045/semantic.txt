@@ -1,0 +1,23 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// createProjectRoutes(deps)
+//
+// Called once when the server starts.  Returns a handler that checks every
+// incoming request.  Returns true if handled, false if not ours.
+// ─────────────────────────────────────────────────────────────────────────────
+module.exports = function createProjectRoutes(deps) {
+  const { core } = deps;
+
+  return async function handle(url, method, req, res) {
+
+    // ── List all projects ────────────────────────────────────────────
+    // Returns { projects: [...] }, sorted newest-first by updatedAt
+    // (or createdAt if updatedAt is missing).
+    if (url.pathname === '/api/projects' && method === 'GET') {
+      const projects = core.projectArchive.listProjects().sort((a, b) => {
+        const aTime = new Date(a.updatedAt || a.createdAt || 0).getTime();
+        const bTime = new Date(b.updatedAt || b.createdAt || 0).getTime();
+        return bTime - aTime;
+      });
+      json(res, 200, { projects });
+      return true;
+    }

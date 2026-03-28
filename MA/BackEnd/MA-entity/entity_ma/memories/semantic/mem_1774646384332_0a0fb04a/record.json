@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384332_0a0fb04a",
+  "type": "semantic",
+  "content": "### File Drag & Drop\r\nDrag files from your file explorer onto the chat window:\r\n1. A blue overlay appears: \"Drop files here\"\r\n2. Drop the file(s) — they appear as chips below the input\r\n3. Click **✕** on a chip to remove it\r\n4. Type a message (optional) and press Enter\r\n5. MA receives the file contents as context\r\n\n**Limits:** Max 5 files, 32KB each. Text files only.\r\n\n---\r\n\n## Terminal CLI\r\n\n```bash\r\nnode MA-cli.js\r\n```\r\n\nThe CLI provides the same capabilities as the GUI:\r\n\n- Type any message and press Enter → chat with MA\r\n- Type `/command` → run a slash command\r\n- Type `/help` → see all commands\r\n- Type `/exit` or `/quit` → quit\r\n\n### Example Session\r\n\n```\r\nMA> /health\r\nMA Health Scan\r\n========================================\r\nFiles: 18 | Critical: 0 | Warnings: 0\r\n\nMA> /memory stats\r\n  episodic: 47 entries\r\n  semantic: 12 entries\r\n\nMA> Build a Python CLI tool that converts CSV to JSON\r\n  [Task: code (4 steps)]\r\n  ...\r\n\nMA> /projects\r\n  proj_001 (active) — CSV to JSON Converter, 6 nodes\r\n\nMA> /exit\r\n```\r\n\n---\r\n\n## Slash Commands Reference\r\n\nAll commands work in both the GUI and CLI. Type `/` in the GUI to see autocomplete suggestions.\r\n\n### System\r\n\n| Command | Description |\r\n|---------|-------------|\r\n| `/health` | Run a health scan on all MA modules. Reports critical errors and warnings. |\r\n| `/config` | Show current LLM configuration (provider, model, endpoint, max tokens). |\r\n\n### Memory",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "### File Drag & Drop\r\nDrag files from your file explorer onto the chat window:\r\n1. A blue overlay appears: \"Drop files here\"\r\n2. Drop the file(s) — they appear as chips below the input\r\n3. Click **✕**",
+  "importance": 0.6,
+  "createdAt": 1774646384334,
+  "createdAtISO": "2026-03-27T21:19:44.334Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

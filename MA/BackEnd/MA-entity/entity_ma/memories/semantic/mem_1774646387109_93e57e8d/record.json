@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387109_93e57e8d",
+  "type": "semantic",
+  "content": "For each event:\r\n- **Date** — as precise as available (year, month/year, or exact date)\r\n- **Title** — concise event name\r\n- **Description** — 2-3 sentences explaining what happened\r\n- **Significance** — why this event matters in the larger context\r\n- **Category** — political / social / economic / technological / cultural / scientific\r\n- **Key Figures** — people involved (if applicable)\r\n\n### Phase 3: Causal Linking\r\n\nLLM identifies cause-effect chains:\r\n- \"Event A led to Event B because...\"\r\n- \"Event C was a response to Event D...\"\r\n- Mark parallel developments that happened concurrently\r\n\n### Phase 4: Era Grouping\r\n\nGroup events into named eras/periods:\r\n- Era name + date range\r\n- Era summary (3-5 sentences covering dominant themes)\r\n- Events within era listed chronologically\r\n\n### Phase 5: Study Questions\r\n\nPer era:\r\n- 2-3 cause/effect questions (\"What caused X? What resulted from Y?\")\r\n- 1-2 significance questions (\"Why was X a turning point?\")\r\n- 1 comparison question (\"How did Era A differ from Era B?\")\r\n\n### Phase 6: Output\r\n\n```\r\n[TOOL:ws_write {\"path\": \"timeline-{topic-slug}.md\", \"content\": \"...\"}]\r\n```\r\n\nStructure: Overview → Era 1 (with events) → Era 2 → ... → Study Questions → Key Connections\r\n\n---\r\n\n## Guidelines",
+  "topics": [
+    "MA Memory Architect",
+    "study_guide.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "For each event:\r\n- **Date** — as precise as available (year, month/year, or exact date)\r\n- **Title** — concise event name\r\n- **Description** — 2-3 sentences explaining what happened\r\n- **Significance*",
+  "importance": 0.6,
+  "createdAt": 1774646387110,
+  "createdAtISO": "2026-03-27T21:19:47.110Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\study_guide.md",
+  "accessCount": 0
+}

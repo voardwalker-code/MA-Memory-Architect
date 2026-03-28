@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384367_d269e028",
+  "type": "semantic",
+  "content": "### Referencing Files in Chat\r\nWhen you mention file paths in your message, MA auto-detects them and reads the files:\r\n\n```\r\nYou: Can you review myproject/src/index.js and fix the error handling?\r\n```\r\nMA detects `myproject/src/index.js`, reads it from the workspace, and includes the full content in its context.\r\n\n**Path types detected:**\r\n- Workspace-relative paths: `myproject/src/index.js`, `rem-system/server/pipeline.js`\r\n- Bare filenames at workspace root: `package.json`, `README.md`\r\n\n**Limits:** Files must be in `MA-workspace/`, max 32KB each.\r\n\n### Dragging Files\r\n1. Drag a file from your file explorer onto the MA chat window\r\n2. A blue overlay appears — drop the file\r\n3. File chips appear below the input showing filenames\r\n4. Type your question and press Enter (or just send the files)\r\n5. MA receives the full file contents\r\n\n**Example:**\r\n```\r\n[Drag config.json into chat]\r\nYou: What's wrong with this config? It's not loading.\r\nMA:  Looking at your config.json, I can see the issue...\r\n```\r\n\n---\r\n\n## Memory System\r\n\nMA has two memory stores that persist across sessions:\r\n\n### Episodic Memory\r\nAutomatically records chat interactions and task results. MA builds context from past conversations.\r\n\n### Semantic Memory\r\nStructured knowledge you explicitly ingest. Good for reference material.\r\n\n### Commands\r\n\n```\r\n/memory stats              ← show counts\r\n/memory search auth        ← search for \"auth\" in memories\r\n/ingest myproject/docs/api.md  ← ingest a file\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "### Referencing Files in Chat\r\nWhen you mention file paths in your message, MA auto-detects them and reads the files:\r\n\n```\r\nYou: Can you review myproject/src/index.js and fix the error handling?\r\n```",
+  "importance": 0.6,
+  "createdAt": 1774646384367,
+  "createdAtISO": "2026-03-27T21:19:44.367Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

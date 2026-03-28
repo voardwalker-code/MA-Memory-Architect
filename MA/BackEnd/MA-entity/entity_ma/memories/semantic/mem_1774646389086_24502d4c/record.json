@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389086_24502d4c",
+  "type": "semantic",
+  "content": "it('applies user overrides over provider defaults', () => {\r\n    const resolved = resolveCapabilities({\r\n      type: 'anthropic',\r\n      capabilities: { extendedThinking: false, extendedCache: false }\r\n    });\r\n    assert.equal(resolved.extendedThinking, false);\r\n    assert.equal(resolved.extendedCache, false);\r\n    // Others unchanged\r\n    assert.equal(resolved.promptCaching, true);\r\n    assert.equal(resolved.compaction, false);\r\n  });\r\n\n  it('ignores unknown capability keys in overrides', () => {\r\n    const resolved = resolveCapabilities({\r\n      type: 'ollama',\r\n      capabilities: { fakeCapability: true }\r\n    });\r\n    assert.equal(resolved.fakeCapability, undefined);\r\n  });\r\n\n  it('works with empty capabilities object', () => {\r\n    const resolved = resolveCapabilities({\r\n      type: 'openrouter',\r\n      capabilities: {}\r\n    });\r\n    assert.equal(resolved.nativeToolUse, true);\r\n    assert.equal(resolved.promptCaching, false);\r\n  });\r\n\n  it('ollama user with all defaults gets conservative settings', () => {\r\n    const resolved = resolveCapabilities({ type: 'ollama' });\r\n    assert.equal(resolved.promptCaching, false);\r\n    assert.equal(resolved.extendedCache, false);\r\n    assert.equal(resolved.extendedThinking, false);\r\n    assert.equal(resolved.adaptiveThinking, false);\r\n    assert.equal(resolved.nativeToolUse, false);\r\n    assert.equal(resolved.contextEditing, false);\r\n    assert.equal(resolved.compaction, 'prompt');\r\n  });\r\n});",
+  "topics": [
+    "MA Memory Architect",
+    "MA-capabilities.test.js",
+    "tests"
+  ],
+  "summary": "it('applies user overrides over provider defaults', () => {\r\n    const resolved = resolveCapabilities({\r\n      type: 'anthropic',\r\n      capabilities: { extendedThinking: false, extendedCache: false }",
+  "importance": 0.6,
+  "createdAt": 1774646389087,
+  "createdAtISO": "2026-03-27T21:19:49.087Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "tests\\MA-capabilities.test.js",
+  "accessCount": 0
+}

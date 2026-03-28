@@ -1,0 +1,15 @@
+@media (max-width: 1220px){
+    #center-stage{padding:18px}
+    #side-panel{width:340px}
+    #chat-shell{max-width:780px}
+  }
+
+  /* Responsive overrides (centered layout) */
+  @media (max-width: 960px){
+    #main-wrap{flex-direction:column}
+    #center-stage{order:2;padding:12px}
+    #side-panel{order:3;width:100%;border-left:none;border-top:1px solid rgba(139,148,158,.14);min-height:340px}
+    #chat-shell{max-width:none;border-radius:18px}
+    #chat-toolbar{align-items:flex-start;flex-direction:column}
+    .chat-hint{text-align:left;max-width:none}
+  }

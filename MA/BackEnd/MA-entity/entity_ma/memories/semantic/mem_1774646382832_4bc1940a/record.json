@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382832_4bc1940a",
+  "type": "semantic",
+  "content": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// json()     — send a JSON response with a status code\r\n// readBody() — read the full body of a POST request\r\nconst { json, readBody } = require('../infra/infra-http-utils');\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// createChatRoutes(deps)\r\n//\r\n// Called once when the server starts.  Receives the services it needs,\r\n// and returns a handler function that will be called for every request.\r\n//\r\n// The handler returns:\r\n//   true  → \"I handled this request, stop checking other modules\"\r\n//   false → \"Not my route, let the next module try\"\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nmodule.exports = function createChatRoutes(deps) {\r\n  const { core } = deps;\r\n\n  // Figure out where chat session files are stored on disk.\r\n  // They live next to the config file, inside a \"chat-sessions\" folder.\r\n  const sessionsDir = path.join(path.dirname(core.CONFIG_PATH), 'chat-sessions');\r\n\n  return async function handle(url, method, req, res) {",
+  "topics": [
+    "MA Memory Architect",
+    "route-chat.js",
+    "BackEnd routes"
+  ],
+  "summary": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// json()     — send a JSON response with a status code\r\n// readBody() — read the full body of a POST request\r\nconst { json, readBody } = r",
+  "importance": 0.6,
+  "createdAt": 1774646382833,
+  "createdAtISO": "2026-03-27T21:19:42.833Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-chat.js",
+  "accessCount": 0
+}

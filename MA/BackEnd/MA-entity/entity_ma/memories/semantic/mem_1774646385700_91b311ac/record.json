@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385700_91b311ac",
+  "type": "semantic",
+  "content": "### Phase 5 Evidence\r\n- `npm.cmd run guardrails:standalone` => pass.\r\n- `npm.cmd run smoke:standalone` => pass (`health critical=0`).\r\n- Launcher lifecycle checks:\r\n  - start => `MA background server started (PID ...)`\r\n  - status => `running (PID ...)`\r\n  - stop => `stopped (PID ...)`\r\n\n### Phase 6 Evidence\r\n- Validation artifact created: `MA Standalone Plan/phase6-validation.json`\r\n- Observed:\r\n  - health summary: `critical=0`, `warnings=1`, `healthy=false`\r\n  - config includes `integrationMode` and default `off`\r\n  - chat endpoint returns HTTP 500 due external provider auth (`Missing Authentication header`) in current environment config.\r\n- Release readiness decision:\r\n  - Standalone migration scope is complete and validated.\r\n  - Remaining caveats are environment/config quality items, not cross-app coupling regressions.",
+  "topics": [
+    "MA Memory Architect",
+    "CHANGE-LEDGER.md",
+    "MA Standalone Plan"
+  ],
+  "summary": "### Phase 5 Evidence\r\n- `npm.cmd run guardrails:standalone` => pass.\r\n- `npm.cmd run smoke:standalone` => pass (`health critical=0`).\r\n- Launcher lifecycle checks:\r\n  - start => `MA background server ",
+  "importance": 0.6,
+  "createdAt": 1774646385700,
+  "createdAtISO": "2026-03-27T21:19:45.700Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Standalone Plan\\CHANGE-LEDGER.md",
+  "accessCount": 0
+}

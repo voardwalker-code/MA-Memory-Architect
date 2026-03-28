@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384055_844f7fcf",
+  "type": "semantic",
+  "content": "**What we did:**\r\n1. Renamed `MA-client/` → `FrontEnd/`\r\n2. Renamed `MA-server/` → `BackEnd/`\r\n3. Updated every reference across the project\r\n4. Entry points (MA-Server-standalone.js, etc.) stay at root\r\n\n---\r\n\n## The Dependency Audit Technique\r\n\nBefore moving ANY file, build a complete dependency map:\r\n\n```bash\r\n# Find every require() in the project\r\ngrep -rn \"require(\" --include=\"*.js\" .\r\n\n# For a specific file, find who imports it\r\ngrep -rn \"require.*filename\" --include=\"*.js\" .\r\n\n# For a specific file, find what it imports\r\ngrep -n \"require(\" filename.js\r\n```\r\n\n**Why this matters:** If you move a file without updating its importers,\r\nthe server crashes. The dependency map tells you exactly what to update.\r\n\n---\r\n\n## The safeRequire() Pattern\r\n\nEvery orchestrator file uses this pattern:\r\n\n```javascript\r\nfunction safeRequire(modulePath, label) {\r\n  try {\r\n    return require(modulePath);\r\n  } catch (err) {\r\n    console.warn(`⚠ Could not load \"${label}\": ${err.message}`);\r\n    return null;\r\n  }\r\n}\r\n```\r\n\n**Why:** If one module is broken (syntax error, missing dependency),\r\nthe rest of the system still works. The broken module logs a warning\r\ninstead of crashing everything.\r\n\n**Where to use it:** In orchestrator/dispatcher files that load many\r\nsub-modules. NOT in leaf modules (those should fail loudly).\r\n\n---\r\n\n## Validation Checklist\r\n\nAfter every structural change, run ALL of these:",
+  "topics": [
+    "MA Memory Architect",
+    "01-CLEANUP-PROCESS.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "**What we did:**\r\n1. Renamed `MA-client/` → `FrontEnd/`\r\n2. Renamed `MA-server/` → `BackEnd/`\r\n3. Updated every reference across the project\r\n4. Entry points (MA-Server-standalone.js, etc.) stay at ro",
+  "importance": 0.6,
+  "createdAt": 1774646384056,
+  "createdAtISO": "2026-03-27T21:19:44.056Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\01-CLEANUP-PROCESS.md",
+  "accessCount": 0
+}

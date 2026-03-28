@@ -1,0 +1,27 @@
+**layer-{N}.test.js** — For each layer, write to `workspace/{project}/{prefix}-tests/layer-{N}.test.js`:
+- Import contract and modules for that layer
+- Test contract shapes: field existence, types, required flags
+- Test validators: valid input passes, invalid input fails with error messages
+- Test factory functions: defaults applied, IDs generated, timestamps set
+- Test module exports: function exists and type is 'function'
+- Test stub behavior: calling function throws NOT_IMPLEMENTED
+- Group tests in labeled sections: `console.log('\n  [{section name}]');`
+
+### Step 8: Project Status Script + package.json + Verification
+
+**project-status.js** — Write to `workspace/{project}/{prefix}-scripts/project-status.js`:
+
+```javascript
+'use strict';
+const fs   = require('fs');
+const path = require('path');
+
+const MANIFEST = path.join(__dirname, '..', 'PROJECT-MANIFEST.json');
+
+function run() {
+  if (!fs.existsSync(MANIFEST)) { console.log('No PROJECT-MANIFEST.json found.'); return; }
+  const m = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
+  const mods = m.modules || [];
+  const total = mods.length;
+  const done  = mods.filter(x => x.status === 'complete' || x.status === 'implemented').length;
+  const stubs = mods.filter(x => x.status === 'stub').length;

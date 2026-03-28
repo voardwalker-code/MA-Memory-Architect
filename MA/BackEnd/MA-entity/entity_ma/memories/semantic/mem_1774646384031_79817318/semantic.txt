@@ -1,0 +1,26 @@
+| Module | Lines | Responsibility |
+|--------|-------|----------------|
+| `core-config.js` | 311 | Config load/save/normalize/legacy migration |
+| `core-bootstrap.js` | 219 | Dirs, entity, skills, agents, memory, knowledge |
+| `core-tokens.js` | 122 | Token estimation + history compression |
+| `core-context.js` | 333 | Context gathering + system prompt assembly |
+| `core-chat.js` | 362 | Chat handler with fast paths + task routing |
+
+3. **Rewrote MA-core.js** as a 236-line orchestrator that:
+   - Loads each module with `safeRequire()`
+   - Holds shared state (config, memory, entity, mode)
+   - Delegates all work to the focused modules
+   - Re-exports the same public API (nothing changes for consumers)
+
+**Key lesson:** Identify the "seams" — places where one concern ends
+and another begins. Config loading is different from chat handling.
+Token counting is different from context assembly. Each seam is a
+potential module boundary.
+
+---
+
+## Phase 5 — Workspace Tools Modularization
+
+**Problem:** `MA-workspace-tools.js` was 711 lines — tool schemas, text
+parsing, file operations, entity creation, book reading, web fetching,
+and command execution all in one file.

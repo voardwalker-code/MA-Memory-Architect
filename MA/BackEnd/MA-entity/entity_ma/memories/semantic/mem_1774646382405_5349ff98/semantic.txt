@@ -1,0 +1,31 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// initMemory(createMemoryStore)
+//
+// Starts the memory system.  Memory lets MA remember past conversations,
+// decisions, and facts — kind of like a notebook it can search through.
+//
+//   createMemoryStore — the factory function from MA-memory.js
+//   Returns: the memory store instance
+// ─────────────────────────────────────────────────────────────────────────────
+function initMemory(createMemoryStore) {
+  const memory = createMemoryStore('ma');
+  console.log('  Memory store ready');
+  return memory;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// loadKnowledge(knowledgeDir, name)
+//
+// Loads a single knowledge document by name.  Knowledge docs are markdown
+// files in the MA-knowledge/ folder that contain reference material —
+// things like architecture patterns, code quality guides, etc.
+//
+//   knowledgeDir — path to the MA-knowledge folder
+//   name         — document name (with or without .md extension)
+//   Returns: the file content as a string, or null if not found
+// ─────────────────────────────────────────────────────────────────────────────
+function loadKnowledge(knowledgeDir, name) {
+  const p = path.join(knowledgeDir, name.endsWith('.md') ? name : name + '.md');
+  if (fs.existsSync(p)) return fs.readFileSync(p, 'utf8');
+  return null;
+}

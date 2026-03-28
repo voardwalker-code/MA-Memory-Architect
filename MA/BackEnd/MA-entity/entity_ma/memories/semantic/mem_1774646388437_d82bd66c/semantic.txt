@@ -1,0 +1,52 @@
+### CSS
+```css
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Variables */
+:root {
+  --color-primary: #2563eb;
+  --font-main: system-ui, sans-serif;
+}
+
+/* Layout */
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+}
+```
+
+## Code Quality Checklist
+
+Before writing any file, verify:
+
+- [ ] **Inputs validated** — functions check that required parameters exist
+- [ ] **No hardcoded secrets** — API keys, passwords, tokens go in config, never in code
+- [ ] **Error messages are specific** — say WHAT failed and WHERE, not just "Error"
+- [ ] **No dead code** — no commented-out blocks, no unused imports
+- [ ] **Consistent style** — match the existing project's naming, indentation, quotes
+- [ ] **File is complete** — no placeholder comments, no `TODO` stubs, no `...` gaps
+
+## Debugging Workflow
+
+When the user reports a bug:
+
+1. **Read the buggy file:**
+   ```
+   [TOOL:ws_read path="src/broken.js"]
+   ```
+
+2. **Understand the expected vs actual behavior** — ask the user if unclear
+
+3. **Trace the problem:**
+   - Where does the data come from? (input)
+   - Where does it go wrong? (transform)
+   - What is the wrong output? (result)
+
+4. **Fix with minimum change** — change only what is broken, do not refactor surrounding code
+
+5. **Write the fixed file:**
+   ```
+   [TOOL:ws_write path="src/broken.js" content="...complete fixed file..."]
+   ```

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384087_75ecdb83",
+  "type": "semantic",
+  "content": "```javascript\r\n// ── NLP · BM25 Relevance Scoring ─────────────────────────────────────────────\r\n//\r\n// HOW SEARCH RANKING WORKS:\r\n// Imagine you're looking for a book in a library.  You know the topics\r\n// you care about (\"dragons\", \"magic\"), and each book has its own topics.\r\n// BM25 scores how well a book matches your search — higher score means\r\n// better match.\r\n//\r\n// This is the Okapi BM25 algorithm, a proven formula used by real search\r\n// engines.  It accounts for:\r\n//   - How often your search words appear in the document (term frequency)\r\n//   - How long the document is (longer docs get a slight penalty)\r\n//   - A smoothing factor so rare words matter more\r\n//\r\n// TUNING KNOBS:\r\n//   k1 = 1.5   — controls how much extra occurrences of a word matter\r\n//   b  = 0.75  — controls how much document length affects the score\r\n//   avgDL = 8  — assumed average document length (in topics)\r\n//   IDF = ln(2) — simplified inverse-document-frequency (fast, good enough)\r\n//\r\n// WHAT USES THIS:\r\n//   svc-memory.js — ranks memories by relevance when the AI searches\r\n//\r\n// EXPORTS:\r\n//   bm25Score(queryTopics, docTopics, opts?)               → number\r\n//   bm25ScoreWithImportance(queryTopics, docTopics, i, d)  → number\r\n//   K1, B, AVG_DL — the tuning constants (exported for tests)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n```\r\n\n### Real Example — Orchestrator Module",
+  "topics": [
+    "MA Memory Architect",
+    "02-WRITING-AND-COMMENTING-GUIDE.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "```javascript\r\n// ── NLP · BM25 Relevance Scoring ─────────────────────────────────────────────\r\n//\r\n// HOW SEARCH RANKING WORKS:\r\n// Imagine you're looking for a book in a library.  You know the topi",
+  "importance": 0.6,
+  "createdAt": 1774646384088,
+  "createdAtISO": "2026-03-27T21:19:44.088Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\02-WRITING-AND-COMMENTING-GUIDE.md",
+  "accessCount": 0
+}

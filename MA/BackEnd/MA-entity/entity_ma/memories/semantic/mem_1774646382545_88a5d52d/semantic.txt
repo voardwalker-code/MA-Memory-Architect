@@ -1,0 +1,31 @@
+// ── listWorkspaceTree(rootDir) → Array<{name, path, type, children?}> ──────
+// Builds a nested tree structure suitable for the workspace file-explorer UI.
+// Directories are listed before files at each level; dot-files are hidden.
+// Recursion is capped at depth 6 to avoid runaway traversal of node_modules
+// or similar deep trees.
+function listWorkspaceTree(rootDir, currentDir = rootDir, depth = 0) {
+  if (!fs.existsSync(currentDir)) return [];
+  if (depth > 6) return [];
+  const entries = fs.readdirSync(currentDir, { withFileTypes: true })
+    .filter(entry => !entry.name.startsWith('.'))
+    .sort((a, b) => {
+      // Directories first, then alphabetical
+      if (a.isDirectory() !== b.isDirectory()) return a.isDirectory() ? -1 : 1;
+      return a.name.localeCompare(b.name);
+    });
+
+  return entries.map(entry => {
+    const fullPath = path.join(currentDir, entry.name);
+    const relativePath = path.relative(rootDir, fullPath).replace(/\\/g, '/');
+    return {
+      name: entry.name,
+      path: relativePath,
+      type: entry.isDirectory() ? 'directory' : 'file',
+      children: entry.isDirectory()
+        ? listWorkspaceTree(rootDir, fullPath, depth + 1)
+        : undefined
+    };
+  });
+}
+
+module.exports = { MIME, json, readBody, resolveInsideRoot, listMarkdownFiles, listWorkspaceTree };

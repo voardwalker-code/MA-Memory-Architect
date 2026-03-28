@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384996_d6c8b37b",
+  "type": "semantic",
+  "content": "async function loadArchivesList() {\r\n  const el = document.getElementById('ingest-archives-list');\r\n  if (!el) return;\r\n  try {\r\n    const r = await fetch('/api/memory/archives');\r\n    const archives = await r.json();\r\n    const keys = Object.keys(archives);\r\n    if (!keys.length) { el.textContent = 'No archives yet.'; return; }\r\n    el.innerHTML = '';\r\n    for (const name of keys) {\r\n      const a = archives[name];\r\n      const row = document.createElement('div');\r\n      row.className = 'archive-row';\r\n      row.innerHTML = '<strong>' + escHtml(name) + '</strong> — ' +\r\n        a.fileCount + ' files, ' + a.chunkCount + ' chunks' +\r\n        '<br><span style=\"color:var(--dim);font-size:11px\">' + (a.ingestedAt || '').slice(0, 16) + '</span>';\r\n      el.appendChild(row);\r\n    }\r\n  } catch (_) { el.textContent = 'Could not load archives.'; }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-config.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function loadArchivesList() {\r\n  const el = document.getElementById('ingest-archives-list');\r\n  if (!el) return;\r\n  try {\r\n    const r = await fetch('/api/memory/archives');\r\n    const archives ",
+  "importance": 0.6,
+  "createdAt": 1774646384997,
+  "createdAtISO": "2026-03-27T21:19:44.997Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-config.js",
+  "accessCount": 0
+}

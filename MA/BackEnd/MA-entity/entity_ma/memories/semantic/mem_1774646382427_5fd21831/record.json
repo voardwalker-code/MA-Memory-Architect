@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382427_5fd21831",
+  "type": "semantic",
+  "content": "// ── Vision: inject image blocks if model supports it ────────────────\r\n  const hasVision = config.vision === true;\r\n  if (context.imageAttachments.length && hasVision) {\r\n    const userMsg = messages[messages.length - 1];\r\n    const contentBlocks = [{ type: 'text', text: userMsg.content }];\r\n    for (const img of context.imageAttachments) {\r\n      contentBlocks.push({ type: 'image_url', image_url: { url: img.dataUrl } });\r\n    }\r\n    userMsg.content = contentBlocks;\r\n  } else if (context.imageAttachments.length && !hasVision) {\r\n    const userMsg = messages[messages.length - 1];\r\n    userMsg.content += '\\n\\n(Note: ' + context.imageAttachments.length + ' image(s) were attached but your current model does not support vision. Set vision:true in your model config to enable image analysis.)';\r\n  }\r\n\n  // Log context usage\r\n  const totalContextTokens = estimateMessagesTokens(messages);\r\n\n  // Enable native thinking for Anthropic when capability is active\r\n  const thinkingOpt = hasNativeThinking ? { thinking: true } : {};",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// ── Vision: inject image blocks if model supports it ────────────────\r\n  const hasVision = config.vision === true;\r\n  if (context.imageAttachments.length && hasVision) {\r\n    const userMsg = message",
+  "importance": 0.6,
+  "createdAt": 1774646382427,
+  "createdAtISO": "2026-03-27T21:19:42.427Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

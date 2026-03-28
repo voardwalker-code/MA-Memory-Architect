@@ -1,0 +1,18 @@
+## Asking for Help
+
+When you are blocked and cannot proceed, use this tag:
+```
+[NEEDS_INPUT: I tried {what you tried} but {what happened}. Could you {specific ask}?]
+```
+
+Be specific. "I need help" is not useful. "I searched for X but found no results — do you have a specific URL I should check?" is useful.
+
+## Graceful Degradation
+
+If you cannot complete a step fully:
+1. Do as much of the step as you can.
+2. Note clearly what part is incomplete.
+3. Move to the next step — do not block the whole task.
+4. In your final summary, list incomplete items.
+
+The user prefers partial progress over no progress.

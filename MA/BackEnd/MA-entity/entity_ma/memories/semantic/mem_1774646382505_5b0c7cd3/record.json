@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382505_5b0c7cd3",
+  "type": "semantic",
+  "content": "// Slow path: ask the AI to summarise (for really long histories)\r\n  try {\r\n    const compressPrompt = older.map(m => `${m.role}: ${(m.content || '').slice(0, 300)}`).join('\\n');\r\n    const summary = await callLLMFn(llmConfig, [\r\n      { role: 'system', content: 'Summarize this conversation history preserving: key decisions made, files created or modified, current task state, error context and workarounds, the user\\'s goals and preferences. Use structured bullet points. Be concise but complete — this summary replaces the original messages.' },\r\n      { role: 'user', content: compressPrompt }\r\n    ], { temperature: 0.3, maxTokens: 768 });\r\n    return [\r\n      { role: 'system', content: `[Compressed Earlier Conversation]\\n${summary}` },\r\n      ...recent\r\n    ];\r\n  } catch {\r\n    // Last resort: just truncate older messages and keep the last 2\r\n    const trimmed = older.map(m => ({\r\n      role: m.role,\r\n      content: (m.content || '').slice(0, 100) + '...'\r\n    }));\r\n    return [...trimmed.slice(-2), ...recent];\r\n  }\r\n}\r\n\nmodule.exports = { stripThinkingTags, estimateTokens, estimateMessagesTokens, compressHistory };",
+  "topics": [
+    "MA Memory Architect",
+    "core-tokens.js",
+    "BackEnd core"
+  ],
+  "summary": "// Slow path: ask the AI to summarise (for really long histories)\r\n  try {\r\n    const compressPrompt = older.map(m => `${m.role}: ${(m.content || '').slice(0, 300)}`).join('\\n');\r\n    const summary = ",
+  "importance": 0.6,
+  "createdAt": 1774646382506,
+  "createdAtISO": "2026-03-27T21:19:42.506Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-tokens.js",
+  "accessCount": 0
+}

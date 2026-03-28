@@ -1,0 +1,10 @@
+// ── Archive index (track which archives exist) ──────────────────────────
+  function _loadArchiveIndex() {
+    const p = path.join(entityRoot, 'index', 'archiveIndex.json');
+    try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return {}; }
+  }
+  function _saveArchiveIndex(idx) {
+    const p = path.join(entityRoot, 'index', 'archiveIndex.json');
+    fs.writeFileSync(p, JSON.stringify(idx, null, 2), 'utf8');
+  }
+  function listArchives() { return _loadArchiveIndex(); }

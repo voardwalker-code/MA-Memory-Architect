@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385389_821c4c09",
+  "type": "semantic",
+  "content": "// Open as a read-only tab in the editor\r\n    const tabName = (node.summary || node.sourceType || 'node').slice(0, 40);\r\n    const tab = {\r\n      id: 'tab-arc-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),\r\n      path: '__archive__/' + projectId + '/' + nodeId,\r\n      name: tabName,\r\n      content: text,\r\n      originalContent: text,\r\n      ext: 'txt',\r\n      mode: 'code',\r\n      viewMode: 'source',\r\n      dirty: false\r\n    };\r\n    openTabs.push(tab);\r\n    renderEditorTabs();\r\n    activateTab(tab.id);\r\n  } catch (e) {\r\n    addSystem('Error loading archive node: ' + e.message);\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "// Open as a read-only tab in the editor\r\n    const tabName = (node.summary || node.sourceType || 'node').slice(0, 40);\r\n    const tab = {\r\n      id: 'tab-arc-' + Date.now() + '-' + Math.random().toSt",
+  "importance": 0.6,
+  "createdAt": 1774646385390,
+  "createdAtISO": "2026-03-27T21:19:45.390Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

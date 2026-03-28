@@ -1,0 +1,30 @@
+// Write semantic.txt (plain text for scanning) + record.json (structured)
+    fs.writeFileSync(path.join(dest, 'semantic.txt'), content, 'utf8');
+    fs.writeFileSync(path.join(dest, 'record.json'), JSON.stringify(record, null, 2), 'utf8');
+
+    // Update index
+    const entry = { id, type, topics: record.topics, summary: record.summary, importance: record.importance, createdAt: record.createdAt, createdAtISO: record.createdAtISO, chainId: record.chainId, archive: record.archive };
+    (type === 'semantic' ? _index.semantic : _index.episodic).push(entry);
+    _saveIndex();
+
+    return record;
+  }
+
+  // ── Retrieve ─────────────────────────────────────────────────────────────
+  function retrieve(memId) {
+    // Try both dirs
+    for (const dir of [episodicDir, semanticDir]) {
+      const p = path.join(dir, memId, 'record.json');
+      if (fs.existsSync(p)) {
+        const rec = JSON.parse(fs.readFileSync(p, 'utf8'));
+        rec.accessCount = (rec.accessCount || 0) + 1;
+        fs.writeFileSync(p, JSON.stringify(rec, null, 2), 'utf8');
+        return rec;
+      }
+    }
+    return null;
+  }
+
+  // ── Search (RAKE query extraction + BM25 scoring) ─────────────────────────
+  function search(query, limit = 10) {
+    if (!query || typeof query !== 'string') return [];

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386994_a20f5a0d",
+  "type": "semantic",
+  "content": "Think through this step-by-step:\r\n1. [First reasoning step instruction]\r\n2. [Second reasoning step instruction]\r\n...\r\nN. Based on your analysis, provide your final answer in this format:\r\n   [exact output format]\r\n```\r\n\nIf the user wants hidden reasoning (thinking visible only to the system), wrap it:\r\n```\r\n<thinking>\r\n[reasoning steps here]\r\n</thinking>\r\n\n[Final answer only — user sees this]\r\n```\r\n\nWrite to file:\r\n```\r\n[TOOL:ws_write {\"path\":\"prompts/{slug}-cot.md\"}]\r\n{chain-of-thought prompt}\r\n[/TOOL]\r\n```\r\n\n---\r\n\n## STRUCTURED / TOOL PROMPT MODE\r\n\nBuild a prompt that makes the model produce structured output (JSON, function calls, schema-conformant data).\r\n\n[TASK_PLAN]\r\n- [ ] Define the target schema or tool interface\r\n- [ ] Write instructions that enforce structure\r\n- [ ] Include 1-2 schema-conformant examples\r\n- [ ] Write prompt to file\r\n[/TASK_PLAN]\r\n\n### Phase 1 — Schema Definition\r\n\nGet the exact schema from the user. If they don't have one, help design it:\r\n```json\r\n{\r\n  \"field1\": \"type — description\",\r\n  \"field2\": \"type — description\"\r\n}\r\n```\r\n\n### Phase 2 — Write Prompt\r\n\nStructure for JSON output:\r\n```\r\nYou must respond with valid JSON matching this exact schema:\r\n\n{schema}\r\n\nRules:\r\n- Output ONLY the JSON object. No markdown, no explanation, no wrapping.\r\n- All fields are required unless marked optional.\r\n- [Type-specific constraints]\r\n\nExample:\r\n{one conformant example}\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "prompt_engineering.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Think through this step-by-step:\r\n1. [First reasoning step instruction]\r\n2. [Second reasoning step instruction]\r\n...\r\nN. Based on your analysis, provide your final answer in this format:\r\n   [exact ou",
+  "importance": 0.6,
+  "createdAt": 1774646386995,
+  "createdAtISO": "2026-03-27T21:19:46.995Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\prompt_engineering.md",
+  "accessCount": 0
+}

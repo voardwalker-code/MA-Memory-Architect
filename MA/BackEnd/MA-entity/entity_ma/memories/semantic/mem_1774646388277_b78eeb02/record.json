@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388277_b78eeb02",
+  "type": "semantic",
+  "content": "// ── MA domain modules ───────────────────────────────────────────────────────\r\nconst core        = require('./BackEnd/MA-core');             // orchestration, state, chat\r\nconst llm         = require('./BackEnd/llm/llm-api');        // LLM provider interface\r\nconst pulse       = require('./BackEnd/services/svc-pulse'); // background timers (health, chores)\r\nconst modelRouter = require('./BackEnd/llm/llm-router');     // multi-model routing\r\nconst cmdExec     = require('./BackEnd/infra/infra-cmd-executor'); // whitelisted command execution\r\nconst { handleSlashCommand }    = require('./BackEnd/services/svc-slash-commands');\r\nconst { renderMarkdownToHtml }  = require('./BackEnd/nlp/nlp-markdown');\r\nconst { createRouteHandler }    = require('./BackEnd/MA-routes');\r\n\n// ── Paths & constants ───────────────────────────────────────────────────────\r\nconst CLIENT_DIR    = path.join(core.MA_ROOT, 'FrontEnd');   // browser UI assets\r\nconst BLUEPRINT_DIR = path.join(core.MA_ROOT, 'MA-blueprints'); // markdown blueprints\r\nconst DEFAULT_PORT  = 3850;   // preferred port; will scan up to 3860 if busy\r\nconst PORT_RANGE_END = 3860;\r\n\n// ── Port helpers ────────────────────────────────────────────────────────────\r\n// Replaces the old port-guard service.  Probes the loopback interface to find\r\n// an open port without any external dependency.",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Server-standalone.js",
+    "."
+  ],
+  "summary": "// ── MA domain modules ───────────────────────────────────────────────────────\r\nconst core        = require('./BackEnd/MA-core');             // orchestration, state, chat\r\nconst llm         = requir",
+  "importance": 0.6,
+  "createdAt": 1774646388277,
+  "createdAtISO": "2026-03-27T21:19:48.277Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-Server-standalone.js",
+  "accessCount": 0
+}

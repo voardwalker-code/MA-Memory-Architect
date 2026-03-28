@@ -1,0 +1,31 @@
+// ── Task path ───────────────────────────────────────────────────────
+  // If the message looks like a task (coding, research, writing, etc.),
+  // hand it off to the task runner which can do multi-step work with tools.
+  if (intent.intent === 'task' && intent.confidence >= 0.2) {
+    const routed = modelRouter.routeModel(message, intent.taskType, null, config);
+    const taskLLMConfig = routed.config;
+
+    worklog.setActiveTask(message.slice(0, 100), null, null);
+    if (onActivity) await onActivity('llm_call', `Starting ${intent.taskType} task...`);
+
+    // Check if the model supports native function calling (tool use)
+    const taskUseNativeTools = hasCapability(taskLLMConfig, 'nativeToolUse');
+    const taskToolSchemas = taskUseNativeTools ? buildToolSchemas(taskLLMConfig.type) : null;
+
+    const result = await tasks.runTask({
+      taskType: intent.taskType,
+      message,
+      entityName,
+      callLLM: (msgs, opts) => callLLM(taskLLMConfig, msgs, autoPilot ? { ...opts, timeout: 0 } : opts),
+      execTools: wsTools.executeToolCalls,
+      execNativeTools: taskUseNativeTools ? wsTools.executeNativeToolCalls : null,
+      nativeToolSchemas: taskToolSchemas,
+      formatResults: wsTools.formatToolResults,
+      stripTools: wsTools.stripToolCalls,
+      workspacePath: WORKSPACE_DIR,
+      integrationMode,
+      memorySearch: memory ? (q, l) => memory.search(q, l) : null,
+      onStep,
+      onActivity,
+      agentCatalog
+    });

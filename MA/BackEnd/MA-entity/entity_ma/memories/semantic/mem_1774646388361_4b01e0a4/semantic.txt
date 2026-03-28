@@ -1,0 +1,19 @@
+4. **Write Skill Files** — Write `MA-skills/{skill-name}/SKILL.md` (YAML frontmatter + triggers + workflow + tools) and `MA-entity/entity_ma/skills/{skill-name}.md` (compact runtime reference, under 80 lines).
+
+5. **Generate Classifier** — Generate the exact TASK_TYPES, COMPLEX_TASK_TYPES, and RULES entries for MA-tasks.js. Write to a registration summary file with verification instructions.
+
+6. **Summary** — Present: files created, registration snippet, test commands, capability description.
+
+## Quality Standards
+
+- Blueprint must be self-contained — executable by an LLM with no external context
+- Every phase needs concrete tool call examples
+- Keywords designed to avoid collision with existing 17 task types
+- Mode detection tables include ASK fallback for ambiguity
+- Output always goes to workspace files, not chat
+
+## Tools Used
+
+- `ws_list` — Check existing blueprints for overlap
+- `ws_read` — Read existing blueprints for pattern reference
+- `ws_write` — Write blueprint, skill, and summary files

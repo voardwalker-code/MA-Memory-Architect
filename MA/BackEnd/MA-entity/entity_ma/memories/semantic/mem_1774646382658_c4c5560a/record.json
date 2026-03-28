@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382658_c4c5560a",
+  "type": "semantic",
+  "content": "// ── MA Core ─────────────────────────────────────────────────────────────────\n// Shared bootstrap, state, and chat orchestration for MA.\n// Both MA-Server.js (HTTP) and MA-cli.js (terminal) import this.\n// No HTTP, no readline — pure logic + state.\n//\n// HOW IT WORKS:\n// This file is the \"conductor\" of the orchestra.  Instead of having all\n// the music in one giant score, each section has its own sheet:\n//\n//   core-config.js    — Loading and saving LLM provider settings\n//   core-bootstrap.js — Starting up: dirs, entity, skills, agents, memory\n//   core-tokens.js    — Token counting and history compression\n//   core-context.js   — Gathering context (files, memories, knowledge...)\n//   core-chat.js      — The main chat handler (tasks + conversation)\n//\n// This file (MA-core.js) just holds the shared state, calls the boot\n// sequence, and delegates handleChat to the chat module.\n// The conductor doesn't play every instrument — it coordinates them.\n//\n// RESILIENCE:\n// Each core module is loaded with safeRequire() — so if a module file\n// is missing or broken, the server logs a warning instead of crashing.\n// One broken piece won't take down the whole system.\n//\n// EXPORTS (public API — used by MA-Server, CLI, routes, slash-commands):\n//   Boot:       boot, ensureDirs, loadConfig, loadEntity, initMemory\n//   State:      getConfig, getMemory, getEntity, isConfigured, setConfig\n//   Mode:       getMode, setMode, getIntegrationMode\n//   Chat:       handleChat\n//   Knowledge:  loadKnowledge, listKnowledge\n//   Re-exports: health, tasks, wsTools, agentCatalog, projectArchive,\n//               modelRouter, worklog\n//   Paths:      MA_ROOT, CONFIG_PATH, LEGACY_GLOBAL_CONFIG_PATH,\n//               ENTITY_DIR, WORKSPACE_DIR, KNOWLEDGE_DIR\n// ─────────────────────────────────────────────────────────────────────────────\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "MA-core.js",
+    "BackEnd"
+  ],
+  "summary": "// ── MA Core ─────────────────────────────────────────────────────────────────\n// Shared bootstrap, state, and chat orchestration for MA.\n// Both MA-Server.js (HTTP) and MA-cli.js (terminal) import t",
+  "importance": 0.6,
+  "createdAt": 1774646382658,
+  "createdAtISO": "2026-03-27T21:19:42.658Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-core.js",
+  "accessCount": 0
+}

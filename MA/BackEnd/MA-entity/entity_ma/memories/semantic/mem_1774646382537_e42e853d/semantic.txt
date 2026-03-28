@@ -1,0 +1,34 @@
+// ── Infra · HTTP Utilities ─────────────────────────────────────────────────
+//
+// A TOOLBOX FOR THE WEB SERVER:
+// Every route handler needs to do the same few things over and over:
+//   • Send a JSON response back to the browser
+//   • Read the body of an incoming POST request
+//   • Check that a file path doesn't escape the workspace (security!)
+//   • List files in a directory
+//
+// Instead of copy-pasting that code into every route, these shared
+// helper functions live here.  Think of it like a toolbox that every
+// route module reaches into.
+//
+// WHAT'S IN THE BOX:
+//   MIME              — file extension → content-type map (.js → text/javascript)
+//   json(res, data)   — send a JSON response with proper headers
+//   readBody(req)     — collect POST body with 10 MB safety limit
+//   resolveInsideRoot(userPath, root) — path-traversal guard
+//   listMarkdownFiles(dir) — recursively find all .md files
+//   listWorkspaceTree(dir) — build a nested file/folder tree
+//
+// SECURITY:
+//   resolveInsideRoot() prevents directory traversal attacks.
+//   readBody() has a size limit to prevent memory exhaustion.
+//   These are STATELESS — they don't depend on config or core.
+//
+// WHAT USES THIS:
+//   MA-routes.js + every route module in routes/
+//
+// EXPORTS:
+//   MIME, json, readBody, resolveInsideRoot,
+//   listMarkdownFiles, listWorkspaceTree
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

@@ -1,0 +1,20 @@
+```
+[TOOL:ws_write {"path": "exam-prep-{subject-slug}/study-plan.md", "content": "..."}]
+[TOOL:ws_write {"path": "exam-prep-{subject-slug}/topic-reviews/topic-01-{name}.md", "content": "..."}]
+[TOOL:ws_write {"path": "exam-prep-{subject-slug}/cheat-sheet.md", "content": "..."}]
+[TOOL:ws_write {"path": "exam-prep-{subject-slug}/mock-exam.md", "content": "..."}]
+[TOOL:ws_write {"path": "exam-prep-{subject-slug}/mock-exam-answers.md", "content": "..."}]
+```
+
+---
+
+## Guidelines
+
+**DO:**
+- Use Bloom's taxonomy for learning objectives — specific, measurable verbs
+- Make practice questions match the expected format (don't give MC practice for an essay exam)
+- Include worked examples — students learn from seeing the process
+- Generate realistic mock exams — matching length, format, and difficulty
+- Cross-reference book chapters when in Book-to-Course mode
+- Offer tutor entity creation when it would add value
+- Keep cheat sheets genuinely concise — one page, not five

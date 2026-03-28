@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389309_bc0003a3",
+  "type": "semantic",
+  "content": "### Via Slash Commands\r\n```\r\n/whitelist                          ← view current whitelist\r\n/whitelist add deno run,test,fmt    ← add deno with specific subcommands\r\n/whitelist add ruby                 ← add ruby with all subcommands\r\n/whitelist remove deno              ← remove deno\r\n/whitelist reset                    ← reset to defaults\r\n```\r\n\n### Via Config File\r\nDirect edit `MA-Config/cmd-whitelist.json`:\r\n```json\r\n{\r\n  \"cargo\": [\"build\",\"run\",\"test\"],\r\n  \"python\": null,\r\n  \"node\": null\r\n}\r\n```\r\n(`null` = all subcommands allowed, array = only those subcommands)\r\n\n---\r\n\n## Token Budget & Continuation\r\n\nMA is aware of its context window limits and manages them actively.\r\n\n### How It Works\r\n- **20% of maxTokens** is reserved for MA's response\r\n- The rest is the **context budget** (system prompt + history + your message)\r\n- The GUI shows a **color-coded bar** after each response:\r\n  - 🔵 Blue = under 65% — plenty of room\r\n  - 🟡 Yellow = 65–85% — getting close\r\n  - 🔴 Red = over 85% — near the limit\r\n\n### History Compression\r\nWhen your conversation gets long, MA automatically compresses older turns:\r\n- The 4 most recent messages are kept verbatim\r\n- Older turns are compressed into a bullet-point summary\r\n- This happens transparently — you don't need to do anything",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "### Via Slash Commands\r\n```\r\n/whitelist                          ← view current whitelist\r\n/whitelist add deno run,test,fmt    ← add deno with specific subcommands\r\n/whitelist add ruby                ",
+  "importance": 0.6,
+  "createdAt": 1774646389310,
+  "createdAtISO": "2026-03-27T21:19:49.310Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

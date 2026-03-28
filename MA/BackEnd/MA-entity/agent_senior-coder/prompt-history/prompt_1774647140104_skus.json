@@ -1,0 +1,13 @@
+{
+  "id": "prompt_1774647140104_skus",
+  "agentId": "senior-coder",
+  "task": "What code/project are you working on?",
+  "prompt": "ORIGINAL REQUEST: \"No I want you to tell me whats not working and how to fix it\"\n\n► Step 2 of 8: What code/project are you working on?\n\nCOMPLETED:\n  ✓ 1. **Gather Context** - Request details about your issue: — I need more context to help you. Please provide:\n\n1. **What are you working on?** (project name, framework, or codebase)\n2. **What's the error or issu\n\nExecute step 2 now. Write files with [TOOL:ws_write {\"path\":\"file\"}]\ncontent\n[/TOOL]",
+  "result": "To help you identify what's not working and how to fix it, I need you to provide:\n\n1. **The error message** - What does the error say? (paste it directly)\n\n2. **The relevant code** - Which file/function is failing? (paste the code)\n\n3. **What you expected** vs **what happened**\n\n---\n\n**Example of helpful context:**\n```\nError: TypeError: Cannot read property 'map' of undefined\nFile: src/services/userService.js\nLine: 45\n\nExpected: array of users\nActual: undefined\n```\n\nOnce you share the error or c",
+  "success": true,
+  "project": "",
+  "timestamp": "2026-03-27T21:32:20.105Z",
+  "tags": [
+    "code"
+  ]
+}

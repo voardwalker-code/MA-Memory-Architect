@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383659_b56a1229",
+  "type": "semantic",
+  "content": "return { finalResponse, steps: stepOutputs, llmCalls, filesChanged: allWrittenFiles };\r\n}\r\n\nmodule.exports = { classify, runTask, TASK_TYPES, parsePlan, getBlueprint };",
+  "topics": [
+    "MA Memory Architect",
+    "svc-tasks.js",
+    "BackEnd services"
+  ],
+  "summary": "return { finalResponse, steps: stepOutputs, llmCalls, filesChanged: allWrittenFiles };\r\n}\r\n\nmodule.exports = { classify, runTask, TASK_TYPES, parsePlan, getBlueprint };",
+  "importance": 0.6,
+  "createdAt": 1774646383660,
+  "createdAtISO": "2026-03-27T21:19:43.660Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-tasks.js",
+  "accessCount": 0
+}

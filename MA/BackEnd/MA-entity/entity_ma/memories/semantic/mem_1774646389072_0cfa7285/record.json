@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389072_0cfa7285",
+  "type": "semantic",
+  "content": "it('user override replaces provider default', () => {\r\n    const config = {\r\n      type: 'anthropic',\r\n      capabilities: { extendedThinking: false }\r\n    };\r\n    assert.equal(hasCapability(config, 'extendedThinking'), false);\r\n  });\r\n\n  it('user override true on ollama enables capability', () => {\r\n    const config = {\r\n      type: 'ollama',\r\n      capabilities: { nativeToolUse: true }\r\n    };\r\n    assert.equal(hasCapability(config, 'nativeToolUse'), true);\r\n  });\r\n\n  it('returns false for completely unknown capability names', () => {\r\n    assert.equal(hasCapability({ type: 'anthropic' }, 'teleportation'), false);\r\n  });\r\n\n  it('falls back to ollama defaults for unknown provider', () => {\r\n    const config = { type: 'mystery' };\r\n    assert.equal(hasCapability(config, 'promptCaching'), false);\r\n  });\r\n});\r\n\ndescribe('resolveCapabilities()', () => {\r\n  it('returns frozen object', () => {\r\n    const resolved = resolveCapabilities({ type: 'anthropic' });\r\n    assert.throws(() => { resolved.promptCaching = false; }, TypeError);\r\n  });\r\n\n  it('returns provider defaults when no overrides', () => {\r\n    const resolved = resolveCapabilities({ type: 'anthropic' });\r\n    assert.equal(resolved.promptCaching, true);\r\n    assert.equal(resolved.extendedThinking, true);\r\n    assert.equal(resolved.compaction, false);\r\n  });",
+  "topics": [
+    "MA Memory Architect",
+    "MA-capabilities.test.js",
+    "tests"
+  ],
+  "summary": "it('user override replaces provider default', () => {\r\n    const config = {\r\n      type: 'anthropic',\r\n      capabilities: { extendedThinking: false }\r\n    };\r\n    assert.equal(hasCapability(config, '",
+  "importance": 0.6,
+  "createdAt": 1774646389072,
+  "createdAtISO": "2026-03-27T21:19:49.072Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "tests\\MA-capabilities.test.js",
+  "accessCount": 0
+}

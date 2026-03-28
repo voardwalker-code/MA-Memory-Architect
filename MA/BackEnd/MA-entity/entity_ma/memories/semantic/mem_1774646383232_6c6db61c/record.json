@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383232_6c6db61c",
+  "type": "semantic",
+  "content": "// ── Archive Ingest (read file → chunk → store as semantic) ───────────────\r\n  function ingest(filePath, meta = {}) {\r\n    if (!fs.existsSync(filePath)) throw new Error(`File not found: ${filePath}`);\r\n    const raw = fs.readFileSync(filePath, 'utf8');\r\n    const chunks = _chunkText(raw, 1500);\r\n    const results = [];\r\n    for (let i = 0; i < chunks.length; i++) {\r\n      const chunk = chunks[i];\r\n      const rec = store('semantic', chunk, {\r\n        topics:    meta.topics || [path.basename(filePath)],\r\n        summary:   chunk.slice(0, 200),\r\n        importance: meta.importance ?? 0.6,\r\n        archive:   meta.archive || null,\r\n        sourcePath: meta.sourcePath || filePath\r\n      });\r\n      results.push(rec.id);\r\n    }\r\n    return { chunksStored: results.length, ids: results };\r\n  }\r\n\n  // ── Folder Ingest (recursive — each folder gets its own archive tag) ────\r\n  function ingestFolder(folderPath, opts = {}) {\r\n    if (!fs.existsSync(folderPath)) throw new Error(`Folder not found: ${folderPath}`);\r\n    const archiveName = opts.archive || path.basename(folderPath);\r\n    const onProgress = opts.onProgress || (() => {});\r\n    const abort = opts.abort || { aborted: false };\r\n\n    // Collect all text files recursively\r\n    const files = _collectTextFiles(folderPath);\r\n    const total = files.length;\r\n    let processed = 0;\r\n    let totalChunks = 0;\r\n    const allIds = [];",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// ── Archive Ingest (read file → chunk → store as semantic) ───────────────\r\n  function ingest(filePath, meta = {}) {\r\n    if (!fs.existsSync(filePath)) throw new Error(`File not found: ${filePath}`)",
+  "importance": 0.6,
+  "createdAt": 1774646383233,
+  "createdAtISO": "2026-03-27T21:19:43.233Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

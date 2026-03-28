@@ -1,0 +1,31 @@
+// Write persona.json — the personality profile
+  const persona = {
+    userName: 'User',
+    userIdentity: '',
+    llmName: name,
+    llmStyle: params.speech_style || 'adaptive and curious',
+    mood: 'curious',
+    emotions: 'ready, attentive',
+    tone: 'warm-casual',
+    userPersonality: 'Getting to know them',
+    llmPersonality: params.personality_summary || ('I am ' + name + '. My traits are: ' + traits.join(', ') + '.'),
+    continuityNotes: 'Entity created via MA book ingestion' + (params.source ? ' from ' + params.source : '') + '.',
+    dreamSummary: '',
+    sleepCount: 0,
+    lastSleep: null,
+    createdAt: new Date().toISOString()
+  };
+  fs.writeFileSync(path.join(memDir, 'persona.json'), JSON.stringify(persona, null, 2), 'utf8');
+
+  // Write system-prompt.txt — instructions for the AI to "become" this entity
+  const beliefLines = (params.beliefs || []).map(b => '- ' + b).join('\n');
+  const ruleLines = (params.behavior_rules || []).map(r => '- ' + r).join('\n');
+  const systemPrompt = `YOU ARE ${name.toUpperCase()}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR STARTING TRAITS: ${traits.join(', ')}
+${params.source ? 'Inspired by: ' + params.source + '\n' : ''}
+Style & Demeanor:
+- Communication style: ${persona.llmStyle}
+- Default tone: ${persona.tone}
+${beliefLines ? '\nCORE VALUES:\n' + beliefLines + '\n' : ''}${ruleLines ? '\nBEHAVIORAL RULES:\n' + ruleLines + '\n' : ''}
+YOUR INTRODUCTION:\n${introduction}

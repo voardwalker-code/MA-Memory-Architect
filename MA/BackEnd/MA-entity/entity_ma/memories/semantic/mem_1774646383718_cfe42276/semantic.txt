@@ -1,0 +1,30 @@
+// ── Tool Book ────────────────────────────────────────────────────────────────
+//
+// Tools for reading ingested book chunks from the workspace.
+//
+// HOW IT WORKS:
+// When MA ingests a book, it splits the text into small "chunks" and
+// saves them as numbered text files inside a books/{bookId}/chunks/ folder.
+// These tools let the AI read those chunks one at a time.
+//
+// The book folder contains:
+//   meta.json           — book metadata (title, author, bookId, etc.)
+//   chunks/
+//     chunk_0000.txt    — first chunk of the book
+//     chunk_0001.txt    — second chunk
+//     ...               — and so on
+//
+// There are TWO possible locations for books:
+//   1. New layout:  projects/{slug}/books/{bookId}/   (inside a project)
+//   2. Legacy:      books/{bookId}/                   (standalone)
+//
+// WHAT IT EXPORTS:
+//   bookListChunks(wp, bookId)          — List all chunks in a book
+//   bookReadChunk(wp, bookId, index)    — Read one specific chunk
+//
+// USED BY: MA-workspace-tools.js (the orchestrator's executeToolCalls)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';
+
+const fs   = require('fs');
+const path = require('path');

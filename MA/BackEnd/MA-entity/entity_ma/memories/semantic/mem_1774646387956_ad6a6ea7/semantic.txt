@@ -1,0 +1,35 @@
+# REM System — Cognitive Pipeline
+
+Reference doc for MA when building or extending the pipeline and orchestration layer.
+
+---
+
+## Pipeline Overview
+
+Incoming user turns first classify for task intent. High-confidence tasks dispatch to MTOA (Modular Task Orchestration). Low confidence falls to the companion pipeline: Subconscious (1A) and Dream-Intuition (1D) run in parallel, then Conscious (1C) reasons with all context, then the Orchestrator voices the response.
+
+Post-turn side effects (memory encoding, relationship update) run asynchronously after response is sent.
+
+---
+
+## Pipeline Flow
+
+```
+User Input
+    │
+    ├─ Task fork? ──yes──→ MTOA: classify → contextualize → execute
+    │                        └── Frontman events → SSE → Client
+    │
+    └─ No ──→ Companion Pipeline:
+              ├── 1A Subconscious (parallel)  ── memory retrieval, relationship context
+              ├── 1D Dream-Intuition (parallel) ── abstract associations, lateral links
+              │
+              └── Both complete → 1C Conscious ── full reasoning draft
+                                    │
+                                    └── Orchestrator (Final) ── review + voice
+                                           │
+                                    ┌──────┴──────┐
+                                    v              v
+                              Memory Encode   Relationship Update
+                              (async)         (async)
+```

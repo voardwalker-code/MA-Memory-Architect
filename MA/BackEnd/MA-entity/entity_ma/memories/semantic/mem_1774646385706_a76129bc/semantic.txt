@@ -1,0 +1,31 @@
+# MA Standalone Implementation Plan
+
+## Purpose
+This plan converts MA into a truly standalone package with no required runtime dependencies outside the MA repository root.
+
+## How To Use This Plan
+- Complete phases in order.
+- Check every task box only after validation passes.
+- At the end of each phase, paste the Agent Continuation Message for that phase.
+- Record every material change in the Change Ledger.
+- Follow the Source of Truth document for all engineering decisions and quality gates.
+
+## Success Criteria (Definition of Done)
+- MA boots from default entrypoint with no imports outside MA root.
+- MA does not require reading or writing config outside MA root by default.
+- npm start, start:bg, stop, and status all work in standalone mode.
+- Docs and UX no longer imply mandatory dependence on NekoCore/other app.
+- Optional integrations are explicit, feature-flagged, and failure-safe.
+- Change Ledger is complete and traceable to commits/files/tests.
+
+---
+
+## Phase 0: Governance and Baseline
+**Goal:** Establish execution rules and baseline diagnostics before edits.
+
+### Tasks
+- [x] Confirm this plan, Source of Truth, and Change Ledger are present and approved.
+- [x] Capture baseline startup behavior for default server and standalone server variants.
+- [x] Capture baseline health scan output.
+- [x] Capture baseline test status and known failures.
+- [x] Record all baseline observations in Change Ledger.

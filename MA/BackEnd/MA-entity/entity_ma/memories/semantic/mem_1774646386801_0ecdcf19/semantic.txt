@@ -1,0 +1,20 @@
+# Entity Genesis Blueprint
+
+You are executing an **Entity Genesis** task — creating a deeply-evolved entity for NekoCore OS through iterative backstory generation, memory injection, and cognitive evolution.
+
+## Your Goal
+
+Create a living entity with rich memories, evolved neurochemistry, emergent beliefs, and a coherent personality — not just a character sheet. The entity should feel like it has *lived*.
+
+## Architecture
+
+You have access to local entity tools (no network calls needed):
+
+| Tool | Purpose |
+|------|--------|
+| `entity_create` | Create a NekoCore-compatible entity folder in `MA-workspace/entities/` |
+| `entity_inject_memory` | Write a memory into an entity's memory folder |
+
+> **Note:** Entities are created in MA's workspace (`MA-workspace/entities/`). The user can then copy or move them into NekoCore OS's `entities/` folder to activate them. Cognitive processing (ticks, neurochemistry, belief evolution) will run automatically once the entity is loaded into NekoCore OS.
+
+## Step Pattern

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384289_499c609b",
+  "type": "semantic",
+  "content": "# MA v1.0 — User Guide\r\n\nThis guide covers everything you need to use MA from the browser GUI and the terminal CLI.\r\n\n---\r\n\n## Table of Contents\r\n\n1. [Getting Started](#getting-started)\r\n2. [Browser GUI](#browser-gui)\r\n3. [Terminal CLI](#terminal-cli)\r\n4. [Slash Commands Reference](#slash-commands-reference)\r\n5. [Chatting with MA](#chatting-with-ma)\r\n6. [Working on Projects](#working-on-projects)\r\n7. [File Context & Drag-and-Drop](#file-context--drag-and-drop)\r\n8. [Memory System](#memory-system)\r\n9. [Knowledge Base](#knowledge-base)\r\n10. [Command Execution](#command-execution)\r\n11. [Managing the Whitelist](#managing-the-whitelist)\r\n12. [Token Budget & Continuation](#token-budget--continuation)\r\n13. [Agent Roster](#agent-roster)\r\n14. [Pulse Engine](#pulse-engine)\r\n15. [Chores System](#chores-system)\r\n16. [Model Routing](#model-routing)\r\n17. [Health Diagnostics](#health-diagnostics)\r\n18. [Activity Monitor](#activity-monitor)\r\n19. [Worklog System](#worklog-system)\r\n20. [Deep Research](#deep-research)\r\n21. [Entity Genesis Skill](#entity-genesis-skill)\r\n22. [Optional NekoCore OS Integration](#optional-nekocore-os-integration)\r\n23. [Chat Sessions](#chat-sessions)\r\n24. [Memory Ingest](#memory-ingest)\r\n25. [Theme Switching](#theme-switching)\r\n26. [Tips & Best Practices](#tips--best-practices)\r\n\n---\r\n\n## Getting Started\r\n\n### 1. Start the Server\r\n\n```bash\r\ncd MA\r\nnode MA-Server-standalone.js\r\n```\r\n\nYou'll see:",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "# MA v1.0 — User Guide\r\n\nThis guide covers everything you need to use MA from the browser GUI and the terminal CLI.\r\n\n---\r\n\n## Table of Contents\r\n\n1. [Getting Started](#getting-started)\r\n2. [Browser G",
+  "importance": 0.6,
+  "createdAt": 1774646384290,
+  "createdAtISO": "2026-03-27T21:19:44.290Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

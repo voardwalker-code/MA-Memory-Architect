@@ -1,0 +1,37 @@
+function detectEditorMode(ext) {
+  const e = ext.toLowerCase();
+  if (e === 'md' || e === 'markdown') return 'markdown';
+  if (e === 'html' || e === 'htm') return 'html';
+  return 'code';
+}
+
+function renderEditorTabs() {
+  if (!editorTabs) return;
+  editorTabs.innerHTML = openTabs.map(function(tab) {
+    const active = tab.id === activeTabId ? ' active' : '';
+    const dirtyDot = tab.dirty ? ' •' : '';
+    return '<button class="editor-tab' + active + '" data-tab="' + tab.id + '" onclick="activateTab(\'' + tab.id + '\')">' +
+      '<span class="name">' + escHtml(tab.name) + dirtyDot + '</span>' +
+      '<span class="close" onclick="event.stopPropagation();closeTab(\'' + tab.id + '\')" title="Close">&times;</span>' +
+    '</button>';
+  }).join('');
+}
+
+function activateTab(tabId) {
+  activeTabId = tabId;
+  renderEditorTabs();
+  renderEditorContent();
+}
+
+function closeTab(tabId) {
+  const idx = openTabs.findIndex(t => t.id === tabId);
+  if (idx === -1) return;
+  const tab = openTabs[idx];
+  if (tab.dirty && !confirm('Discard unsaved changes to ' + tab.name + '?')) return;
+  openTabs.splice(idx, 1);
+  if (activeTabId === tabId) {
+    activeTabId = openTabs.length ? openTabs[Math.min(idx, openTabs.length - 1)].id : null;
+  }
+  renderEditorTabs();
+  renderEditorContent();
+}

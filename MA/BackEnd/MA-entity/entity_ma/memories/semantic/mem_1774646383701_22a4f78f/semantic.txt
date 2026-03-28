@@ -1,0 +1,42 @@
+/** Record task completion. */
+function recordTask(taskType, description, filesOrSteps, status, projectId) {
+  const state = getState();
+  const date = new Date().toISOString().slice(0, 10);
+  state.recentWork.push({
+    date,
+    task: `${taskType}: ${description.slice(0, 60)}`,
+    files: typeof filesOrSteps === 'number' ? `${filesOrSteps} steps` : (filesOrSteps || '0'),
+    status: status || 'complete'
+  });
+  if (projectId) {
+    state.activeProject = projectId;
+    state.activeProjectStatus = 'in-progress';
+  }
+  state.lastActivity = new Date().toISOString();
+  state.currentTask = null;
+  state.taskPlan = [];
+  state.resumePoint = `Last completed: ${taskType} — ${description.slice(0, 80)}`;
+  write(state);
+}
+
+/** Set the active task and plan. */
+function setActiveTask(task, plan, projectId) {
+  const state = getState();
+  state.currentTask = task;
+  state.taskPlan = (plan || []).map(s => typeof s === 'string' ? { done: false, description: s } : s);
+  if (projectId) {
+    state.activeProject = projectId;
+    state.activeProjectStatus = 'in-progress';
+  }
+  state.lastActivity = new Date().toISOString();
+  write(state);
+}
+
+/** Mark a step done by index. */
+function markStepDone(stepIndex) {
+  const state = getState();
+  if (state.taskPlan && state.taskPlan[stepIndex]) {
+    state.taskPlan[stepIndex].done = true;
+    write(state);
+  }
+}

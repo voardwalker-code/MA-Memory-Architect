@@ -1,0 +1,56 @@
+<!-- LLM pane -->
+    <div id="cfg-llm" class="cfg-pane active">
+      <label>Provider</label>
+      <select id="cfg-type">
+        <option value="openrouter">OpenRouter</option>
+        <option value="ollama">Ollama</option>
+        <option value="anthropic">Anthropic Direct</option>
+      </select>
+      <label>Endpoint URL</label>
+      <input id="cfg-endpoint" placeholder="https://openrouter.ai/api/v1/chat/completions">
+      <label>API Key (blank for Ollama)</label>
+      <div class="key-row">
+        <input id="cfg-key" type="password" placeholder="sk-or-...">
+        <button class="key-toggle" id="cfg-key-toggle" type="button" onclick="toggleCfgKeyVisibility()">See</button>
+      </div>
+      <label>Model</label>
+      <div id="model-text-wrap">
+        <input id="cfg-model" list="cfg-model-datalist" placeholder="anthropic/claude-sonnet-4">
+        <datalist id="cfg-model-datalist"></datalist>
+      </div>
+      <div id="model-ollama-wrap" style="display:none">
+        <div class="model-row">
+          <select id="cfg-model-select" onchange="onOllamaModelSelect()"><option value="">-- select a model --</option></select>
+          <button onclick="loadOllamaModels()" title="Refresh model list">&#x27F3;</button>
+        </div>
+        <div id="model-info"></div>
+        <div class="pull-row">
+          <input id="cfg-pull-name" placeholder="Pull a model (e.g. llama3.1:8b)">
+          <button onclick="pullOllamaModel()">Pull</button>
+        </div>
+        <div id="pull-status"></div>
+      </div>
+      <label>Max Tokens <span id="cfg-tokens-val" style="color:var(--accent)">12288</span></label>
+      <input id="cfg-tokens" type="range" min="1024" max="1000000" step="1024" value="12288" oninput="document.getElementById('cfg-tokens-val').textContent=this.value" style="accent-color:var(--accent)">
+      <div id="cfg-tokens-hint" style="font-size:12px;color:var(--dim);margin-top:4px">20% of Max Tokens is reserved for MA's reply.</div>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer"><input id="cfg-vision" type="checkbox" style="accent-color:var(--accent)"> Vision (model supports images)</label>
+      <label>Workspace Path <span style="color:var(--dim);font-size:11px">(blank = default MA-workspace/)</span></label>
+      <input id="cfg-workspace" placeholder="MA-workspace">
+      <label>Integration Mode</label>
+      <select id="cfg-integration-mode">
+        <option value="off">Off (Standalone)</option>
+        <option value="nekocore">NekoCore Integration</option>
+      </select>
+      <label>Theme</label>
+      <select id="cfg-theme">
+        <option value="system">Use Browser Preference</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+      <label>Memory Recall <span id="cfg-mem-limit-val" style="color:var(--accent)">6</span></label>
+      <input id="cfg-mem-limit" type="range" min="6" max="50" step="1" value="6" oninput="document.getElementById('cfg-mem-limit-val').textContent=this.value" style="accent-color:var(--accent)">
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer"><input id="cfg-mem-recall" type="checkbox" checked style="accent-color:var(--accent)"> Enable memory recall in chat</label>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;margin-top:6px"><input id="cfg-autopilot" type="checkbox" style="accent-color:var(--accent)"> Auto Pilot <span style="font-size:11px;color:var(--dim)">(no timeout popups — let MA run freely)</span></label>
+      <div class="btn-row" style="margin-top:10px">
+        <button class="btn-cancel" type="button" onclick="resetWorkspaceLayout()">Reset Workspace Layout</button>
+      </div>

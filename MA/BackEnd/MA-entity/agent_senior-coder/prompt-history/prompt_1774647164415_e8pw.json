@@ -1,0 +1,13 @@
+{
+  "id": "prompt_1774647164415_e8pw",
+  "agentId": "senior-coder",
+  "task": "**Diagnose** - Once you provide details, I will:",
+  "prompt": "ORIGINAL REQUEST: \"No I want you to tell me whats not working and how to fix it\"\n\n► Step 5 of 8: **Diagnose** - Once you provide details, I will:\n\nCOMPLETED:\n  ✓ 1. **Gather Context** - Request details about your issue: — I need more context to help you. Please provide:\n\n1. **What are you working on?** (project name, framework, or codebase)\n2. **What's the error or issu\n  ✓ 2. What code/project are you working on? — To help you identify what's not working and how to fix it, I need you to provide",
+  "result": "I can't diagnose an issue without the actual details. Please provide:\n\n1. **The error message** (paste it directly)\n2. **The code** that's causing the error\n3. **What framework/language** you're using\n\nWithout these, I have nothing to analyze. Share the specifics and I'll tell you exactly what's broken and how to fix it.",
+  "success": true,
+  "project": "",
+  "timestamp": "2026-03-27T21:32:44.415Z",
+  "tags": [
+    "code"
+  ]
+}

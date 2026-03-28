@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "phase2-validate-core",
+			"type": "shell",
+			"command": "node -e \"const core=require('./BackEnd/MA-core'); core.boot(); core.setConfig({type:'ollama',endpoint:'http://localhost:11434',model:'llama3.1:8b',workspacePath:'',memoryLimit:10,memoryRecall:true}); console.log('phase2-ok');\"",
+			"isBackground": false
+		}
+	]
+}

@@ -1,0 +1,2 @@
+.pane-splitter{width:5px;flex-shrink:0;background:rgba(255,255,255,.02);border-left:1px solid rgba(0,0,0,.25);border-right:1px solid rgba(0,0,0,.25);cursor:col-resize;position:relative}
+  .pane-splitter:hover,.pane-splitter.dragging{background:rgba(88,166,255,.22)}

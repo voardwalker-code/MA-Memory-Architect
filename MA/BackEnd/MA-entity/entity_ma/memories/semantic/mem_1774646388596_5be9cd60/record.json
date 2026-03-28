@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388596_5be9cd60",
+  "type": "semantic",
+  "content": "- Use `mem_search` to find past conversations and memories relevant to the current topic\r\n- Use `mem_create` for facts the entity should never forget\r\n- Working notes in the workspace are useful for multi-step research or projects\r\n- Chatlog results from `mem_search` are compressed — reconstruct the narrative before referencing them",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills memory-tools"
+  ],
+  "summary": "- Use `mem_search` to find past conversations and memories relevant to the current topic\r\n- Use `mem_create` for facts the entity should never forget\r\n- Working notes in the workspace are useful for m",
+  "importance": 0.6,
+  "createdAt": 1774646388597,
+  "createdAtISO": "2026-03-27T21:19:48.597Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\memory-tools\\SKILL.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388045_fafe0ec6",
+  "type": "semantic",
+  "content": "# REM System — Memory System Design\r\n\nReference doc for MA when building or extending the REM memory layer.\r\n\n---\r\n\n## Memory Types\r\n\n| Type | Directory | Purpose |\r\n|------|-----------|---------|\r\n| Episodic | memories/episodic/ | Individual conversation events |\r\n| Semantic | memories/semantic/ | Abstracted knowledge derived from episodes |\r\n| Long-Term (LTM) | memories/ltm/ | Compressed chatlog chunks for session continuity |\r\n| Core | memories/episodic/ (high importance) | High-importance events, protected from decay |\r\n\n---\r\n\n## Memory Record Structure\r\n\nEach memory is a folder:\r\n```\r\nmem_<timestamp>_<random>/\r\n  log.json      — metadata (id, type, topics, importance, decay, created, etc.)\r\n  semantic.txt  — plain-text content (what gets read into LLM context)\r\n  memory.zip    — compressed full content for LTM reconstruction\r\n```\r\n\n**Critical:** `log.json` is metadata-only. Actual content is in `semantic.txt`.\r\n\n---\r\n\n## Memory Schema (version 1)\r\n\nCanonical module: `server/contracts/memory-schema.js`\r\n\nFields: memorySchemaVersion (always 1), memory_id, type (episodic|semantic|ltm|core), created, last_accessed, access_count, access_events, decay (0.0–1.0), importance (0.0–1.0), topics (string[]), emotionalTag.\r\n\n---\r\n\n## Memory Lifecycle",
+  "topics": [
+    "MA Memory Architect",
+    "memory-system.md",
+    "MA-knowledge"
+  ],
+  "summary": "# REM System — Memory System Design\r\n\nReference doc for MA when building or extending the REM memory layer.\r\n\n---\r\n\n## Memory Types\r\n\n| Type | Directory | Purpose |\r\n|------|-----------|---------|\r\n| ",
+  "importance": 0.6,
+  "createdAt": 1774646388046,
+  "createdAtISO": "2026-03-27T21:19:48.046Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\memory-system.md",
+  "accessCount": 0
+}

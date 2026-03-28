@@ -1,0 +1,37 @@
+function listAgents() {
+  if (!fs.existsSync(ENTITY_DIR)) return [];
+  return fs.readdirSync(ENTITY_DIR)
+    .filter(d => d.startsWith(AGENT_PREFIX) && fs.statSync(path.join(ENTITY_DIR, d)).isDirectory())
+    .map(d => {
+      const id = d.slice(AGENT_PREFIX.length);
+      return getAgent(id);
+    })
+    .filter(Boolean);
+}
+
+function findAgentsByRole(role) {
+  return listAgents().filter(a => a.role === role);
+}
+
+function findAgentsByCapability(capability) {
+  return listAgents().filter(a => (a.capabilities || []).includes(capability));
+}
+
+function getCatalogSummary() {
+  const agents = listAgents();
+  const byRole = {};
+  for (const a of agents) {
+    if (!byRole[a.role]) byRole[a.role] = [];
+    byRole[a.role].push({ id: a.id, name: a.name, seniority: a.seniority, usageCount: a.usageCount });
+  }
+  return { total: agents.length, byRole };
+}
+
+// ── Prompt History ──────────────────────────────────────────────────────────
+
+function recordPrompt(agentId, entry) {
+  const agent = getAgent(agentId);
+  if (!agent) return { ok: false, errors: ['Agent not found: ' + agentId] };
+
+  const histDir = _historyDir(agentId);
+  if (!fs.existsSync(histDir)) fs.mkdirSync(histDir, { recursive: true });

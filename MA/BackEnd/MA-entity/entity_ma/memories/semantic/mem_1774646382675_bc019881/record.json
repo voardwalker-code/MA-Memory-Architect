@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382675_bc019881",
+  "type": "semantic",
+  "content": "// Snapshot of current state — core-chat reads but does not mutate\n  const state = {\n    config, memory, entity, skills, maMode,\n    WORKSPACE_DIR, KNOWLEDGE_DIR, MA_ROOT\n  };\n\n  // Dependencies — all the modules and functions core-chat needs\n  const deps = {\n    callLLM, tasks, wsTools, modelRouter, worklog,\n    projectArchive, agentCatalog, hasCapability, buildToolSchemas,\n    gatherContext:          coreContext ? coreContext.gatherContext : null,\n    buildSystemPrompt:      coreContext ? coreContext.buildSystemPrompt : null,\n    compressHistory:        coreTokens ? coreTokens.compressHistory : null,\n    estimateTokens:         coreTokens ? coreTokens.estimateTokens : null,\n    estimateMessagesTokens: coreTokens ? coreTokens.estimateMessagesTokens : null,\n    stripThinkingTags:      coreTokens ? coreTokens.stripThinkingTags : null,\n    listKnowledge,\n    loadKnowledge\n  };\n\n  return coreChat.handleChat(chatOpts, state, deps);\n}",
+  "topics": [
+    "MA Memory Architect",
+    "MA-core.js",
+    "BackEnd"
+  ],
+  "summary": "// Snapshot of current state — core-chat reads but does not mutate\n  const state = {\n    config, memory, entity, skills, maMode,\n    WORKSPACE_DIR, KNOWLEDGE_DIR, MA_ROOT\n  };\n\n  // Dependencies — all",
+  "importance": 0.6,
+  "createdAt": 1774646382675,
+  "createdAtISO": "2026-03-27T21:19:42.675Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-core.js",
+  "accessCount": 0
+}

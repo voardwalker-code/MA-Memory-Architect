@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387489_02ff3d76",
+  "type": "semantic",
+  "content": "# Layer 3 — Entity Identity\r\n\n## Pre-Requisite\r\n- Layer 2 tests pass: `node tests/test-runner.js 2`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/entity/entity-state.js` — Entity CRUD + lifecycle\r\n2. `server/entity/context-builder.js` — LLM context assembly\r\n\n## Instructions Per Module\r\n\n### entity-state.js — `createEntityState(entitiesDir)`\r\n- **createEntity(opts)**:\r\n  1. Validate name not in RESERVED_NAMES (case-insensitive)\r\n  2. Generate ID via `entitySchema.generateEntityId(opts.name)`\r\n  3. Create directory: `entitiesDir/entity_<name>/`\r\n  4. Write three files:\r\n     - `entity.json`: { id, name, creationMode, created, ... }\r\n     - `persona.json`: { voice, traits, boundaries, origin_story, ... }\r\n     - `system-prompt.txt`: Generated from persona\r\n  5. Validate entity with `entitySchema.validateEntity(entity)`\r\n  6. Return entity object\r\n\n- **loadEntity(entityId)**:\r\n  1. Read `entity.json` from entity directory\r\n  2. Read `persona.json`\r\n  3. Read `system-prompt.txt`\r\n  4. Return combined { entity, persona, systemPrompt }\r\n\n- **updatePersona(entityId, patch)**:\r\n  1. Load current persona\r\n  2. Deep merge patch (don't overwrite arrays, merge them)\r\n  3. Atomic write back\r\n  4. Regenerate system-prompt.txt if voice or traits changed\r\n  5. Return updated persona\r\n\n- **listEntities()**:\r\n  1. readdir entitiesDir\r\n  2. Filter directories starting with `entity_`\r\n  3. For each: read entity.json, return summary { id, name, creationMode }",
+  "topics": [
+    "MA Memory Architect",
+    "layer-3-entity.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "# Layer 3 — Entity Identity\r\n\n## Pre-Requisite\r\n- Layer 2 tests pass: `node tests/test-runner.js 2`\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/entity/entity-state.js` — Entity CRUD ",
+  "importance": 0.6,
+  "createdAt": 1774646387489,
+  "createdAtISO": "2026-03-27T21:19:47.489Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-3-entity.md",
+  "accessCount": 0
+}

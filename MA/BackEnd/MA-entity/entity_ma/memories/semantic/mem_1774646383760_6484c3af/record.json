@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383760_6484c3af",
+  "type": "semantic",
+  "content": "const fs     = require('fs');\r\nconst path   = require('path');\r\nconst crypto = require('crypto');\r\nconst zlib   = require('zlib');\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// entityCreate(wp, params)\r\n//\r\n// Creates a brand new entity in the workspace.  Builds the full folder\r\n// structure, writes entity.json (identity), persona.json (personality),\r\n// and system-prompt.txt (LLM instructions for playing this character).\r\n//\r\n//   wp     — absolute path to the workspace\r\n//   params — validated parameters from the entity_create schema:\r\n//     .name               — the entity's name (required)\r\n//     .gender             — gender identity (default: 'neutral')\r\n//     .traits             — array of personality traits\r\n//     .introduction       — how the entity introduces itself\r\n//     .source             — where the entity came from (e.g. a book title)\r\n//     .personality_summary — one-line personality description\r\n//     .speech_style       — how the entity talks\r\n//     .beliefs            — core values and beliefs\r\n//     .behavior_rules     — rules the entity follows\r\n//\r\n//   Returns: success message with the entity ID, or error string\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction entityCreate(wp, params) {\r\n  const name = params.name;\r\n  if (!name || !name.trim()) return 'Error: entity name is required';",
+  "topics": [
+    "MA Memory Architect",
+    "tools-entity.js",
+    "BackEnd tools"
+  ],
+  "summary": "const fs     = require('fs');\r\nconst path   = require('path');\r\nconst crypto = require('crypto');\r\nconst zlib   = require('zlib');\r\n\n// ────────────────────────────────────────────────────────────────",
+  "importance": 0.6,
+  "createdAt": 1774646383761,
+  "createdAtISO": "2026-03-27T21:19:43.761Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-entity.js",
+  "accessCount": 0
+}

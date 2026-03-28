@@ -1,0 +1,34 @@
+---
+name: app-builder
+description: Build, install, and manage complete NekoCore OS apps — HTML payload, installer contract, window registration, start menu category. Produces installer-managed, reversible app packages.
+---
+
+# App Builder Skill
+
+You can create complete NekoCore OS applications that run as windowed apps inside the desktop environment.
+
+## What You Can Do
+
+1. **Design app UI** — plan layout, sections, controls for any app type
+2. **Write HTML payloads** — self-contained tab-content files with script logic
+3. **Build installer contracts** — JSON contracts for repeat-safe install/uninstall
+4. **Install apps** — run the installer CLI to wire up all registrations
+5. **Uninstall apps** — cleanly reverse any installed app
+
+## Triggers
+
+- "build an app", "create an app", "make an app"
+- "NekoCore app", "new app", "app builder"
+- "install an app", "add an app"
+
+## Workflow
+
+1. Gather requirements: name, purpose, features, category, icon
+2. Design the layout and interaction model
+3. Write the HTML payload to `client/apps/non-core/core/tab-<appId>.html`
+4. PAUSE — show the user what was built, get approval
+5. Write the installer contract to `server/contracts/installer-<appId>.contract.example.json`
+6. Run installer dry-run, then actual install
+7. Verify all 4 registration points (payload, loader, window registry, category map)
+
+## Key Rules

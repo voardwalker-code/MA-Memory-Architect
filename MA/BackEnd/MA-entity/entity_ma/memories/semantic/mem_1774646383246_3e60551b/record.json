@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383246_3e60551b",
+  "type": "semantic",
+  "content": "// ── Archive index (track which archives exist) ──────────────────────────\r\n  function _loadArchiveIndex() {\r\n    const p = path.join(entityRoot, 'index', 'archiveIndex.json');\r\n    try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return {}; }\r\n  }\r\n  function _saveArchiveIndex(idx) {\r\n    const p = path.join(entityRoot, 'index', 'archiveIndex.json');\r\n    fs.writeFileSync(p, JSON.stringify(idx, null, 2), 'utf8');\r\n  }\r\n  function listArchives() { return _loadArchiveIndex(); }",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// ── Archive index (track which archives exist) ──────────────────────────\r\n  function _loadArchiveIndex() {\r\n    const p = path.join(entityRoot, 'index', 'archiveIndex.json');\r\n    try { return JSON",
+  "importance": 0.6,
+  "createdAt": 1774646383247,
+  "createdAtISO": "2026-03-27T21:19:43.247Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

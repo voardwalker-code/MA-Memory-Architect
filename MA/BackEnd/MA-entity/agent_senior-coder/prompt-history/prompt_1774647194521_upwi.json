@@ -1,0 +1,13 @@
+{
+  "id": "prompt_1774647194521_upwi",
+  "agentId": "senior-coder",
+  "task": "**Provide Fix** - Give you:",
+  "prompt": "ORIGINAL REQUEST: \"No I want you to tell me whats not working and how to fix it\"\n\n► Step 8 of 8: **Provide Fix** - Give you:\n\nCOMPLETED:\n  ✓ 1. **Gather Context** - Request details about your issue: — I need more context to help you. Please provide:\n\n1. **What are you working on?** (project name, framework, or codebase)\n2. **What's the error or issu\n  ✓ 2. What code/project are you working on? — To help you identify what's not working and how to fix it, I need you to provide:\n\n1. **The error mes",
+  "result": "I cannot provide a fix without the actual diagnostic information. Previous steps attempted to gather details but received no actual input from you.\n\n**To help you, I need:**\n\n1. **What are you working on?** (project name, framework, language)\n2. **The error message** (paste it directly)\n3. **The code** that's causing the issue\n4. **What you've tried** so far\n\nPlease provide at least the error message and relevant code, and I'll tell you what's wrong and how to fix it.",
+  "success": true,
+  "project": "",
+  "timestamp": "2026-03-27T21:33:14.521Z",
+  "tags": [
+    "code"
+  ]
+}

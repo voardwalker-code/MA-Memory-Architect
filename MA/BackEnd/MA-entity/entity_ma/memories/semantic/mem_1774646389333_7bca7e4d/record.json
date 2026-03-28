@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389333_7bca7e4d",
+  "type": "semantic",
+  "content": "### Health Scan Pulse\r\nRuns an automatic health scan at a set interval (default: every 60 minutes) and logs the results.\r\n\n- Logs are written to `MA-logs/pulse-health.log`\r\n- Each entry records: timestamp, file count, critical errors, warnings\r\n- If critical issues are found, they're listed in the log\r\n\n### Chore Check Pulse\r\nChecks the chore list at a set interval (default: every 30 minutes) and executes any chores that are due.\r\n\n- Reads from `MA-Config/chores.json`\r\n- Each chore has its own repeat interval\r\n- Results are logged to `MA-logs/pulse-chores.log`\r\n\n### Configuration\r\nPulse timers are configured in `MA-Config/pulse-config.json`:\r\n\n```json\r\n{\r\n  \"healthScan\": { \"enabled\": true, \"intervalMs\": 3600000 },\r\n  \"choreCheck\": { \"enabled\": true, \"intervalMs\": 1800000 }\r\n}\r\n```\r\n\nYou can also adjust config through the API (`/api/pulse/config`) or use `/pulse start` and `/pulse stop` to control them live.\r\n\n### Pulse Logs\r\nView logs with:\r\n```\r\n/pulse log health     ← last 20 health-scan entries\r\n/pulse log chores     ← last 20 chore-execution entries\r\n```\r\n\nOr via the API: `GET /api/pulse/logs?type=health&lines=50`\r\n\n---\r\n\n## Chores System\r\n\nChores are repeating tasks that MA delegates to agents. Unlike one-off tasks, chores automatically repeat on their interval and MA grades the result each time.\r\n\n### Adding a Chore\r\n\nVia slash command:\r\n```\r\n/chores add Clean up temp files | Scan MA-workspace for .tmp and .bak files and delete them\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "### Health Scan Pulse\r\nRuns an automatic health scan at a set interval (default: every 60 minutes) and logs the results.\r\n\n- Logs are written to `MA-logs/pulse-health.log`\r\n- Each entry records: times",
+  "importance": 0.6,
+  "createdAt": 1774646389334,
+  "createdAtISO": "2026-03-27T21:19:49.334Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383018_4cb39266",
+  "type": "semantic",
+  "content": "// ── Route Module: Static Files & User Guide ──────────────────────────────────\r\n//\r\n// This module serves two things:\r\n//\r\n// 1. USER GUIDE — Renders the USER-GUIDE.md file as a nice HTML page.\r\n//    When you visit /user-guide in the browser, you get a readable version\r\n//    of the documentation instead of raw markdown.\r\n//\r\n// 2. STATIC FILES — Serves the browser client (HTML, CSS, JavaScript, images)\r\n//    from the FrontEnd/ folder.  This is what makes the web UI work.\r\n//    When you visit http://localhost:3850/ in your browser, this module\r\n//    sends you the MA-index.html file and all its assets.\r\n//\r\n// IMPORTANT: This module should be loaded LAST in the route chain because\r\n// the static file handler is a \"catch-all\" — it tries to match ANY URL\r\n// against files in FrontEnd/.  If it ran first, it would swallow requests\r\n// meant for the API.\r\n//\r\n// ── Endpoints ───────────────────────────────────────────────────────────────\r\n//   GET /user-guide — Render USER-GUIDE.md as HTML\r\n//   GET /*          — Serve static files from FrontEnd/ (catch-all)\r\n//\r\n// ── What this module needs ──────────────────────────────────────────────────\r\n//   deps.core                 — MA-core (MA_ROOT for finding USER-GUIDE.md)\r\n//   deps.renderMarkdownToHtml — Function from MA-markdown (converts .md → HTML)\r\n//   deps.CLIENT_DIR           — Absolute path to the FrontEnd/ folder\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "route-static.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Route Module: Static Files & User Guide ──────────────────────────────────\r\n//\r\n// This module serves two things:\r\n//\r\n// 1. USER GUIDE — Renders the USER-GUIDE.md file as a nice HTML page.\r\n// ",
+  "importance": 0.6,
+  "createdAt": 1774646383019,
+  "createdAtISO": "2026-03-27T21:19:43.019Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-static.js",
+  "accessCount": 0
+}

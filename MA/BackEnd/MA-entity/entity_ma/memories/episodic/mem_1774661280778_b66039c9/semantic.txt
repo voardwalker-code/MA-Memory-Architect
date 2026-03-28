@@ -1,0 +1,12 @@
+Task (code): Ok here is the file I want you to follow and that looks greate now  please write it
+Result: ## Summary
+
+**Status:** No file was ever provided. The process looped through 8 steps without locating or receiving the target file content.
+
+**Files Modified/Created:** None
+
+**What Happened:** The user repeatedly indicated they wanted a file followed, but only referenced a file without providing:
+- A file path, OR
+- The actual file content
+
+The workspace contained three directories (HelloWorld-OverEngineered/, Project/, workspace/) but the target blueprint/template was never identified or shar

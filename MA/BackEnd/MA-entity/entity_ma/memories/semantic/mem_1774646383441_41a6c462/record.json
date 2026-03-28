@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383441_41a6c462",
+  "type": "semantic",
+  "content": "function _log(logFile, entry) {\r\n  const fp = path.join(LOG_DIR, logFile);\r\n  const ts = new Date().toISOString();\r\n  const line = `[${ts}] ${typeof entry === 'string' ? entry : JSON.stringify(entry)}\\n`;\r\n  fs.appendFileSync(fp, line);\r\n}\r\n\nfunction readLog(logFile, lines = 50) {\r\n  const fp = path.join(LOG_DIR, logFile);\r\n  if (!fs.existsSync(fp)) return [];\r\n  const all = fs.readFileSync(fp, 'utf8').trim().split('\\n').filter(Boolean);\r\n  return all.slice(-lines);\r\n}\r\n\n// ── Health Pulse ────────────────────────────────────────────────────────────\r\n\nfunction _runHealthPulse() {\r\n  if (!_deps || !_deps.health) return;\r\n  try {\r\n    const result = _deps.health.scan();\r\n    const summary = result.summary || {};\r\n    const entry = {\r\n      type: 'health_scan',\r\n      total: summary.total || 0,\r\n      critical: summary.critical || 0,\r\n      warnings: summary.warnings || 0,\r\n      issues: (result.issues || [])\r\n        .filter(i => i.severity === 'critical' || i.severity === 'warning')\r\n        .map(i => ({ file: i.file, severity: i.severity, message: i.message }))\r\n    };\r\n    _log('pulse-health.log', entry);\r\n  } catch (e) {\r\n    _log('pulse-health.log', { type: 'error', message: e.message });\r\n  }\r\n}\r\n\n// ── Chores System ───────────────────────────────────────────────────────────\r\n\nfunction getChores() {\r\n  _ensureChoresFile();\r\n  try {\r\n    return JSON.parse(fs.readFileSync(CHORE_PATH, 'utf8'));\r\n  } catch { return { chores: [] }; }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "svc-pulse.js",
+    "BackEnd services"
+  ],
+  "summary": "function _log(logFile, entry) {\r\n  const fp = path.join(LOG_DIR, logFile);\r\n  const ts = new Date().toISOString();\r\n  const line = `[${ts}] ${typeof entry === 'string' ? entry : JSON.stringify(entry)}",
+  "importance": 0.6,
+  "createdAt": 1774646383442,
+  "createdAtISO": "2026-03-27T21:19:43.442Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-pulse.js",
+  "accessCount": 0
+}

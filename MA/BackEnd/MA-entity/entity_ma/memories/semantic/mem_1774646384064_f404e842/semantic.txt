@@ -1,0 +1,34 @@
+1. **Require check** — Can Node.js load the changed modules?
+   ```bash
+   node -e "require('./BackEnd/MA-core')"
+   ```
+
+2. **Guardrails** — Are all require() paths valid?
+   ```bash
+   npm run guardrails:standalone
+   ```
+
+3. **Smoke test** — Does the server actually start and respond?
+   ```bash
+   npm run smoke:standalone
+   ```
+
+4. **Health scan** — Are all registered files present and valid?
+   ```bash
+   npm run health
+   ```
+
+Never skip any of these. A require check passing doesn't mean the
+smoke test will pass (runtime errors). A smoke test passing doesn't
+mean health will pass (missing files the smoke test didn't touch).
+
+---
+
+## Summary — The Order Matters
+
+1. **Standalone first** — remove external dependencies
+2. **Delete dead code** — less to move later
+3. **Extract monoliths** — big files → orchestrator + modules
+4. **Group into folders** — by concern (nlp, llm, services, infra)
+5. **Rename for clarity** — FrontEnd/BackEnd split
+6. **Document everything** — so the next person doesn't repeat the work

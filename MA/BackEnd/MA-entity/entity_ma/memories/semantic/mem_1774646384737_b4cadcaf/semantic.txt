@@ -1,0 +1,16 @@
+/* Explorer panel & workspace tree */
+  #explorer-panel{width:280px;flex-shrink:0;display:flex;flex-direction:column;min-width:180px;background:var(--panel-bg);border-right:1px solid rgba(139,148,158,.14)}
+  .workspace-pane-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 14px 12px;border-bottom:1px solid rgba(139,148,158,.14)}
+  .pane-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:700}
+  #explorer-title{font-size:15px;font-weight:700;color:var(--text);margin-top:3px}
+  #explorer-body{flex:1;overflow:auto;padding:10px 10px 18px}
+  .explorer-group{margin-bottom:14px}
+  .explorer-group-title{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding:6px 6px 8px}
+  .explorer-item{display:flex;align-items:center;gap:8px;width:100%;padding:7px 8px;border:none;background:transparent;color:var(--text);border-radius:8px;text-align:left;font-size:12px;cursor:pointer}
+  .explorer-item:hover,.explorer-item.active{background:rgba(88,166,255,.12)}
+  .explorer-item .meta{margin-left:auto;color:var(--dim);font-size:10px}
+  .tree-node{margin-left:12px}
+  .tree-row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;color:var(--text);font-size:12px;cursor:pointer}
+  .tree-row:hover,.tree-row.active{background:rgba(88,166,255,.12)}
+  .tree-toggle{width:10px;color:var(--dim);text-align:center;font-size:10px}
+  .tree-children{margin-left:16px}

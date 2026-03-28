@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387404_cdce3fd5",
+  "type": "semantic",
+  "content": "# Layer 0 — Memory Storage + Index + NLP\r\n\n## Pre-Requisite\r\n- Contracts load without error: `node -e \"require('./contracts/memory-schema')\"`\r\n- All 4 contract files parse cleanly\r\n\n## Scope\r\nFill in all NOT_IMPLEMENTED stubs in:\r\n1. `server/memory/memory-storage.js` — Atomic file read/write for memory records\r\n2. `server/memory/memory-index.js` — In-memory indexes with disk persistence\r\n3. `server/nlp/rake.js` — RAKE keyword extraction\r\n4. `server/nlp/bm25.js` — BM25 scoring\r\n5. `server/nlp/yake.js` — YAKE keyword extraction\r\n\n## Instructions Per Module\r\n\n### memory-storage.js\r\n- **Pattern**: Atomic write = write to `.tmp` file, then `fs.rename` to final path\r\n- **Memory folder structure**: Each memory is a folder containing `log.json` + `semantic.txt`\r\n- **Read**: `readMemory(id)` → read `log.json`, parse, return object\r\n- **Write**: `writeMemory(record, content)` → create folder, write `log.json` + `semantic.txt`\r\n- **Content**: `getMemoryContent(id)` → read `semantic.txt`, return string\r\n- **Delete**: `deleteMemory(id)` → remove entire folder (fs.rm recursive)\r\n- **List**: `listMemories()` → readdir, filter folders containing `log.json`\r\n- **Update**: `updateMemory(id, patch)` → read, merge, atomic write back",
+  "topics": [
+    "MA Memory Architect",
+    "layer-0-memory-nlp.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "# Layer 0 — Memory Storage + Index + NLP\r\n\n## Pre-Requisite\r\n- Contracts load without error: `node -e \"require('./contracts/memory-schema')\"`\r\n- All 4 contract files parse cleanly\r\n\n## Scope\r\nFill in ",
+  "importance": 0.6,
+  "createdAt": 1774646387404,
+  "createdAtISO": "2026-03-27T21:19:47.404Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-0-memory-nlp.md",
+  "accessCount": 0
+}

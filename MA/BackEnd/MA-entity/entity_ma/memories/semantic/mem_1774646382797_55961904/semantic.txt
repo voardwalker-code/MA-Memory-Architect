@@ -1,0 +1,32 @@
+// ── NLP · YAKE Keyword Extraction ────────────────────────────────────────────
+//
+// HOW STATISTICAL KEYWORD EXTRACTION WORKS:
+// YAKE (Yet Another Keyword Extractor) finds important words by looking
+// at five "surface features" — things you can see just by reading:
+//
+//   WPos  — Position: words near the start of the text matter more
+//   WFreq — Frequency: words that appear often (but not TOO often) matter
+//   WCase — Capitalization: uppercase words are likely proper nouns/titles
+//   WRel  — Spread: words used across many sentences are more general
+//   WDiff — Dispersion: how spread out the word's appearances are
+//
+// Each word gets a score from all five features combined.
+// LOWER score = MORE relevant keyword (it's like golf — low is good).
+//
+// YAKE also finds "bigrams" — pairs of words that appear together,
+// like "neural network" or "memory search".  These often capture
+// meaning that single words miss.
+//
+// WHY BOTH RAKE AND YAKE?
+// RAKE is great for multi-word phrases.  YAKE is great for single keywords
+// and common bigrams.  Together they give the memory system a rich set of
+// topics to index and search against.
+//
+// WHAT USES THIS:
+//   svc-memory.js          — extracts keywords when storing memories
+//   svc-project-archive.js — extracts keywords for project nodes
+//
+// EXPORTS:
+//   extractKeywords(text, maxKeywords?)  → string[]
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

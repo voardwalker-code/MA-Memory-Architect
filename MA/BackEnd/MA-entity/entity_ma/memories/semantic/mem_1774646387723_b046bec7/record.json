@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387723_b046bec7",
+  "type": "semantic",
+  "content": "case 'whitelist': {\r\n      const sub = (parts[1] || '').toLowerCase();\r\n      if (!sub) {\r\n        const wl = cmdExec.getWhitelist();\r\n        console.log('  Command Whitelist:');\r\n        for (const [bin, subs] of Object.entries(wl)) {\r\n          console.log(subs ? `    ${bin}: [${subs.join(', ')}]` : `    ${bin}: (all subcommands)`);\r\n        }\r\n        return;\r\n      }\r\n      if (sub === 'add') {\r\n        const bin = parts[2];\r\n        if (!bin) { console.log('  Usage: /whitelist add <binary> [sub1,sub2,...]'); return; }\r\n        const subs = parts[3] ? parts[3].split(',').map(s => s.trim()).filter(Boolean) : null;\r\n        try {\r\n          cmdExec.whitelistAdd(bin, subs);\r\n          console.log(`  Added: ${bin}` + (subs ? ` [${subs.join(', ')}]` : ' (all subcommands)'));\r\n        } catch (e) { console.log(`  Error: ${e.message}`); }\r\n        return;\r\n      }\r\n      if (sub === 'remove') {\r\n        const bin = parts[2];\r\n        if (!bin) { console.log('  Usage: /whitelist remove <binary>'); return; }\r\n        try {\r\n          cmdExec.whitelistRemove(bin);\r\n          console.log(`  Removed: ${bin}`);\r\n        } catch (e) { console.log(`  Error: ${e.message}`); }\r\n        return;\r\n      }\r\n      if (sub === 'reset') {\r\n        cmdExec.whitelistReset();\r\n        console.log('  Whitelist reset to defaults.');\r\n        return;\r\n      }\r\n      console.log('  Usage: /whitelist | /whitelist add|remove|reset');\r\n      return;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "MA-cli.js",
+    "."
+  ],
+  "summary": "case 'whitelist': {\r\n      const sub = (parts[1] || '').toLowerCase();\r\n      if (!sub) {\r\n        const wl = cmdExec.getWhitelist();\r\n        console.log('  Command Whitelist:');\r\n        for (const ",
+  "importance": 0.6,
+  "createdAt": 1774646387724,
+  "createdAtISO": "2026-03-27T21:19:47.724Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-cli.js",
+  "accessCount": 0
+}

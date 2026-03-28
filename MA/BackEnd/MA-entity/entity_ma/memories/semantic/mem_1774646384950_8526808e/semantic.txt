@@ -1,0 +1,12 @@
+// ── Ollama Model Management ─────────────────────────────────────────────
+document.getElementById('cfg-type').addEventListener('change', function() {
+  const type = this.value;
+  const isOllama = type === 'ollama';
+  const isAnthropic = type === 'anthropic';
+  document.getElementById('model-text-wrap').style.display = isOllama ? 'none' : '';
+  document.getElementById('model-ollama-wrap').style.display = isOllama ? '' : 'none';
+
+  // Capabilities section visibility
+  const capsSection = document.getElementById('caps-section');
+  const capsToggles = document.getElementById('caps-toggles');
+  const capsNotice = document.getElementById('caps-notice');

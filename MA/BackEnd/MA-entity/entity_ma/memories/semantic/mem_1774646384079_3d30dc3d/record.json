@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384079_3d30dc3d",
+  "type": "semantic",
+  "content": "```javascript\r\n// ── {Group} · {Name} ────────────────────────────────────────────────────────\r\n//\r\n// HOW {CONCEPT} WORKS:\r\n// {Explain the concept in plain English. Use analogies. Imagine you're\r\n// explaining to someone who's never programmed before. 2-6 lines.}\r\n//\r\n// {If there are sub-concepts, use bullet lists:}\r\n//   • {Sub-concept 1} — {brief explanation}\r\n//   • {Sub-concept 2} — {brief explanation}\r\n//\r\n// {If there's a process/flow, use numbered steps:}\r\n//   1. {Step one}\r\n//   2. {Step two}\r\n//   3. {Step three}\r\n//\r\n// WHAT USES THIS:\r\n//   {file1.js} — {why it uses this}\r\n//   {file2.js} — {why it uses this}\r\n//\r\n// EXPORTS:\r\n//   {functionName(params)}  → {return type}\r\n//   {CONSTANT}              — {what it is}\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n```\r\n\n### The Group Label\r\n\nThe group label tells you which folder/domain the file belongs to:\r\n\n| Group | Folder | What it contains |\r\n|-------|--------|------------------|\r\n| `NLP ·` | `nlp/` | Text processing algorithms |\r\n| `LLM ·` | `llm/` | AI model communication |\r\n| `Services ·` | `services/` | Business logic and data management |\r\n| `Infra ·` | `infra/` | Infrastructure and system utilities |\r\n| `Tool` | `tools/` | Workspace tool implementations |\r\n| *(none)* | root | Orchestrators (MA-core, MA-routes, MA-workspace-tools) |\r\n\n### Real Example — Simple Module",
+  "topics": [
+    "MA Memory Architect",
+    "02-WRITING-AND-COMMENTING-GUIDE.md",
+    "Documents how-to-clean How To Clean"
+  ],
+  "summary": "```javascript\r\n// ── {Group} · {Name} ────────────────────────────────────────────────────────\r\n//\r\n// HOW {CONCEPT} WORKS:\r\n// {Explain the concept in plain English. Use analogies. Imagine you're\r\n//",
+  "importance": 0.6,
+  "createdAt": 1774646384081,
+  "createdAtISO": "2026-03-27T21:19:44.081Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\how-to-clean\\How To Clean\\02-WRITING-AND-COMMENTING-GUIDE.md",
+  "accessCount": 0
+}

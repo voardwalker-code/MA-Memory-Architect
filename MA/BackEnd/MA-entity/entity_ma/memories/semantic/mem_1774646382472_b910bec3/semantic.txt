@@ -1,0 +1,12 @@
+// ── 3. Memory recall ────────────────────────────────────────────────
+  // Search MA's memories for anything relevant to this message.
+  // Like looking through a notebook for related notes before answering.
+  const memLimit = (config && config.memoryLimit > 0) ? config.memoryLimit : 6;
+  const memRecall = config ? config.memoryRecall !== false : true;
+  const memResults = (memRecall && memory) ? memory.searchWithArchives(message, memLimit) : [];
+  if (memResults.length) {
+    result.memCtx = '\n[Relevant Memories]\n' + memResults.map(m =>
+      `- ${(m.summary || m.content || '').slice(0, 200)}`
+    ).join('\n');
+    if (onActivity) await onActivity('memory_search', `Found ${memResults.length} relevant memories`);
+  }

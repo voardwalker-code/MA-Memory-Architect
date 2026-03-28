@@ -1,0 +1,30 @@
+const body = JSON.stringify(_sanitizeJsonValue(reqBody));
+
+  const headers = {
+    'Content-Type':      'application/json',
+    'x-api-key':         config.apiKey,
+    'anthropic-version':  ANTHROPIC_API_VERSION
+  };
+
+  // Extended cache: adds beta header for 1-hour TTL support
+  if (useExtendedCache) {
+    headers['anthropic-beta'] = 'prompt-caching-2024-07-31';
+    console.log('  ⟐ MA: Extended cache (1h) active');
+  }
+
+  const raw = await _fetch(url, body, headers, opts.timeout);
+  const data = JSON.parse(raw);
+
+  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+  if (!data.content || !data.content.length) throw new Error('No content in Anthropic response');
+
+  // Log cache performance
+  const cacheRead = data.usage?.cache_read_input_tokens || 0;
+  const cacheCreation = data.usage?.cache_creation_input_tokens || 0;
+  if (cacheRead || cacheCreation) {
+    console.log(`  \u27D0 MA Anthropic cache: ${cacheRead} read, ${cacheCreation} creation tokens`);
+  }
+
+  // Extract text from content blocks (skip thinking blocks)
+  const textParts = data.content.filter(b => b.type === 'text');
+  const text = textParts.map(b => b.text).join('').trim();

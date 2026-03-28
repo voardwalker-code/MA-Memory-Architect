@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382537_e42e853d",
+  "type": "semantic",
+  "content": "// ── Infra · HTTP Utilities ─────────────────────────────────────────────────\r\n//\r\n// A TOOLBOX FOR THE WEB SERVER:\r\n// Every route handler needs to do the same few things over and over:\r\n//   • Send a JSON response back to the browser\r\n//   • Read the body of an incoming POST request\r\n//   • Check that a file path doesn't escape the workspace (security!)\r\n//   • List files in a directory\r\n//\r\n// Instead of copy-pasting that code into every route, these shared\r\n// helper functions live here.  Think of it like a toolbox that every\r\n// route module reaches into.\r\n//\r\n// WHAT'S IN THE BOX:\r\n//   MIME              — file extension → content-type map (.js → text/javascript)\r\n//   json(res, data)   — send a JSON response with proper headers\r\n//   readBody(req)     — collect POST body with 10 MB safety limit\r\n//   resolveInsideRoot(userPath, root) — path-traversal guard\r\n//   listMarkdownFiles(dir) — recursively find all .md files\r\n//   listWorkspaceTree(dir) — build a nested file/folder tree\r\n//\r\n// SECURITY:\r\n//   resolveInsideRoot() prevents directory traversal attacks.\r\n//   readBody() has a size limit to prevent memory exhaustion.\r\n//   These are STATELESS — they don't depend on config or core.\r\n//\r\n// WHAT USES THIS:\r\n//   MA-routes.js + every route module in routes/\r\n//\r\n// EXPORTS:\r\n//   MIME, json, readBody, resolveInsideRoot,\r\n//   listMarkdownFiles, listWorkspaceTree\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "infra-http-utils.js",
+    "BackEnd infra"
+  ],
+  "summary": "// ── Infra · HTTP Utilities ─────────────────────────────────────────────────\r\n//\r\n// A TOOLBOX FOR THE WEB SERVER:\r\n// Every route handler needs to do the same few things over and over:\r\n//   • Send",
+  "importance": 0.6,
+  "createdAt": 1774646382537,
+  "createdAtISO": "2026-03-27T21:19:42.537Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-http-utils.js",
+  "accessCount": 0
+}

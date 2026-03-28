@@ -1,0 +1,41 @@
+function _loadWhitelist() {
+  try {
+    if (fs.existsSync(WHITELIST_PATH)) {
+      const data = JSON.parse(fs.readFileSync(WHITELIST_PATH, 'utf8'));
+      WHITELIST = data;
+    }
+  } catch { /* use defaults */ }
+}
+
+function _saveWhitelist() {
+  const dir = path.dirname(WHITELIST_PATH);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(WHITELIST_PATH, JSON.stringify(WHITELIST, null, 2));
+}
+
+// Load on module init
+_loadWhitelist();
+
+// ── Whitelist management API ────────────────────────────────────────────────
+
+/** Get the full whitelist. */
+function getWhitelist() {
+  return { ...WHITELIST };
+}
+
+/**
+ * Add or update a command in the whitelist.
+ * @param {string} binary — command name (lowercase)
+ * @param {string[]|null} subcommands — allowed subcommands, or null for all
+ */
+function whitelistAdd(binary, subcommands) {
+  if (!binary || typeof binary !== 'string') throw new Error('binary required');
+  const key = binary.toLowerCase().trim();
+  if (!key) throw new Error('binary cannot be empty');
+  // Prevent whitelisting dangerous binaries
+  const forbidden = ['rm','del','format','shutdown','kill','taskkill','curl','wget','powershell','cmd.exe','bash','sh','cmd'];
+  if (forbidden.includes(key)) throw new Error(`Cannot whitelist dangerous command: ${key}`);
+  WHITELIST[key] = subcommands;
+  _saveWhitelist();
+  return { binary: key, subcommands };
+}

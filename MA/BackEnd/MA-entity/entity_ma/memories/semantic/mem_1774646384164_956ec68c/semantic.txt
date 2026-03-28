@@ -1,0 +1,48 @@
+### ❌ Don't leave console.log debug statements
+```javascript
+// BAD
+console.log('DEBUG: got here', data);
+console.log('xxx', result);
+```
+
+### ❌ Don't let files grow past 400 lines
+If you're tempted to add more logic to a 350-line file, stop and split
+it first. The time you spend splitting now saves 10x the time cleaning
+up later.
+
+### ❌ Don't use generic names
+```javascript
+// BAD
+const data = processStuff(input);
+const result = doThings(data);
+
+// GOOD
+const memories = searchByTopic(queryTopics);
+const rankedResults = scoreAndSort(memories);
+```
+
+---
+
+## 10. Complete Examples
+
+### Starting a new NLP module
+
+```javascript
+// ── NLP · Sentiment Analyzer ─────────────────────────────────────────────────
+//
+// HOW SENTIMENT ANALYSIS WORKS:
+// Every piece of text has an emotional tone — positive, negative, or neutral.
+// This module scores text on a scale from -1 (very negative) to +1 (very
+// positive) using a simple word-scoring approach.
+//
+// It works by looking up each word in a sentiment dictionary and averaging
+// the scores.  Words like "great" and "excellent" score positive, while
+// "terrible" and "broken" score negative.
+//
+// WHAT USES THIS:
+//   svc-memory.js — tags memories with sentiment for recall prioritization
+//
+// EXPORTS:
+//   analyzeSentiment(text)  → {score, label}
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

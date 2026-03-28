@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384808_48e88d16",
+  "type": "semantic",
+  "content": "async function loadSession(id) {\r\n  try {\r\n    const r = await fetch('/api/chat/session/' + encodeURIComponent(id));\r\n    if (!r.ok) { addSystem('Could not load session.'); return; }\r\n    const d = await r.json();\r\n    activeSessionId = d.id;\r\n    history = d.messages || [];\r\n    chatEl.innerHTML = '';\r\n    for (const msg of history) {\r\n      if (msg.role === 'user') addMsg('user', msg.content);\r\n      else if (msg.role === 'assistant') addMsg('ma', msg.content);\r\n    }\r\n    renderSessionPicker();\r\n  } catch (_) { addSystem('Failed to load session.'); }\r\n}\r\n\nfunction startNewSession() {\r\n  activeSessionId = null;\r\n  history = [];\r\n  chatEl.innerHTML = '';\r\n  renderSessionPicker();\r\n}\r\n\nasync function saveSession() {\r\n  if (!history.length) return;\r\n  try {\r\n    const r = await fetch('/api/chat/session', {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify({ id: activeSessionId, messages: history })\r\n    });\r\n    const d = await r.json();\r\n    if (d.id) activeSessionId = d.id;\r\n    loadSessionList(); // refresh picker\r\n    if (typeof loadConversationHistory === 'function') loadConversationHistory(); // refresh explorer\r\n  } catch (_) { /* silent */ }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-chat.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function loadSession(id) {\r\n  try {\r\n    const r = await fetch('/api/chat/session/' + encodeURIComponent(id));\r\n    if (!r.ok) { addSystem('Could not load session.'); return; }\r\n    const d = aw",
+  "importance": 0.6,
+  "createdAt": 1774646384810,
+  "createdAtISO": "2026-03-27T21:19:44.810Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-chat.js",
+  "accessCount": 0
+}

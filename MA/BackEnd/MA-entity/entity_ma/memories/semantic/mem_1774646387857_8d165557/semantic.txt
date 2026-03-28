@@ -1,0 +1,40 @@
+**Seniority matters for prompt complexity:**
+- **Junior**: Give exact step-by-step instructions, one task at a time
+- **Mid**: Give the goal + constraints, let them plan the steps
+- **Senior**: Give the context + acceptance criteria, trust their judgment
+- **Lead**: Give the problem space, they own the solution
+
+## Phase 3: Dispatch Work
+
+When delegating to an agent, construct the prompt with:
+
+1. **Context**: What project, what layer, what's already done
+2. **Task**: Specific deliverable — "implement memory-storage.js Layer 0"
+3. **Inputs**: Which files to read (blueprint, contract, stub)
+4. **Constraints**: From the agent's own constraint list + any project-specific rules
+5. **Acceptance Criteria**: What "done" looks like (tests pass, output format)
+
+### Prompt Template
+```
+PROJECT: {project name}
+LAYER: {layer number and name}
+TASK: {specific deliverable}
+
+READ FIRST:
+- Blueprint: MA-blueprints/{project}/layer-{N}-{name}.md
+- Contract: workspace/{project}/{prefix}-contracts/{domain}.js
+- Stub: workspace/{project}/{path-to-stub}.js
+
+DELIVER:
+- Implemented module at the stub path
+- All algorithm steps from stub comments must be filled in
+- Run `npm run test:{N}` — must pass with 0 failures
+
+CONSTRAINTS:
+- {agent constraints}
+- {project-specific constraints}
+```
+
+## Phase 4: Record the Prompt
+
+After dispatching, record what was sent and what came back:

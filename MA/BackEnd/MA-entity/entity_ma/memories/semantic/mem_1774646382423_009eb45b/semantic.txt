@@ -1,0 +1,28 @@
+// Record model performance for the router to learn from
+    if (routed.routed && routed.modelId) {
+      const grade = result.finalResponse ? 'B' : 'F';
+      const lang = modelRouter.evaluateJob(message, intent.taskType).language;
+      modelRouter.recordPerformance(routed.modelId, intent.taskType, lang, grade);
+    }
+
+    if (memory) memory.store('episodic', `Task (${intent.taskType}): ${message}\nResult: ${(result.finalResponse || '').slice(0, 500)}`, { topics: [intent.taskType], chainId });
+    worklog.recordTask(intent.taskType, message.slice(0, 100), result.steps?.length || 0, 'complete');
+    return {
+      reply: result.finalResponse,
+      taskType: intent.taskType,
+      steps: result.steps?.length || 0,
+      filesChanged: result.filesChanged || [],
+      ...(routed.routed ? { routedModel: routed.modelId, routeReason: routed.reason } : {})
+    };
+  }
+
+  // ── Conversational path ─────────────────────────────────────────────
+  // For normal chat — gather context, ask the AI, handle tool calls.
+
+  let currentSysPrompt = sysPrompt;
+
+  // Inject blueprint guidance if classify detected a task type (even at low confidence)
+  if (intent.taskType) {
+    const bp = tasks.getBlueprint(intent.taskType, 'execute');
+    if (bp) currentSysPrompt += `\n\n[${intent.taskType} Guidelines — follow these when handling this kind of request]\n${bp}`;
+  }

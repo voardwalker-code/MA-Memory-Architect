@@ -1,0 +1,29 @@
+function renderTaskEditor(state) {
+  document.getElementById('task-current-input').value = state.currentTask || '';
+  document.getElementById('task-resume-input').value = state.resumePoint || '';
+  const list = document.getElementById('task-plan-list');
+  const plan = Array.isArray(state.taskPlan) ? state.taskPlan : [];
+  if (!plan.length) {
+    list.innerHTML = '<div class="side-empty">No task plan yet.</div>';
+    return;
+  }
+  list.innerHTML = plan.map(function(step, idx) {
+    return '<div class="task-step-row' + (step.done ? ' done' : '') + '">' +
+      '<input type="checkbox" ' + (step.done ? 'checked ' : '') + 'onchange="toggleTaskStep(' + idx + ', this.checked)">' +
+      '<div class="body"><input value="' + escHtml(step.description || '') + '" oninput="updateTaskStep(' + idx + ', this.value)"></div>' +
+      '<button class="tiny-btn danger" onclick="removeTaskStep(' + idx + ')">Remove</button>' +
+    '</div>';
+  }).join('');
+}
+
+function readTaskPlanDraft() {
+  const steps = [];
+  document.querySelectorAll('#task-plan-list .task-step-row').forEach(function(row) {
+    const textInput = row.querySelector('.body input');
+    const checkbox = row.querySelector('input[type="checkbox"]');
+    const description = (textInput?.value || '').trim();
+    if (!description) return;
+    steps.push({ done: !!checkbox?.checked, description });
+  });
+  return steps;
+}

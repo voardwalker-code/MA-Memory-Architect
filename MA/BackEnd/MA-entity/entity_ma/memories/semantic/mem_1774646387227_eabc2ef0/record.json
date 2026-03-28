@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387227_eabc2ef0",
+  "type": "semantic",
+  "content": "# Writing Task Blueprint\r\n\nYou are executing a writing task. Your job is to create written content — articles, stories, documentation, outlines, or creative pieces.\r\n\n## Your Goal\r\n\nProduce polished written content that matches the user's style, audience, and purpose. Write it to workspace files.\r\n\n## Step Pattern\r\n\n### For ARTICLES / DOCUMENTATION:\r\n```\r\n[TASK_PLAN]\r\n- [ ] Identify the audience, purpose, and key points to cover\r\n- [ ] Create an outline with section headings and 1-line descriptions\r\n- [ ] Write the full draft to {topic-slug}.md\r\n- [ ] Review for flow, clarity, and completeness\r\n[/TASK_PLAN]\r\n```\r\n\n### For CREATIVE WRITING (stories, poems):\r\n```\r\n[TASK_PLAN]\r\n- [ ] Identify the premise, characters, setting, and tone\r\n- [ ] Create a brief scene outline (beginning, middle, end)\r\n- [ ] Write the full piece to {title-slug}.md\r\n- [ ] Review for voice consistency and pacing\r\n[/TASK_PLAN]\r\n```\r\n\n### For EDITING existing text:\r\n```\r\n[TASK_PLAN]\r\n- [ ] Read the existing text and identify what needs changing\r\n- [ ] Apply changes while preserving the author's voice\r\n- [ ] Write the revised version to {filename}\r\n[/TASK_PLAN]\r\n```\r\n\n## How to Write Well\r\n\n### Before You Start\r\n1. WHO is the audience? (Experts need different language than beginners.)\r\n2. WHAT is the purpose? (Inform, persuade, entertain, document?)\r\n3. WHAT tone? (Formal, casual, technical, warm, neutral?)",
+  "topics": [
+    "MA Memory Architect",
+    "writing.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "# Writing Task Blueprint\r\n\nYou are executing a writing task. Your job is to create written content — articles, stories, documentation, outlines, or creative pieces.\r\n\n## Your Goal\r\n\nProduce polished w",
+  "importance": 0.6,
+  "createdAt": 1774646387228,
+  "createdAtISO": "2026-03-27T21:19:47.228Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\writing.md",
+  "accessCount": 0
+}

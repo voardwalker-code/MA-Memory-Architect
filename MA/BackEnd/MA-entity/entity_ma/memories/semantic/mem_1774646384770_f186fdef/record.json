@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384770_f186fdef",
+  "type": "semantic",
+  "content": "#chat{padding:16px;gap:10px}\r\n  .msg{max-width:85%}\r\n  #input-bar{padding:12px 14px 14px;background:var(--input-bg)}\r\n  #input-bar button{min-width:84px}\r\n\n  .save-indicator{font-size:11px;color:var(--dim)}\r\n  .save-indicator.dirty{color:#d29922}\r\n  .save-indicator.saved{color:var(--ma)}\r\n\n  @media (max-width: 1180px){\r\n    #chat-panel{width:360px}\r\n    #explorer-panel{width:240px}\r\n  }\r\n\n  /* Responsive overrides (workspace) */\r\n  @media (max-width: 960px){\r\n    #menu-bar{overflow-x:auto}\r\n    #main-wrap{flex-direction:column}\r\n    #left-rail{width:100%;height:54px;padding:8px;flex-direction:row;border-right:none;border-bottom:1px solid rgba(139,148,158,.14);overflow-x:auto}\r\n    .rail-brand,.rail-mode,.rail-spacer{display:none}\r\n    .rail-nav{flex-direction:row}\r\n    #explorer-panel,#chat-panel,#editor-panel{width:100%;min-width:0;border:none}\r\n    .pane-splitter{display:none}\r\n    #explorer-panel{height:240px;border-bottom:1px solid rgba(139,148,158,.14)}\r\n    #chat-panel{height:42vh;border-top:1px solid rgba(139,148,158,.14)}\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui.css",
+    "FrontEnd css"
+  ],
+  "summary": "#chat{padding:16px;gap:10px}\r\n  .msg{max-width:85%}\r\n  #input-bar{padding:12px 14px 14px;background:var(--input-bg)}\r\n  #input-bar button{min-width:84px}\r\n\n  .save-indicator{font-size:11px;color:var(-",
+  "importance": 0.6,
+  "createdAt": 1774646384771,
+  "createdAtISO": "2026-03-27T21:19:44.771Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\css\\ma-ui.css",
+  "accessCount": 0
+}

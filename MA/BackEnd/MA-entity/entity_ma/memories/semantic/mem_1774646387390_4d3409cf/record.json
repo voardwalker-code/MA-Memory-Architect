@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387390_4d3409cf",
+  "type": "semantic",
+  "content": "1. Open the project at `workspace/rem-system/`\r\n2. Run `node tests/test-runner.js 0` — if contracts load, proceed\r\n3. Execute `layer-0-memory-nlp.md` blueprint\r\n4. Run `node tests/test-runner.js 0` — must pass before proceeding\r\n5. Execute `layer-1-memory-ops.md` blueprint\r\n6. Run `node tests/test-runner.js 1` — must pass before proceeding\r\n7. Continue through all 6 layers\r\n\n## Rules\r\n\n- **NEVER skip a layer**. Layer N tests must pass before Layer N+1 begins.\r\n- **NEVER modify contracts** unless a bug is found (document the change).\r\n- **Every stub has algorithm comments** — follow them exactly.\r\n- **Reference MA's existing implementations** where noted in stubs (MA-rake.js, MA-bm25.js, etc.)\r\n- **Update PROJECT-MANIFEST.json** after completing each module.",
+  "topics": [
+    "MA Memory Architect",
+    "INDEX.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "1. Open the project at `workspace/rem-system/`\r\n2. Run `node tests/test-runner.js 0` — if contracts load, proceed\r\n3. Execute `layer-0-memory-nlp.md` blueprint\r\n4. Run `node tests/test-runner.js 0` — ",
+  "importance": 0.6,
+  "createdAt": 1774646387391,
+  "createdAtISO": "2026-03-27T21:19:47.391Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\INDEX.md",
+  "accessCount": 0
+}

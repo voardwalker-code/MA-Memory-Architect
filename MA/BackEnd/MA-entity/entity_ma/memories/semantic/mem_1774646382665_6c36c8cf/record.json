@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382665_6c36c8cf",
+  "type": "semantic",
+  "content": "// ── Paths ───────────────────────────────────────────────────────────────────\n// These are the important folder locations that MA uses.\n// WORKSPACE_DIR is a `let` because the user can change it in config.\nconst MA_ROOT       = path.join(__dirname, '..');\nconst CONFIG_PATH   = path.join(MA_ROOT, 'MA-Config', 'ma-config.json');\nconst LEGACY_GLOBAL_CONFIG_PATH = path.join(MA_ROOT, '..', 'Config', 'ma-config.json');\nconst ENTITY_DIR    = path.join(MA_ROOT, 'MA-entity', 'entity_ma');\nlet   WORKSPACE_DIR = path.join(MA_ROOT, 'MA-workspace');\nconst KNOWLEDGE_DIR = path.join(MA_ROOT, 'MA-knowledge');\n\n// ── State ───────────────────────────────────────────────────────────────────\n// These variables hold MA's runtime state.  They start empty and get\n// filled in during boot().\nlet config = null;    // { type, endpoint, apiKey, model, vision?, capabilities? }\nlet memory = null;    // memory store instance\nlet entity = null;    // entity.json contents\nlet skills = [];      // loaded skill contents [{ name, content }]\nlet maMode = 'work';  // 'work' (full tool access) or 'chat' (read-only)",
+  "topics": [
+    "MA Memory Architect",
+    "MA-core.js",
+    "BackEnd"
+  ],
+  "summary": "// ── Paths ───────────────────────────────────────────────────────────────────\n// These are the important folder locations that MA uses.\n// WORKSPACE_DIR is a `let` because the user can change it in ",
+  "importance": 0.6,
+  "createdAt": 1774646382665,
+  "createdAtISO": "2026-03-27T21:19:42.665Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\MA-core.js",
+  "accessCount": 0
+}

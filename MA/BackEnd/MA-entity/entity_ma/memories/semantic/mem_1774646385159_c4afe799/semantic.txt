@@ -1,0 +1,30 @@
+// ── Syntax Highlighting (lightweight) ─────────────────────────────────────
+function renderCodeView(content, ext) {
+  const lines = content.split('\n');
+  const lang = ext.toLowerCase();
+  return lines.map(function(line, i) {
+    return '<div class="code-line">' +
+      '<span class="code-gutter">' + (i + 1) + '</span>' +
+      '<span class="code-content">' + highlightLine(escHtml(line), lang) + '</span>' +
+    '</div>';
+  }).join('');
+}
+
+function highlightLine(line, lang) {
+  // Comments
+  if (lang === 'js' || lang === 'ts' || lang === 'json' || lang === 'cs' || lang === 'rs' || lang === 'css' || lang === 'java' || lang === 'c' || lang === 'cpp') {
+    line = line.replace(/^(\s*)(\/\/.*)$/, '$1<span class="tok-comment">$2</span>');
+    line = line.replace(/(\/\*.*?\*\/)/, '<span class="tok-comment">$1</span>');
+  }
+  if (lang === 'py') {
+    line = line.replace(/^(\s*)(#.*)$/, '$1<span class="tok-comment">$2</span>');
+  }
+  if (lang === 'html' || lang === 'htm' || lang === 'xml' || lang === 'svg') {
+    line = line.replace(/(&lt;!--.*?--&gt;)/, '<span class="tok-comment">$1</span>');
+  }
+
+  // Strings
+  line = line.replace(/(&quot;(?:[^&]|&(?!quot;))*?&quot;|&#39;(?:[^&]|&(?!#39;))*?&#39;|`[^`]*`)/g, '<span class="tok-string">$1</span>');
+
+  // Numbers
+  line = line.replace(/\b(\d+\.?\d*)\b/g, '<span class="tok-number">$1</span>');

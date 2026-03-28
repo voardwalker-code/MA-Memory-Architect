@@ -1,0 +1,47 @@
+### Health Scan Pulse
+Runs an automatic health scan at a set interval (default: every 60 minutes) and logs the results.
+
+- Logs are written to `MA-logs/pulse-health.log`
+- Each entry records: timestamp, file count, critical errors, warnings
+- If critical issues are found, they're listed in the log
+
+### Chore Check Pulse
+Checks the chore list at a set interval (default: every 30 minutes) and executes any chores that are due.
+
+- Reads from `MA-Config/chores.json`
+- Each chore has its own repeat interval
+- Results are logged to `MA-logs/pulse-chores.log`
+
+### Configuration
+Pulse timers are configured in `MA-Config/pulse-config.json`:
+
+```json
+{
+  "healthScan": { "enabled": true, "intervalMs": 3600000 },
+  "choreCheck": { "enabled": true, "intervalMs": 1800000 }
+}
+```
+
+You can also adjust config through the API (`/api/pulse/config`) or use `/pulse start` and `/pulse stop` to control them live.
+
+### Pulse Logs
+View logs with:
+```
+/pulse log health     ← last 20 health-scan entries
+/pulse log chores     ← last 20 chore-execution entries
+```
+
+Or via the API: `GET /api/pulse/logs?type=health&lines=50`
+
+---
+
+## Chores System
+
+Chores are repeating tasks that MA delegates to agents. Unlike one-off tasks, chores automatically repeat on their interval and MA grades the result each time.
+
+### Adding a Chore
+
+Via slash command:
+```
+/chores add Clean up temp files | Scan MA-workspace for .tmp and .bak files and delete them
+```

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383851_d2227b96",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// wsRead(wp, filePath)\r\n//\r\n// Reads a file and returns its text content.\r\n// Caps at 32KB to avoid flooding the AI's context window.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction wsRead(wp, filePath) {\r\n  const p = _safe(wp, filePath);\r\n  if (!fs.existsSync(p)) return `File not found: ${filePath}`;\r\n  return fs.readFileSync(p, 'utf8').slice(0, 32000);\r\n}\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// wsWrite(wp, filePath, content)\r\n//\r\n// Writes content to a file.  Creates parent directories if needed.\r\n// Returns a message saying how many bytes were written and to what path.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction wsWrite(wp, filePath, content) {\r\n  if (content === undefined || content === null) {\r\n    return 'Error: content required. Use block format: [TOOL:ws_write {\"path\":\"file\"}]\\\\ncontent\\\\n[/TOOL]';\r\n  }\r\n  const p = _safe(wp, filePath);\r\n  fs.mkdirSync(path.dirname(p), { recursive: true });\r\n  fs.writeFileSync(p, content, 'utf8');\r\n  const bytes = Buffer.byteLength(content, 'utf8');\r\n  return `Wrote ${bytes} bytes to ${path.relative(wp, p)}`;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "tools-fs.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// wsRead(wp, filePath)\r\n//\r\n// Reads a file and returns its text content.\r\n// Caps at 32KB to avoid flooding the AI's",
+  "importance": 0.6,
+  "createdAt": 1774646383853,
+  "createdAtISO": "2026-03-27T21:19:43.853Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-fs.js",
+  "accessCount": 0
+}

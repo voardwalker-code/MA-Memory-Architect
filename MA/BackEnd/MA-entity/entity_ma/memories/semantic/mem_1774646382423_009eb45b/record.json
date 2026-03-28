@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382423_009eb45b",
+  "type": "semantic",
+  "content": "// Record model performance for the router to learn from\r\n    if (routed.routed && routed.modelId) {\r\n      const grade = result.finalResponse ? 'B' : 'F';\r\n      const lang = modelRouter.evaluateJob(message, intent.taskType).language;\r\n      modelRouter.recordPerformance(routed.modelId, intent.taskType, lang, grade);\r\n    }\r\n\n    if (memory) memory.store('episodic', `Task (${intent.taskType}): ${message}\\nResult: ${(result.finalResponse || '').slice(0, 500)}`, { topics: [intent.taskType], chainId });\r\n    worklog.recordTask(intent.taskType, message.slice(0, 100), result.steps?.length || 0, 'complete');\r\n    return {\r\n      reply: result.finalResponse,\r\n      taskType: intent.taskType,\r\n      steps: result.steps?.length || 0,\r\n      filesChanged: result.filesChanged || [],\r\n      ...(routed.routed ? { routedModel: routed.modelId, routeReason: routed.reason } : {})\r\n    };\r\n  }\r\n\n  // ── Conversational path ─────────────────────────────────────────────\r\n  // For normal chat — gather context, ask the AI, handle tool calls.\r\n\n  let currentSysPrompt = sysPrompt;\r\n\n  // Inject blueprint guidance if classify detected a task type (even at low confidence)\r\n  if (intent.taskType) {\r\n    const bp = tasks.getBlueprint(intent.taskType, 'execute');\r\n    if (bp) currentSysPrompt += `\\n\\n[${intent.taskType} Guidelines — follow these when handling this kind of request]\\n${bp}`;\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// Record model performance for the router to learn from\r\n    if (routed.routed && routed.modelId) {\r\n      const grade = result.finalResponse ? 'B' : 'F';\r\n      const lang = modelRouter.evaluateJob(",
+  "importance": 0.6,
+  "createdAt": 1774646382424,
+  "createdAtISO": "2026-03-27T21:19:42.424Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

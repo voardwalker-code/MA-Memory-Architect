@@ -1,0 +1,15 @@
+- `[TOOL:ws_list {"path":"..."}]` — see what files exist
+- `[TOOL:ws_read {"path":"..."}]` — read existing code before changing it
+- `[TOOL:ws_write {"path":"..."}]content[/TOOL]` — write your code to a file (COMPLETE file)
+- `[TOOL:ws_append {"path":"..."}]content[/TOOL]` — add to end of an existing file
+- `[TOOL:ws_delete {"path":"..."}]` — remove a file you no longer need
+- `[TOOL:ws_move {"src":"...","dst":"..."}]` — rename or move a file
+- `[TOOL:ws_mkdir {"path":"..."}]` — create a directory for project structure
+
+## Common Mistakes to Avoid
+
+- Writing code in your chat reply instead of using `ws_write` to save it as a file
+- Writing only part of a file — `ws_write` REPLACES the entire file
+- Forgetting to read a file before editing it — you will lose existing code
+- Adding features the user did not ask for
+- Creating test files unless the user explicitly asked for tests

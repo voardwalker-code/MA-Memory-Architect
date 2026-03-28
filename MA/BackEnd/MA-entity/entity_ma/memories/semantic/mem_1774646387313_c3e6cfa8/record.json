@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387313_c3e6cfa8",
+  "type": "semantic",
+  "content": "# Part 3 — Cognition Engine\r\n\n**Pre-requisite**: Part 2 tests pass (22/22).\r\n\n## Scope — Engines (9)\r\n\n| Module | File | What to Build |\r\n|--------|------|---------------|\r\n| Attention System | `server/cognition/attention-system.js` | Attention focus tracking, salience scoring, decay |\r\n| Cognitive Feedback | `server/cognition/cognitive-feedback.js` | Detect surprises, contradictions, learning signals |\r\n| Cognitive Pulse | `server/cognition/cognitive-pulse.js` | Periodic tick driving dream/brain phases |\r\n| Cognitive Snapshot | `server/cognition/cognitive-snapshot.js` | Full cognitive state capture per contract |\r\n| Curiosity Engine | `server/cognition/curiosity-engine.js` | Curiosity signal from novelty + information gap |\r\n| Boredom Engine | `server/cognition/boredom-engine.js` | Boredom signal from repetition + low novelty |\r\n| Dream Seed Pool | `server/cognition/dream-seed-pool.js` | Collect dream seeds from daily experience |\r\n| Dream Maintenance Selector | `server/cognition/dream-maintenance-selector.js` | Select which memories to consolidate during dreams |\r\n| Dream Intuition Adapter | `server/cognition/dream-intuition-adapter.js` | Convert dream insights into conscious beliefs |\r\n\n## Scope — Phases (16)\r\n\nAll in `server/cognition/phases/`. Each phase has a single `run(ctx)` async function.",
+  "topics": [
+    "MA Memory Architect",
+    "part-3-cognition-engine.md",
+    "MA-blueprints nekocore"
+  ],
+  "summary": "# Part 3 — Cognition Engine\r\n\n**Pre-requisite**: Part 2 tests pass (22/22).\r\n\n## Scope — Engines (9)\r\n\n| Module | File | What to Build |\r\n|--------|------|---------------|\r\n| Attention System | `serve",
+  "importance": 0.6,
+  "createdAt": 1774646387314,
+  "createdAtISO": "2026-03-27T21:19:47.314Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\nekocore\\part-3-cognition-engine.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385935_952a4ba8",
+  "type": "semantic",
+  "content": "> **App: {Name}**\r\n> - Container: `tab-{appId}`\r\n> - Category: `{category}`\r\n> - Window: {w}×{h}\r\n> - Icon: {emoji}\r\n> - Features: {list}\r\n>\r\n> The HTML payload is written. Shall I proceed with the installer contract, or do you want changes?\r\n\nWait for user confirmation before proceeding.\r\n\n---\r\n\n## Phase 5 — Build Installer Contract\r\n\nWrite the complete installer contract. This is the EXACT format required — every field matters.",
+  "topics": [
+    "MA Memory Architect",
+    "app_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "> **App: {Name}**\r\n> - Container: `tab-{appId}`\r\n> - Category: `{category}`\r\n> - Window: {w}×{h}\r\n> - Icon: {emoji}\r\n> - Features: {list}\r\n>\r\n> The HTML payload is written. Shall I proceed with the in",
+  "importance": 0.6,
+  "createdAt": 1774646385936,
+  "createdAtISO": "2026-03-27T21:19:45.936Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\app_builder.md",
+  "accessCount": 0
+}

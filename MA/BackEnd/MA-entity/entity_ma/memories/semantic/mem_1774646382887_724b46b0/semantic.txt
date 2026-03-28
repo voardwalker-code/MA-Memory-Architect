@@ -1,0 +1,32 @@
+// ── Mode: write ──────────────────────────────────────────────────
+    // Body must be { mode: "chat" } or { mode: "work" }.
+    // Anything else gets a 400 error.
+    if (url.pathname === '/api/mode' && method === 'POST') {
+      const body = JSON.parse(await readBody(req));
+      const m = String(body.mode || '').toLowerCase();
+      if (m !== 'chat' && m !== 'work') {
+        json(res, 400, { error: 'mode must be "chat" or "work"' });
+        return true;
+      }
+      core.setMode(m);
+      json(res, 200, { ok: true, mode: core.getMode() });
+      return true;
+    }
+
+    // ── Config: read ─────────────────────────────────────────────────
+    // Returns all settings the client needs to render the config panel.
+    // API key is always masked ("********") unless ?revealKey=1 is set.
+    if (url.pathname === '/api/config' && method === 'GET') {
+      const config  = core.getConfig();
+      const hasFile = fs.existsSync(core.CONFIG_PATH);
+      const revealKey = url.searchParams.get('revealKey') === '1';
+
+      // If core hasn't loaded a config yet, try reading the file directly
+      let fileData = null;
+      if (hasFile && !config) {
+        try { fileData = JSON.parse(fs.readFileSync(core.CONFIG_PATH, 'utf8')); } catch (_) {}
+      }
+
+      const src = config || fileData;
+      const key = String(src?.apiKey || src?.key || '').trim();
+      const hasApiKey = !!key;

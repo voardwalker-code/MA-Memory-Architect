@@ -1,0 +1,30 @@
+// Auto-verify: if any files were written, read them back to check
+    const writtenFiles = toolResults
+      .filter(r => r.ok && (r.tool === 'ws_write' || r.tool === 'ws_append'))
+      .map(r => {
+        const m = r.result && r.result.match(/^Wrote\s+\d+\s+bytes?\s+to\s+(.+)$/i);
+        if (m) return m[1].trim();
+        const a = r.result && r.result.match(/^Appended\s+\d+\s+bytes?\s+to\s+(.+)$/i);
+        if (a) return a[1].trim();
+        return null;
+      })
+      .filter(Boolean);
+
+    let verifyBlock = '';
+    if (writtenFiles.length > 0) {
+      const uniqueFiles = [...new Set(writtenFiles)];
+      const verifyResults = [];
+      for (const filePath of uniqueFiles.slice(0, 3)) {
+        try {
+          const relPath = path.relative(WORKSPACE_DIR, filePath);
+          const verifyText = `[TOOL: ws_read; ${relPath}]`;
+          const vr = await wsTools.executeToolCalls(verifyText, {
+            workspacePath: WORKSPACE_DIR, webFetchEnabled: false, cmdRunEnabled: false, integrationMode
+          });
+          if (vr.length > 0) verifyResults.push(...vr);
+        } catch { /* skip verify errors */ }
+      }
+      if (verifyResults.length > 0) {
+        verifyBlock = '\n\n[Auto-Verify: Files read back after write]\n' + wsTools.formatToolResults(verifyResults);
+      }
+    }

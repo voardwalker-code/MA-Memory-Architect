@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382394_03b6e7e8",
+  "type": "semantic",
+  "content": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// ensureDirs(dirs)\r\n//\r\n// Takes a list of folder paths and creates any that don't exist yet.\r\n// Uses { recursive: true } so it creates parent folders too.\r\n//\r\n// Example: if you pass ['MA-workspace', 'MA-entity/memories/episodic']\r\n// it will create all those folders (and any parents) if needed.\r\n//\r\n//   dirs — an array of absolute folder paths\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction ensureDirs(dirs) {\r\n  for (const d of dirs) {\r\n    if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-bootstrap.js",
+    "BackEnd core"
+  ],
+  "summary": "const fs   = require('fs');\r\nconst path = require('path');\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// ensureDirs(dirs)\r\n//\r\n// Takes a list of folder paths ",
+  "importance": 0.6,
+  "createdAt": 1774646382395,
+  "createdAtISO": "2026-03-27T21:19:42.395Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-bootstrap.js",
+  "accessCount": 0
+}

@@ -1,0 +1,24 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// compressHistory(hist, maxHistoryTokens, callLLMFn, llmConfig)
+//
+// When the conversation history is too long to fit in the context window,
+// this function compresses it.
+//
+// HOW THE COMPRESSION WORKS:
+//   1. If the history already fits, return it unchanged
+//   2. Keep the most recent 6 messages exactly as-is (they're important!)
+//   3. For older messages:
+//      a. If they're small enough, just paste them as a text summary
+//      b. If they're big, ask the AI to summarise them into bullet points
+//      c. If the AI call fails, just truncate and keep the last 2 old ones
+//
+//   hist              — array of { role, content } messages
+//   maxHistoryTokens  — the token budget for history
+//   callLLMFn         — function to call the AI (for LLM-powered compression)
+//   llmConfig         — the config object to pass to callLLMFn
+//   Returns: compressed message array (same format as input)
+// ─────────────────────────────────────────────────────────────────────────────
+async function compressHistory(hist, maxHistoryTokens, callLLMFn, llmConfig) {
+  if (!hist.length) return hist;
+  const totalTokens = estimateMessagesTokens(hist);
+  if (totalTokens <= maxHistoryTokens) return hist;

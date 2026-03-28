@@ -1,0 +1,36 @@
+// Build display text: message + filenames
+  const fileNames = pendingFiles.map(f => f.name);
+  const imageFiles = pendingFiles.filter(f => f.type === 'image');
+  const displayText = fileNames.length
+    ? (text ? text + '\n📎 ' + fileNames.join(', ') : '📎 ' + fileNames.join(', '))
+    : text;
+  addMsg('user', displayText);
+  // Show image thumbnails inline in the chat
+  if (imageFiles.length) {
+    const lastBubble = chatEl.querySelector('.msg:last-child .bubble');
+    if (lastBubble) {
+      for (const img of imageFiles) {
+        const el = document.createElement('img');
+        el.src = img.content; el.className = 'chat-img'; el.alt = img.name;
+        lastBubble.appendChild(el);
+      }
+    }
+  }
+  inputEl.value = '';
+  inputEl.style.height = 'auto';
+
+  const msgText = text || ('I attached these files: ' + fileNames.join(', '));
+  history.push({ role: 'user', content: msgText });
+  showTyping();
+
+  // Capture and clear attachments
+  const attachments = pendingFiles.slice();
+  pendingFiles = [];
+  document.getElementById('file-chips').innerHTML = '';
+
+  const payload = JSON.stringify({
+    message: msgText,
+    history: history.slice(-10),
+    attachments: attachments.length ? attachments : undefined,
+    autoPilot: isAutoPilot()
+  });

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389423_3786f83d",
+  "type": "semantic",
+  "content": "1. A user types `/ma <message>` in NekoCore OS chat\r\n2. NekoCore OS checks if MA is running; if not, it auto-boots MA via the process manager\r\n3. The message is forwarded to MA's `/api/chat` endpoint\r\n4. MA processes the message with full tool access (workspace, commands, web search)\r\n5. The response is returned to NekoCore OS chat with MA attribution\r\n\n### Use Cases\r\n\n- **Tool execution** — \"Write a Python script\" → MA creates the file in its workspace\r\n- **Web research** — \"Research Node.js 24 features\" → MA searches the web and returns findings\r\n- **Project work** — \"Continue working on the API project\" → MA resumes from its worklog\r\n- **Code review** — \"Review the auth module\" → MA reads and analyzes the code\r\n\n### Ports\r\n\n| Server | Default Port | Auto-boot |\r\n|--------|------|-----------|\r\n| NekoCore OS | 3847 | — (main server) |\r\n| MA | 3850 | Yes, via `/ma` command |\r\n\nBoth servers use smart port management — if the default port is busy, the server identifies what's running there and can start on the next available port.\r\n\n---\r\n\n## Chat Sessions\r\n\nMA supports multiple named chat sessions with persistent history.\r\n\n### Session Picker\r\nThe chat panel shows the last 4 sessions as clickable chips above the chat area. A **History ▾** dropdown lists all older sessions grouped by date. Selecting a session loads its messages; typing without selecting starts a new session automatically.",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "1. A user types `/ma <message>` in NekoCore OS chat\r\n2. NekoCore OS checks if MA is running; if not, it auto-boots MA via the process manager\r\n3. The message is forwarded to MA's `/api/chat` endpoint\r",
+  "importance": 0.6,
+  "createdAt": 1774646389423,
+  "createdAtISO": "2026-03-27T21:19:49.423Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

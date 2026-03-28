@@ -1,0 +1,35 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// normalizeRuntime(raw)
+//
+// Takes a raw config object (straight from the JSON file) and cleans it up.
+// Makes sure all the fields are the right type and shape.
+// Returns null if the input is missing required stuff.
+//
+// Think of it like a spell-checker for config objects — it fixes up
+// messy input so the rest of MA can trust the data.
+//
+//   raw — the object we parsed from the JSON config file
+//   Returns: a clean config object, or null if not usable
+// ─────────────────────────────────────────────────────────────────────────────
+function normalizeRuntime(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  const type = String(raw.type || '').toLowerCase().trim();
+  if (!type || !raw.model) return null;
+  const maxTokens = Number.parseInt(raw.maxTokens, 10);
+  const vision = raw.vision === true;
+
+  // Ollama runs locally — no API key needed
+  if (type === 'ollama') {
+    return {
+      type: 'ollama',
+      endpoint: String(raw.endpoint || 'http://localhost:11434').trim(),
+      model: String(raw.model || '').trim(),
+      workspacePath: String(raw.workspacePath || '').trim() || undefined,
+      ...(maxTokens > 0 ? { maxTokens } : {}),
+      ...(vision ? { vision: true } : {})
+    };
+  }
+
+  // Cloud providers need an API key
+  const key = String(raw.apiKey || raw.key || '').trim();
+  if (!key) return null;

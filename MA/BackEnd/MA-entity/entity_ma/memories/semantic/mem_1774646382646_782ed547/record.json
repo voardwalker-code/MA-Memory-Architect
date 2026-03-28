@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382646_782ed547",
+  "type": "semantic",
+  "content": "/**\r\n * Format tool execution results for OpenRouter tool message injection.\r\n * @param {Array<{ id: string, tool: string, result: string, ok: boolean }>} results\r\n * @returns {Array<object>} OpenRouter-format tool messages\r\n */\r\nfunction formatOpenRouterToolResults(results) {\r\n  return results.map(r => ({\r\n    role: 'tool',\r\n    tool_call_id: r.id,\r\n    content: r.ok ? r.result : `ERROR: ${r.result}`\r\n  }));\r\n}\r\n\nmodule.exports = {\r\n  TOOL_DEFS,\r\n  buildToolSchemas,\r\n  buildAnthropicTools,\r\n  buildOpenRouterTools,\r\n  parseAnthropicResponse,\r\n  parseOpenRouterResponse,\r\n  formatAnthropicToolResults,\r\n  formatOpenRouterToolResults\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "llm-tool-adapter.js",
+    "BackEnd llm"
+  ],
+  "summary": "/**\r\n * Format tool execution results for OpenRouter tool message injection.\r\n * @param {Array<{ id: string, tool: string, result: string, ok: boolean }>} results\r\n * @returns {Array<object>} OpenRout",
+  "importance": 0.6,
+  "createdAt": 1774646382646,
+  "createdAtISO": "2026-03-27T21:19:42.646Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-tool-adapter.js",
+  "accessCount": 0
+}

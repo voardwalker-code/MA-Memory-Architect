@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383726_cd8409e1",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _findBookDir(wp, bookId)\r\n//\r\n// Searches for a book's folder in the workspace.  Checks the new project\r\n// layout first, then falls back to the legacy standalone layout.\r\n//\r\n//   wp     — absolute path to the workspace\r\n//   bookId — the book's unique identifier\r\n//   Returns: absolute path to the book directory, or null if not found\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction _findBookDir(wp, bookId) {\r\n  // Sanitize bookId — no slashes allowed (prevents path traversal)\r\n  if (!bookId || /[/\\\\]/.test(bookId)) return null;\r\n\n  // New layout: projects/{slug}/books/{bookId}\r\n  const projDir = path.join(wp, 'projects');\r\n  if (fs.existsSync(projDir)) {\r\n    try {\r\n      for (const slug of fs.readdirSync(projDir)) {\r\n        const candidate = path.join(projDir, slug, 'books', bookId);\r\n        if (fs.existsSync(path.join(candidate, 'meta.json'))) return candidate;\r\n      }\r\n    } catch (_) {}\r\n  }\r\n\n  // Legacy layout: books/{bookId}\r\n  const legacy = path.join(wp, 'books', bookId);\r\n  if (fs.existsSync(path.join(legacy, 'meta.json'))) return legacy;\r\n\n  return null;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "tools-book.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// _findBookDir(wp, bookId)\r\n//\r\n// Searches for a book's folder in the workspace.  Checks the new project\r\n// layout ",
+  "importance": 0.6,
+  "createdAt": 1774646383727,
+  "createdAtISO": "2026-03-27T21:19:43.727Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-book.js",
+  "accessCount": 0
+}

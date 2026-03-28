@@ -1,0 +1,33 @@
+```javascript
+// ── NLP · BM25 Relevance Scoring ─────────────────────────────────────────────
+//
+// HOW SEARCH RANKING WORKS:
+// Imagine you're looking for a book in a library.  You know the topics
+// you care about ("dragons", "magic"), and each book has its own topics.
+// BM25 scores how well a book matches your search — higher score means
+// better match.
+//
+// This is the Okapi BM25 algorithm, a proven formula used by real search
+// engines.  It accounts for:
+//   - How often your search words appear in the document (term frequency)
+//   - How long the document is (longer docs get a slight penalty)
+//   - A smoothing factor so rare words matter more
+//
+// TUNING KNOBS:
+//   k1 = 1.5   — controls how much extra occurrences of a word matter
+//   b  = 0.75  — controls how much document length affects the score
+//   avgDL = 8  — assumed average document length (in topics)
+//   IDF = ln(2) — simplified inverse-document-frequency (fast, good enough)
+//
+// WHAT USES THIS:
+//   svc-memory.js — ranks memories by relevance when the AI searches
+//
+// EXPORTS:
+//   bm25Score(queryTopics, docTopics, opts?)               → number
+//   bm25ScoreWithImportance(queryTopics, docTopics, i, d)  → number
+//   K1, B, AVG_DL — the tuning constants (exported for tests)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';
+```
+
+### Real Example — Orchestrator Module

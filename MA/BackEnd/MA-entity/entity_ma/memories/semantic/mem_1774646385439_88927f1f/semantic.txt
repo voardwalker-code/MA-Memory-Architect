@@ -1,0 +1,38 @@
+async function addChoreFromPane() {
+  const name = document.getElementById('chore-name').value.trim();
+  const description = document.getElementById('chore-desc').value.trim();
+  const intervalMs = parseInt(document.getElementById('chore-interval').value, 10) || 1800000;
+  if (!name) {
+    addSystem('Chore name is required.');
+    return;
+  }
+  try {
+    const r = await fetch('/api/chores/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, description, intervalMs })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'Could not add chore');
+    document.getElementById('chore-name').value = '';
+    document.getElementById('chore-desc').value = '';
+    loadChoresPane();
+  } catch (e) {
+    addSystem('Chore add error: ' + e.message);
+  }
+}
+
+async function toggleChoreEnabled(id, enabled) {
+  try {
+    const r = await fetch('/api/chores/update', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, enabled })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'Could not update chore');
+    loadChoresPane();
+  } catch (e) {
+    addSystem('Chore update error: ' + e.message);
+  }
+}

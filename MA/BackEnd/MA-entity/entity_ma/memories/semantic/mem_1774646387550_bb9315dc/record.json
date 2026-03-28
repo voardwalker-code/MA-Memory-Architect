@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387550_bb9315dc",
+  "type": "semantic",
+  "content": "### belief-graph.js — `createBeliefGraph(entityDir)`\r\n- **Data structure**: Topic co-occurrence matrix\r\n  - `beliefs`: Map<topic, { strength, evidence: string[], firstSeen, lastSeen }>\r\n  - Stored as `beliefs.json` in entity directory\r\n\n- **discoverBeliefs(memories)**:\r\n  1. Build topic co-occurrence matrix from all memories\r\n  2. For topic pairs appearing in 3+ memories: generate candidate belief\r\n  3. Score belief strength by evidence count\r\n  4. Beliefs are emergent — they come FROM the memories, not predefined\r\n  5. Return new beliefs discovered\r\n\n- **getBeliefs()**: Return all beliefs from in-memory cache\r\n- **getBeliefsByTopic(topic)**: Filter beliefs containing given topic\r\n- **loadBeliefs()**: Read beliefs.json from entity dir\r\n- **saveBeliefs()**: Write beliefs.json to entity dir\r\n\n### brain-loop.js — `createBrainLoop(deps)`\r\n- **isSleepDue(entityId)**:\r\n  1. Check last sleep timestamp for entity\r\n  2. If > threshold (e.g. 6 hours or 50 turns), return true\r\n  3. Return { due: boolean, reason, lastSleep, turnsSince }",
+  "topics": [
+    "MA Memory Architect",
+    "layer-4-cognition.md",
+    "MA-blueprints rem-system"
+  ],
+  "summary": "### belief-graph.js — `createBeliefGraph(entityDir)`\r\n- **Data structure**: Topic co-occurrence matrix\r\n  - `beliefs`: Map<topic, { strength, evidence: string[], firstSeen, lastSeen }>\r\n  - Stored as ",
+  "importance": 0.6,
+  "createdAt": 1774646387552,
+  "createdAtISO": "2026-03-27T21:19:47.552Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\rem-system\\layer-4-cognition.md",
+  "accessCount": 0
+}

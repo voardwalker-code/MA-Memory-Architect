@@ -1,0 +1,21 @@
+/** Get summary for system prompt injection. */
+function getSummaryForPrompt() {
+  const state = getState();
+  const parts = [];
+  if (state.activeProject) parts.push(`Active project: ${state.activeProject}${state.activeProjectStatus ? ' (' + state.activeProjectStatus + ')' : ''}`);
+  if (state.currentTask) parts.push(`Current task: ${state.currentTask}`);
+  if (state.taskPlan && state.taskPlan.length) {
+    const done = state.taskPlan.filter(s => s.done).length;
+    parts.push(`Plan progress: ${done}/${state.taskPlan.length} steps`);
+    const next = state.taskPlan.find(s => !s.done);
+    if (next) parts.push(`Next step: ${next.description}`);
+  }
+  if (state.resumePoint) parts.push(`Resume: ${state.resumePoint}`);
+  if (state.recentWork && state.recentWork.length) {
+    const last3 = state.recentWork.slice(-3);
+    parts.push('Recent: ' + last3.map(w => `${w.task} (${w.status})`).join('; '));
+  }
+  return parts.length ? parts.join('\n') : null;
+}
+
+module.exports = { read, getState, write, recordTask, setActiveTask, markStepDone, getSummaryForPrompt, WORKLOG_PATH };

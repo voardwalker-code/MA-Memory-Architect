@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387340_2d55f05a",
+  "type": "semantic",
+  "content": "| Module | File | What to Build |\r\n|--------|------|---------------|\r\n| Aspect Prompts | `server/generation/aspect-prompts.js` | Aspect-specific prompt templates |\r\n| Context Consolidator | `server/generation/context-consolidator.js` | Consolidate all context into prompt-ready package with token budget |\r\n| Humanize Filter | `server/generation/humanize-filter.js` | Remove robotic LLM artifacts, apply voice |\r\n| Core Life Generator | `server/generation/core-life-generator.js` | Entity autobiography from accumulated experience |\r\n| Chapter Generator | `server/generation/chapter-generator.js` | Life chapters with emotional arcs |\r\n| Synthetic Memory Generator | `server/generation/synthetic-memory-generator.js` | Generate initialization memories (tagged synthetic) |\r\n| Diary Prompts | `server/generation/diary-prompts.js` | Templates for diary generation |\r\n| Message Chunker | `server/generation/message-chunker.js` | Intelligent long-message splitting |\r\n| Voice Profile | `server/generation/voice-profile.js` | Voice characteristics (formality, humor, vocabulary) |\r\n\n## Build Steps\r\n\n1. Fill identity modules (hatch-entity first — it creates the initial state)\r\n2. Fill generation modules (context-consolidator is the hub — wire it last)\r\n3. Each stub has algorithm comments — follow them\r\n\n## Done When\r\n\n```\r\nnode tests/test-runner.js 4\r\n→ 34 passed, 0 failed\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "part-4-identity-generation.md",
+    "MA-blueprints nekocore"
+  ],
+  "summary": "| Module | File | What to Build |\r\n|--------|------|---------------|\r\n| Aspect Prompts | `server/generation/aspect-prompts.js` | Aspect-specific prompt templates |\r\n| Context Consolidator | `server/ge",
+  "importance": 0.6,
+  "createdAt": 1774646387341,
+  "createdAtISO": "2026-03-27T21:19:47.341Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\nekocore\\part-4-identity-generation.md",
+  "accessCount": 0
+}

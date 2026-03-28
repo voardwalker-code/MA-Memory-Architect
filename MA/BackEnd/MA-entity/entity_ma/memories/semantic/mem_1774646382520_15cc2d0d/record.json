@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382520_15cc2d0d",
+  "type": "semantic",
+  "content": "const timeout = Math.min(opts.timeout || parsed.config.timeout, HARD_MAX_TIMEOUT);\r\n    let stdout = '', stderr = '', timedOut = false, done = false;\r\n\n    // Use shell mode on Windows for built-in commands (dir, type, find, etc.)\r\n    const useShell = process.platform === 'win32';\r\n    const child = spawn(parsed.binary, parsed.args, {\r\n      cwd: workspacePath,\r\n      shell: useShell,\r\n      stdio: ['ignore', 'pipe', 'pipe'],\r\n      env: { ...process.env, CI: 'true', NO_COLOR: '1' }\r\n    });\r\n\n    child.stdout.on('data', d => { if (stdout.length < OUTPUT_CAP) stdout += d; });\r\n    child.stderr.on('data', d => { if (stderr.length < OUTPUT_CAP) stderr += d; });\r\n\n    const timer = setTimeout(() => {\r\n      timedOut = true;\r\n      child.kill('SIGKILL');\r\n    }, timeout);\r\n\n    child.on('error', (err) => {\r\n      if (done) return; done = true;\r\n      clearTimeout(timer);\r\n      resolve({ ok: false, error: err.message });\r\n    });\r\n\n    child.on('close', (code) => {\r\n      if (done) return; done = true;\r\n      clearTimeout(timer);\r\n      resolve({ ok: code === 0, exitCode: code, stdout: stdout.slice(0, OUTPUT_CAP), stderr: stderr.slice(0, OUTPUT_CAP), timedOut });\r\n    });\r\n  });\r\n}\r\n\n/** List available commands (for LLM prompts). */\r\nfunction getAvailableCommands() {\r\n  return Object.entries(WHITELIST).map(([bin, subs]) =>\r\n    subs ? `${bin} [${subs.join('|')}]` : bin\r\n  ).join('\\n');\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "infra-cmd-executor.js",
+    "BackEnd infra"
+  ],
+  "summary": "const timeout = Math.min(opts.timeout || parsed.config.timeout, HARD_MAX_TIMEOUT);\r\n    let stdout = '', stderr = '', timedOut = false, done = false;\r\n\n    // Use shell mode on Windows for built-in co",
+  "importance": 0.6,
+  "createdAt": 1774646382520,
+  "createdAtISO": "2026-03-27T21:19:42.520Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-cmd-executor.js",
+  "accessCount": 0
+}

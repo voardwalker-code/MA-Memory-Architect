@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384920_0c371f10",
+  "type": "semantic",
+  "content": "async function saveConfig() {\r\n  syncThinkingBudgetUi();\r\n  const type = document.getElementById('cfg-type').value;\r\n  const keyEl = document.getElementById('cfg-key');\r\n  const rawKey = keyEl ? keyEl.value.trim() : '';\r\n  const hasStoredKey = keyEl?.dataset.hasStoredKey === 'true';\r\n  const normalizedKey = (rawKey && rawKey !== MA_MASKED_KEY) ? rawKey : (hasStoredKey ? '' : rawKey);\r\n  const body = {\r\n    type,\r\n    endpoint: document.getElementById('cfg-endpoint').value.trim(),\r\n    apiKey: normalizedKey,\r\n    model: document.getElementById('cfg-model').value.trim(),\r\n    maxTokens: parseInt(document.getElementById('cfg-tokens').value, 10) || 12288,\r\n    vision: document.getElementById('cfg-vision').checked,\r\n    workspacePath: document.getElementById('cfg-workspace').value.trim(),\r\n    integrationMode: document.getElementById('cfg-integration-mode').value,\r\n    memoryLimit: parseInt(document.getElementById('cfg-mem-limit').value, 10) || 6,\r\n    memoryRecall: document.getElementById('cfg-mem-recall').checked\r\n  };\r\n\n  // Apply theme choice (client-side only)\r\n  applyTheme(document.getElementById('cfg-theme').value);\r\n\n  // Save Auto Pilot (client-side only)\r\n  setAutoPilot(document.getElementById('cfg-autopilot').checked);",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-config.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function saveConfig() {\r\n  syncThinkingBudgetUi();\r\n  const type = document.getElementById('cfg-type').value;\r\n  const keyEl = document.getElementById('cfg-key');\r\n  const rawKey = keyEl ? keyEl",
+  "importance": 0.6,
+  "createdAt": 1774646384921,
+  "createdAtISO": "2026-03-27T21:19:44.921Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-config.js",
+  "accessCount": 0
+}

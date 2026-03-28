@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387265_93c3c5a2",
+  "type": "semantic",
+  "content": "1. Ensure REM System is complete (`workspace/rem-system/` — all layer tests pass)\r\n2. Open the project at `workspace/nekocore/`\r\n3. Run `node tests/test-runner.js 1` — if contracts load, proceed\r\n4. Execute `part-1-cognitive-foundation.md` blueprint\r\n5. Run `node tests/test-runner.js 1` — must pass before proceeding\r\n6. Execute `part-2-memory-knowledge.md` blueprint\r\n7. Run `node tests/test-runner.js 2` — must pass before proceeding\r\n8. Continue through all 5 parts\r\n\n## Rules\r\n\n- **NEVER skip a part**. Part N tests must pass before Part N+1 begins.\r\n- **NEVER modify contracts** unless a bug is found (document the change).\r\n- **Every stub has algorithm comments** — follow them exactly.\r\n- **Reference MA's existing NLP** where noted (MA-rake.js, MA-bm25.js, MA-yake.js).\r\n- **Reference REM System modules** for base implementations the cognitive mind extends.\r\n- **Update PROJECT-MANIFEST.json** after completing each module.\r\n\n## Module Count\r\n\n| Part | Modules | Tests |\r\n|------|---------|-------|\r\n| 1 | 6 modules + 5 contracts | 21 |\r\n| 2 | 11 modules | 22 |\r\n| 3 | 25 modules (9 engines + 16 phases) | 50 |\r\n| 4 | 17 modules (8 identity + 9 generation) | 34 |\r\n| 5 | 30 modules (16 services + 1 util + 12 routes + 1 preflight) + 3 transport | 49 |\r\n| **Total** | **92 modules + 5 contracts + 3 transport** | **176** |",
+  "topics": [
+    "MA Memory Architect",
+    "INDEX.md",
+    "MA-blueprints nekocore"
+  ],
+  "summary": "1. Ensure REM System is complete (`workspace/rem-system/` — all layer tests pass)\r\n2. Open the project at `workspace/nekocore/`\r\n3. Run `node tests/test-runner.js 1` — if contracts load, proceed\r\n4. E",
+  "importance": 0.6,
+  "createdAt": 1774646387265,
+  "createdAtISO": "2026-03-27T21:19:47.265Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\nekocore\\INDEX.md",
+  "accessCount": 0
+}

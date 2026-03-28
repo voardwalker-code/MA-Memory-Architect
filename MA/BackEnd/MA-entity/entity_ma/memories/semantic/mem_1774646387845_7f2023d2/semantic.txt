@@ -1,0 +1,33 @@
+# Agent Delegation — Interview & Dispatch Protocol
+
+Reference doc for MA when delegating work to specialist agents.
+
+---
+
+## When This Applies
+
+When a task is too large or specialized for MA to do alone, delegate to an agent from the catalog.
+
+## Phase 1: Check the Roster
+
+Before creating a new agent, scan who's already available:
+
+```
+[TOOL:cmd_run command="node -e \"const a=require('./BackEnd/services/svc-agents'); const s=a.getCatalogSummary(); console.log(JSON.stringify(s,null,2));\""]
+```
+
+Or list all agents with full details:
+```
+[TOOL:cmd_run command="node -e \"const a=require('./BackEnd/services/svc-agents'); a.listAgents().forEach(x => console.log(x.id, '-', x.name, '('+x.seniority+')', '-', x.role));\""]
+```
+
+## Phase 2: Match Task to Agent
+
+| Task Type | Best Agent Role | Seniority Guide |
+|-----------|----------------|-----------------|
+| Implement a module from blueprint | coder | senior for complex, junior for simple |
+| Design data shapes / contracts | architect | lead |
+| Write or update tests | tester | senior |
+| Research an algorithm or technique | researcher | senior |
+| Review code before merge | reviewer | lead |
+| Write documentation or guides | writer | mid or senior |

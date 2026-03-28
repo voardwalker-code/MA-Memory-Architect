@@ -1,0 +1,7 @@
+<!-- Config panel -->
+<div id="config-panel">
+  <div class="config-box" style="width:480px">
+    <div class="cfg-tabs">
+      <button class="cfg-tab active" onclick="switchCfgTab('llm')">LLM</button>
+      <button class="cfg-tab" onclick="switchCfgTab('whitelist')">Command Whitelist</button>
+    </div>

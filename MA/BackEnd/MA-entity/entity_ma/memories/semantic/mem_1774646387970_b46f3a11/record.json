@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387970_b46f3a11",
+  "type": "semantic",
+  "content": "### Budget Guard\r\nToken cap enforcement. If total exceeds cap: forces no-escalation.\r\n\n### Latency Guard\r\n35,000ms timeout race on Final synthesis. On timeout: falls back to default runtime, then Conscious output.\r\n\n---\r\n\n## Task Orchestration (MTOA)\r\n\nPre-orchestrator task fork in `chat-pipeline.js`:\r\n1. `detectAndDispatchTask` classifies the turn\r\n2. If task: create/resume session → gather context by type → execute steps\r\n3. Frontman emits lifecycle events over SSE: task_milestone, task_needs_input, task_complete, task_error\r\n\nTask types: code, research, writing, analysis, project, memory_query\r\n\n---\r\n\n## Worker Entity Subsystem\r\n\nAny contributor aspect (1A, 1C, 1D) can be bound to a separate Worker Entity in subsystem mode. Workers override the contributor's default LLM call. Registered via worker-registry.js (in-memory Map by aspect key).\r\n\n---\r\n\n## Turn Signals\r\n\nExtracted deterministically (no LLM): subject, event, emotion, tension. Fed to Dream-Intuition. Also used for topic extraction and archival routing.\r\n\n---\r\n\n## Best Practices",
+  "topics": [
+    "MA Memory Architect",
+    "cognitive-pipeline.md",
+    "MA-knowledge"
+  ],
+  "summary": "### Budget Guard\r\nToken cap enforcement. If total exceeds cap: forces no-escalation.\r\n\n### Latency Guard\r\n35,000ms timeout race on Final synthesis. On timeout: falls back to default runtime, then Cons",
+  "importance": 0.6,
+  "createdAt": 1774646387971,
+  "createdAtISO": "2026-03-27T21:19:47.971Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\cognitive-pipeline.md",
+  "accessCount": 0
+}

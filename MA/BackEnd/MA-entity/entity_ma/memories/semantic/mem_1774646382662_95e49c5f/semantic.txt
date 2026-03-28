@@ -1,0 +1,27 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// safeRequire(modulePath, label)
+//
+// Like require(), but if the module is missing or broken it returns null
+// instead of crashing.  Think of it as a safety net — if someone
+// accidentally breaks core-config.js, the rest of MA still loads.
+//
+//   modulePath — the path to require (e.g. './core/core-config')
+//   label      — a friendly name for log messages
+// ─────────────────────────────────────────────────────────────────────────────
+function safeRequire(modulePath, label) {
+  try {
+    return require(modulePath);
+  } catch (err) {
+    console.warn(`[MA-core] ⚠ Could not load core module "${label}": ${err.message}`);
+    return null;
+  }
+}
+
+// ── Core sub-modules (loaded resiliently) ───────────────────────────────────
+// Each module handles one area of responsibility.
+// If one module fails to load, things that depend on it degrade gracefully.
+const coreConfig  = safeRequire('./core/core-config',    'config');
+const coreBoot    = safeRequire('./core/core-bootstrap', 'bootstrap');
+const coreTokens  = safeRequire('./core/core-tokens',    'tokens');
+const coreContext = safeRequire('./core/core-context',   'context');
+const coreChat    = safeRequire('./core/core-chat',      'chat');

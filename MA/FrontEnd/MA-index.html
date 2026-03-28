@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MA — Memory Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/ma-ui-tokens-base.css">
+<link rel="stylesheet" href="css/ma-ui-chat-panels.css">
+<link rel="stylesheet" href="css/ma-ui-layout-inspector.css">
+<link rel="stylesheet" href="css/ma-ui-workspace-editor.css">
+<link rel="stylesheet" href="css/ma-ui-panels-modals.css">
+</head>
+<body>
+
+<div id="menu-bar">
+  <div class="menu-item" id="menu-file">
+    <button class="menu-btn" onclick="MA.nav.toggleMenu('file')">File</button>
+    <div class="menu-dropdown" id="menu-file-dropdown">
+      <button onclick="MA.nav.menuNewFile()">New File</button>
+      <button onclick="MA.nav.menuNewFolder()">New Folder</button>
+      <div class="menu-sep"></div>
+      <button onclick="MA.nav.menuOpenFile()">Open File...</button>
+      <button onclick="MA.nav.menuOpenFolder()">Open Folder...</button>
+      <div class="menu-sep"></div>
+      <button onclick="MA.nav.menuSave()">Save</button>
+      <button onclick="MA.nav.menuSaveAll()">Save All</button>
+      <div class="menu-sep"></div>
+      <button onclick="MA.config.openConfig()">Settings</button>
+    </div>
+  </div>
+  <div class="menu-item" id="menu-edit">
+    <button class="menu-btn" onclick="MA.nav.toggleMenu('edit')">Edit</button>
+    <div class="menu-dropdown" id="menu-edit-dropdown">
+      <button onclick="document.execCommand('undo')">Undo <span class="menu-shortcut">Ctrl+Z</span></button>
+      <button onclick="document.execCommand('redo')">Redo <span class="menu-shortcut">Ctrl+Y</span></button>
+      <div class="menu-sep"></div>
+      <button onclick="document.execCommand('cut')">Cut <span class="menu-shortcut">Ctrl+X</span></button>
+      <button onclick="document.execCommand('copy')">Copy <span class="menu-shortcut">Ctrl+C</span></button>
+      <button onclick="document.execCommand('paste')">Paste <span class="menu-shortcut">Ctrl+V</span></button>
+      <div class="menu-sep"></div>
+      <button onclick="MA.editor.openFind(false)">Find <span class="menu-shortcut">Ctrl+F</span></button>
+      <button onclick="MA.editor.openFind(true)">Replace <span class="menu-shortcut">Ctrl+H</span></button>
+    </div>
+  </div>
+  <div class="menu-item" id="menu-view">
+    <button class="menu-btn" onclick="MA.nav.toggleMenu('view')">View</button>
+    <div class="menu-dropdown" id="menu-view-dropdown">
+      <button onclick="MA.nav.selectWorkspaceSection('workspace')">Workspace</button>
+      <button onclick="MA.nav.selectWorkspaceSection('blueprints')">Blueprints</button>
+      <button onclick="MA.nav.selectWorkspaceSection('projects')">Projects</button>
+      <div class="menu-sep"></div>
+      <button onclick="MA.nav.toggleTerminalPanel()">Terminal</button>
+      <div class="menu-sep"></div>
+      <button onclick="MA.nav.resetWorkspaceLayout()">Reset Layout</button>
+    </div>
+  </div>
+  <div class="menu-item" id="menu-terminal">
+    <button class="menu-btn" onclick="MA.nav.toggleTerminalPanel()">Terminal</button>
+  </div>
+  <div class="menu-item" id="menu-help">
+    <button class="menu-btn" onclick="MA.nav.toggleMenu('help')">Help</button>
+    <div class="menu-dropdown" id="menu-help-dropdown">
+      <button onclick="window.open('/user-guide','_blank')">User Guide</button>
+      <button onclick="window.open('https://github.com/voardwalker-code/MA-Memory-Architect','_blank')">GitHub</button>
+    </div>
+  </div>
+</div>
+
+<header id="workspace-toolbar">
+  <div class="workspace-brand">
+    <span class="dot" id="status-dot"></span>
+    <h1>MA Workspace</h1>
+    <span class="status" id="status-text">Connecting...</span>
+  </div>
+  <div class="mode-toggle" id="mode-toggle">
+    <button class="mode-btn active" data-mode="work" onclick="MA.nav.switchMode('work')">Work</button>
+    <button class="mode-btn" data-mode="chat" onclick="MA.nav.switchMode('chat')">Chat</button>
+  </div>
+  <div class="toolbar-actions">
+    <button class="act-toggle" onclick="MA.nav.selectWorkspaceSection('archives')" title="Project Archives">Archives</button>
+  </div>
+</header>
+
+<div id="main-wrap">
+  <aside id="left-rail">
+    <div class="rail-brand">
+      <div class="logo" onclick="MA.nav.toggleExplorerPanel()" title="Toggle Explorer" style="cursor:pointer">MA</div>
+    </div>
+    <nav class="rail-nav" aria-label="Workspace Sections">
+      <button class="rail-btn active" id="rail-workspace" data-label="Workspace Files" onclick="MA.nav.selectWorkspaceSection('workspace')">
+        <span class="icon">📁</span>
+        <span class="label">Workspace</span>
+      </button>
+      <button class="rail-btn" id="rail-blueprints" data-label="Blueprints" onclick="MA.nav.selectWorkspaceSection('blueprints')">
+        <span class="icon">🧠</span>
+        <span class="label">Blueprints</span>
+      </button>
+      <button class="rail-btn" id="rail-projects" data-label="Projects" onclick="MA.nav.selectWorkspaceSection('projects')">
+        <span class="icon">📦</span>
+        <span class="label">Projects</span>
+      </button>
+      <button class="rail-btn" id="rail-tasks" data-label="Tasks" onclick="MA.nav.selectWorkspaceSection('tasks')">
+        <span class="icon">🗂</span>
+        <span class="label">Tasks</span>
+      </button>
+      <button class="rail-btn" id="rail-todos" data-label="Todos" onclick="MA.nav.selectWorkspaceSection('todos')">
+        <span class="icon">✅</span>
+        <span class="label">Todos</span>
+      </button>
+      <button class="rail-btn" id="rail-chores" data-label="Chores" onclick="MA.nav.selectWorkspaceSection('chores')">
+        <span class="icon">🛡</span>
+        <span class="label">Chores</span>
+      </button>
+      <button class="rail-btn" id="rail-session" data-label="Session History" onclick="MA.nav.selectWorkspaceSection('session')">
+        <span class="icon">🧾</span>
+        <span class="label">Session</span>
+      </button>
+      <button class="rail-btn" id="rail-archives" data-label="Archives" onclick="MA.nav.selectWorkspaceSection('archives')">
+        <span class="icon">🗄</span>
+        <span class="label">Archives</span>
+      </button>
+    </nav>
+    <div class="rail-spacer"></div>
+    <div class="rail-utils">
+      <button class="rail-btn" id="rail-terminal" title="Terminal" onclick="MA.nav.toggleTerminalPanel()">
+        <span class="icon">&#x1F4BB;</span>
+        <span class="label">Terminal</span>
+      </button>
+      <button class="rail-btn" id="rail-ingest" title="Memory Ingest" onclick="MA.ingest.toggleIngestPanel()">
+        <span class="icon">&#x1F4E5;</span>
+        <span class="label">Ingest</span>
+      </button>
+      <button class="rail-btn" id="rail-settings" title="Settings" onclick="MA.config.openConfig()">
+        <span class="icon">&#9881;</span>
+        <span class="label">Settings</span>
+      </button>
+    </div>
+    <div class="rail-mode">
+      <div class="mode-pill" id="rail-mode-pill">WORK</div>
+    </div>
+  </aside>
+
+  <aside id="explorer-panel">
+    <div class="workspace-pane-header">
+      <div>
+        <div class="pane-kicker">Explorer</div>
+        <h2 id="explorer-title">Workspace Files</h2>
+      </div>
+      <div class="explorer-actions">
+        <button class="explorer-action-btn" onclick="MA.nav.menuNewFile()" title="New File">+</button>
+        <button class="explorer-action-btn" onclick="MA.nav.menuNewFolder()" title="New Folder">📁+</button>
+        <button class="explorer-action-btn" onclick="MA.workspace.collapseAllTree()" title="Collapse All">⊟</button>
+        <button class="side-refresh" onclick="MA.workspace.refreshWorkspaceSection()">↻</button>
+      </div>
+    </div>
+    <div id="explorer-search-bar" class="explorer-search-bar">
+      <input id="explorer-search-input" placeholder="Search files..." oninput="MA.workspace.filterFileTree(this.value)">
+    </div>
+    <div id="explorer-body"></div>
+  </aside>
+
+  <div class="pane-splitter" id="splitter-left" title="Resize explorer"></div>
+
+  <section id="editor-panel">
+    <div id="editor-tabs"></div>
+    <div id="editor-breadcrumb" class="editor-breadcrumb"></div>
+    <div id="editor-content">
+      <div id="editor-empty">Select a file or workspace item to open it in the editor.</div>
+    </div>
+    <div id="terminal-panel" class="hidden">
+      <div class="terminal-header">
+        <span>Terminal</span>
+        <button class="terminal-close" onclick="MA.nav.toggleTerminalPanel()" title="Close terminal">&times;</button>
+      </div>
+      <div id="terminal-output"></div>
+      <div class="terminal-input-row">
+        <span class="terminal-prompt">&gt;</span>
+        <input id="terminal-input" placeholder="Type a command..." onkeydown="if(event.key==='Enter')MA.nav.runTerminalCmd()">
+        <button class="btn-save" onclick="MA.nav.runTerminalCmd()" style="padding:4px 10px;font-size:12px">Run</button>
+      </div>
+    </div>
+    <div id="status-bar">
+      <span id="sb-cursor">Ln 1, Col 1</span>
+      <span id="sb-lines">0 lines</span>
+      <span id="sb-language">Plain Text</span>
+      <span id="sb-encoding">UTF-8</span>
+    </div>
+  </section>
+
+  <div class="pane-splitter" id="splitter-right" title="Resize chat"></div>
+
+  <section id="chat-panel">
+    <div id="chat-toolbar">
+      <div>
+        <div class="chat-kicker">Assistant</div>
+        <h2>Chat</h2>
+      </div>
+      <div class="chat-hint">The workspace stays visible while you chat, inspect files, and edit documents.</div>
+    </div>
+    <div id="session-picker">
+      <div id="session-dropdown-wrap">
+        <button class="sp-new-btn" onclick="MA.chat.startNewSession()" title="New conversation">＋ New Chat</button>
+        <button id="session-dropdown-btn" onclick="MA.chat.toggleSessionDropdown()">History ▾</button>
+        <div id="session-dropdown" class="hidden"></div>
+      </div>
+    </div>
+    <div id="chat"></div>
+    <div id="token-bar"><div class="fill"></div></div>
+    <div id="token-info"></div>
+    <div id="input-bar">
+      <div id="cmd-popup"></div>
+      <div id="file-chips"></div>
+      <div class="input-row">
+        <textarea id="msg-input" placeholder="Message MA... (type / for commands, or drag files here)" rows="1" onkeydown="MA.chat.handleKey(event)" oninput="MA.input.handleInput()"></textarea>
+        <button id="send-btn" onclick="MA.chat.send()">Send</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="drop-overlay"><span>Drop files here</span></div>
+
+<!-- Folder browser modal -->
+<div id="folder-browser-modal">
+  <div class="config-box folder-browser-box">
+    <div class="fb-header">
+      <h2>Open Folder</h2>
+      <button class="fb-close" onclick="MA.nav.closeFolderBrowser()">&times;</button>
+    </div>
+    <div class="fb-quick-access" id="fb-quick-access"></div>
+    <div class="fb-path-bar">
+      <button class="fb-nav-btn" onclick="MA.nav.fbNavigateUp()" title="Go up">⬆</button>
+      <input id="fb-path-input" placeholder="Path..." onkeydown="if(event.key==='Enter')MA.nav.fbNavigateTo()">
+      <button class="fb-nav-btn" onclick="MA.nav.fbNavigateTo()" title="Go">→</button>
+    </div>
+    <div class="fb-breadcrumb" id="fb-breadcrumb"></div>
+    <div class="fb-list" id="fb-list">
+      <div class="side-empty">Loading locations...</div>
+    </div>
+    <div class="fb-footer">
+      <div class="fb-selected" id="fb-selected-path"></div>
+      <div class="btn-row">
+        <button class="btn-cancel" onclick="MA.nav.closeFolderBrowser()">Cancel</button>
+        <button class="btn-save" id="fb-open-btn" onclick="MA.nav.fbOpenSelected()">Open Folder</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Context menu -->
+<div id="tree-context-menu" class="context-menu">
+  <button onclick="MA.workspace.ctxNewFile()">New File</button>
+  <button onclick="MA.workspace.ctxNewFolder()">New Folder</button>
+  <div class="menu-sep"></div>
+  <button onclick="MA.workspace.ctxRename()">Rename</button>
+  <button onclick="MA.workspace.ctxDelete()">Delete</button>
+  <div class="menu-sep"></div>
+  <button onclick="MA.workspace.ctxCopyPath()">Copy Path</button>
+  <button onclick="MA.workspace.ctxRevealInTree()">Reveal in Explorer</button>
+</div>
+
+<!-- Config panel -->
+<div id="config-panel">
+  <div class="config-box" style="width:480px">
+    <div class="cfg-tabs">
+      <button class="cfg-tab active" onclick="MA.config.switchCfgTab('llm')">LLM</button>
+      <button class="cfg-tab" onclick="MA.config.switchCfgTab('whitelist')">Command Whitelist</button>
+    </div>
+
+    <!-- LLM pane -->
+    <div id="cfg-llm" class="cfg-pane active">
+      <label>Provider</label>
+      <select id="cfg-type">
+        <option value="openrouter">OpenRouter</option>
+        <option value="ollama">Ollama</option>
+        <option value="anthropic">Anthropic Direct</option>
+      </select>
+      <label>Endpoint URL</label>
+      <input id="cfg-endpoint" placeholder="https://openrouter.ai/api/v1/chat/completions">
+      <label>API Key (blank for Ollama)</label>
+      <div class="key-row">
+        <input id="cfg-key" type="password" placeholder="sk-or-...">
+        <button class="key-toggle" id="cfg-key-toggle" type="button" onclick="MA.config.toggleCfgKeyVisibility()">See</button>
+      </div>
+      <label>Model</label>
+      <div id="model-text-wrap">
+        <input id="cfg-model" list="cfg-model-datalist" placeholder="anthropic/claude-sonnet-4">
+        <datalist id="cfg-model-datalist"></datalist>
+      </div>
+      <div id="model-ollama-wrap" style="display:none">
+        <div class="model-row">
+          <select id="cfg-model-select" onchange="MA.config.onOllamaModelSelect()"><option value="">-- select a model --</option></select>
+          <button onclick="MA.config.loadOllamaModels()" title="Refresh model list">&#x27F3;</button>
+        </div>
+        <div id="model-info"></div>
+        <div class="pull-row">
+          <input id="cfg-pull-name" placeholder="Pull a model (e.g. llama3.1:8b)">
+          <button onclick="MA.config.pullOllamaModel()">Pull</button>
+        </div>
+        <div id="pull-status"></div>
+      </div>
+      <label>Max Tokens <span id="cfg-tokens-val" style="color:var(--accent)">12288</span></label>
+      <input id="cfg-tokens" type="range" min="1024" max="1000000" step="1024" value="12288" oninput="document.getElementById('cfg-tokens-val').textContent=this.value" style="accent-color:var(--accent)">
+      <div id="cfg-tokens-hint" style="font-size:12px;color:var(--dim);margin-top:4px">20% of Max Tokens is reserved for MA's reply.</div>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer"><input id="cfg-vision" type="checkbox" style="accent-color:var(--accent)"> Vision (model supports images)</label>
+      <label>Workspace Path <span style="color:var(--dim);font-size:11px">(blank = default MA-workspace/)</span></label>
+      <input id="cfg-workspace" placeholder="MA-workspace">
+      <label>Integration Mode</label>
+      <select id="cfg-integration-mode">
+        <option value="off">Off (Standalone)</option>
+        <option value="nekocore">NekoCore Integration</option>
+      </select>
+      <label>Theme</label>
+      <select id="cfg-theme">
+        <option value="system">Use Browser Preference</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+      <label>Memory Recall <span id="cfg-mem-limit-val" style="color:var(--accent)">6</span></label>
+      <input id="cfg-mem-limit" type="range" min="6" max="50" step="1" value="6" oninput="document.getElementById('cfg-mem-limit-val').textContent=this.value" style="accent-color:var(--accent)">
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer"><input id="cfg-mem-recall" type="checkbox" checked style="accent-color:var(--accent)"> Enable memory recall in chat</label>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;margin-top:6px"><input id="cfg-autopilot" type="checkbox" style="accent-color:var(--accent)"> Auto Pilot <span style="font-size:11px;color:var(--dim)">(no timeout popups — let MA run freely)</span></label>
+      <label style="margin-top:8px">Task Budget <span id="cfg-budget-mult-val" style="color:var(--accent)">1x</span></label>
+      <input id="cfg-budget-mult" type="range" min="0.5" max="4" step="0.5" value="1" oninput="document.getElementById('cfg-budget-mult-val').textContent=this.value+'x'" style="accent-color:var(--accent)">
+      <div style="font-size:11px;color:var(--dim);margin-top:2px">Scales MA's step &amp; LLM call limits. Higher = more work done per task, more API cost.</div>
+      <div class="btn-row" style="margin-top:10px">
+        <button class="btn-cancel" type="button" onclick="MA.nav.resetWorkspaceLayout()">Reset Workspace Layout</button>
+      </div>
+
+      <!-- Capabilities section -->
+      <div id="caps-section" class="caps-section" style="display:none">
+        <h3>Advanced Capabilities</h3>
+        <div id="caps-notice" class="caps-notice" style="display:none"></div>
+        <div id="caps-toggles" style="display:none">
+          <div class="cap-toggle">
+            <label><input type="checkbox" id="cap-cache" checked> Extended cache (1-hour)</label>
+            <span class="cap-desc">Longer prompt caching TTL</span>
+          </div>
+          <div class="cap-toggle">
+            <label><input type="checkbox" id="cap-compaction"> Compaction</label>
+            <span class="cap-desc">Smarter context compression</span>
+          </div>
+          <div class="cap-toggle">
+            <label><input type="checkbox" id="cap-thinking"> Extended thinking</label>
+            <span class="cap-desc">Deeper reasoning on complex tasks</span>
+          </div>
+          <div id="thinking-budget-row" class="cap-budget" style="display:none">
+            <label>Budget</label>
+            <input type="range" id="cap-thinking-budget" min="1024" max="16384" step="1024" value="4096" oninput="document.getElementById('cap-thinking-val').textContent=this.value">
+            <span class="cap-val" id="cap-thinking-val">4096</span>
+          </div>
+          <div class="cap-toggle">
+            <label><input type="checkbox" id="cap-native-tools" checked> Native tool use</label>
+            <span class="cap-desc">Structured function calling</span>
+          </div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-cancel" onclick="MA.config.toggleConfig()">Cancel</button>
+        <button class="btn-save" onclick="MA.config.saveConfig()">Save</button>
+      </div>
+    </div>
+
+    <!-- Whitelist pane -->
+    <div id="cfg-whitelist" class="cfg-pane">
+      <p style="font-size:13px;color:var(--dim);margin-bottom:8px">Commands MA is allowed to run via <code>cmd_run</code>. Dangerous binaries (rm, curl, bash, etc.) are always blocked.</p>
+      <div id="wl-list" class="wl-list"></div>
+      <div class="wl-add">
+        <input id="wl-bin" placeholder="binary (e.g. deno)">
+        <input id="wl-subs" placeholder="subcommands (comma-sep, blank=all)">
+        <button onclick="MA.config.wlAdd()">Add</button>
+      </div>
+      <div class="btn-row" style="margin-top:12px">
+        <button class="btn-cancel" onclick="MA.config.wlReset()">Reset Defaults</button>
+        <button class="btn-cancel" onclick="MA.config.toggleConfig()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ingest panel -->
+<div id="ingest-panel">
+  <div class="config-box" style="width:500px">
+    <h2 style="margin:0 0 12px;font-size:18px;color:var(--text)">Memory Ingest</h2>
+    <div class="ingest-section">
+      <p style="font-size:13px;color:var(--dim);margin:0 0 10px">Ingest a folder. All text files will be chunked and stored as a named archive.</p>
+      <label>Folder Path</label>
+      <input id="ingest-folder-path" placeholder="C:\\Projects\\my-app">
+      <label>Archive Name <span style="color:var(--dim);font-size:11px">(blank = folder name)</span></label>
+      <input id="ingest-archive-name" placeholder="my-app">
+      <button class="btn-save" id="ingest-folder-btn" onclick="MA.ingest.ingestFolder()" style="margin-top:8px">Ingest Folder</button>
+    </div>
+    <hr style="border:none;border-top:1px solid var(--border);margin:14px 0">
+    <div class="ingest-section">
+      <h3 style="font-size:14px;margin:0 0 8px;color:var(--text)">Archives</h3>
+      <div id="ingest-archives-list" style="font-size:12px;color:var(--dim)">Loading...</div>
+    </div>
+    <div class="btn-row" style="margin-top:12px">
+      <button class="btn-cancel" onclick="MA.ingest.toggleIngestPanel()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Long-request popup -->
+<div id="long-request-overlay" class="hidden">
+  <div class="config-box" style="width:380px;text-align:center">
+    <div style="font-size:32px;margin-bottom:12px">⏳</div>
+    <h3 style="margin:0 0 8px;font-size:16px;color:var(--text)">Taking a while...</h3>
+    <p id="long-request-msg" style="font-size:13px;color:var(--dim);margin:0 0 16px">MA has been working for <span id="lr-elapsed">30</span>s. You can cancel or let it keep going.</p>
+    <div class="btn-row" style="justify-content:center;gap:10px">
+      <button class="btn-cancel" onclick="MA.chat.cancelLongRequest()">Cancel</button>
+      <button class="btn-save" onclick="MA.chat.dismissLongRequest()">Let it finish</button>
+    </div>
+    <label style="display:flex;align-items:center;gap:6px;justify-content:center;margin-top:14px;font-size:12px;color:var(--dim);cursor:pointer">
+      <input type="checkbox" id="lr-autopilot-check" style="accent-color:var(--accent)" onchange="MA.chat.toggleAutoPilotFromPopup(this.checked)"> Enable Auto Pilot (never show this again)
+    </label>
+  </div>
+</div>
+
+<!-- Ingest progress overlay -->
+<div id="ingest-progress-overlay">
+  <div class="config-box" style="width:520px">
+    <div class="ingest-prog-header">
+      <span id="ingest-prog-label">Ingesting...</span>
+      <span id="ingest-prog-pct" style="margin-left:auto;font-variant-numeric:tabular-nums"></span>
+    </div>
+    <div class="ingest-prog-bar"><div class="ingest-prog-fill" id="ingest-prog-fill"></div></div>
+    <div id="ingest-prog-detail" class="ingest-prog-detail"></div>
+    <div id="ingest-prog-log" class="ingest-prog-log"></div>
+    <div id="ingest-prog-error" class="ingest-prog-error hidden"></div>
+    <div class="btn-row" style="margin-top:12px;gap:8px">
+      <button class="btn-cancel" id="ingest-kill-btn" onclick="MA.ingest.killIngest()">Stop</button>
+      <button class="btn-cancel hidden" id="ingest-close-btn" onclick="MA.ingest.closeIngestProgress()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/ma-ui-namespace.js"></script>
+<script src="js/ma-ui.js"></script>
+<script src="js/ma-ui-dom.js"></script>
+<script src="js/ma-ui-api.js"></script>
+<script src="js/ma-ui-chat.js"></script>
+<script src="js/ma-ui-nav.js"></script>
+<script src="js/ma-ui-config-settings.js"></script>
+<script src="js/ma-ui-config-ingest.js"></script>
+<script src="js/ma-ui-editor.js"></script>
+<script src="js/ma-ui-editor-tabs.js"></script>
+<script src="js/ma-ui-editor-tree.js"></script>
+<script src="js/ma-ui-editor-find.js"></script>
+<script src="js/ma-ui-editor-styled.js"></script>
+<script src="js/ma-ui-workspace-session.js"></script>
+<script src="js/ma-ui-workspace-projects.js"></script>
+<script src="js/ma-ui-workspace-blueprints.js"></script>
+<script src="js/ma-ui-workspace-todos-chores.js"></script>
+<script src="js/ma-ui-input.js"></script>
+<script src="js/ma-ui-bootstrap.js"></script>
+</body>
+</html>

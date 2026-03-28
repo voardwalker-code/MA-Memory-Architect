@@ -1,0 +1,22 @@
+stepOutputs.push({ step: i + 1, description: step.description, output: resp });
+    step.done = true;
+    if (onStep) await onStep({ stepIndex: i, stepTotal: plan.steps.length, description: step.description, output: resp });
+    if (onActivity) await onActivity('step_done', `Step ${i + 1} complete: ${step.description}`);
+    if (dispatchedAgent && agentCatalog) {
+      try { agentCatalog.recordPrompt(dispatchedAgent.id, { task: step.description, prompt: prompt.slice(0, 500), result: (resp || '').slice(0, 500), success: true, tags: [taskType] }); } catch {}
+    }
+  }
+
+  // Phase 3: Final summary
+  let finalResponse;
+  const sumBP = getBlueprint(taskType, 'summarize');
+  if (llmCalls < limits.maxLLM) {
+    const stepsBlock = stepOutputs.map(s => `Step ${s.step} — ${s.description}:\n${s.output}`).join('\n\n');
+    finalResponse = await callLLM([
+      { role: 'system', content: `You are ${entityName}. Summarize what you accomplished. Be brief and natural. List what files were created or modified — do NOT include code in the summary. The code is already in the workspace files.` + (sumBP ? `\n\n${sumBP}` : '') },
+      { role: 'user', content: `Request: "${message}"\n\nCompleted ${stepOutputs.length} steps:\n${stepsBlock}\n\nBrief summary:` }
+    ], { temperature: 0.6, ...(taskTimeout ? { timeout: taskTimeout } : {}) });
+    llmCalls++;
+  } else {
+    finalResponse = stepOutputs.map(s => `**${s.description}**\n${s.output}`).join('\n\n');
+  }

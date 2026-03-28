@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382790_3ab782f8",
+  "type": "semantic",
+  "content": "let currentPhrase = [];\r\n    for (const word of words) {\r\n      const clean = word.replace(/[^a-z0-9]/g, '');\r\n      if (!clean || clean.length < 2) {\r\n        if (currentPhrase.length > 0) { candidates.push(currentPhrase); currentPhrase = []; }\r\n        continue;\r\n      }\r\n      if (STOPWORDS.has(clean)) {\r\n        if (currentPhrase.length > 0) { candidates.push(currentPhrase); currentPhrase = []; }\r\n      } else {\r\n        currentPhrase.push(clean);\r\n      }\r\n    }\r\n    if (currentPhrase.length > 0) candidates.push(currentPhrase);\r\n  }\r\n\n  return candidates.filter(p => p.length >= 1 && p.length <= 4 && p.every(w => w.length >= 3));\r\n}\r\n\nfunction computeWordScores(candidates) {\r\n  const freq = {}, degree = {};\r\n  for (const phrase of candidates) {\r\n    for (const word of phrase) {\r\n      freq[word] = (freq[word] || 0) + 1;\r\n      degree[word] = (degree[word] || 0) + phrase.length;\r\n    }\r\n  }\r\n  const scores = {};\r\n  for (const word of Object.keys(freq)) scores[word] = degree[word] / freq[word];\r\n  return scores;\r\n}\r\n\nfunction scorePhrases(candidates, wordScores) {\r\n  const seen = new Set(), results = [];\r\n  for (const phrase of candidates) {\r\n    const phraseStr = phrase.join(' ');\r\n    if (seen.has(phraseStr)) continue;\r\n    seen.add(phraseStr);\r\n    let score = 0;\r\n    for (const word of phrase) score += wordScores[word] || 0;\r\n    results.push({ phrase: phraseStr, score });\r\n  }\r\n  return results.sort((a, b) => b.score - a.score);\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "nlp-rake.js",
+    "BackEnd nlp"
+  ],
+  "summary": "let currentPhrase = [];\r\n    for (const word of words) {\r\n      const clean = word.replace(/[^a-z0-9]/g, '');\r\n      if (!clean || clean.length < 2) {\r\n        if (currentPhrase.length > 0) { candidat",
+  "importance": 0.6,
+  "createdAt": 1774646382791,
+  "createdAtISO": "2026-03-27T21:19:42.791Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\nlp\\nlp-rake.js",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386016_26c06626",
+  "type": "semantic",
+  "content": "// ── Factory ─────────────────────────────────────────────────────\r\nfunction create{Type}(fields) {\r\n  const record = { ...DEFAULTS, ...fields };\r\n  if (!record.id) record.id = '{prefix}_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);\r\n  if (!record.created) record.created = new Date().toISOString();\r\n  return record;\r\n}\r\n\n// ── Validator ───────────────────────────────────────────────────\r\nfunction validate{Type}(record) {\r\n  const errors = [];\r\n  for (const f of {TYPE}_SHAPE.required) {\r\n    if (record[f] === undefined || record[f] === null) errors.push('Missing required: ' + f);\r\n  }\r\n  // Type checks, range checks per shape definition...\r\n  return { valid: errors.length === 0, errors };\r\n}\r\n\nmodule.exports = {\r\n  {DOMAIN}_VERSION, {TYPE}_SHAPE, DEFAULTS, LIMITS,\r\n  create{Type}, validate{Type}\r\n};\r\n```\r\n\nKey rules:\r\n- Constants are ACTUAL NUMBERS — never \"configure later\" or \"tune\"\r\n- Shapes list required vs optional fields explicitly\r\n- Validators check required fields, types, and ranges\r\n- Factory functions merge defaults and generate IDs\r\n\n### Step 5: Layer Blueprints (MA-blueprints Subfolder)\r\n\nBlueprints live in MA's own blueprint directory, NOT inside the project workspace.\r\nThis lets MA reference them during future build tasks across sessions.\r\n\n**Create the project subfolder:** `MA-blueprints/{project-name}/`\r\n\n**INDEX.md** — Write to `MA-blueprints/{project-name}/INDEX.md`:\r\n\n```markdown\r\n# {Project Name} — Build Blueprint Index",
+  "topics": [
+    "MA Memory Architect",
+    "architect.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "// ── Factory ─────────────────────────────────────────────────────\r\nfunction create{Type}(fields) {\r\n  const record = { ...DEFAULTS, ...fields };\r\n  if (!record.id) record.id = '{prefix}_' + Date.now",
+  "importance": 0.6,
+  "createdAt": 1774646386019,
+  "createdAtISO": "2026-03-27T21:19:46.019Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\architect.md",
+  "accessCount": 0
+}

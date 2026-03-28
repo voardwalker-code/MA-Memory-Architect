@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383115_3c53699c",
+  "type": "semantic",
+  "content": "const ext = path.extname(safe).toLowerCase();\r\n      res.writeHead(200, {\r\n        'Content-Type':        MIME[ext] || 'text/plain; charset=utf-8',\r\n        'Content-Disposition': 'inline'\r\n      });\r\n      fs.createReadStream(safe).pipe(res);\r\n      return true;\r\n    }\r\n\n    // ═════════════════════════════════════════════════════════════════\r\n    // TERMINAL — Whitelisted command execution\r\n    // ═════════════════════════════════════════════════════════════════",
+  "topics": [
+    "MA Memory Architect",
+    "route-workspace.js",
+    "BackEnd routes"
+  ],
+  "summary": "const ext = path.extname(safe).toLowerCase();\r\n      res.writeHead(200, {\r\n        'Content-Type':        MIME[ext] || 'text/plain; charset=utf-8',\r\n        'Content-Disposition': 'inline'\r\n      });\r",
+  "importance": 0.6,
+  "createdAt": 1774646383117,
+  "createdAtISO": "2026-03-27T21:19:43.117Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-workspace.js",
+  "accessCount": 0
+}

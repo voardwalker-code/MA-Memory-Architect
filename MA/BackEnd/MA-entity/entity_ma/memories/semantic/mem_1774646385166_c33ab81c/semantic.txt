@@ -1,0 +1,10 @@
+// HTML tags
+  if (lang === 'html' || lang === 'htm' || lang === 'xml' || lang === 'svg') {
+    line = line.replace(/(&lt;\/?)([\w-]+)/g, '$1<span class="tok-tag">$2</span>');
+    line = line.replace(/\b([\w-]+)(=)/g, '<span class="tok-attr">$1</span>$2');
+  }
+
+  // CSS selectors / properties
+  if (lang === 'css') {
+    line = line.replace(/\b([\w-]+)\s*(?=:)/g, '<span class="tok-attr">$1</span>');
+  }

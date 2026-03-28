@@ -1,0 +1,56 @@
+### Package with modules
+```
+Step 1: [TOOL:ws_mkdir path="my-project/src"]
+Step 2: [TOOL:ws_write path="my-project/src/__init__.py" content=""]
+Step 3: [TOOL:ws_write path="my-project/src/core.py" content="..."]
+Step 4: [TOOL:ws_write path="my-project/src/utils.py" content="..."]
+Step 5: [TOOL:ws_write path="my-project/main.py" content="from src.core import ..."]
+Step 6: [TOOL:cmd_run cmd="python main.py"]
+```
+
+## Python Patterns — What Good Code Looks Like
+
+### Basic script structure
+```python
+"""Brief description of what this script does."""
+
+import sys
+from pathlib import Path
+
+def main():
+    """Entry point."""
+    if len(sys.argv) < 2:
+        print("Usage: python main.py <input_file>")
+        sys.exit(1)
+
+    input_path = Path(sys.argv[1])
+    if not input_path.exists():
+        print(f"Error: {input_path} not found")
+        sys.exit(1)
+
+    process(input_path)
+
+def process(path):
+    """Process the input file."""
+    content = path.read_text(encoding="utf-8")
+    print(f"Processed {len(content)} characters")
+
+if __name__ == "__main__":
+    main()
+```
+
+### Classes
+```python
+class Config:
+    """Application configuration."""
+
+    def __init__(self, host="localhost", port=8080):
+        self.host = host
+        self.port = port
+
+    def url(self):
+        return f"http://{self.host}:{self.port}"
+
+    def __repr__(self):
+        return f"Config(host={self.host!r}, port={self.port})"
+```

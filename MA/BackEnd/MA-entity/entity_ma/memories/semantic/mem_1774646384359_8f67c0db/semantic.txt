@@ -1,0 +1,41 @@
+| Type | Trigger Keywords |
+|------|-----------------|
+| **code** | write, build, create, implement, fix, debug, refactor, script, function |
+| **research** | research, find, search, investigate, what is, how does |
+| **writing** | compose, draft, article, blog, document, summarize |
+| **analysis** | analyze, compare, evaluate, assess, breakdown, pros/cons |
+| **project** | project, scaffold, setup, boilerplate, full app |
+| **architect** | architect, project plan, blueprint, specification, design |
+| **delegate** | delegate, assign, agent, who can, available agents |
+| **memory_query** | remember, recall, what did we, past, previous |
+
+---
+
+## Working on Projects
+
+MA can scaffold and manage multi-file projects in its workspace (`MA-workspace/`).
+
+### Start a Project
+```
+You: Create a Node.js REST API for a bookshelf app with SQLite
+```
+MA will:
+1. Plan the project structure
+2. Create directories and files step by step
+3. Write code, tests, and config
+4. Verify each file after writing
+5. Summarize what was built
+
+### Resume a Project
+```
+/projects                    ← see all projects
+/project open proj_001       ← resume one
+You: Add pagination to the /books endpoint
+```
+
+### Project Context
+MA automatically scans `MA-workspace/` and shows project directories in its context so it knows what exists.
+
+---
+
+## File Context & Drag-and-Drop

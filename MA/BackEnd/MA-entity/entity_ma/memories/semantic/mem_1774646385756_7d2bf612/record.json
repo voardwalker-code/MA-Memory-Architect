@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385756_7d2bf612",
+  "type": "semantic",
+  "content": "{\n  \"ts\": \"2026-03-27T18:08:15.591Z\",\n  \"cfgPath\": \"C:\\\\Users\\\\voard\\\\Desktop\\\\MA-Memory-Architect\\\\MA\\\\MA-Config\\\\ma-config.json\",\n  \"legacyPath\": \"C:\\\\Users\\\\voard\\\\Desktop\\\\MA-Memory-Architect\\\\Config\\\\ma-config.json\",\n  \"checks\": {\n    \"bootRuns\": true,\n    \"localPriorityOnBoot\": true,\n    \"localPersistWrite\": true,\n    \"reloadReadsPersistedLocal\": true,\n    \"noLegacyWrite\": true,\n    \"phase2Pass\": true,\n    \"localConfigRestored\": true\n  },\n  \"notes\": [\n    \"boot model=phase2-local-priority-model\"\n  ]\n}",
+  "topics": [
+    "MA Memory Architect",
+    "phase2-validation.json",
+    "MA Standalone Plan"
+  ],
+  "summary": "{\n  \"ts\": \"2026-03-27T18:08:15.591Z\",\n  \"cfgPath\": \"C:\\\\Users\\\\voard\\\\Desktop\\\\MA-Memory-Architect\\\\MA\\\\MA-Config\\\\ma-config.json\",\n  \"legacyPath\": \"C:\\\\Users\\\\voard\\\\Desktop\\\\MA-Memory-Architect\\\\Con",
+  "importance": 0.6,
+  "createdAt": 1774646385756,
+  "createdAtISO": "2026-03-27T21:19:45.756Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Standalone Plan\\phase2-validation.json",
+  "accessCount": 0
+}

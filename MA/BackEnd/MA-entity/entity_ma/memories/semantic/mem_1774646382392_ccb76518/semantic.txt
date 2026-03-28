@@ -1,0 +1,31 @@
+// ── Core Bootstrap ───────────────────────────────────────────────────────────
+//
+// This module handles starting up all the pieces MA needs before it can
+// do anything useful.
+//
+// HOW IT WORKS:
+// When MA first turns on, it needs to:
+//   1. Make sure certain folders exist (so it has somewhere to put files)
+//   2. Create the AI entity if it's missing (the entity is MA's "identity")
+//   3. Load the entity's personality from disk
+//   4. Load skill files (instructions that teach MA special abilities)
+//   5. Make sure the default agents exist (agents do specific jobs for MA)
+//   6. Start the memory system (so MA can remember things)
+//   7. Load knowledge documents (reference docs MA can read)
+//
+// Think of it like getting ready for school — you need your backpack,
+// your books, your lunch, and your homework before you can go!
+//
+// WHAT IT EXPORTS:
+//   ensureDirs(dirs)                       — Create folders if they're missing
+//   ensureEntity(entityDir, defaults)      — Create entity.json if missing
+//   loadEntity(entityDir)                  — Read entity.json from disk
+//   loadSkills(entityDir, maSkillsDir)     — Load all skill markdown files
+//   ensureAgents(agentCatalog, defaults)   — Create missing default agents
+//   initMemory(createMemoryStore)          — Start up the memory system
+//   loadKnowledge(knowledgeDir, name)      — Read one knowledge doc by name
+//   listKnowledge(knowledgeDir)            — List all available knowledge docs
+//
+// USED BY: MA-core.js (calls these functions during the boot() sequence)
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

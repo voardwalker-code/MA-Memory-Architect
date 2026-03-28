@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382556_3c8bfbd4",
+  "type": "semantic",
+  "content": "if (data.RelatedTopics) {\r\n      for (const topic of data.RelatedTopics) {\r\n        if (results.length >= 8) break;\r\n        if (topic.Text && topic.FirstURL) {\r\n          results.push({\r\n            title: topic.Text.split(' - ')[0] || topic.Text.slice(0, 80),\r\n            url: topic.FirstURL,\r\n            snippet: topic.Text.slice(0, 300)\r\n          });\r\n        }\r\n        if (topic.Topics) {\r\n          for (const sub of topic.Topics) {\r\n            if (results.length >= 8) break;\r\n            if (sub.Text && sub.FirstURL) {\r\n              results.push({\r\n                title: sub.Text.split(' - ')[0] || sub.Text.slice(0, 80),\r\n                url: sub.FirstURL,\r\n                snippet: sub.Text.slice(0, 300)\r\n              });\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n\n    if (data.Results) {\r\n      for (const r of data.Results) {\r\n        if (results.length >= 8) break;\r\n        if (r.Text && r.FirstURL) {\r\n          results.push({ title: r.Text.slice(0, 80), url: r.FirstURL, snippet: r.Text.slice(0, 300) });\r\n        }\r\n      }\r\n    }\r\n  } catch { /* DDG API failed — continue to Wikipedia */ }",
+  "topics": [
+    "MA Memory Architect",
+    "infra-web-fetch.js",
+    "BackEnd infra"
+  ],
+  "summary": "if (data.RelatedTopics) {\r\n      for (const topic of data.RelatedTopics) {\r\n        if (results.length >= 8) break;\r\n        if (topic.Text && topic.FirstURL) {\r\n          results.push({\r\n            ",
+  "importance": 0.6,
+  "createdAt": 1774646382556,
+  "createdAtISO": "2026-03-27T21:19:42.556Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\infra\\infra-web-fetch.js",
+  "accessCount": 0
+}

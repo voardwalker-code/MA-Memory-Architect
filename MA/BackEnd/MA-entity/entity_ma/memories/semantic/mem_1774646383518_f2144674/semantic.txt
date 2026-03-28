@@ -1,0 +1,36 @@
+// ── Services · Task Engine ─────────────────────────────────────────────────
+//
+// HOW TASKS AND INTENTS WORK:
+// When you send MA a message, it needs to figure out what KIND of thing
+// you want.  Are you asking a question?  Requesting code?  Starting a
+// research project?  This is called "intent classification".
+//
+// Each task type has defined limits:
+//   • maxSteps     — how many tool-use rounds are allowed
+//   • maxLLMCalls  — how many AI calls are allowed
+//   • timeoutMs    — max time before the task is forced to stop
+//
+// TASK TYPES:
+//   chat       — simple conversation (3 steps, 3 calls)
+//   code       — write or modify code (20 steps, 25 calls)
+//   research   — gather information (30 steps, 35 calls)
+//   analysis   — analyze code/data (15 steps, 20 calls)
+//   planning   — create plans/architecture (12 steps, 15 calls)
+//   writing    — write documents/content (15 steps, 20 calls)
+//   project    — multi-step project work (60 steps, 75 calls)
+//
+// BLUEPRINTS:
+// Complex tasks can load a "blueprint" — a markdown template that tells
+// the AI how to approach the task step by step.
+//
+// WHAT USES THIS:
+//   core-chat.js — classifies intents and runs the task loop
+//
+// EXPORTS:
+//   classify(message)         → {type, confidence, reasoning}
+//   runTask(type, ctx, opts)  → task result
+//   TASK_TYPES                — the task definitions
+//   parsePlan(text)           → extracted plan steps
+//   getBlueprint(type, root)  → blueprint markdown or null
+// ─────────────────────────────────────────────────────────────────────────────
+'use strict';

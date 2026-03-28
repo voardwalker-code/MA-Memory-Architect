@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382499_2c228201",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// estimateMessagesTokens(messages)\r\n//\r\n// Counts up the estimated tokens across an array of chat messages.\r\n// Adds 4 tokens per message for overhead (role label, formatting, etc.).\r\n//\r\n//   messages — array of { role, content } objects\r\n//   Returns: total estimated tokens (number)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction estimateMessagesTokens(messages) {\r\n  let total = 0;\r\n  for (const m of messages) {\r\n    total += estimateTokens(m.content) + 4; // +4 per message overhead\r\n  }\r\n  return total;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-tokens.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// estimateMessagesTokens(messages)\r\n//\r\n// Counts up the estimated tokens across an array of chat messages.\r\n// Adds ",
+  "importance": 0.6,
+  "createdAt": 1774646382499,
+  "createdAtISO": "2026-03-27T21:19:42.499Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-tokens.js",
+  "accessCount": 0
+}

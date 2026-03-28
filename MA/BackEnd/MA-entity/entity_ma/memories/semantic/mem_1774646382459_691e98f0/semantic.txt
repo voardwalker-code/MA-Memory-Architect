@@ -1,0 +1,29 @@
+// Validate required fields
+  if (!type || !endpoint || !model) {
+    throw new Error('Need type, endpoint, model');
+  }
+  if (type !== 'ollama' && !apiKey) {
+    throw new Error('API key is required');
+  }
+
+  // Build the clean config object
+  const next = {
+    type,
+    endpoint,
+    model,
+    ...(type === 'ollama' ? {} : { apiKey }),
+    ...(maxTokens ? { maxTokens } : {}),
+    ...(vision ? { vision: true } : {}),
+    ...(workspacePathStr ? { workspacePath: workspacePathStr } : {}),
+    ...(Number.isFinite(memoryLimit) ? { memoryLimit: Math.min(50, Math.max(6, memoryLimit)) } : {}),
+    ...(memoryRecall !== undefined ? { memoryRecall } : {}),
+    integrationMode,
+    ...(userCapabilities ? { capabilities: userCapabilities } : {})
+  };
+
+  const config = { ...next };
+  // Resolve capabilities for the new config (what can this model do?)
+  config.capabilities = resolveCapabilities(config);
+  config.contextWindow = Number.parseInt(newConfig.contextWindow, 10)
+    || (currentConfig && currentConfig.contextWindow)
+    || inferContextWindow(config);

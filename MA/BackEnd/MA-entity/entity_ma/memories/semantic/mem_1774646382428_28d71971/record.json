@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382428_28d71971",
+  "type": "semantic",
+  "content": "// ── Tool execution: native function calling vs text-based parsing ───\r\n  const useNativeTools = hasCapability(config, 'nativeToolUse');\r\n  let nativeToolSchemas = useNativeTools ? buildToolSchemas(config.type) : null;\r\n  // In chat mode, filter out write/delete/execute tools\r\n  if (nativeToolSchemas && isChatMode) {\r\n    nativeToolSchemas = nativeToolSchemas.filter(t => {\r\n      const name = t.name || (t.function && t.function.name);\r\n      return !CHAT_MODE_BLOCKED.has(name);\r\n    });\r\n  }\r\n\n  // ── First LLM call ─────────────────────────────────────────────────\r\n  let reply = await callLLM(config, messages, {\r\n    temperature: 0.7, maxTokens: responseReserve, ...thinkingOpt,\r\n    ...(nativeToolSchemas ? { tools: nativeToolSchemas } : {}),\r\n    ...(autoPilot ? { timeout: 0 } : {})\r\n  });\r\n\n  const toolOpts = {\r\n    workspacePath: WORKSPACE_DIR, webFetchEnabled: true, cmdRunEnabled: !isChatMode,\r\n    integrationMode,\r\n    memorySearch: memory ? (q, l) => memory.search(q, l) : null,\r\n    ...(isChatMode ? { blockedTools: CHAT_MODE_BLOCKED } : {})\r\n  };\r\n\n  let toolResults = [];\r\n  let replyText;",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// ── Tool execution: native function calling vs text-based parsing ───\r\n  const useNativeTools = hasCapability(config, 'nativeToolUse');\r\n  let nativeToolSchemas = useNativeTools ? buildToolSchemas(c",
+  "importance": 0.6,
+  "createdAt": 1774646382429,
+  "createdAtISO": "2026-03-27T21:19:42.429Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

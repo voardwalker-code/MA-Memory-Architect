@@ -1,0 +1,34 @@
+| Binary | Allowed Subcommands |
+|--------|-------------------|
+| `cargo` | build, run, test, check, clippy, fmt, init, new, add, remove, update, doc |
+| `rustc`, `rustfmt` | all |
+| `python`, `python3` | all |
+| `pip`, `pip3` | install, list, show, freeze, uninstall |
+| `node` | all |
+| `npm` | init, install, test, run, start, build, ls, outdated, update, ci |
+| `npx` | all |
+| `gcc`, `g++`, `make`, `cmake` | all |
+| `go` | build, run, test, fmt, vet, mod, get |
+| `git` | init, status, add, commit, log, diff, branch, checkout, tag |
+| `cat`, `head`, `tail`, `wc` | all |
+| `ls`, `dir`, `find`, `grep`, `type` | all |
+
+### Always Blocked
+These are **never** allowed, even if you try to add them:
+`rm`, `del`, `format`, `shutdown`, `kill`, `curl`, `wget`, `powershell`, `cmd.exe`, `bash`, `sh`
+
+### Security
+- Commands run with `shell: false` (no shell metacharacters)
+- Working directory locked to `MA-workspace/`
+- 60-second timeout (max 300s)
+- Output capped at 16KB per stream
+- Shell operators (`; & | > <`) are rejected
+
+---
+
+## Managing the Whitelist
+
+### Via GUI
+1. Click ⚙ → Command Whitelist tab
+2. View, add, or remove commands
+3. Click "Reset Defaults" to restore factory settings

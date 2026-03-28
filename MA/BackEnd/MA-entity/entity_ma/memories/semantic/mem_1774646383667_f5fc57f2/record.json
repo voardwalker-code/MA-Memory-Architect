@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383667_f5fc57f2",
+  "type": "semantic",
+  "content": "// ── Services · Worklog ─────────────────────────────────────────────────────\r\n//\r\n// HOW SESSION CONTINUITY WORKS:\r\n// The worklog is MA's \"notebook\" — a persistent markdown file that\r\n// records what happened during each work session.  When MA starts a\r\n// new conversation, it can read the worklog to remember:\r\n//\r\n//   • What tasks were recently completed\r\n//   • What the current active task is\r\n//   • What steps have been done vs. what's remaining\r\n//\r\n// This is stored as a simple markdown file at:\r\n//   MA-workspace/MA-WORKLOG.md\r\n//\r\n// After each task completes, core-chat.js calls recordTask() to\r\n// append a summary.  The worklog is also included in the system\r\n// prompt (via getSummaryForPrompt) so the AI has context about\r\n// recent work.\r\n//\r\n// WHAT USES THIS:\r\n//   MA-core.js          — exposes worklog to other modules\r\n//   core-chat.js        — records completed tasks\r\n//   core-context.js     — includes worklog summary in system prompt\r\n//   route-worklog.js    — HTTP endpoints for reading/writing worklog\r\n//\r\n// EXPORTS:\r\n//   read()               → string (raw markdown)\r\n//   getState()           → {activeTask, steps, summary}\r\n//   write(content)       — overwrite the worklog\r\n//   recordTask(result)   — append a task summary\r\n//   setActiveTask(...)   — mark a task as in-progress\r\n//   markStepDone(...)    — mark a step as completed\r\n//   getSummaryForPrompt() → string for the system prompt\r\n//   WORKLOG_PATH         — absolute path to the worklog file\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "svc-worklog.js",
+    "BackEnd services"
+  ],
+  "summary": "// ── Services · Worklog ─────────────────────────────────────────────────────\r\n//\r\n// HOW SESSION CONTINUITY WORKS:\r\n// The worklog is MA's \"notebook\" — a persistent markdown file that\r\n// records wh",
+  "importance": 0.6,
+  "createdAt": 1774646383669,
+  "createdAtISO": "2026-03-27T21:19:43.669Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-worklog.js",
+  "accessCount": 0
+}

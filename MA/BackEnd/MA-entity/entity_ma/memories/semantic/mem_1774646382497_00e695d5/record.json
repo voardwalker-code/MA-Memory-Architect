@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382497_00e695d5",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// stripThinkingTags(text)\r\n//\r\n// Some AI models wrap their reasoning in <thinking>...</thinking> tags.\r\n// We don't want the user to see those, so this strips them out.\r\n//\r\n//   text — the raw LLM response string\r\n//   Returns: the text with thinking blocks removed\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction stripThinkingTags(text) {\r\n  if (!text) return text;\r\n  return text.replace(/<thinking>[\\s\\S]*?<\\/thinking>/gi, '').trim();\r\n}\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// estimateTokens(text)\r\n//\r\n// Quick guess at how many tokens a piece of text uses.\r\n// Rule of thumb: 1 token ≈ 4 characters of English text.\r\n// Not exact, but good enough for budget planning.\r\n//\r\n//   text — any string\r\n//   Returns: estimated token count (number)\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction estimateTokens(text) {\r\n  if (!text) return 0;\r\n  return Math.ceil(text.length / 4);\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-tokens.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// stripThinkingTags(text)\r\n//\r\n// Some AI models wrap their reasoning in <thinking>...</thinking> tags.\r\n// We don't ",
+  "importance": 0.6,
+  "createdAt": 1774646382497,
+  "createdAtISO": "2026-03-27T21:19:42.497Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-tokens.js",
+  "accessCount": 0
+}

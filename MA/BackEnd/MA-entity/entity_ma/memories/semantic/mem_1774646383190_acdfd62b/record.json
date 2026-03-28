@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383190_acdfd62b",
+  "type": "semantic",
+  "content": "// ── Services · Memory System ───────────────────────────────────────────────\r\n//\r\n// HOW THE AI'S MEMORY WORKS:\r\n// Just like you remember things from yesterday and facts you learned,\r\n// MA has two types of memory:\r\n//\r\n//   • Episodic — events that happened (\"user asked me to build X\")\r\n//   • Semantic — knowledge/facts (\"the project uses React + TypeScript\")\r\n//\r\n// When you tell MA something important, it:\r\n//   1. Extracts topics using RAKE (phrases) and YAKE (keywords)\r\n//   2. Stores the memory with those topics as search tags\r\n//   3. When it needs to recall something, it searches by topic\r\n//      using BM25 relevance scoring (like a mini search engine)\r\n//\r\n// Memories are stored as flat JSON files in the entity's memory folder.\r\n// No fancy database — just simple files that are easy to inspect,\r\n// back up, and version control.\r\n//\r\n// THE MEMORY STORE:\r\n// createMemoryStore(entityDir) returns an object with methods:\r\n//   .store(type, content, meta)  — save a new memory\r\n//   .search(query, limit)        — find relevant memories\r\n//   .retrieve(id)                — get a specific memory\r\n//   .ingest(type, entries)       — bulk import memories\r\n//   .list(type, limit)           — list recent memories\r\n//   .getStats()                  — memory count statistics\r\n//\r\n// WHAT USES THIS:\r\n//   MA-core.js (via core-bootstrap.js) — creates the memory store at boot\r\n//   tools-fs.js — memory_search tool delegates to .search()\r\n//\r\n// EXPORTS:\r\n//   createMemoryStore(entityDir)  → memory store object\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// ── Services · Memory System ───────────────────────────────────────────────\r\n//\r\n// HOW THE AI'S MEMORY WORKS:\r\n// Just like you remember things from yesterday and facts you learned,\r\n// MA has two",
+  "importance": 0.6,
+  "createdAt": 1774646383191,
+  "createdAtISO": "2026-03-27T21:19:43.191Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

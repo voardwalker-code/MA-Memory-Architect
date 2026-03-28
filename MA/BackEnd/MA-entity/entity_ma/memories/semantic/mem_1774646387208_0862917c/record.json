@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387208_0862917c",
+  "type": "semantic",
+  "content": "Read final state:\r\n```\r\n[TOOL:web_fetch {\"url\": \"http://localhost:3847/api/entities/{id}/cognitive/state\", \"method\": \"GET\"}]\r\n```\r\n\n### Phase 7: Summary\r\n\nReport to user:\r\n- Entity ID\r\n- TA name and course\r\n- Capabilities (weekly topics, assignment help, exam prep, office hours Q&A)\r\n- \"Your TA is ready! Ask them about any topic from the course.\"\r\n\n---\r\n\n## Memory Schema Reference\r\n\nAll memories must use this format:\r\n\n```json\r\n{\r\n  \"content\": \"First-person text from the tutor/TA's perspective\",\r\n  \"type\": \"semantic|episodic|core\",\r\n  \"emotion\": \"joy|wonder|fear|sadness|pride|grief|love|hope|anger|longing|nostalgia|curiosity|gratitude|determined|resignation|content|melancholic|neutral\",\r\n  \"topics\": [\"tag1\", \"tag2\", \"tag3\"],\r\n  \"importance\": 0.3-0.9,\r\n  \"narrative\": \"Third-person summary\",\r\n  \"phase\": \"subject_knowledge|misconceptions|strategies|examples|experience|curriculum|assignments|exams|faq\"\r\n}\r\n```\r\n\n## Guidelines\r\n\n**DO:**\r\n- Make tutors feel like real teachers — they have opinions about pedagogy and specific approaches\r\n- Give TAs course-specific knowledge — they should know assignment details, not just general subject matter\r\n- Use first-person memories that sound like a passionate educator, not a textbook\r\n- Include teaching strategies that show understanding of HOW students learn\r\n- Vary memory emotions — teaching involves joy, frustration, pride, curiosity, patience",
+  "topics": [
+    "MA Memory Architect",
+    "tutor_entity.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "Read final state:\r\n```\r\n[TOOL:web_fetch {\"url\": \"http://localhost:3847/api/entities/{id}/cognitive/state\", \"method\": \"GET\"}]\r\n```\r\n\n### Phase 7: Summary\r\n\nReport to user:\r\n- Entity ID\r\n- TA name and c",
+  "importance": 0.6,
+  "createdAt": 1774646387208,
+  "createdAtISO": "2026-03-27T21:19:47.208Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\tutor_entity.md",
+  "accessCount": 0
+}

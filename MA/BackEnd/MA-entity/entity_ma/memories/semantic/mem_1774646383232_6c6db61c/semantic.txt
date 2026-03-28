@@ -1,0 +1,33 @@
+// ── Archive Ingest (read file → chunk → store as semantic) ───────────────
+  function ingest(filePath, meta = {}) {
+    if (!fs.existsSync(filePath)) throw new Error(`File not found: ${filePath}`);
+    const raw = fs.readFileSync(filePath, 'utf8');
+    const chunks = _chunkText(raw, 1500);
+    const results = [];
+    for (let i = 0; i < chunks.length; i++) {
+      const chunk = chunks[i];
+      const rec = store('semantic', chunk, {
+        topics:    meta.topics || [path.basename(filePath)],
+        summary:   chunk.slice(0, 200),
+        importance: meta.importance ?? 0.6,
+        archive:   meta.archive || null,
+        sourcePath: meta.sourcePath || filePath
+      });
+      results.push(rec.id);
+    }
+    return { chunksStored: results.length, ids: results };
+  }
+
+  // ── Folder Ingest (recursive — each folder gets its own archive tag) ────
+  function ingestFolder(folderPath, opts = {}) {
+    if (!fs.existsSync(folderPath)) throw new Error(`Folder not found: ${folderPath}`);
+    const archiveName = opts.archive || path.basename(folderPath);
+    const onProgress = opts.onProgress || (() => {});
+    const abort = opts.abort || { aborted: false };
+
+    // Collect all text files recursively
+    const files = _collectTextFiles(folderPath);
+    const total = files.length;
+    let processed = 0;
+    let totalChunks = 0;
+    const allIds = [];

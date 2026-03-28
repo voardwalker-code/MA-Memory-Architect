@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382821_c13f08b5",
+  "type": "semantic",
+  "content": "// ── Read one blueprint ───────────────────────────────────────────\r\n    // Query param: ?path=core/output-format.md\r\n    // Returns { path: \"core/output-format.md\", content: \"# ...\" }\r\n    if (url.pathname === '/api/blueprints/file' && method === 'GET') {\r\n      const requestedPath = url.searchParams.get('path');\r\n      if (!requestedPath) { json(res, 400, { error: 'Need blueprint path' }); return true; }\r\n      try {\r\n        // resolveInsideRoot makes sure the path can't escape the blueprints folder\r\n        const fullPath = resolveInsideRoot(BLUEPRINT_DIR, requestedPath);\r\n        if (!fs.existsSync(fullPath)) { json(res, 404, { error: 'Blueprint not found' }); return true; }\r\n        json(res, 200, {\r\n          path:    path.relative(BLUEPRINT_DIR, fullPath).replace(/\\\\/g, '/'),\r\n          content: fs.readFileSync(fullPath, 'utf8')\r\n        });\r\n      } catch (e) {\r\n        json(res, 400, { error: e.message });\r\n      }\r\n      return true;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "route-blueprints.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Read one blueprint ───────────────────────────────────────────\r\n    // Query param: ?path=core/output-format.md\r\n    // Returns { path: \"core/output-format.md\", content: \"# ...\" }\r\n    if (url.p",
+  "importance": 0.6,
+  "createdAt": 1774646382821,
+  "createdAtISO": "2026-03-27T21:19:42.821Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-blueprints.js",
+  "accessCount": 0
+}

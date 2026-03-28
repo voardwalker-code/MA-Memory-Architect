@@ -1,0 +1,26 @@
+- **getEntityDir(entityId)**:
+  1. Return `path.join(entitiesDir, entityId)`
+  2. Verify directory exists (throw if not)
+
+### context-builder.js — `buildContext(entityId, subconsciousOutput, dreamIntuitionOutput)`
+- **Evolution Over Origin Philosophy**:
+  - For `evolving` entities: origin story goes LAST in context, current state goes FIRST
+  - For `unbreakable` entities: persona is identity-locked, verbatim system prompt
+
+- **buildContext(entityId, subconsciousOutput, dreamIntuitionOutput, deps)**:
+  1. `deps.entityState.loadEntity(entityId)` → { entity, persona, systemPrompt }
+  2. If creationMode === 'unbreakable':
+     - Return systemPrompt verbatim (identity-locked)
+  3. If creationMode === 'evolving':
+     a. Start with current personality traits and voice
+     b. Add `[ACTIVATED MEMORIES]` block from subconsciousOutput.activatedMemories
+     c. Add `[CONVERSATION RECALL]` from subconsciousOutput.conversationRecall
+     d. Add `[RELATIONSHIP CONTEXT]` from subconsciousOutput.relationshipContext
+     e. Add `[INTUITIONS]` from dreamIntuitionOutput.associations
+     f. Add `[ROOTS]` — origin story reframed as roots (LAST, not first)
+     g. Return assembled context string
+
+- **extractOriginStory(persona)**:
+  1. Look for persona.origin_story field
+  2. If present, return it
+  3. If absent, return null

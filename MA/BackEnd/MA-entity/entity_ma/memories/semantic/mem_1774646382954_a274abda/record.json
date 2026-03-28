@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382954_a274abda",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// createOllamaRoutes(deps)\r\n//\r\n// Called once when the server starts.  Returns a handler that checks every\r\n// incoming request.  Returns true if handled, false if not ours.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nmodule.exports = function createOllamaRoutes(deps) {\r\n  const { core, llm } = deps;\r\n\n  return async function handle(url, method, req, res) {\r\n\n    // ── List all installed Ollama models ─────────────────────────────\r\n    // You can pass ?endpoint=http://... to override the default.\r\n    // Returns { models: [ { name, size, ... }, ... ] }\r\n    if (url.pathname === '/api/ollama/models' && method === 'GET') {\r\n      const endpoint = url.searchParams.get('endpoint') || core.getConfig()?.endpoint;\r\n      if (!endpoint) { json(res, 400, { error: 'No Ollama endpoint' }); return true; }\r\n      try {\r\n        const models = await llm.ollamaListModels(endpoint);\r\n        json(res, 200, { models });\r\n      } catch (e) {\r\n        json(res, 502, { error: e.message });\r\n      }\r\n      return true;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "route-ollama.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// createOllamaRoutes(deps)\r\n//\r\n// Called once when the server starts.  Returns a handler that checks every\r\n// incom",
+  "importance": 0.6,
+  "createdAt": 1774646382954,
+  "createdAtISO": "2026-03-27T21:19:42.954Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-ollama.js",
+  "accessCount": 0
+}

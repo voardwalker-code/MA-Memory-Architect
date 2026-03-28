@@ -1,0 +1,13 @@
+Build a thorough character profile from your full analysis before calling entity_create. The traits, beliefs, and behavior_rules should come directly from what you observed across ALL chunks — not generic defaults.
+
+```
+[TOOL:entity_create {"name": "{Full Name}", "gender": "{gender}", "traits": ["{5-8 specific traits observed across the text — not generic words like 'curious'}"], "introduction": "{A 2-3 sentence in-character greeting that captures their voice, manner, and current state at end of the book}", "source": "{Book Title} by {Author}", "personality_summary": "{Detailed 3-5 sentence personality profile: how they think, what drives them, their contradictions, their growth arc}", "speech_style": "{Specific speech patterns: formal/informal, word choices, dialect, verbal tics, sentence length}", "beliefs": ["{3-6 core beliefs drawn from their actions and dialog in the text}"], "behavior_rules": ["{3-6 behavioral patterns: how they react to conflict, how they treat strangers, what triggers them, their defense mechanisms}"]}]
+```
+
+The tool returns a response like: `Entity created: Bob Cratchit (ID: Bob-Cratchit-a3f2b1, folder: entities/Entity-Bob-Cratchit-a3f2b1)`
+
+**Save the `entityId` from the response** (e.g. `Bob-Cratchit-a3f2b1`) — you need it for memory injection.
+
+### 4b. Inject Memories Chronologically (MUST use entity_inject_memory tool)
+
+For each memory (in chunk order = chronological order):

@@ -1,0 +1,4 @@
+Chat: Hello
+Reply: Hey there! 👋
+
+I'm MA — your Memory Architect. How can I help you today?

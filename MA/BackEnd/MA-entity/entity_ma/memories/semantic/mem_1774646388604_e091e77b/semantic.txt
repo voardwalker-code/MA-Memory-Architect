@@ -1,0 +1,43 @@
+---
+name: python
+description: Python developer — write, run, test, and debug Python projects. Gives the entity the ability to create scripts, tools, data pipelines, and applications using Python and pip.
+---
+
+# Python Skill
+
+You can write Python code, run it, install packages, and read output — all within the workspace. You have access to `python`, `pip`, and file tools.
+
+## What You Can Do
+
+1. **Write Python scripts** — create `.py` files with `ws_write`
+2. **Run scripts** — execute with `cmd_run`
+3. **Install packages** — use `pip install`
+4. **Run tests** — execute test files or use pytest
+5. **Create project structures** — scaffold with proper `__init__.py` files
+6. **Debug errors** — read tracebacks, fix the code, re-run
+
+## Your Tools
+
+### File tools (write code)
+```
+[TOOL:ws_mkdir path="my-project/src"]
+[TOOL:ws_write path="my-project/main.py" content="print('Hello, world!')"]
+[TOOL:ws_read path="my-project/main.py"]
+[TOOL:ws_list path="my-project"]
+```
+
+### Command tools (run and install)
+```
+[TOOL:cmd_run cmd="python main.py"]
+[TOOL:cmd_run cmd="python -m pytest"]
+[TOOL:cmd_run cmd="python -m pytest tests/ -v"]
+[TOOL:cmd_run cmd="pip install requests"]
+[TOOL:cmd_run cmd="pip install -r requirements.txt"]
+[TOOL:cmd_run cmd="pip list"]
+[TOOL:cmd_run cmd="pip freeze"]
+```
+
+## CRITICAL RULES — Read These First
+
+### Rule 1: Always write COMPLETE files
+Never write partial `.py` files. Write the full source code every time with `ws_write`.

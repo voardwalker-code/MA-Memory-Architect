@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386941_8722879f",
+  "type": "semantic",
+  "content": "[TASK_PLAN]\r\n- [ ] Interview: gather role, audience, domain, tone, constraints, output format\r\n- [ ] Research: check existing system prompts in workspace for style reference\r\n- [ ] Draft structure and key behavioral anchors\r\n- [ ] Write full system prompt to file\r\n- [ ] Review against quality checklist\r\n[/TASK_PLAN]\r\n\n### Phase 1 — Requirements Gathering\r\n\nASK the user (do not guess answers):\r\n1. **What role should the AI play?** (e.g., coding mentor, creative writer, medical Q&A, customer support)\r\n2. **Who is the audience?** (developers, students, general public, domain experts)\r\n3. **What is the primary task?** (answer questions, generate content, analyze data, guide decisions)\r\n4. **What tone?** (professional, casual, friendly, academic, direct)\r\n5. **What must it NEVER do?** (hallucinate citations, give medical advice, use jargon, exceed N words)\r\n6. **What output format?** (markdown, JSON, plain text, bullet points, conversational)\r\n7. **What tools or context will it have access to?** (web search, code execution, documents, none)\r\n\nIf the user gives partial answers, infer reasonable defaults and confirm: \"I'll assume [X] — correct?\"\r\n\n### Phase 2 — Architecture Design\r\n\nEvery system prompt must have these sections (order matters):",
+  "topics": [
+    "MA Memory Architect",
+    "prompt_engineering.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "[TASK_PLAN]\r\n- [ ] Interview: gather role, audience, domain, tone, constraints, output format\r\n- [ ] Research: check existing system prompts in workspace for style reference\r\n- [ ] Draft structure and",
+  "importance": 0.6,
+  "createdAt": 1774646386942,
+  "createdAtISO": "2026-03-27T21:19:46.942Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\prompt_engineering.md",
+  "accessCount": 0
+}

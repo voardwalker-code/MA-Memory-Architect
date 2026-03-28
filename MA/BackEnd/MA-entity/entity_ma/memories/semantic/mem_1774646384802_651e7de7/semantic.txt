@@ -1,0 +1,29 @@
+function renderSessionDropdown() {
+  const dd = document.getElementById('session-dropdown');
+  if (!dd) return;
+  dd.innerHTML = '';
+  if (!allSessions.length) {
+    dd.innerHTML = '<div class="sp-dd-empty">No sessions yet</div>';
+    return;
+  }
+  // Group by date
+  const groups = {};
+  for (const s of allSessions) {
+    const day = (s.updatedAt || s.createdAt || '').slice(0, 10);
+    if (!groups[day]) groups[day] = [];
+    groups[day].push(s);
+  }
+  for (const [day, items] of Object.entries(groups)) {
+    const label = document.createElement('div');
+    label.className = 'sp-dd-date';
+    label.textContent = day;
+    dd.appendChild(label);
+    for (const s of items) {
+      const row = document.createElement('button');
+      row.className = 'sp-dd-item' + (s.id === activeSessionId ? ' active' : '');
+      row.textContent = s.preview || 'Session';
+      row.onclick = () => { loadSession(s.id); dd.classList.add('hidden'); };
+      dd.appendChild(row);
+    }
+  }
+}

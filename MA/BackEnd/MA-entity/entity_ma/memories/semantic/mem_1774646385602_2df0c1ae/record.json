@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385602_2df0c1ae",
+  "type": "semantic",
+  "content": "### Refactor/Noise Signals\r\n- Debug logs present in server and client code paths (for example in core/chat paths).\r\n- Legacy compatibility branches still exist and should be reevaluated against current requirements.\r\n- UI logic and markup generation are mixed in some client modules (HTML string scaffolding + state logic).\r\n\n---\r\n\n## Guardrails (Non-Negotiable Rules)\r\n- Do not break standalone behavior established in migration work.\r\n- Do not remove any file until references are verified by search and startup tests.\r\n- Any deletion must be recorded in a deletion log section inside this plan.\r\n- Use feature flags or compatibility wrappers only when needed for safe migration.\r\n- Keep comments useful: explain intent and constraints, not obvious syntax.\r\n\n---\r\n\n## Phase 1: Script Inventory and Classification\r\nGoal: Classify every script as runtime, test, tooling, or dead.\r\n\nTasks:\r\n- Build script registry from:\r\n  - `package.json` scripts,\r\n  - server imports (`require` graph),\r\n  - HTML script tags,\r\n  - startup entrypoints (`MA-Server-standalone.js`, `MA-Server.js`, `ma-start.js`).\r\n- Tag each file as:\r\n  - `runtime-core`,\r\n  - `runtime-optional`,\r\n  - `dev-test`,\r\n  - `migration-legacy`,\r\n  - `dead/remove`.\r\n- Confirm whether temporary scripts are still used operationally.\r\n\nDeliverables:\r\n- `MA Refactor Plan/script-inventory.md` (with status per file).\r\n\nValidation Gate:\r\n- No file is marked dead without reference evidence.\r\n\n---",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Refactor-Cleanup-Plan.md",
+    "MA Refactor Plan"
+  ],
+  "summary": "### Refactor/Noise Signals\r\n- Debug logs present in server and client code paths (for example in core/chat paths).\r\n- Legacy compatibility branches still exist and should be reevaluated against curren",
+  "importance": 0.6,
+  "createdAt": 1774646385604,
+  "createdAtISO": "2026-03-27T21:19:45.604Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Refactor Plan\\MA-Refactor-Cleanup-Plan.md",
+  "accessCount": 0
+}

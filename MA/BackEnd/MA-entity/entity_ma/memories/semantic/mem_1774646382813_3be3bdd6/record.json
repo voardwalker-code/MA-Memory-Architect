@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382813_3be3bdd6",
+  "type": "semantic",
+  "content": "// ── Route Module: Blueprints ─────────────────────────────────────────────────\r\n//\r\n// This module manages \"blueprints\" — markdown files that contain instructions,\r\n// templates, and guides the AI follows when doing its work.\r\n//\r\n// Think of blueprints like recipe cards:\r\n//   • You can list all the recipes in the box\r\n//   • You can read a specific recipe\r\n//   • You can edit a recipe (but not create or delete — that's done manually)\r\n//\r\n// Blueprints are organized in folders like:\r\n//   MA-blueprints/core/output-format.md\r\n//   MA-blueprints/modules/analysis.md\r\n//\r\n// ── Endpoints ───────────────────────────────────────────────────────────────\r\n//   GET  /api/blueprints      — List all blueprint files and their paths\r\n//   GET  /api/blueprints/file — Read one blueprint.  Query: ?path=core/output-format.md\r\n//   POST /api/blueprints/file — Save edited content to a blueprint\r\n//\r\n// ── What this module needs ──────────────────────────────────────────────────\r\n//   deps.BLUEPRINT_DIR — Absolute path to the MA-blueprints/ folder\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n'use strict';\r\n\nconst fs   = require('fs');\r\nconst path = require('path');",
+  "topics": [
+    "MA Memory Architect",
+    "route-blueprints.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Route Module: Blueprints ─────────────────────────────────────────────────\r\n//\r\n// This module manages \"blueprints\" — markdown files that contain instructions,\r\n// templates, and guides the AI f",
+  "importance": 0.6,
+  "createdAt": 1774646382814,
+  "createdAtISO": "2026-03-27T21:19:42.814Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-blueprints.js",
+  "accessCount": 0
+}

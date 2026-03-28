@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385433_3d37f0cc",
+  "type": "semantic",
+  "content": "async function loadChoresPane() {\r\n  const list = document.getElementById('chore-list');\r\n  if (!list) return;\r\n  list.innerHTML = '<div class=\"side-empty\">Loading chores...</div>';\r\n  try {\r\n    const r = await fetch('/api/chores');\r\n    const d = await r.json();\r\n    const chores = d.chores || [];\r\n    if (!chores.length) {\r\n      list.innerHTML = '<div class=\"side-empty\">No chores defined.</div>';\r\n      return;\r\n    }\r\n    list.innerHTML = chores.map(function(chore) {\r\n      return '<div class=\"chore-card\">' +\r\n        '<div class=\"split-row\"><div><h4>' + escHtml(chore.name || chore.id) + '</h4><div class=\"meta\">' + escHtml(chore.description || 'No description') + '</div></div><span class=\"status-pill' + (chore.enabled === false ? ' closed' : '') + '\">' + (chore.enabled === false ? 'paused' : 'active') + '</span></div>' +\r\n        '<div class=\"meta\" style=\"margin-top:8px\">Interval: ' + escHtml(String(Math.round((chore.intervalMs || 0) / 60000))) + ' min · Runs: ' + escHtml(String(chore.runCount || 0)) + (chore.lastRun ? ' · Last run: ' + escHtml(chore.lastRun) : '') + '</div>' +\r\n        '<div class=\"pane-actions\"><button class=\"secondary\" onclick=\"toggleChoreEnabled(\\'' + chore.id.replace(/'/g, '\\\\&#39;') + '\\', ' + (chore.enabled === false ? 'true' : 'false') + ')\">' + (chore.enabled === false ? 'Enable' : 'Pause') + '</button><button class=\"danger\" onclick=\"removeChoreFromPane(\\'' + chore.id.replace(/'/g, '\\\\&#39;') + '\\')\">Delete</button></div>' +\r\n      '</div>';\r\n    }).join('');\r\n  } catch (e) {\r\n    list.innerHTML = '<div class=\"side-empty\">Could not load chores: ' + escHtml(e.message) + '</div>';\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function loadChoresPane() {\r\n  const list = document.getElementById('chore-list');\r\n  if (!list) return;\r\n  list.innerHTML = '<div class=\"side-empty\">Loading chores...</div>';\r\n  try {\r\n    cons",
+  "importance": 0.6,
+  "createdAt": 1774646385434,
+  "createdAtISO": "2026-03-27T21:19:45.434Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

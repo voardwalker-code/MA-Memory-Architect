@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382922_c3a6bdb0",
+  "type": "semantic",
+  "content": "// ── List memory archives ─────────────────────────────────────────\r\n    // Returns an object listing all named archives (collections of\r\n    // ingested material).\r\n    if (url.pathname === '/api/memory/archives' && method === 'GET') {\r\n      const mem = core.getMemory();\r\n      json(res, 200, mem ? mem.listArchives() : {});\r\n      return true;\r\n    }\r\n\n    // None of our routes matched\r\n    return false;\r\n  };\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "route-memory.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── List memory archives ─────────────────────────────────────────\r\n    // Returns an object listing all named archives (collections of\r\n    // ingested material).\r\n    if (url.pathname === '/api/me",
+  "importance": 0.6,
+  "createdAt": 1774646382923,
+  "createdAtISO": "2026-03-27T21:19:42.923Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-memory.js",
+  "accessCount": 0
+}

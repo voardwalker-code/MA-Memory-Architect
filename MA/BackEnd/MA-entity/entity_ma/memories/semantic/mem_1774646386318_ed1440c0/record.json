@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386318_ed1440c0",
+  "type": "semantic",
+  "content": "```json\r\n{\r\n  \"content\": \"First-person statement of this belief — why they hold it, what experience formed it, how strongly they feel about it. How it connects to their actions in the story.\",\r\n  \"type\": \"semantic\",\r\n  \"emotion\": \"{emotion tied to this belief}\",\r\n  \"topics\": [\"belief\", \"{belief-topic}\", \"values\"],\r\n  \"importance\": 0.6-0.8,\r\n  \"phase\": \"beliefs\"\r\n}\r\n```\r\n\n**Add self-knowledge memories** — how the character sees themselves at different points. If a character transforms (like Scrooge), capture the self-view BEFORE and AFTER the change. Include: strengths, flaws, fears about themselves, what they're proud of, how they think others see them, what they've learned.\r\n\n```json\r\n{\r\n  \"content\": \"First-person self-reflection. Detailed introspection on who they are, what drives them, what haunts them.\",\r\n  \"type\": \"semantic\",\r\n  \"emotion\": \"{self-perception emotion}\",\r\n  \"topics\": [\"self-reflection\", \"identity\", \"{key-trait}\"],\r\n  \"importance\": 0.7-0.85,\r\n  \"phase\": \"self_knowledge\"\r\n}\r\n```\r\n\nThere is NO cap on semantic memories. Generate as many as the text supports. For a main character in a full novel, expect **50+ or 100+ semantic memories dont cap this!** covering relationships, beliefs, self-knowledge, fears, desires, regrets, and aspirations.\r\n\n---\r\n\n## Phase 5: Summary Report\r\n\nAfter all characters are created and populated, generate a summary:\r\n\n```\r\n📚 Book-to-Entity Ingestion Complete — \"{Book Title}\" by {Author}",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "```json\r\n{\r\n  \"content\": \"First-person statement of this belief — why they hold it, what experience formed it, how strongly they feel about it. How it connects to their actions in the story.\",\r\n  \"typ",
+  "importance": 0.6,
+  "createdAt": 1774646386319,
+  "createdAtISO": "2026-03-27T21:19:46.319Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

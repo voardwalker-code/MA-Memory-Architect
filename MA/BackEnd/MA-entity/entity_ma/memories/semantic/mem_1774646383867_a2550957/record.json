@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383867_a2550957",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// wsMkdir(wp, dirPath)\r\n//\r\n// Creates a directory (and any parent directories that don't exist).\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction wsMkdir(wp, dirPath) {\r\n  const p = _safe(wp, dirPath);\r\n  fs.mkdirSync(p, { recursive: true });\r\n  return `Created: ${path.relative(wp, p)}`;\r\n}\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// wsMove(wp, src, dst)\r\n//\r\n// Moves or renames a file or folder from src to dst.\r\n// Creates the destination's parent directory if needed.\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction wsMove(wp, src, dst) {\r\n  const srcP = _safe(wp, src);\r\n  const dstP = _safe(wp, dst);\r\n  if (!fs.existsSync(srcP)) return `Source not found: ${src}`;\r\n  fs.mkdirSync(path.dirname(dstP), { recursive: true });\r\n  fs.renameSync(srcP, dstP);\r\n  return `Moved: ${path.relative(wp, srcP)} → ${path.relative(wp, dstP)}`;\r\n}\r\n\nmodule.exports = { wsList, wsRead, wsWrite, wsAppend, wsDelete, wsMkdir, wsMove };",
+  "topics": [
+    "MA Memory Architect",
+    "tools-fs.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// wsMkdir(wp, dirPath)\r\n//\r\n// Creates a directory (and any parent directories that don't exist).\r\n// ───────────────",
+  "importance": 0.6,
+  "createdAt": 1774646383868,
+  "createdAtISO": "2026-03-27T21:19:43.868Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-fs.js",
+  "accessCount": 0
+}

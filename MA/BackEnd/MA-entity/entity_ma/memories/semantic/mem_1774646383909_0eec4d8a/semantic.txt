@@ -1,0 +1,29 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// _validate(name, raw, blockContent)
+//
+// Validates tool parameters against the Zod schema for that tool.
+// For block tools (ws_write/ws_append), the file content comes from the
+// block body, not the JSON params.
+//
+//   name         — normalised tool name (e.g. "ws_read")
+//   raw          — parsed JSON parameters
+//   blockContent — the text between [TOOL:] and [/TOOL] (for writes)
+//   Returns: { ok: true, data } or { ok: false, error }
+// ─────────────────────────────────────────────────────────────────────────────
+function _validate(name, raw, blockContent) {
+  const schema = ToolSchemas[name];
+  if (!schema) return { ok: false, error: `Unknown tool: ${name}` };
+
+  const params = { ...raw };
+  if (blockContent !== undefined && (name === 'ws_write' || name === 'ws_append')) {
+    params.content = blockContent;
+  }
+
+  const result = schema.safeParse(params);
+  if (!result.success) {
+    const issues = result.error?.issues || result.error?.errors || [];
+    const msgs = issues.map(i => `${(i.path || []).join('.') || 'param'}: ${i.message}`);
+    return { ok: false, error: `${name} schema error: ${msgs.join('; ')}. Expected: ${JSON.stringify(Object.keys(schema.shape))}` };
+  }
+  return { ok: true, data: result.data };
+}

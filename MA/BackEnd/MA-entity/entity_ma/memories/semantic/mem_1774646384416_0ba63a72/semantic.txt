@@ -1,0 +1,44 @@
+Via API:
+```json
+POST /api/chores/add
+{
+  "name": "Clean up temp files",
+  "description": "Scan MA-workspace for .tmp and .bak files and delete them",
+  "assignTo": "senior-coder",
+  "intervalMs": 3600000
+}
+```
+
+### How Chores Execute
+1. The chore check pulse fires on its interval
+2. MA checks each chore's `lastRun` time against its `intervalMs`
+3. If a chore is due, MA dispatches it through the chat engine with full tool access
+4. The assigned agent (or MA itself if `assignTo` is blank) executes the task
+5. MA evaluates the result with an LLM call and assigns a letter grade (A–F)
+6. The grade, result summary, and execution details are logged
+
+### Viewing Chores
+```
+/chores list
+```
+Shows all chores with their ID, name, assigned agent, last grade, run count, and enabled status.
+
+### Managing Chores
+```
+/chores remove chore_abc123    ← delete a chore
+/chores run chore_abc123       ← manually trigger a chore right now
+```
+
+### Grading
+MA grades chore results on an A–F scale:
+- **A** — Excellent, task completed thoroughly
+- **B** — Good, completed with minor issues
+- **C** — Acceptable, completed but needs improvement
+- **D** — Poor, partially completed or significant issues
+- **F** — Failed, task not completed
+
+Grades are stored on the chore record and logged in `MA-logs/pulse-chores.log`.
+
+---
+
+## Model Routing

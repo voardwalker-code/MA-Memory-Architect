@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387880_dbf390b7",
+  "type": "semantic",
+  "content": "1. **Check the roster first** — don't create duplicates\r\n2. **One agent per role/seniority combo** unless specialization differs (e.g., \"NLP Researcher\" vs \"API Researcher\" are different)\r\n3. **System prompts are the source of truth** — they define what the agent can and cannot do\r\n4. **Prompts are reusable** — check history before writing from scratch\r\n5. **Record every dispatch** — the prompt catalog is MA's institutional memory for delegation\r\n\n## Agent Storage Layout\r\n\n```\r\nMA-entity/\r\n  entity_ma/          ← MA herself\r\n  agent_senior-coder/ ← Delegated agent\r\n    agent.json        ← Agent definition (role, prompt, capabilities)\r\n    prompt-history/   ← Every prompt sent to this agent\r\n      prompt_1234.json\r\n  agent_test-engineer/\r\n    agent.json\r\n    prompt-history/\r\n```\r\n\n## Quality Gate\r\n\nAfter any agent completes work:\r\n1. Run the relevant layer tests\r\n2. If the agent is not a reviewer, have the Code Reviewer agent review the output\r\n3. Only mark the task complete if both tests and review pass",
+  "topics": [
+    "MA Memory Architect",
+    "agent-delegation.md",
+    "MA-knowledge"
+  ],
+  "summary": "1. **Check the roster first** — don't create duplicates\r\n2. **One agent per role/seniority combo** unless specialization differs (e.g., \"NLP Researcher\" vs \"API Researcher\" are different)\r\n3. **System",
+  "importance": 0.6,
+  "createdAt": 1774646387881,
+  "createdAtISO": "2026-03-27T21:19:47.881Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\agent-delegation.md",
+  "accessCount": 0
+}

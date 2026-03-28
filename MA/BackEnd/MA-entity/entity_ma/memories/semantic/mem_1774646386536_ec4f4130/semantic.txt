@@ -1,0 +1,51 @@
+| Need | Role | Seniority |
+|------|------|-----------|
+| Implement module from blueprint | coder | senior (complex) / junior (simple) |
+| Design data contracts | architect | lead |
+| Write/update tests | tester | senior |
+| Research algorithm/technique | researcher | senior |
+| Review implementation | reviewer | lead |
+| Write docs/articles | writer | mid/senior |
+
+If no agent matches, proceed to create one (see Step 5 below).
+
+### Step 3: Check Prompt History
+
+Before writing a new prompt, check if a similar one exists:
+
+```
+[TOOL:cmd_run command="node -e \"const a=require('./BackEnd/services/svc-agents'); const h=a.searchPromptHistory('{keyword}'); h.slice(0,3).forEach(e => console.log(e.id, '-', e.task, '- agent:', e.agentId, '- success:', e.success));\""]
+```
+
+If a matching prompt exists and succeeded, adapt it instead of writing from scratch.
+
+### Step 4: Construct the Delegation Prompt
+
+Build the prompt following this structure:
+
+```
+PROJECT: {project name}
+LAYER: {layer number and name} (if applicable)
+TASK: {specific deliverable}
+
+READ FIRST:
+- {list of files the agent should read}
+
+DELIVER:
+- {specific output expected}
+- {test/validation criteria}
+
+CONSTRAINTS:
+- {from agent's constraint list}
+- {project-specific rules}
+```
+
+Present the constructed prompt to the user for approval before dispatch.
+
+### Step 5: Create New Agent (if needed)
+
+If no existing agent fits:
+
+```
+[TOOL:ws_write path="..." content="..."]
+```

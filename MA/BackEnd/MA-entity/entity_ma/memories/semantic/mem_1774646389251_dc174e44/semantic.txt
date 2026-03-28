@@ -1,0 +1,47 @@
+### Referencing Files in Chat
+When you mention file paths in your message, MA auto-detects them and reads the files:
+
+```
+You: Can you review myproject/src/index.js and fix the error handling?
+```
+MA detects `myproject/src/index.js`, reads it from the workspace, and includes the full content in its context.
+
+**Path types detected:**
+- Workspace-relative paths: `myproject/src/index.js`, `rem-system/server/pipeline.js`
+- Bare filenames at workspace root: `package.json`, `README.md`
+
+**Limits:** Files must be in `MA-workspace/`, max 32KB each.
+
+### Dragging Files
+1. Drag a file from your file explorer onto the MA chat window
+2. A blue overlay appears — drop the file
+3. File chips appear below the input showing filenames
+4. Type your question and press Enter (or just send the files)
+5. MA receives the full file contents
+
+**Example:**
+```
+[Drag config.json into chat]
+You: What's wrong with this config? It's not loading.
+MA:  Looking at your config.json, I can see the issue...
+```
+
+---
+
+## Memory System
+
+MA has two memory stores that persist across sessions:
+
+### Episodic Memory
+Automatically records chat interactions and task results. MA builds context from past conversations.
+
+### Semantic Memory
+Structured knowledge you explicitly ingest. Good for reference material.
+
+### Commands
+
+```
+/memory stats              ← show counts
+/memory search auth        ← search for "auth" in memories
+/ingest myproject/docs/api.md  ← ingest a file
+```

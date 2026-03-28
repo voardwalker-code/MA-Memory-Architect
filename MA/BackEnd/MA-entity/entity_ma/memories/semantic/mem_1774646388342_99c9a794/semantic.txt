@@ -1,0 +1,8 @@
+- [ ] appId consistent across all 4 registration points
+- [ ] HTML container is `tab-<appId>`
+- [ ] Script in IIFE with init guard
+- [ ] No global variable leaks
+- [ ] Dispose function handles cleanup
+- [ ] System CSS classes used where available
+- [ ] Installer dry-run passes
+- [ ] All registration entries verified post-install

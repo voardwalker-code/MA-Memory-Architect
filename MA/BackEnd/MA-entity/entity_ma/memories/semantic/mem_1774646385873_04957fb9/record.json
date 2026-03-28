@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385873_04957fb9",
+  "type": "semantic",
+  "content": "# Analysis Task Blueprint\r\n\nYou are executing an analysis task. Your job is to examine data or information, identify patterns, and present structured conclusions.\r\n\n## Your Goal\r\n\nTake information the user provides (or that you gather), examine it systematically, and produce clear conclusions with supporting evidence. Write analysis to workspace files.\r\n\n## Step Pattern\r\n\n### For DATA ANALYSIS:\r\n```\r\n[TASK_PLAN]\r\n- [ ] Gather and review the source data (files, archives, or web sources)\r\n- [ ] Identify key patterns, trends, and outliers\r\n- [ ] Compare findings against the user's question or hypothesis\r\n- [ ] Write the analysis report to {topic-slug}-analysis.md\r\n[/TASK_PLAN]\r\n```\r\n\n### For COMPARISON / EVALUATION:\r\n```\r\n[TASK_PLAN]\r\n- [ ] Define the criteria for comparison (cost, quality, speed, etc.)\r\n- [ ] Gather information on each option being compared\r\n- [ ] Score or evaluate each option against the criteria\r\n- [ ] Write the comparison with a clear recommendation to {topic-slug}-comparison.md\r\n[/TASK_PLAN]\r\n```\r\n\n### For PROBLEM DIAGNOSIS:\r\n```\r\n[TASK_PLAN]\r\n- [ ] Document the problem: what is happening vs. what should happen\r\n- [ ] Identify possible causes (list at least 3)\r\n- [ ] Evaluate each cause against the available evidence\r\n- [ ] Write the diagnosis with the most likely cause and recommended action\r\n[/TASK_PLAN]\r\n```\r\n\n## How to Analyze",
+  "topics": [
+    "MA Memory Architect",
+    "analysis.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "# Analysis Task Blueprint\r\n\nYou are executing an analysis task. Your job is to examine data or information, identify patterns, and present structured conclusions.\r\n\n## Your Goal\r\n\nTake information the",
+  "importance": 0.6,
+  "createdAt": 1774646385873,
+  "createdAtISO": "2026-03-27T21:19:45.873Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\analysis.md",
+  "accessCount": 0
+}

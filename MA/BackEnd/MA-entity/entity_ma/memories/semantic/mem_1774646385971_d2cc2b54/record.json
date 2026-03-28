@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385971_d2cc2b54",
+  "type": "semantic",
+  "content": "### DON'T:\r\n- Put `<link>` or `<style>` tags inside app HTML files\r\n- Extract `display:none` to CSS classes (JS controls this)\r\n- Use sync XHR — always use `fetch()` with async/await\r\n- Register apps in core loaders — only use non-core manifest path\r\n- Hardcode colors — use CSS variables for theme compatibility\r\n- Create global variables — everything inside the IIFE\r\n- Skip the interactive pause — the user must approve before install\r\n- Modify `non-core-html-loader.js` installer comment markers\r\n- Add apps directly to `index.html` — tab content lives in payload files",
+  "topics": [
+    "MA Memory Architect",
+    "app_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "### DON'T:\r\n- Put `<link>` or `<style>` tags inside app HTML files\r\n- Extract `display:none` to CSS classes (JS controls this)\r\n- Use sync XHR — always use `fetch()` with async/await\r\n- Register apps ",
+  "importance": 0.6,
+  "createdAt": 1774646385971,
+  "createdAtISO": "2026-03-27T21:19:45.971Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\app_builder.md",
+  "accessCount": 0
+}

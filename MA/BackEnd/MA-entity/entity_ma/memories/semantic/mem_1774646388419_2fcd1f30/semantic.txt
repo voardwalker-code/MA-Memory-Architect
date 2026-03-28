@@ -1,0 +1,37 @@
+### Rule 1: Always write COMPLETE files
+Never write partial code with comments like `// ...rest of code here...` or `// existing code unchanged`. Write the ENTIRE file content every time you use `ws_write`. The tool overwrites the whole file.
+
+### Rule 2: Always READ before you EDIT
+Before changing any existing file, ALWAYS read it first:
+```
+[TOOL:ws_read path="src/app.js"]
+```
+Then write the complete modified version back. Never guess what is in a file.
+
+### Rule 3: Always LIST before you READ
+Check what exists before diving in:
+```
+[TOOL:ws_list path="."]
+[TOOL:ws_list path="src"]
+```
+
+### Rule 4: One tool call, one complete action
+Each `ws_write` call writes one complete file. To create a project with 3 files, you need 3 separate `ws_write` calls.
+
+### Rule 5: Escape quotes in content
+When your code contains double quotes, escape them with backslash:
+```
+[TOOL:ws_write path="config.json" content="{\n  \"name\": \"my-app\",\n  \"version\": \"1.0.0\"\n}"]
+```
+
+## How to Write Code — Step by Step
+
+### Creating a new file
+1. Decide the file path (e.g., `src/utils/helpers.js`)
+2. Write the COMPLETE file in one `ws_write` call
+3. Confirm the write succeeded
+
+### Editing an existing file
+1. `[TOOL:ws_read path="src/app.js"]` — read current contents
+2. Understand what needs to change
+3. `[TOOL:ws_write path="src/app.js" content="...FULL modified file..."]` — write the entire file back with your changes

@@ -1,0 +1,21 @@
+// ── Pull (download) a model ──────────────────────────────────────
+    // Body: { model: "llama3", endpoint?: "http://..." }
+    // Downloads the model from the Ollama registry.  This can take a
+    // while for large models (several GB).
+    if (url.pathname === '/api/ollama/pull' && method === 'POST') {
+      const body     = JSON.parse(await readBody(req));
+      const endpoint = body.endpoint || core.getConfig()?.endpoint;
+      if (!endpoint || !body.model) { json(res, 400, { error: 'Need endpoint and model' }); return true; }
+      try {
+        const result = await llm.ollamaPullModel(endpoint, body.model);
+        json(res, 200, { ok: true, status: result.status || 'success' });
+      } catch (e) {
+        json(res, 502, { error: e.message });
+      }
+      return true;
+    }
+
+    // None of our routes matched
+    return false;
+  };
+};

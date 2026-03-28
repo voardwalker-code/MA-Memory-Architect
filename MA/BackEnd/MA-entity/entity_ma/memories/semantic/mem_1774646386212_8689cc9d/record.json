@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386212_8689cc9d",
+  "type": "semantic",
+  "content": "```\r\nprojects/{book-slug}/\r\n├── book-content.txt          # Original book text (if small enough)\r\n├── chunks-list.json          # Chunk index from the book upload\r\n├── character-registry.md     # Discovered characters before selection\r\n├── main-characters-registry.md  # Final selected characters\r\n├── memories/                 # Extracted memories per character\r\n│   ├── memories_{character}.json\r\n│   └── ...\r\n├── ingestion-report.md       # Detailed processing log\r\n└── ingestion-summary.md      # Final summary report\r\n```\r\n\nEntity folders go to `entities/` (the `entity_create` tool handles this automatically — you do NOT create them manually).\r\n\n## Architecture\r\n\nYou have access to these workspace tools (direct filesystem — no HTTP calls needed):\r\n\n**Book Tools** (read chunks from uploaded books):\r\n\n| Tool | Purpose |\r\n|------|--------|\r\n| `book_list_chunks` | List all chunks for a book with preview/char counts |\r\n| `book_read_chunk` | Read the full text of a single chunk by index |\r\n\n**Entity Tools** (create NekoCore-compatible entities):\r\n\n| Tool | Purpose |\r\n|------|--------|\r\n| `entity_create` | Create a NekoCore-compatible entity folder in `entities/` with proper ID |\r\n| `entity_inject_memory` | Write a memory into an entity's memory folder |\r\n\n**File Tools** (workspace I/O):",
+  "topics": [
+    "MA Memory Architect",
+    "book_ingestion.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "```\r\nprojects/{book-slug}/\r\n├── book-content.txt          # Original book text (if small enough)\r\n├── chunks-list.json          # Chunk index from the book upload\r\n├── character-registry.md     # Disc",
+  "importance": 0.6,
+  "createdAt": 1774646386212,
+  "createdAtISO": "2026-03-27T21:19:46.212Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\book_ingestion.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382398_65fefe3c",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// loadEntity(entityDir)\r\n//\r\n// Reads the entity.json file and returns its contents as an object.\r\n// Returns null if the file doesn't exist or can't be read.\r\n//\r\n//   entityDir — path to the entity folder\r\n//   Returns: the parsed entity object, or null\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction loadEntity(entityDir) {\r\n  const p = path.join(entityDir, 'entity.json');\r\n  try {\r\n    if (fs.existsSync(p)) {\r\n      const entity = JSON.parse(fs.readFileSync(p, 'utf8'));\r\n      console.log(`  Entity loaded: ${entity.name || 'MA'}`);\r\n      return entity;\r\n    }\r\n  } catch (e) { console.warn('  Entity load failed:', e.message); }\r\n  return null;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-bootstrap.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// loadEntity(entityDir)\r\n//\r\n// Reads the entity.json file and returns its contents as an object.\r\n// Returns null if",
+  "importance": 0.6,
+  "createdAt": 1774646382399,
+  "createdAtISO": "2026-03-27T21:19:42.399Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-bootstrap.js",
+  "accessCount": 0
+}

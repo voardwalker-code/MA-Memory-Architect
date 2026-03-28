@@ -1,0 +1,24 @@
+// ── Rebuild index from disk ──────────────────────────────────────────────
+  function rebuildIndex() {
+    _index = { episodic: [], semantic: [] };
+    for (const [type, dir] of [['episodic', episodicDir], ['semantic', semanticDir]]) {
+      if (!fs.existsSync(dir)) continue;
+      for (const folder of fs.readdirSync(dir)) {
+        const recFile = path.join(dir, folder, 'record.json');
+        if (!fs.existsSync(recFile)) continue;
+        try {
+          const rec = JSON.parse(fs.readFileSync(recFile, 'utf8'));
+          _index[type].push({
+            id: rec.id, type, topics: rec.topics || [],
+            summary: rec.summary || '', importance: rec.importance || 0.5,
+            createdAt: rec.createdAt || 0
+          });
+        } catch { /* skip corrupt */ }
+      }
+    }
+    _saveIndex();
+    return stats();
+  }
+
+  return { store, retrieve, search, searchWithArchives, list, stats, ingest, ingestFolder, listArchives, rebuildIndex };
+}

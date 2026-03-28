@@ -1,0 +1,24 @@
+1. **Before starting work** — `createProject('project-id', { name, description, tags })`
+2. **Every step/action** — `recordStep(projectId, { sourceType, content, previousNodeId })`
+3. **Code generation** — `recordNode(projectId, { sourceType: 'code', content: codeText })`
+4. **LLM responses** — `recordNode(projectId, { sourceType: 'response', content: reply })`
+5. **Agent dispatches** — `recordStep(projectId, { sourceType: 'agent-dispatch', agentId, content })`
+6. **Decisions/thoughts** — `recordNode(projectId, { sourceType: 'decision', content, importance: 0.8 })`
+7. **Errors encountered** — `recordNode(projectId, { sourceType: 'error', content: errorMsg })`
+8. **Derived knowledge** — `recordStepWithKnowledge(projectId, { content, semanticContent })`
+9. **When project done** — `closeProject(projectId)`
+
+## Node Types
+
+| Type | Default Importance | Use For |
+|---|---|---|
+| step | 0.5 | General work steps, actions taken |
+| code | 0.7 | Code written or generated |
+| response | 0.4 | LLM responses received |
+| agent-dispatch | 0.6 | Tasks sent to delegated agents |
+| thought | 0.5 | Planning, reasoning, considerations |
+| decision | 0.8 | Choices made, paths taken/rejected |
+| error | 0.6 | Errors encountered and how resolved |
+| semantic | 0.7 | Derived knowledge, extracted insights |
+
+## Edge Types

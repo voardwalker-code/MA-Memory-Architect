@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382436_c342802a",
+  "type": "semantic",
+  "content": "// Collect files changed during conversational tool use\r\n  const filesChanged = toolResults\r\n    .filter(r => r.ok && (r.tool === 'ws_write' || r.tool === 'ws_append'))\r\n    .map(r => {\r\n      const m = r.result && r.result.match(/^(?:Wrote|Appended)\\s+\\d+\\s+bytes?\\s+to\\s+(.+)$/i);\r\n      return m ? m[1].trim() : null;\r\n    })\r\n    .filter(Boolean);\r\n\n  return {\r\n    reply,\r\n    filesChanged: [...new Set(filesChanged)],\r\n    ...(continuationPoint ? { continuationPoint } : {}),\r\n    contextUsage: { contextTokens: totalContextTokens, contextBudget, responseReserve }\r\n  };\r\n}\r\n\nmodule.exports = { handleChat };",
+  "topics": [
+    "MA Memory Architect",
+    "core-chat.js",
+    "BackEnd core"
+  ],
+  "summary": "// Collect files changed during conversational tool use\r\n  const filesChanged = toolResults\r\n    .filter(r => r.ok && (r.tool === 'ws_write' || r.tool === 'ws_append'))\r\n    .map(r => {\r\n      const m",
+  "importance": 0.6,
+  "createdAt": 1774646382436,
+  "createdAtISO": "2026-03-27T21:19:42.436Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-chat.js",
+  "accessCount": 0
+}

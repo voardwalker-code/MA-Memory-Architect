@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385111_acd3b421",
+  "type": "semantic",
+  "content": "if (tab.mode === 'markdown') {\r\n    if (tab.viewMode === 'preview') {\r\n      body = '<div class=\"preview-surface\"><div class=\"md-preview\">' + renderMarkdown(tab.content) + '</div></div>';\r\n    } else {\r\n      body = '<div class=\"editor-surface\"><textarea class=\"editor-textarea\" oninput=\"onEditorInput(this)\" spellcheck=\"false\">' + escHtml(tab.content) + '</textarea></div>';\r\n    }\r\n  } else if (tab.mode === 'html') {\r\n    if (tab.viewMode === 'preview') {\r\n      body = '<div class=\"editor-surface\"><iframe class=\"html-preview-frame\" sandbox=\"allow-scripts allow-same-origin\"></iframe></div>';\r\n    } else {\r\n      body = '<div class=\"editor-surface\"><textarea class=\"editor-textarea\" oninput=\"onEditorInput(this)\" spellcheck=\"false\">' + escHtml(tab.content) + '</textarea></div>';\r\n    }\r\n  } else {\r\n    // Code mode: read-only syntax highlighted view by default, editable source on switch\r\n    if (tab.viewMode === 'source') {\r\n      body = '<div class=\"editor-surface\"><textarea class=\"editor-textarea\" oninput=\"onEditorInput(this)\" spellcheck=\"false\">' + escHtml(tab.content) + '</textarea></div>';\r\n    } else {\r\n      body = '<div class=\"editor-code-view\">' + renderCodeView(tab.content, tab.ext) + '</div>';\r\n    }\r\n  }\r\n\n  editorContent.innerHTML =\r\n    '<div class=\"editor-pane active\">' +\r\n      '<div class=\"editor-pane-header\">' + toolbar + '</div>' +\r\n      '<div class=\"editor-pane-body\">' + body + '</div>' +\r\n    '</div>';",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-editor.js",
+    "FrontEnd js"
+  ],
+  "summary": "if (tab.mode === 'markdown') {\r\n    if (tab.viewMode === 'preview') {\r\n      body = '<div class=\"preview-surface\"><div class=\"md-preview\">' + renderMarkdown(tab.content) + '</div></div>';\r\n    } else ",
+  "importance": 0.6,
+  "createdAt": 1774646385111,
+  "createdAtISO": "2026-03-27T21:19:45.111Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-editor.js",
+  "accessCount": 0
+}

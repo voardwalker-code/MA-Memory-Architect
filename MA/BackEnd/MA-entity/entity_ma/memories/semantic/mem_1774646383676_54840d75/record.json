@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383676_54840d75",
+  "type": "semantic",
+  "content": "const fs   = require('fs');\r\nconst path = require('path');\r\n\nconst WORKSPACE_DIR = path.join(__dirname, '..', 'MA-workspace');\r\nconst WORKLOG_PATH  = path.join(WORKSPACE_DIR, 'MA-WORKLOG.md');\r\n\nfunction _ensureDir() {\r\n  if (!fs.existsSync(WORKSPACE_DIR)) fs.mkdirSync(WORKSPACE_DIR, { recursive: true });\r\n}\r\n\n/** Read the current worklog. Returns raw markdown string or null. */\r\nfunction read() {\r\n  if (!fs.existsSync(WORKLOG_PATH)) return null;\r\n  return fs.readFileSync(WORKLOG_PATH, 'utf8');\r\n}\r\n\n/** Get structured worklog data. */\r\nfunction getState() {\r\n  const raw = read();\r\n  if (!raw) return { activeProject: null, currentTask: null, taskPlan: [], recentWork: [], resumePoint: null };\r\n\n  const state = { activeProject: null, activeProjectStatus: null, currentTask: null, taskPlan: [], recentWork: [], resumePoint: null };\r\n\n  const projMatch = raw.match(/## Active Project\\s*\\n([\\s\\S]*?)(?=\\n## |\\n$|$)/);\r\n  if (projMatch) {\r\n    for (const line of projMatch[1].trim().split('\\n')) {\r\n      const kv = line.match(/^- (.+?):\\s*(.+)$/);\r\n      if (kv) {\r\n        const key = kv[1].toLowerCase();\r\n        if (key === 'project') state.activeProject = kv[2].trim();\r\n        if (key === 'status') state.activeProjectStatus = kv[2].trim();\r\n      }\r\n    }\r\n  }\r\n\n  const taskMatch = raw.match(/## Current Task\\s*\\n([\\s\\S]*?)(?=\\n## |\\n$|$)/);\r\n  if (taskMatch) {\r\n    const content = taskMatch[1].trim();\r\n    if (content && content !== 'None') state.currentTask = content;\r\n  }",
+  "topics": [
+    "MA Memory Architect",
+    "svc-worklog.js",
+    "BackEnd services"
+  ],
+  "summary": "const fs   = require('fs');\r\nconst path = require('path');\r\n\nconst WORKSPACE_DIR = path.join(__dirname, '..', 'MA-workspace');\r\nconst WORKLOG_PATH  = path.join(WORKSPACE_DIR, 'MA-WORKLOG.md');\r\n\nfunct",
+  "importance": 0.6,
+  "createdAt": 1774646383677,
+  "createdAtISO": "2026-03-27T21:19:43.677Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-worklog.js",
+  "accessCount": 0
+}

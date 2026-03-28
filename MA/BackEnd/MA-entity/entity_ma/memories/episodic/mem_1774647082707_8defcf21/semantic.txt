@@ -1,0 +1,18 @@
+Task (code): Fix your self
+Result: ```json
+{
+  "TASK_PLAN": [
+    "1. Acknowledge the request concisely",
+    "2. Interpret 'fix your self' as: improve conciseness and clarity in responses",
+    "3. Review current response patterns",
+    "4. Identify verbosity or ambiguity issues",
+    "5. Apply corrections: be direct, use fewer words, eliminate redundancy",
+    "6. Deliver the fixed response"
+  ]
+}
+```
+
+**Execution:**
+- You're asking me to be more concise and clear
+- My responses should be direct and to the point
+- I've identifi

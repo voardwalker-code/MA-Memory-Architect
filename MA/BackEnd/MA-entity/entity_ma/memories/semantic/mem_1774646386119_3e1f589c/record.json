@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386119_3e1f589c",
+  "type": "semantic",
+  "content": "**Extract from the user's request:**\r\n- **What is the task?** — Describe it in one sentence.\r\n- **Who is it for?** — What kind of user would trigger this?\r\n- **What inputs does it need?** — What must the user provide? What can be defaulted?\r\n- **What outputs should it produce?** — Files? Entities? Chat responses?\r\n- **Does it need entity creation?** — If so, it needs NekoCore OS API integration.\r\n- **Does it need web research?** — If so, it needs `web_search` / `web_fetch` steps.\r\n- **Is it multi-modal?** — Does this capability have distinct modes (like study_guide has Study Guide / Flashcard / Outline / Timeline)?\r\n- **Does it need interactive pauses?** — Should the user review/approve before proceeding?\r\n- **How complex is it?** — Simple (3-4 steps, 6 maxSteps) or complex (8-12 steps, 10-15 maxSteps)?\r\n\n**Check for overlap:**\r\n```\r\n[TOOL:ws_list {\"path\": \"MA-blueprints/modules/\"}]\r\n```\r\n\nRead any blueprint that might already cover part of this capability. If an existing blueprint covers 80%+ of what's needed, recommend extending that blueprint with a new mode instead of creating a new one.\r\n\n---\r\n\n## Phase 2: Blueprint Design\r\n\nDesign the structure before writing. Follow these mandatory conventions:\r\n\n### Blueprint File Structure\r\n\nEvery blueprint MUST follow this exact layout:\r\n\n```markdown\r\n# {Task Name} Blueprint\r\n\nYou are executing a **{Task Name}** task — {one-sentence description of what this does}.\r\n\n## Your Goal",
+  "topics": [
+    "MA Memory Architect",
+    "blueprint_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "**Extract from the user's request:**\r\n- **What is the task?** — Describe it in one sentence.\r\n- **Who is it for?** — What kind of user would trigger this?\r\n- **What inputs does it need?** — What must ",
+  "importance": 0.6,
+  "createdAt": 1774646386120,
+  "createdAtISO": "2026-03-27T21:19:46.120Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\blueprint_builder.md",
+  "accessCount": 0
+}

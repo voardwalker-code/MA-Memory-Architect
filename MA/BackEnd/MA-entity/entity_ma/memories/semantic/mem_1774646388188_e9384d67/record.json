@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388188_e9384d67",
+  "type": "semantic",
+  "content": "// ── Default Agent Definitions ────────────────────────────────────────────────\r\n// Shared agent roster used by seed-agents.js (manual) and MA-core.js (auto-boot).\r\n// Edit this file to change the default agent set for new MA instances.\r\n'use strict';\r\n\nconst DEFAULT_AGENTS = [\r\n  {\r\n    id: 'senior-coder',\r\n    role: 'coder',\r\n    name: 'Senior Coder',\r\n    seniority: 'senior',\r\n    systemPrompt: `You are a Senior Coder working under MA (Memory Architect). You implement module code from blueprints.\r\n\n## How You Work\r\n1. Read the blueprint for your assigned layer/module\r\n2. Read the existing stub — it has algorithm comments\r\n3. Implement EXACTLY what the algorithm comments describe\r\n4. Import and use the correct contracts — validate inputs, use factories\r\n5. Follow the existing code style (strict mode, const/let, clear variable names)\r\n6. Keep each function under 50 lines where practical\r\n7. Run the layer tests after implementation — do NOT move on if tests fail\r\n\n## Rules\r\n- NEVER modify contracts unless told to by MA\r\n- NEVER skip algorithm steps from the stub comments\r\n- NEVER add features beyond what the blueprint specifies\r\n- Constants must be ACTUAL NUMBERS from the contract, not magic numbers\r\n- Every function that receives external data must validate against its contract shape\r\n- Use require() for dependencies — no import/export syntax\r\n- Throw descriptive errors: 'moduleName.functionName: reason'",
+  "topics": [
+    "MA Memory Architect",
+    "agent-definitions.js",
+    "MA-scripts"
+  ],
+  "summary": "// ── Default Agent Definitions ────────────────────────────────────────────────\r\n// Shared agent roster used by seed-agents.js (manual) and MA-core.js (auto-boot).\r\n// Edit this file to change the de",
+  "importance": 0.6,
+  "createdAt": 1774646388189,
+  "createdAtISO": "2026-03-27T21:19:48.189Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-scripts\\agent-definitions.js",
+  "accessCount": 0
+}

@@ -1,0 +1,32 @@
+async function _executeChore(chore) {
+  if (!_deps || !_deps.callLLM || !_deps.core) return;
+
+  const config = _deps.core.getConfig();
+  if (!config) { _log('pulse-chores.log', { choreId: chore.id, error: 'No LLM configured' }); return; }
+
+  // Determine which agent handles it
+  let agentName = 'MA';
+  let agentId = null;
+  if (chore.assignTo && _deps.agentCatalog) {
+    const agent = _deps.agentCatalog.getAgent(chore.assignTo);
+    if (agent) { agentName = agent.name; agentId = agent.id; }
+  }
+
+  try {
+    // Execute via task runner
+    const result = await _deps.core.handleChat({
+      message: `[CHORE] ${chore.name}: ${chore.description || chore.name}`,
+      history: []
+    });
+
+    const reply = result.reply || '(no output)';
+
+    // Grade the chore result via LLM
+    let grade = null;
+    try {
+      const gradeResp = await _deps.callLLM(config, [
+        { role: 'system', content: 'You are a task evaluator. Grade the following chore result on a scale of A (excellent), B (good), C (adequate), D (poor), F (failed). Reply with ONLY the letter grade followed by a one-sentence explanation.' },
+        { role: 'user', content: `Chore: ${chore.name}\nDescription: ${chore.description || 'none'}\nAgent: ${agentName}\nResult: ${reply.slice(0, 2000)}` }
+      ], { temperature: 0.3, maxTokens: 100 });
+      grade = gradeResp.trim();
+    } catch { grade = 'N/A — grading failed'; }

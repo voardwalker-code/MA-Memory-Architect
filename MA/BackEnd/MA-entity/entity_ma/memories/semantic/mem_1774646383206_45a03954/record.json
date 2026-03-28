@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383206_45a03954",
+  "type": "semantic",
+  "content": "// ── Store ────────────────────────────────────────────────────────────────\r\n  function store(type, content, meta = {}) {\r\n    const id   = `mem_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`;\r\n    const dir  = type === 'semantic' ? semanticDir : episodicDir;\r\n    const dest = path.join(dir, id);\r\n    fs.mkdirSync(dest, { recursive: true });\r\n\n    // Auto-extract topics with RAKE + YAKE when caller provides few/none\r\n    let topics = meta.topics || [];\r\n    if (topics.length < 3 && content) {\r\n      const rake = extractPhrases(content, 8);\r\n      const yake = extractKeywords(content, 6);\r\n      const set = new Set(topics.map(t => t.toLowerCase()));\r\n      for (const p of rake) set.add(p.toLowerCase());\r\n      for (const k of yake) set.add(k.toLowerCase());\r\n      topics = [...set].slice(0, 12);\r\n    }\r\n\n    const now = Date.now();\r\n    const record = {\r\n      id,\r\n      type,\r\n      content,\r\n      topics,\r\n      summary:   meta.summary   || content.slice(0, 200),\r\n      importance: meta.importance ?? 0.5,\r\n      createdAt: now,\r\n      createdAtISO: new Date(now).toISOString(),\r\n      chainId: meta.chainId || null,\r\n      archive: meta.archive || null,\r\n      sourcePath: meta.sourcePath || null,\r\n      accessCount: 0\r\n    };",
+  "topics": [
+    "MA Memory Architect",
+    "svc-memory.js",
+    "BackEnd services"
+  ],
+  "summary": "// ── Store ────────────────────────────────────────────────────────────────\r\n  function store(type, content, meta = {}) {\r\n    const id   = `mem_${Date.now()}_${crypto.randomBytes(4).toString('hex')}",
+  "importance": 0.6,
+  "createdAt": 1774646383208,
+  "createdAtISO": "2026-03-27T21:19:43.208Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-memory.js",
+  "accessCount": 0
+}

@@ -1,0 +1,44 @@
+**Practice Exercises:**
+- 3-5 exercises per lesson
+- Increasing difficulty
+- Full answer keys with explanations
+- Mix of formats: short answer, problem-solving, application
+
+**Recommended Resources:**
+```
+[TOOL:web_search {"query": "{topic} {concept} tutorial resource recommended"}]
+```
+- Include real links where possible
+- Distinguish free vs paid resources
+
+### Phase 6: Assessment Generation
+
+**Per-Module Quiz:**
+- 10-15 questions per module
+- Mixed format: multiple choice, short answer, problem-solving
+- Answer key with explanations for each answer
+- Difficulty: 60% recall, 30% application, 10% analysis
+
+**Midterm Review:**
+- Cumulative, covers first half of modules
+- 25-40 questions
+- Emphasizes connections between modules
+- Full answer key
+
+**Final Comprehensive Exam:**
+- Covers entire course
+- 40-60 questions
+- Weighted toward core concepts (60%) + application (30%) + synthesis (10%)
+- Full answer key with detailed explanations
+
+### Phase 7: Syllabus Document
+
+Generate:
+- Course title and description
+- Week-by-week schedule with module/lesson mapping
+- Grading weights (quizzes, midterm, final, participation)
+- Study tips specific to this subject
+- Prerequisite checklist
+- Recommended study habits and time commitments
+
+### Phase 8: Output

@@ -1,0 +1,32 @@
+---
+name: coding
+description: Production code author — write, edit, debug, and scaffold real code projects. Gives the entity the ability to create working software saved as actual code files.
+---
+
+# Coding Skill
+
+You can write real code and save it as actual files. Not snippets in chat — real `.js`, `.py`, `.html`, `.css`, `.json`, `.ts`, `.sh`, `.sql`, or any other code file.
+
+## What You Can Do
+
+1. **Write new code files** — create complete, runnable source files
+2. **Edit existing code** — read a file, modify it, write it back
+3. **Scaffold projects** — create folder structures with multiple files
+4. **Debug code** — read code, find bugs, write the fix
+5. **Refactor code** — restructure files while preserving behavior
+
+## Your Tools
+
+```
+[TOOL:ws_list path="."]                          — see files and folders
+[TOOL:ws_read path="src/app.js"]                 — read a file's contents
+[TOOL:ws_write path="src/app.js" content="..."]  — create or overwrite a file
+[TOOL:ws_append path="src/app.js" content="..."] — add to end of a file
+[TOOL:ws_delete path="old-file.js"]              — remove a file
+[TOOL:ws_move src="old.js" dst="new.js"]         — rename or move a file
+[TOOL:ws_mkdir path="src/utils"]                 — create a folder
+[TOOL:cmd_run cmd="node src/index.js"]           — run a command (see allowed list)
+[TOOL:cmd_run cmd="npm test"]                    — run tests
+```
+
+## CRITICAL RULES — Read These First

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382405_5349ff98",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// initMemory(createMemoryStore)\r\n//\r\n// Starts the memory system.  Memory lets MA remember past conversations,\r\n// decisions, and facts — kind of like a notebook it can search through.\r\n//\r\n//   createMemoryStore — the factory function from MA-memory.js\r\n//   Returns: the memory store instance\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction initMemory(createMemoryStore) {\r\n  const memory = createMemoryStore('ma');\r\n  console.log('  Memory store ready');\r\n  return memory;\r\n}\r\n\n// ─────────────────────────────────────────────────────────────────────────────\r\n// loadKnowledge(knowledgeDir, name)\r\n//\r\n// Loads a single knowledge document by name.  Knowledge docs are markdown\r\n// files in the MA-knowledge/ folder that contain reference material —\r\n// things like architecture patterns, code quality guides, etc.\r\n//\r\n//   knowledgeDir — path to the MA-knowledge folder\r\n//   name         — document name (with or without .md extension)\r\n//   Returns: the file content as a string, or null if not found\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction loadKnowledge(knowledgeDir, name) {\r\n  const p = path.join(knowledgeDir, name.endsWith('.md') ? name : name + '.md');\r\n  if (fs.existsSync(p)) return fs.readFileSync(p, 'utf8');\r\n  return null;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "core-bootstrap.js",
+    "BackEnd core"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// initMemory(createMemoryStore)\r\n//\r\n// Starts the memory system.  Memory lets MA remember past conversations,\r\n// de",
+  "importance": 0.6,
+  "createdAt": 1774646382406,
+  "createdAtISO": "2026-03-27T21:19:42.406Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-bootstrap.js",
+  "accessCount": 0
+}

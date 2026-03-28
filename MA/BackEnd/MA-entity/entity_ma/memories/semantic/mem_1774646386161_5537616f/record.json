@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386161_5537616f",
+  "type": "semantic",
+  "content": "| Tool | Syntax |\r\n|------|--------|\r\n| List files | `[TOOL:ws_list {\"path\":\"folder/\"}]` |\r\n| Read file | `[TOOL:ws_read {\"path\":\"file.md\"}]` |\r\n| Write file | `[TOOL:ws_write {\"path\":\"file.md\"}]content[/TOOL]` |\r\n| Web search | `[TOOL:web_search {\"query\":\"search terms\"}]` |\r\n| Fetch URL | `[TOOL:web_fetch {\"url\":\"http://...\", \"method\":\"GET\"}]` |\r\n| API call | `[TOOL:web_fetch {\"url\":\"http://localhost:3847/api/...\", \"method\":\"POST\", \"body\":{...}}]` |\r\n| Search memory | `[TOOL:mem_search {\"query\":\"topic keywords\"}]` |\r\n| Create memory | `[TOOL:mem_create {\"semantic\":\"...\",\"importance\":\"0.8\",\"emotion\":\"neutral\",\"topics\":\"t1,t2\"}]` |\r\n| Run command | `[TOOL:cmd_run {\"command\":\"...\"}]` |\r\n\n---\r\n\n## Phase 3: Write the Blueprint\r\n\nWrite the full blueprint file:\r\n\n```\r\n[TOOL:ws_write {\"path\": \"MA-blueprints/modules/{task_type}.md\"}]\r\n{Full blueprint content following the structure above}\r\n[/TOOL]\r\n```\r\n\n**Quality check before writing:**\r\n- Does every phase have explicit tool calls with example syntax?\r\n- Does mode detection cover all cases including ambiguity?\r\n- Are guidelines specific and actionable (not generic)?\r\n- Is the blueprint between 150-400 lines?\r\n- Does the step pattern match the actual phases in the blueprint?\r\n\n---\r\n\n## Phase 4: Write the Skill Registration\r\n\nWrite the SKILL.md file with YAML frontmatter:",
+  "topics": [
+    "MA Memory Architect",
+    "blueprint_builder.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "| Tool | Syntax |\r\n|------|--------|\r\n| List files | `[TOOL:ws_list {\"path\":\"folder/\"}]` |\r\n| Read file | `[TOOL:ws_read {\"path\":\"file.md\"}]` |\r\n| Write file | `[TOOL:ws_write {\"path\":\"file.md\"}]conte",
+  "importance": 0.6,
+  "createdAt": 1774646386162,
+  "createdAtISO": "2026-03-27T21:19:46.162Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\blueprint_builder.md",
+  "accessCount": 0
+}

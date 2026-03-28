@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385398_7a841e93",
+  "type": "semantic",
+  "content": "async function loadBlueprints() {\r\n  const list = document.getElementById('bp-list');\r\n  if (!list) return;\r\n  list.innerHTML = '<div class=\"side-empty\">Loading blueprints...</div>';\r\n  try {\r\n    const r = await fetch('/api/blueprints');\r\n    const d = await r.json();\r\n    const files = d.files || [];\r\n    if (!files.length) {\r\n      list.innerHTML = '<div class=\"side-empty\">No blueprint files found.</div>';\r\n      return;\r\n    }\r\n    // Group files by folder\r\n    var groups = {};\r\n    files.forEach(function(file) {\r\n      var folder = file.group || 'root';\r\n      if (!groups[folder]) groups[folder] = [];\r\n      groups[folder].push(file);\r\n    });\r\n    // Render folder tree\r\n    var html = '';\r\n    var folderDescriptions = {\r\n      core: 'Core — Task execution rules',\r\n      modules: 'Modules — Task-type blueprints',\r\n      nekocore: 'NekoCore — OS architecture docs',\r\n      'rem-system': 'REM System — Layer specifications',\r\n      root: 'Root'\r\n    };\r\n    Object.keys(groups).sort().forEach(function(folder) {\r\n      var label = folderDescriptions[folder] || folder;\r\n      html += '<div class=\"bp-folder\">';\r\n      html += '<button class=\"bp-folder-toggle\" onclick=\"this.parentElement.classList.toggle(\\'collapsed\\')\">';\r\n      html += '<span class=\"bp-folder-icon\">▾</span> ' + escHtml(label);\r\n      html += '<span class=\"bp-folder-count\">' + groups[folder].length + '</span>';\r\n      html += '</button>';\r\n      html += '<div class=\"bp-folder-items\">';\r\n      groups[folder].forEach(function(file) {\r\n        var active = file.path === selectedBlueprintPath ? ' active' : '';\r\n        html += '<button class=\"bp-item' + active + '\" data-bp-path=\"' + escHtml(file.path) + '\" onclick=\"openBlueprint(\\'' + file.path.replace(/'/g, '\\\\&#39;') + '\\')\">';\r\n        html += '<div class=\"name\">' + escHtml(file.name.replace(/\\.md$/, '')) + '</div>';\r\n        html += '</button>';\r\n      });\r\n      html += '</div></div>';\r\n    });\r\n    list.innerHTML = html;\r\n    var hasSelection = selectedBlueprintPath && files.some(function(file) { return file.path === selectedBlueprintPath; });\r\n    if (!hasSelection) {\r\n      selectedBlueprintPath = files[0].path;\r\n      return openBlueprint(selectedBlueprintPath);\r\n    }\r\n  } catch (e) {\r\n    list.innerHTML = '<div class=\"side-empty\">Could not load blueprints: ' + escHtml(e.message) + '</div>';\r\n  }\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function loadBlueprints() {\r\n  const list = document.getElementById('bp-list');\r\n  if (!list) return;\r\n  list.innerHTML = '<div class=\"side-empty\">Loading blueprints...</div>';\r\n  try {\r\n    con",
+  "importance": 0.6,
+  "createdAt": 1774646385398,
+  "createdAtISO": "2026-03-27T21:19:45.398Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

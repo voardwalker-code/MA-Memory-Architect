@@ -1,0 +1,38 @@
+```json
+{
+  "models": [
+    {
+      "id": "ollama/llama3.1:8b",
+      "provider": "ollama",
+      "model": "llama3.1:8b",
+      "endpoint": "http://localhost:11434",
+      "contextWindow": 131072,
+      "tier": "local",
+      "strengths": ["python", "javascript"],
+      "weaknesses": ["rust"]
+    }
+  ]
+}
+```
+
+MA evaluates each task's complexity, language, and context needs, then selects the best model:
+- **Local models first** — always prefers free local models when they can handle the job
+- **Performance learning** — tracks model grades (A–F) per task type and language
+- **Strength/weakness matching** — avoids models with known weaknesses for the task
+- **Tier escalation** — only uses premium models for complex/architect-level work
+- **Cost efficiency** — prefers cheaper models when quality is comparable
+
+Use `/models research <name>` to have MA research a model's capabilities via the LLM.
+
+### Command Whitelist
+
+MA can only execute commands on the whitelist. Managed via:
+- GUI: Settings → Command Whitelist tab
+- Slash: `/whitelist`, `/whitelist add`, `/whitelist remove`, `/whitelist reset`
+- File: `MA-Config/cmd-whitelist.json`
+
+Default whitelist includes: `cargo`, `rustc`, `python`, `node`, `npm`, `gcc`, `go`, `git`, `cat`, `grep`, and more. Dangerous binaries (`rm`, `curl`, `bash`, `powershell`, etc.) are always blocked.
+
+---
+
+## Ports

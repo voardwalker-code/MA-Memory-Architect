@@ -1,0 +1,23 @@
+[TASK_PLAN]
+- [ ] Phase 1 — Scope & Initial Search: Define the research scope. Run 5-8 varied
+      search queries covering different facets of the topic (definitions, history,
+      current state, controversies, key players, data/statistics, future outlook).
+- [ ] Phase 2 — Source Deep-Reading: Fetch and read the 5-10 most promising source
+      URLs from search results. Extract detailed information, data points, quotes,
+      and context — not just summaries.
+- [ ] Phase 3 — Opposing Views & Edge Cases: Search specifically for criticisms,
+      limitations, alternative perspectives, and minority viewpoints. Every good
+      deep-dive presents the other side.
+- [ ] Phase 4 — Cross-Source Synthesis: Compare and reconcile information across
+      sources. Identify consensus, contradictions, and gaps. Build a unified
+      narrative from the evidence.
+- [ ] Phase 5 — Data & Evidence Compilation: Gather specific data points, statistics,
+      dates, figures, named studies, and named experts. A deep-dive needs specifics,
+      not generalities.
+- [ ] Phase 6 — Write Full Report: Write the complete deep-dive report to
+      {topic-slug}-deep-dive.md using the structure below. This should be LONG —
+      multiple pages, multiple sections, thorough treatment of each subtopic.
+- [ ] Phase 7 — Verify & Polish: Re-read the written file. Check for incomplete
+      sections, missing citations, logical gaps, or unclear explanations. Fix any
+      issues found.
+[/TASK_PLAN]

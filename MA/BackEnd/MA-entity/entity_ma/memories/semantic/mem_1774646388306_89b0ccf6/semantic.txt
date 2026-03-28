@@ -1,0 +1,20 @@
+// 6. Create and listen
+  const server = http.createServer(handleRequest);
+  server.listen(port, '127.0.0.1', () => {
+    const url = `http://127.0.0.1:${port}`;
+    console.log(`\n  \u2713 Running at ${url}`);
+    console.log(`  \u2713 Workspace: ${core.WORKSPACE_DIR}`);
+    if (!core.isConfigured()) console.log('  \u26A0 No LLM configured \u2014 the GUI will open for setup');
+
+    // Auto-open browser unless suppressed by env var
+    if (!process.env.MA_NO_OPEN_BROWSER) {
+      console.log('\n  Opening browser...\n');
+      openBrowser(url);
+    } else {
+      console.log('\n  (browser open suppressed)\n');
+    }
+  });
+}
+
+// ── Entry point ─────────────────────────────────────────────────────────────
+start().catch(e => { console.error('Fatal:', e); process.exit(1); });

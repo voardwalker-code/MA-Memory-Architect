@@ -1,0 +1,10 @@
+function renderEditorContent() {
+  if (!editorContent) return;
+  const tab = openTabs.find(t => t.id === activeTabId);
+  if (!tab) {
+    editorContent.innerHTML = '<div id="editor-empty">Select a file or workspace item to open it in the editor.</div>';
+    return;
+  }
+
+  const toolbar = buildEditorToolbar(tab);
+  let body = '';

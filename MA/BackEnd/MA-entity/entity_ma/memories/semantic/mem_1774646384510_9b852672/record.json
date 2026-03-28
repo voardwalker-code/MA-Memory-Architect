@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384510_9b852672",
+  "type": "semantic",
+  "content": "### For Long Conversations\r\n- The token bar shows how much room is left\r\n- If the bar turns yellow, consider starting a new topic or let MA compress\r\n- If the bar turns red, MA auto-compresses older history and uses continuation markers\r\n- Use larger maxTokens (32768+) for complex multi-file projects\r\n\n### For Project Work\r\n- Start with a clear project description: \"Create a [type] app with [features]\"\r\n- Use `/projects` to see what's in the workspace\r\n- Open existing projects with `/project open <id>` before asking follow-up questions\r\n- MA sees all workspace directories automatically — just mention paths\r\n\n### General\r\n- Type `/` to see all available commands\r\n- Use **File → Settings** or the **⚙** rail button to adjust settings anytime\r\n- MA remembers previous conversations through its memory store\r\n- Drop documentation files into the chat for MA to reference\r\n- Open the **Help → User Guide** menu to access this guide in a new tab\r\n- Use `/pulse` and `/chores` to manage automated recurring tasks\r\n- Use the terminal panel for quick shell commands without leaving the GUI\r\n- Switch themes from Settings to match your preference",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "### For Long Conversations\r\n- The token bar shows how much room is left\r\n- If the bar turns yellow, consider starting a new topic or let MA compress\r\n- If the bar turns red, MA auto-compresses older h",
+  "importance": 0.6,
+  "createdAt": 1774646384511,
+  "createdAtISO": "2026-03-27T21:19:44.511Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

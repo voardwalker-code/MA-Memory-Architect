@@ -1,0 +1,31 @@
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/memories/inject", "method": "POST", "body": {"content": "First-person memory from this NPC...", "type": "episodic", "emotion": "determined", "topics": ["backstory", "motivation"], "importance": 0.8, "narrative": "Third-person summary", "phase": "backstory"}}]
+```
+
+Run cognitive tick after each NPC's memories:
+```
+[TOOL:web_fetch {"url": "http://localhost:3847/api/entities/{id}/cognitive/tick", "method": "POST", "body": {}}]
+```
+
+### Phase 6: Campaign Bible
+
+Write comprehensive documents to workspace:
+
+```
+[TOOL:ws_write {"path": "campaign-{name-slug}/campaign-overview.md", "content": "..."}]
+[TOOL:ws_write {"path": "campaign-{name-slug}/session-01.md", "content": "..."}]
+[TOOL:ws_write {"path": "campaign-{name-slug}/session-02.md", "content": "..."}]
+[TOOL:ws_write {"path": "campaign-{name-slug}/npc-roster.md", "content": "..."}]
+[TOOL:ws_write {"path": "campaign-{name-slug}/faction-summaries.md", "content": "..."}]
+[TOOL:ws_write {"path": "campaign-{name-slug}/dm-cheat-sheet.md", "content": "..."}]
+```
+
+**Campaign Overview:** arc summary, themes, villain profile, timeline
+**Session Outlines:** one file per session
+**NPC Roster:** quick-reference table + detail blocks + entity IDs
+**Faction Summaries:** goals, structure, key members, public vs private info
+**DM Cheat Sheet:** key DCs, loot tables, random encounter tables, NPC voice notes
+
+---
+
+## SESSION PREP MODE

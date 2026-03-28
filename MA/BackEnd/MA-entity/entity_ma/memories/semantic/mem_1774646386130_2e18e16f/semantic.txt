@@ -1,0 +1,43 @@
+{2-4 sentences. What are you trying to produce? What makes a good result vs a bad one?
+Be specific about quality — not just "create X" but "create X that is [quality criteria]".}
+
+## Mode Detection (if multi-mode)
+
+{Table mapping user signals to modes. Include a default mode and an ASK fallback.}
+
+## Architecture (if API-dependent)
+
+{Table of API endpoints. Only include if the task uses external APIs.}
+
+## Step Pattern
+
+{The [TASK_PLAN] template with checkbox steps.}
+
+---
+
+## {MODE NAME} MODE (one section per mode)
+
+### Phase N: {Phase Name}
+
+{Detailed instructions for each phase within each mode.}
+
+---
+
+## Guidelines
+
+**DO:**
+- {Positive instructions — what to include, quality standards}
+
+**DON'T:**
+- {Negative instructions — common mistakes, anti-patterns}
+```
+
+### Quality Standards for Blueprints
+
+Your blueprint MUST meet these criteria:
+
+1. **Actionable, not vague.** Every phase must tell the LLM exactly what to do. "Research the topic" is bad. "Search web for 3-5 sources on {topic}, extract key findings, write to research-notes.md" is good.
+
+2. **Tool calls are explicit.** Show the exact `[TOOL:...]` syntax with parameter examples. The LLM executing your blueprint has never seen it before — spell it out.
+
+3. **Modes have clear triggers.** If your blueprint has modes, the mode detection table must be unambiguous. Include a default mode and an "if ambiguous, ASK" instruction.

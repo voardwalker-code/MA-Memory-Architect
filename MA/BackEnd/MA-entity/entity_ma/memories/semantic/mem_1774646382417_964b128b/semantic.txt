@@ -1,0 +1,23 @@
+// ── FAST PATH: Project creation ─────────────────────────────────────
+  // If the user wants to CREATE a new project, scaffold the folder + brief
+  // template instead of using the full task runner.  Saves tokens!
+  if (!briefLoaded && intent.intent === 'task' && intent.taskType === 'project' && intent.confidence >= 0.2) {
+    const createRe = /(?:create|start|new|scaffold|setup|init|begin|make)\b.{0,40}\bproject/i;
+    if (createRe.test(message)) {
+      try {
+        // Try to extract a project name from the message
+        const nameMatch = message.match(/(?:called|named|for)\s+["']?([A-Za-z0-9][A-Za-z0-9 _-]{1,40})["']?/i)
+          || message.match(/project\s+["']?([A-Za-z0-9][A-Za-z0-9 _-]{1,40})["']?/i);
+        const rawName = nameMatch ? nameMatch[1].trim() : `project-${Date.now().toString(36)}`;
+        const slug = rawName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9_-]/g, '').slice(0, 40);
+
+        // Create the project folder
+        const projDir = path.join(WORKSPACE_DIR, slug);
+        if (!fs.existsSync(projDir)) fs.mkdirSync(projDir, { recursive: true });
+
+        // Copy brief template into the project
+        const templatePath = path.join(MA_ROOT, 'MA-blueprints', 'core', 'project-brief-template.md');
+        const briefDest = path.join(projDir, 'PROJECT-BRIEF.md');
+        if (fs.existsSync(templatePath) && !fs.existsSync(briefDest)) {
+          fs.copyFileSync(templatePath, briefDest);
+        }

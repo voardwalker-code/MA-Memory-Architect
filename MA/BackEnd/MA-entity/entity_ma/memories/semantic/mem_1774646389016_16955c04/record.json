@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389016_16955c04",
+  "type": "semantic",
+  "content": "---\r\n\n## Tools Available to MA\r\n\nMA uses these tools via `[TOOL:name {json}]` blocks in LLM output. Params are validated with Zod schemas.\r\n\n| Tool | Usage | Description |\r\n|------|-------|-------------|\r\n| `ws_list` | `[TOOL:ws_list {\"path\":\"dir/\"}]` | List directory |\r\n| `ws_read` | `[TOOL:ws_read {\"path\":\"file\"}]` | Read file (≤32KB) |\r\n| `ws_write` | `[TOOL:ws_write {\"path\":\"file\"}]`content`[/TOOL]` | Write file |\r\n| `ws_append` | `[TOOL:ws_append {\"path\":\"file\"}]`content`[/TOOL]` | Append to file |\r\n| `ws_delete` | `[TOOL:ws_delete {\"path\":\"file\"}]` | Delete file/folder |\r\n| `ws_mkdir` | `[TOOL:ws_mkdir {\"path\":\"dir/\"}]` | Create directory |\r\n| `ws_move` | `[TOOL:ws_move {\"src\":\"old\",\"dst\":\"new\"}]` | Move/rename file |\r\n| `web_search` | `[TOOL:web_search {\"query\":\"search\"}]` | Web search |\r\n| `web_fetch` | `[TOOL:web_fetch {\"url\":\"https://...\"}]` | Fetch page text |\r\n| `cmd_run` | `[TOOL:cmd_run {\"cmd\":\"command\"}]` | Run shell command |\r\n\nAll file tools are sandboxed to `MA-workspace/`. Command execution is sandboxed via the whitelist.\r\n\n---\r\n\n## Health Check\r\n\n```bash\r\nnode -e \"const h=require('./BackEnd/infra/infra-health');console.log(h.formatReport(h.scan()))\"\r\n```\r\n\nReports: file count, critical errors, warnings. Checks JS syntax, JSON validity, HTML tag balance.\r\n\n---\r\n\n## Version\r\n\nMA v1.0 — Standalone-first.\r\n\n**Standalone repository:** [github.com/voardwalker-code/MA-Memory-Architect](https://github.com/voardwalker-code/MA-Memory-Architect)\r\n\n## License",
+  "topics": [
+    "MA Memory Architect",
+    "README.md",
+    "."
+  ],
+  "summary": "---\r\n\n## Tools Available to MA\r\n\nMA uses these tools via `[TOOL:name {json}]` blocks in LLM output. Params are validated with Zod schemas.\r\n\n| Tool | Usage | Description |\r\n|------|-------|-----------",
+  "importance": 0.6,
+  "createdAt": 1774646389017,
+  "createdAtISO": "2026-03-27T21:19:49.017Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "README.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382390_d43b377b",
+  "type": "semantic",
+  "content": "{\n\t\"version\": \"2.0.0\",\n\t\"tasks\": [\n\t\t{\n\t\t\t\"label\": \"phase2-validate-core\",\n\t\t\t\"type\": \"shell\",\n\t\t\t\"command\": \"node -e \\\"const core=require('./BackEnd/MA-core'); core.boot(); core.setConfig({type:'ollama',endpoint:'http://localhost:11434',model:'llama3.1:8b',workspacePath:'',memoryLimit:10,memoryRecall:true}); console.log('phase2-ok');\\\"\",\n\t\t\t\"isBackground\": false\n\t\t}\n\t]\n}",
+  "topics": [
+    "MA Memory Architect",
+    "tasks.json",
+    ".vscode"
+  ],
+  "summary": "{\n\t\"version\": \"2.0.0\",\n\t\"tasks\": [\n\t\t{\n\t\t\t\"label\": \"phase2-validate-core\",\n\t\t\t\"type\": \"shell\",\n\t\t\t\"command\": \"node -e \\\"const core=require('./BackEnd/MA-core'); core.boot(); core.setConfig({type:'olla",
+  "importance": 0.6,
+  "createdAt": 1774646382390,
+  "createdAtISO": "2026-03-27T21:19:42.390Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": ".vscode\\tasks.json",
+  "accessCount": 0
+}

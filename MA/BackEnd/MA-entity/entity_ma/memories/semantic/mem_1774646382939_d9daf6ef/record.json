@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382939_d9daf6ef",
+  "type": "semantic",
+  "content": "// ── Route a task ─────────────────────────────────────────────────\r\n    // Given a message and task type, the router picks the best model.\r\n    // Body: { message?, taskType?: \"code\"|\"writing\"|..., agentRole? }\r\n    // This doesn't actually send anything to the AI — it just tells you\r\n    // which model the router WOULD pick.\r\n    if (url.pathname === '/api/models/route' && method === 'POST') {\r\n      const body   = JSON.parse(await readBody(req));\r\n      const routed = modelRouter.routeModel(\r\n        body.message  || '',\r\n        body.taskType || 'code',\r\n        body.agentRole || null,\r\n        core.getConfig()\r\n      );\r\n      json(res, 200, routed);\r\n      return true;\r\n    }\r\n\n    // ── Performance stats ────────────────────────────────────────────\r\n    // Returns timing data, success rates, and usage counts for every\r\n    // model that has been used at least once.\r\n    if (url.pathname === '/api/models/performance' && method === 'GET') {\r\n      json(res, 200, modelRouter.getAllPerformance());\r\n      return true;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "route-models.js",
+    "BackEnd routes"
+  ],
+  "summary": "// ── Route a task ─────────────────────────────────────────────────\r\n    // Given a message and task type, the router picks the best model.\r\n    // Body: { message?, taskType?: \"code\"|\"writing\"|..., ",
+  "importance": 0.6,
+  "createdAt": 1774646382940,
+  "createdAtISO": "2026-03-27T21:19:42.940Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\routes\\route-models.js",
+  "accessCount": 0
+}

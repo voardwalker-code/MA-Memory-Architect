@@ -1,0 +1,36 @@
+// Update indexes
+  _addToTopicIndex(projectId, nodeId, topics);
+  _addToTemporalIndex(projectId, nodeId, now);
+
+  // Update project meta
+  project.nodeCount += 1;
+  project.updatedAt = now;
+  _atomicWrite(path.join(_projectDir(projectId), 'project-meta.json'), project);
+
+  return node;
+}
+
+/**
+ * Read a node by ID.
+ */
+function getNode(projectId, nodeId) {
+  const nodePath = path.join(_projectDir(projectId), 'nodes', `${nodeId}.json`);
+  if (!fs.existsSync(nodePath)) return null;
+  const node = JSON.parse(fs.readFileSync(nodePath, 'utf8'));
+  // Update access tracking
+  node.access_count += 1;
+  node.last_accessed = new Date().toISOString();
+  node.access_events.push(node.last_accessed);
+  _atomicWrite(nodePath, node);
+  return node;
+}
+
+/**
+ * List all nodes for a project (metadata only — no content).
+ */
+function listNodes(projectId, opts = {}) {
+  const nodesDir = path.join(_projectDir(projectId), 'nodes');
+  if (!fs.existsSync(nodesDir)) return [];
+
+  const files = fs.readdirSync(nodesDir).filter(f => f.startsWith('arc_') && f.endsWith('.json'));
+  const nodes = [];

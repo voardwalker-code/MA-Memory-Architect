@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384253_4c81e5c8",
+  "type": "semantic",
+  "content": "| Port | Purpose |\r\n|------|---------|\r\n| 3850 | Default |\r\n| 3851–3860 | Fallback range if default is busy |\r\n\nMA uses smart port management: if port 3850 is occupied, the server identifies what's running, prompts you, and starts on the next available port. Background launches (e.g. from the process manager) auto-resolve without prompting.\r\n\n---\r\n\n## API Reference",
+  "topics": [
+    "MA Memory Architect",
+    "README.md",
+    "Documents"
+  ],
+  "summary": "| Port | Purpose |\r\n|------|---------|\r\n| 3850 | Default |\r\n| 3851–3860 | Fallback range if default is busy |\r\n\nMA uses smart port management: if port 3850 is occupied, the server identifies what's ru",
+  "importance": 0.6,
+  "createdAt": 1774646384254,
+  "createdAtISO": "2026-03-27T21:19:44.254Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\README.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387978_f20f2829",
+  "type": "semantic",
+  "content": "1. Keep Promise.all for parallel contributors — never serialize 1A and 1D\r\n2. Orchestrator is voicer/reviewer only — never add reasoning to Final pass\r\n3. Post-turn memory encoding must be async — never block response delivery\r\n4. Budget and latency guards are non-negotiable safety rails\r\n5. Tool calls use `[TOOL: name; params]` syntax — parsed and executed between passes\r\n6. Task dispatch precedes companion pipeline — check task intent first\r\n7. System prompt assembly goes through context-consolidator — never hardcode",
+  "topics": [
+    "MA Memory Architect",
+    "cognitive-pipeline.md",
+    "MA-knowledge"
+  ],
+  "summary": "1. Keep Promise.all for parallel contributors — never serialize 1A and 1D\r\n2. Orchestrator is voicer/reviewer only — never add reasoning to Final pass\r\n3. Post-turn memory encoding must be async — nev",
+  "importance": 0.6,
+  "createdAt": 1774646387980,
+  "createdAtISO": "2026-03-27T21:19:47.980Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-knowledge\\cognitive-pipeline.md",
+  "accessCount": 0
+}

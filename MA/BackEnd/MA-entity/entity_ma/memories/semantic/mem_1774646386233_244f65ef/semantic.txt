@@ -1,0 +1,33 @@
+The book has already been uploaded and chunked by the Book Ingest UI. The `bookId` is provided in the user's initial message.
+
+1. List all available chunks:
+```
+[TOOL:book_list_chunks {"bookId": "{bookId}"}]
+```
+
+Response: `{ bookId: "book_xxx", title: "...", totalChunks: N, projectFolder: "projects/...", chunks: [{index, preview, charCount}, ...] }`
+
+2. Store the `totalChunks` and `projectFolder` — you'll need them for all subsequent phases.
+3. Save chunk metadata to the project folder:
+```
+[TOOL:ws_write {"path": "projects/{book-slug}/chunks-list.json", "content": "{serialized chunk list}"}]
+```
+
+---
+
+## Phase 2: Character Discovery (Multi-Pass LLM)
+
+Process ALL chunks to find every character. Work in batches of 3-5 chunks per LLM analysis.
+
+### 2a. Fetch chunks in batches
+
+For each batch, read chunk content directly:
+```
+[TOOL:book_read_chunk {"bookId": "{bookId}", "index": 0}]
+[TOOL:book_read_chunk {"bookId": "{bookId}", "index": 1}]
+[TOOL:book_read_chunk {"bookId": "{bookId}", "index": 2}]
+```
+
+### 2b. Analyze each batch
+
+For each batch, perform a deep character analysis. Ask yourself (this is an internal LLM reasoning step, not a tool call):

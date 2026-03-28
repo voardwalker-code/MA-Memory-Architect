@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646387713_d8b0079e",
+  "type": "semantic",
+  "content": "case 'projects': {\r\n      const projects = core.projectArchive.listProjects();\r\n      if (!projects.length) { console.log('  No project archives.'); return; }\r\n      console.log('  Project Archives:');\r\n      for (const p of projects) console.log(`    ${p.id} (${p.status}) — ${p.name}, ${p.nodeCount || 0} nodes`);\r\n      return;\r\n    }\r\n\n    case 'project': {\r\n      const sub = (parts[1] || '').toLowerCase();\r\n      const id = parts.slice(2).join(' ').trim();\r\n      if (sub === 'open' && id) {\r\n        try {\r\n          const p = core.projectArchive.resumeProject(id);\r\n          console.log(`  Project ${p.id} reopened (${p.status}). ${p.nodeCount || 0} nodes.`);\r\n        } catch (e) { console.log(`  Error: ${e.message}`); }\r\n        return;\r\n      }\r\n      if (sub === 'close' && id) {\r\n        try {\r\n          const p = core.projectArchive.closeProject(id);\r\n          console.log(`  Project ${p.id} closed.`);\r\n        } catch (e) { console.log(`  Error: ${e.message}`); }\r\n        return;\r\n      }\r\n      if (sub === 'status' && id) {\r\n        const s = core.projectArchive.getArchiveStats(id);\r\n        if (!s) { console.log(`  Project not found: ${id}`); return; }\r\n        console.log(JSON.stringify(s, null, 2));\r\n        return;\r\n      }\r\n      console.log('  Usage: /project open|close|status <id>');\r\n      return;\r\n    }",
+  "topics": [
+    "MA Memory Architect",
+    "MA-cli.js",
+    "."
+  ],
+  "summary": "case 'projects': {\r\n      const projects = core.projectArchive.listProjects();\r\n      if (!projects.length) { console.log('  No project archives.'); return; }\r\n      console.log('  Project Archives:')",
+  "importance": 0.6,
+  "createdAt": 1774646387714,
+  "createdAtISO": "2026-03-27T21:19:47.714Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-cli.js",
+  "accessCount": 0
+}

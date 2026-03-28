@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384775_dd06c45c",
+  "type": "semantic",
+  "content": "// Runs after all MA UI scripts are loaded.\r\ninitializeMAUI();\r\n\n// ── Auto-trigger book ingestion when opened with ?bookId= ────────────────\r\n(function () {\r\n  var params = new URLSearchParams(window.location.search);\r\n  var bookId = params.get('bookId');\r\n  var title = params.get('title');\r\n  var projectFolder = params.get('projectFolder');\r\n  if (!bookId) return;\r\n\n  // Switch to Chat mode so the user sees progress\r\n  if (typeof switchMode === 'function') switchMode('chat');\r\n\n  // Pre-fill the chat input so the user can review/edit before sending\r\n  setTimeout(function () {\r\n    var msg = 'Ingest the uploaded book \"' + (title || bookId) + '\" (bookId: ' + bookId + '). ' +\r\n              'Extract all major characters and create entities for them.';\r\n    if (projectFolder) {\r\n      msg += ' YOUR PROJECT FOLDER IS: \"' + projectFolder + '/\" — ALL output files (registries, memories, reports) MUST go inside this folder. NEVER write files to the workspace root.';\r\n    }\r\n    if (typeof inputEl !== 'undefined') {\r\n      inputEl.value = msg;\r\n      inputEl.focus();\r\n    }\r\n    // Clean URL params so refresh doesn't re-trigger\r\n    if (window.history && window.history.replaceState) {\r\n      window.history.replaceState({}, document.title, window.location.pathname);\r\n    }\r\n  }, 500);\r\n})();",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-bootstrap.js",
+    "FrontEnd js"
+  ],
+  "summary": "// Runs after all MA UI scripts are loaded.\r\ninitializeMAUI();\r\n\n// ── Auto-trigger book ingestion when opened with ?bookId= ────────────────\r\n(function () {\r\n  var params = new URLSearchParams(window",
+  "importance": 0.6,
+  "createdAt": 1774646384776,
+  "createdAtISO": "2026-03-27T21:19:44.776Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-bootstrap.js",
+  "accessCount": 0
+}

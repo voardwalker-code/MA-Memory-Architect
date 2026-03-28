@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646389117_ebffb8d3",
+  "type": "semantic",
+  "content": "```\r\n  MA — Memory Architect\r\n  ────────────────────────────────────\r\n  Config loaded: openrouter/anthropic/claude-sonnet-4\r\n  Entity loaded: MA\r\n  Memory store ready\r\n  MA listening on http://localhost:3850\r\n```\r\n\n### 2. Configure an LLM\r\n\n**First time?** MA needs an LLM backend. You have two options:\r\n\n**Option A — Browser GUI:**\r\n1. Open `http://localhost:3850`\r\n2. The settings panel opens automatically if unconfigured\r\n3. Pick a provider (OpenRouter or Ollama)\r\n4. Enter your endpoint URL, API key, and model name\r\n5. Click **Save**\r\n\n**Option B — Terminal CLI:**\r\n1. Edit `MA-Config/ma-config.json` directly:\r\n```json\r\n{\r\n  \"type\": \"openrouter\",\r\n  \"endpoint\": \"https://openrouter.ai/api/v1/chat/completions\",\r\n  \"apiKey\": \"sk-or-your-key-here\",\r\n  \"model\": \"anthropic/claude-sonnet-4\",\r\n  \"maxTokens\": 12288\r\n}\r\n```\r\n2. Restart MA\r\n\n**Using Ollama (local, no API key):**\r\n```json\r\n{\r\n  \"type\": \"ollama\",\r\n  \"endpoint\": \"http://localhost:11434\",\r\n  \"apiKey\": \"\",\r\n  \"model\": \"llama3.1:8b\",\r\n  \"maxTokens\": 8192\r\n}\r\n```\r\n\n**Ollama Model Discovery:**\r\nWhen you select Ollama as the provider in the GUI, the Model field switches from a text input to a dropdown listing all models on your local machine. Selecting a model auto-fills `maxTokens` from that model's actual context length.\r\n\n### 3. Start Chatting\r\n\nOpen `http://localhost:3850` in your browser, or run:\r\n\n```bash\r\nnode MA-cli.js\r\n```\r\n\n---\r\n\n## Browser GUI",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "."
+  ],
+  "summary": "```\r\n  MA — Memory Architect\r\n  ────────────────────────────────────\r\n  Config loaded: openrouter/anthropic/claude-sonnet-4\r\n  Entity loaded: MA\r\n  Memory store ready\r\n  MA listening on http://localho",
+  "importance": 0.6,
+  "createdAt": 1774646389118,
+  "createdAtISO": "2026-03-27T21:19:49.118Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "USER-GUIDE.md",
+  "accessCount": 0
+}

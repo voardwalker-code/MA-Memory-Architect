@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388549_35c84f5c",
+  "type": "semantic",
+  "content": "| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `/api/entities/create` | POST | Create entity |\r\n| `/api/entities/{id}/memories/inject` | POST | Inject memory |\r\n| `/api/entities/{id}/cognitive/tick` | POST | Cognitive processing cycle |\r\n| `/api/entities/{id}/cognitive/state` | GET | Read evolved state |\r\n\n## Entity Creation Pattern\r\n\n- **NPCs**: Lightweight — 2-3 core memories each (backstory, motivation, secret), 1 cognitive tick\r\n- **Characters**: Full depth — 3-5 chapter backstory, cognitive tick between chapters, iterative evolution\r\n\n## Memory Quality Rules\r\n- First person, present tense for immediacy\r\n- Include sensory details\r\n- Vary emotions — not everything is dramatic\r\n- Use `importance` 0.7-0.9 for formative, 0.3-0.5 for everyday\r\n- Never create entity files manually — always use the API",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills dnd-create"
+  ],
+  "summary": "| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `/api/entities/create` | POST | Create entity |\r\n| `/api/entities/{id}/memories/inject` | POST | Inject memory |\r\n| `/api/entities/{",
+  "importance": 0.6,
+  "createdAt": 1774646388550,
+  "createdAtISO": "2026-03-27T21:19:48.550Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\dnd-create\\SKILL.md",
+  "accessCount": 0
+}

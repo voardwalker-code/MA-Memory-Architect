@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383744_5bc88c89",
+  "type": "semantic",
+  "content": "// ─────────────────────────────────────────────────────────────────────────────\r\n// bookReadChunk(wp, bookId, index)\r\n//\r\n// Reads a single chunk from a book by its index number.\r\n//\r\n//   wp     — absolute path to the workspace\r\n//   bookId — the book's unique identifier\r\n//   index  — the chunk number (0-based)\r\n//   Returns: the chunk text, or error message\r\n// ─────────────────────────────────────────────────────────────────────────────\r\nfunction bookReadChunk(wp, bookId, index) {\r\n  const bookDir = _findBookDir(wp, bookId);\r\n  if (!bookDir) return `Error: Book \"${bookId}\" not found in workspace.`;\r\n\n  const chunkPath = path.join(bookDir, 'chunks', `chunk_${String(index).padStart(4, '0')}.txt`);\r\n  if (!fs.existsSync(chunkPath)) return `Error: Chunk ${index} not found for book \"${bookId}\".`;\r\n\n  return fs.readFileSync(chunkPath, 'utf8');\r\n}\r\n\nmodule.exports = { bookListChunks, bookReadChunk };",
+  "topics": [
+    "MA Memory Architect",
+    "tools-book.js",
+    "BackEnd tools"
+  ],
+  "summary": "// ─────────────────────────────────────────────────────────────────────────────\r\n// bookReadChunk(wp, bookId, index)\r\n//\r\n// Reads a single chunk from a book by its index number.\r\n//\r\n//   wp     — a",
+  "importance": 0.6,
+  "createdAt": 1774646383745,
+  "createdAtISO": "2026-03-27T21:19:43.745Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\tools\\tools-book.js",
+  "accessCount": 0
+}

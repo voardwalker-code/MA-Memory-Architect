@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382468_5c24ff0d",
+  "type": "semantic",
+  "content": "// ── 1. File path detection ──────────────────────────────────────────\r\n  // Scan the user's message for things that look like file paths.\r\n  // If we find files that exist in the workspace, read them and include\r\n  // their contents so the AI can see what the user is talking about.\r\n  try {\r\n    // Match paths like \"src/components/App.js\" or \"config/settings.json\"\r\n    const pathPatterns = /(?:^|\\s|[\"'`(])(\\/?(?:[\\w.-]+\\/)+[\\w.-]+\\.\\w{1,10})(?=[\\s\"'`),;:?!]|$)/gm;\r\n    const detected = new Set();\r\n    let pm;\r\n    while ((pm = pathPatterns.exec(message))) {\r\n      const raw = pm[1].replace(/^\\//, '');\r\n      if (raw.length > 2 && raw.includes('/')) detected.add(raw);\r\n    }\r\n    // Also check for bare filenames like \"package.json\" at workspace root\r\n    const bareFile = /(?:^|\\s)([\\w.-]+\\.\\w{1,10})(?=[\\s,;:]|$)/g;\r\n    while ((pm = bareFile.exec(message))) {\r\n      const name = pm[1];\r\n      if (name.includes('.') && fs.existsSync(path.join(workspacePath, name))) {\r\n        detected.add(name);\r\n      }\r\n    }\r\n    const fileContents = [];\r\n    for (const rel of detected) {\r\n      try {\r\n        const abs = path.resolve(workspacePath, rel);\r\n        // Safety check: don't read files outside the workspace\r\n        if (!abs.startsWith(path.resolve(workspacePath))) continue;\r\n        if (!fs.existsSync(abs) || !fs.statSync(abs).isFile()) continue;\r\n        const size = fs.statSync(abs).size;\r\n        if (size > 32768) {\r\n          fileContents.push(`[File: ${rel}] (${(size/1024).toFixed(1)}KB — too large, showing first 32KB)\\n${fs.readFileSync(abs, 'utf8').slice(0, 32768)}`);\r\n        } else {\r\n          fileContents.push(`[File: ${rel}]\\n${fs.readFileSync(abs, 'utf8')}`);\r\n        }\r\n      } catch { /* skip unreadable files */ }\r\n    }\r\n    if (fileContents.length) {\r\n      result.fileCtx = '\\n[Referenced Files]\\n' + fileContents.join('\\n\\n');\r\n    }\r\n  } catch { /* ignore detection errors */ }",
+  "topics": [
+    "MA Memory Architect",
+    "core-context.js",
+    "BackEnd core"
+  ],
+  "summary": "// ── 1. File path detection ──────────────────────────────────────────\r\n  // Scan the user's message for things that look like file paths.\r\n  // If we find files that exist in the workspace, read the",
+  "importance": 0.6,
+  "createdAt": 1774646382468,
+  "createdAtISO": "2026-03-27T21:19:42.468Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-context.js",
+  "accessCount": 0
+}

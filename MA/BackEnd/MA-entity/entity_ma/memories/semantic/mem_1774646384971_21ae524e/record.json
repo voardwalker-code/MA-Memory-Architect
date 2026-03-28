@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384971_21ae524e",
+  "type": "semantic",
+  "content": "async function loadOllamaModels() {\r\n  const endpoint = document.getElementById('cfg-endpoint').value.trim();\r\n  if (!endpoint) return;\r\n  const sel = document.getElementById('cfg-model-select');\r\n  sel.innerHTML = '<option value=\"\">Loading...</option>';\r\n  sel.disabled = true;\r\n  try {\r\n    const r = await fetch('/api/ollama/models?endpoint=' + encodeURIComponent(endpoint));\r\n    const d = await r.json();\r\n    if (d.error) throw new Error(d.error);\r\n    const models = d.models || [];\r\n    sel.innerHTML = '<option value=\"\">-- select a model (' + models.length + ' available) --</option>';\r\n    for (const m of models) {\r\n      const sizeGB = m.size ? (m.size / 1073741824).toFixed(1) + ' GB' : '';\r\n      const opt = document.createElement('option');\r\n      opt.value = m.name;\r\n      opt.textContent = m.name + (sizeGB ? ' (' + sizeGB + ')' : '');\r\n      sel.appendChild(opt);\r\n    }\r\n    const cur = document.getElementById('cfg-model').value;\r\n    if (cur) sel.value = cur;\r\n  } catch (e) {\r\n    sel.innerHTML = '<option value=\"\">Could not reach Ollama</option>';\r\n    document.getElementById('model-info').textContent = e.message;\r\n  }\r\n  sel.disabled = false;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-config.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function loadOllamaModels() {\r\n  const endpoint = document.getElementById('cfg-endpoint').value.trim();\r\n  if (!endpoint) return;\r\n  const sel = document.getElementById('cfg-model-select');\r\n  s",
+  "importance": 0.6,
+  "createdAt": 1774646384973,
+  "createdAtISO": "2026-03-27T21:19:44.973Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-config.js",
+  "accessCount": 0
+}

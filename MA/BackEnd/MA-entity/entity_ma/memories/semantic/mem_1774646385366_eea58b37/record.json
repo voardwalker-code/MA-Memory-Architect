@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385366_eea58b37",
+  "type": "semantic",
+  "content": "// Filter by search query\r\n    if (query) {\r\n      nodes = nodes.filter(function(n) {\r\n        return (n.summary || '').toLowerCase().includes(query)\r\n          || (n.sourceType || '').toLowerCase().includes(query)\r\n          || (n.topics || []).some(function(t) { return t.toLowerCase().includes(query); });\r\n      });\r\n      // Skip project if no matching nodes and project name doesn't match\r\n      if (!nodes.length && !(proj.name || proj.id).toLowerCase().includes(query)) continue;\r\n    }\r\n\n    const isClosed = proj.status === 'closed';\r\n    html += '<div class=\"archive-project-folder open\">';\r\n    html += '<div class=\"archive-project-header\" onclick=\"this.parentElement.classList.toggle(\\'open\\')\">';\r\n    html += '<span class=\"conv-folder-icon\">📂</span> ';\r\n    html += '<strong>' + escHtml(proj.name || proj.id) + '</strong>';\r\n    html += '<span class=\"conv-day-count\">' + nodes.length + ' nodes</span>';\r\n    if (isClosed) html += '<span class=\"archive-status-badge\">closed</span>';\r\n    html += '</div>';\r\n    html += '<div class=\"archive-node-list\">';",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-workspace.js",
+    "FrontEnd js"
+  ],
+  "summary": "// Filter by search query\r\n    if (query) {\r\n      nodes = nodes.filter(function(n) {\r\n        return (n.summary || '').toLowerCase().includes(query)\r\n          || (n.sourceType || '').toLowerCase().i",
+  "importance": 0.6,
+  "createdAt": 1774646385368,
+  "createdAtISO": "2026-03-27T21:19:45.368Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-workspace.js",
+  "accessCount": 0
+}

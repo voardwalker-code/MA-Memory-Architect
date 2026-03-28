@@ -1,0 +1,33 @@
+// Filter models with enough context window
+  let candidates = available.filter(m => (m.contextWindow || 8192) >= jobReqs.minContextWindow);
+  if (!candidates.length) {
+    // Relax: take all models and sort by context window
+    candidates = [...available].sort((a, b) => (b.contextWindow || 0) - (a.contextWindow || 0));
+  }
+
+  // Score each candidate
+  const scored = candidates.map(m => {
+    let score = 0;
+    const reason = [];
+
+    // 1. Tier preference — local models get a big bonus
+    const tierIdx = TIER_PRIORITY.indexOf(m.tier || 'mid');
+    const prefIdx = TIER_PRIORITY.indexOf(jobReqs.preferredTier);
+    if (m.tier === 'local') {
+      score += 30;  // strong local preference
+      reason.push('local model (preferred)');
+    } else if (tierIdx <= prefIdx) {
+      score += 15;
+      reason.push('tier matches job');
+    } else if (tierIdx > prefIdx) {
+      score += 5;   // higher tier than needed — works but costly
+      reason.push('higher tier than needed');
+    }
+
+    // 2. Performance history
+    const modelPerf = perf.records[m.id];
+    if (modelPerf && modelPerf[perfKey]) {
+      const rec = modelPerf[perfKey];
+      const gradeScore = _gradeToNum(rec.avgGrade);
+      score += gradeScore * 8;  // up to 32 points for A average
+      reason.push(`history: ${rec.avgGrade} avg (${rec.attempts} runs)`);

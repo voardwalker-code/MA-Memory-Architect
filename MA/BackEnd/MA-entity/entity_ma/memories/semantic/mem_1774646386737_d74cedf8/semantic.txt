@@ -1,0 +1,35 @@
+2-3 sentences connecting this encounter to a story. Not just "monsters attack" — why is this fight happening? What are the stakes?
+
+### Phase 5: Scaling Notes
+
+- **Harder**: add +2 monsters, upgrade one enemy to next CR tier, add lair actions
+- **Easier**: remove 1-2 monsters, reduce HP by 20%, remove special abilities
+- **Different party size**: adjust XP budget proportionally
+
+### Phase 6: Non-Combat Variant (if applicable)
+
+Skill challenge framework:
+- Skills that apply and their DCs
+- Success/failure thresholds (e.g., 5 successes before 3 failures)
+- Branching outcomes (full success, partial success, failure)
+
+### Phase 7: Output
+
+```
+[TOOL:ws_write {"path": "encounter-{name-slug}.md", "content": "..."}]
+```
+
+---
+
+## NPC FACTORY MODE
+
+### Phase 1: Setting Context
+
+Extract from user message:
+- **Location type**: tavern, guild hall, royal court, bandit camp, marketplace, temple, docks, etc.
+- **Faction** (optional): thieves guild, noble house, mercenary company, religious order
+- **Number of NPCs**: default 5-8 for a location, 10-15 for a larger setting
+
+### Phase 2: NPC Generation
+
+For each NPC generate:

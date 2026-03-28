@@ -1,0 +1,20 @@
+let viewButtons = '';
+  if (tab.mode === 'markdown') {
+    viewButtons =
+      '<div class="view-switch">' +
+        '<button class="editor-mode-btn' + (tab.viewMode === 'preview' ? ' active' : '') + '" onclick="switchViewMode(\'preview\')">Preview</button>' +
+        '<button class="editor-mode-btn' + (tab.viewMode === 'source' ? ' active' : '') + '" onclick="switchViewMode(\'source\')">Raw</button>' +
+      '</div>';
+  } else if (tab.mode === 'html') {
+    viewButtons =
+      '<div class="view-switch">' +
+        '<button class="editor-mode-btn' + (tab.viewMode === 'preview' ? ' active' : '') + '" onclick="switchViewMode(\'preview\')">Preview</button>' +
+        '<button class="editor-mode-btn' + (tab.viewMode === 'source' ? ' active' : '') + '" onclick="switchViewMode(\'source\')">Source</button>' +
+      '</div>';
+  } else {
+    viewButtons =
+      '<div class="view-switch">' +
+        '<button class="editor-mode-btn' + (tab.viewMode === 'highlight' ? ' active' : '') + '" onclick="switchViewMode(\'highlight\')">Highlighted</button>' +
+        '<button class="editor-mode-btn' + (tab.viewMode === 'source' ? ' active' : '') + '" onclick="switchViewMode(\'source\')">Edit</button>' +
+      '</div>';
+  }

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382575_0c8da63e",
+  "type": "semantic",
+  "content": "if (data.error) throw new Error(data.error);\r\n  return (data.message?.content || '').trim();\r\n}\r\n\n// ── Anthropic Messages API ───────────────────────────────────────────────────\r\nasync function _callAnthropic(config, messages, opts) {\r\n  const endpoint = config.endpoint || ANTHROPIC_DEFAULT_ENDPOINT;\r\n  const url = new URL(endpoint);\r\n\n  // Extract system messages into a separate system parameter (Anthropic requirement)\r\n  const systemMessages = messages.filter(m => m.role === 'system');\r\n  const nonSystemMessages = messages.filter(m => m.role !== 'system');\r\n\n  // Determine if extended cache (1-hour TTL) is active\r\n  const useExtendedCache = !!(config.capabilities && config.capabilities.extendedCache);\r\n\n  // Build system content blocks with cache_control on the last block\r\n  const systemBlocks = systemMessages.map((msg, idx) => {\r\n    const block = { type: 'text', text: msg.content };\r\n    if (idx === systemMessages.length - 1) {\r\n      block.cache_control = useExtendedCache\r\n        ? { type: 'ephemeral', ttl: '1h' }\r\n        : { type: 'ephemeral' };\r\n    }\r\n    return block;\r\n  });\r\n\n  // Ensure alternating user/assistant roles (Anthropic requirement)\r\n  const anthropicMessages = _enforceAlternatingRoles(nonSystemMessages);",
+  "topics": [
+    "MA Memory Architect",
+    "llm-api.js",
+    "BackEnd llm"
+  ],
+  "summary": "if (data.error) throw new Error(data.error);\r\n  return (data.message?.content || '').trim();\r\n}\r\n\n// ── Anthropic Messages API ───────────────────────────────────────────────────\r\nasync function _call",
+  "importance": 0.6,
+  "createdAt": 1774646382576,
+  "createdAtISO": "2026-03-27T21:19:42.576Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\llm\\llm-api.js",
+  "accessCount": 0
+}

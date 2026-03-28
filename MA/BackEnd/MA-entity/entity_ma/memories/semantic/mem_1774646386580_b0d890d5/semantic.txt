@@ -1,0 +1,27 @@
+**Villain:**
+- Name, race, class/type
+- Motivation — NOT just "evil." Why do THEY think they're right?
+- Method — how are they executing their plan?
+- Weakness — how can the party defeat them?
+- Public face — what does the world see vs reality?
+
+**Story Beats** (3-5 major beats):
+1. **Inciting Incident** — what disrupts the party's normal life
+2. **Escalation** — things get worse; the stakes rise
+3. **Twist** — something the party (and players) didn't expect
+4. **Climax** — the final confrontation
+5. **Resolution** — aftermath and consequences
+
+**Branching Decision Points** — at least 2 moments where the party's choice meaningfully changes the campaign direction. For each: describe both paths and their consequences.
+
+**Themes & Tone Guide** — 3-5 sentences on what this campaign is ABOUT thematically (not just plot). What questions does it ask? What emotions should it evoke?
+
+### Phase 3: INTERACTIVE PAUSE
+
+Present the campaign arc outline to the user. Offer options:
+- "Should I adjust the tone, add/remove story beats, or change the villain's motivation?"
+- Wait for user feedback before generating session-by-session content.
+
+### Phase 4: Session-by-Session Outlines
+
+For each session:

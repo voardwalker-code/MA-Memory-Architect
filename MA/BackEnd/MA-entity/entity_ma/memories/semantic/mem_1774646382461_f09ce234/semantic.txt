@@ -1,0 +1,20 @@
+// Save to disk — strip runtime-only fields first
+  const toSave = { ...config };
+  delete toSave.capabilities;
+  delete toSave.contextWindow;
+  // Re-add user-level capability overrides if they existed in the input
+  if (newConfig._userCapabilities) toSave.capabilities = newConfig._userCapabilities;
+  fs.mkdirSync(path.dirname(CONFIG_PATH), { recursive: true });
+  fs.writeFileSync(CONFIG_PATH, JSON.stringify(toSave, null, 2));
+
+  // Figure out the resolved workspace path
+  let workspacePath = null;
+  if (workspacePathStr) {
+    const resolved = path.resolve(workspacePathStr);
+    if (fs.existsSync(resolved)) workspacePath = resolved;
+  }
+
+  return { config, workspacePath };
+}
+
+module.exports = { loadConfig, setConfig, normalizeRuntime, inferContextWindow };

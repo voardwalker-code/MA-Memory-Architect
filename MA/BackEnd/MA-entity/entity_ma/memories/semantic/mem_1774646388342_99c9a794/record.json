@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388342_99c9a794",
+  "type": "semantic",
+  "content": "- [ ] appId consistent across all 4 registration points\r\n- [ ] HTML container is `tab-<appId>`\r\n- [ ] Script in IIFE with init guard\r\n- [ ] No global variable leaks\r\n- [ ] Dispose function handles cleanup\r\n- [ ] System CSS classes used where available\r\n- [ ] Installer dry-run passes\r\n- [ ] All registration entries verified post-install",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills app-builder"
+  ],
+  "summary": "- [ ] appId consistent across all 4 registration points\r\n- [ ] HTML container is `tab-<appId>`\r\n- [ ] Script in IIFE with init guard\r\n- [ ] No global variable leaks\r\n- [ ] Dispose function handles cle",
+  "importance": 0.6,
+  "createdAt": 1774646388342,
+  "createdAtISO": "2026-03-27T21:19:48.342Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\app-builder\\SKILL.md",
+  "accessCount": 0
+}

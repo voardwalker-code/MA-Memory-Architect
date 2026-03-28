@@ -1,0 +1,44 @@
+function _log(logFile, entry) {
+  const fp = path.join(LOG_DIR, logFile);
+  const ts = new Date().toISOString();
+  const line = `[${ts}] ${typeof entry === 'string' ? entry : JSON.stringify(entry)}\n`;
+  fs.appendFileSync(fp, line);
+}
+
+function readLog(logFile, lines = 50) {
+  const fp = path.join(LOG_DIR, logFile);
+  if (!fs.existsSync(fp)) return [];
+  const all = fs.readFileSync(fp, 'utf8').trim().split('\n').filter(Boolean);
+  return all.slice(-lines);
+}
+
+// ── Health Pulse ────────────────────────────────────────────────────────────
+
+function _runHealthPulse() {
+  if (!_deps || !_deps.health) return;
+  try {
+    const result = _deps.health.scan();
+    const summary = result.summary || {};
+    const entry = {
+      type: 'health_scan',
+      total: summary.total || 0,
+      critical: summary.critical || 0,
+      warnings: summary.warnings || 0,
+      issues: (result.issues || [])
+        .filter(i => i.severity === 'critical' || i.severity === 'warning')
+        .map(i => ({ file: i.file, severity: i.severity, message: i.message }))
+    };
+    _log('pulse-health.log', entry);
+  } catch (e) {
+    _log('pulse-health.log', { type: 'error', message: e.message });
+  }
+}
+
+// ── Chores System ───────────────────────────────────────────────────────────
+
+function getChores() {
+  _ensureChoresFile();
+  try {
+    return JSON.parse(fs.readFileSync(CHORE_PATH, 'utf8'));
+  } catch { return { chores: [] }; }
+}

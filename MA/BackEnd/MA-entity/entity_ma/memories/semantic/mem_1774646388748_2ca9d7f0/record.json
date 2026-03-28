@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388748_2ca9d7f0",
+  "type": "semantic",
+  "content": "Results include:\r\n- `id`: Memory identifier\r\n- `summary`: Extracted text content from the archived memory\r\n- `archivedAt`: When the memory was moved to the archive\r\n- `topics`: Topic keywords associated with the memory\r\n- `type`: Memory type (`episodic`, `doc`, or `semantic_knowledge`)\r\n- `score`: Relevance score (higher = more relevant)\r\n\n## Behavior Guidelines\r\n\n- Use concise, topic-focused queries — RAKE extraction handles phrase identification\r\n- If results are returned, synthesize them naturally into your response\r\n- Cite approximate time periods when referencing archived memories\r\n- If no results are found, say so honestly — don't fabricate memories",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills search-archive"
+  ],
+  "summary": "Results include:\r\n- `id`: Memory identifier\r\n- `summary`: Extracted text content from the archived memory\r\n- `archivedAt`: When the memory was moved to the archive\r\n- `topics`: Topic keywords associat",
+  "importance": 0.6,
+  "createdAt": 1774646388750,
+  "createdAtISO": "2026-03-27T21:19:48.750Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\search-archive\\SKILL.md",
+  "accessCount": 0
+}

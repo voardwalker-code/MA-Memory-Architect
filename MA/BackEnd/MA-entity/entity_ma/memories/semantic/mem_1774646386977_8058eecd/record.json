@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646386977_8058eecd",
+  "type": "semantic",
+  "content": "### Phase 3 — Changelog\r\n\nWrite a brief changelog explaining each change:\r\n```\r\n## Changes Made\r\n1. [Line/Section]: [What changed] — [Why]\r\n2. ...\r\n```\r\n\n---\r\n\n## FEW-SHOT TEMPLATE MODE\r\n\nBuild a prompt with curated input-output examples that teach the model the exact pattern.\r\n\n[TASK_PLAN]\r\n- [ ] Understand the task and desired output format\r\n- [ ] Design 3-5 examples covering normal + edge cases\r\n- [ ] Write template with examples to file\r\n- [ ] Verify examples are consistent and unambiguous\r\n[/TASK_PLAN]\r\n\n### Phase 1 — Task Analysis\r\n\nASK:\r\n1. What is the input format? (free text, structured data, code, question)\r\n2. What is the desired output format? (JSON, markdown, plain text, classification label)\r\n3. What are the tricky edge cases? (ambiguous input, missing fields, adversarial input)\r\n\n### Phase 2 — Example Design\r\n\nDesign exactly 3-5 examples:\r\n- **Example 1-2:** Happy path — clear input, ideal output.\r\n- **Example 3:** Edge case — ambiguous or unusual input, still correct output.\r\n- **Example 4:** Boundary — near the constraint limits, shows where to stop.\r\n- **Example 5 (optional):** Error case — bad input, graceful handling.\r\n\nEach example must be self-consistent. If example 1 formats dates as \"March 24, 2026\" then ALL examples must use the same format.\r\n\n### Phase 3 — Write Template\r\n\n```\r\n[TOOL:ws_write {\"path\":\"prompts/{slug}-few-shot.md\"}]\r\nYou are a [role]. Given [input type], produce [output type].\r\n\n## Examples\r\n\n### Input:\r\n{example 1 input}",
+  "topics": [
+    "MA Memory Architect",
+    "prompt_engineering.md",
+    "MA-blueprints modules"
+  ],
+  "summary": "### Phase 3 — Changelog\r\n\nWrite a brief changelog explaining each change:\r\n```\r\n## Changes Made\r\n1. [Line/Section]: [What changed] — [Why]\r\n2. ...\r\n```\r\n\n---\r\n\n## FEW-SHOT TEMPLATE MODE\r\n\nBuild a prom",
+  "importance": 0.6,
+  "createdAt": 1774646386978,
+  "createdAtISO": "2026-03-27T21:19:46.978Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\modules\\prompt_engineering.md",
+  "accessCount": 0
+}

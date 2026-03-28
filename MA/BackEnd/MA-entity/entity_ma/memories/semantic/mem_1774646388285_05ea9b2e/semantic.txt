@@ -1,0 +1,39 @@
+/**
+ * Test whether `port` is available on 127.0.0.1.
+ * Creates a throwaway TCP server — if it can bind, the port is free.
+ */
+function isPortFree(port) {
+  return new Promise(resolve => {
+    const srv = net.createServer();
+    srv.once('error', () => resolve(false));
+    srv.once('listening', () => { srv.close(); resolve(true); });
+    srv.listen(port, '127.0.0.1');
+  });
+}
+
+/**
+ * Scan ports from `start` to `end` and return the first free one.
+ * Returns 0 if every port in the range is occupied.
+ */
+async function findFreePort(start, end) {
+  for (let p = start; p <= end; p++) {
+    if (await isPortFree(p)) return p;
+  }
+  return 0;
+}
+
+// ── Browser launcher ────────────────────────────────────────────────────────
+// Opens the server URL in the user's default browser.  Platform-specific:
+//   Windows → start ""   macOS → open   Linux → xdg-open
+function openBrowser(url) {
+  const { exec } = require('child_process');
+  const cmd = process.platform === 'win32' ? `start "" "${url}"`
+            : process.platform === 'darwin' ? `open "${url}"`
+            : `xdg-open "${url}"`;
+  exec(cmd, () => {});  // fire-and-forget; errors are harmless
+}
+
+// ── Server start ────────────────────────────────────────────────────────────
+async function start() {
+  // 1. Boot core — loads config, memory, entity, worklog, project archive
+  core.boot();

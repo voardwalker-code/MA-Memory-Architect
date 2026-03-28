@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646383484_e07424c7",
+  "type": "semantic",
+  "content": "module.exports = {\r\n  init, startAll, stopAll,\r\n  // Pulse control\r\n  startPulse, stopPulse, getPulseStatus,\r\n  getPulseConfig, savePulseConfig,\r\n  // Chores\r\n  getChores, addChore, updateChore, removeChore,\r\n  // Logs\r\n  readLog, LOG_DIR,\r\n  // Paths\r\n  CHORE_PATH, PULSE_CFG\r\n};",
+  "topics": [
+    "MA Memory Architect",
+    "svc-pulse.js",
+    "BackEnd services"
+  ],
+  "summary": "module.exports = {\r\n  init, startAll, stopAll,\r\n  // Pulse control\r\n  startPulse, stopPulse, getPulseStatus,\r\n  getPulseConfig, savePulseConfig,\r\n  // Chores\r\n  getChores, addChore, updateChore, remov",
+  "importance": 0.6,
+  "createdAt": 1774646383486,
+  "createdAtISO": "2026-03-27T21:19:43.486Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\services\\svc-pulse.js",
+  "accessCount": 0
+}

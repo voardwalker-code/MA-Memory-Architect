@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646382457_63e725c4",
+  "type": "semantic",
+  "content": "// Merge new values with existing — new values win\r\n  const type = String(newConfig.type || existingRaw.type || '').toLowerCase().trim();\r\n  const endpoint = String(newConfig.endpoint || existingRaw.endpoint || '').trim();\r\n  const model = String(newConfig.model || existingRaw.model || '').trim();\r\n  const incomingKey = String(newConfig.apiKey || '').trim();\r\n  const existingKey = String(existingRaw.apiKey || '').trim();\r\n  const apiKey = incomingKey || existingKey;\r\n  const requestedMaxTokens = Number.parseInt(newConfig.maxTokens ?? existingRaw.maxTokens, 10);\r\n  const maxTokens = requestedMaxTokens > 0 ? requestedMaxTokens : undefined;\r\n  const vision = newConfig.vision === true || (newConfig.vision === undefined && existingRaw.vision === true);\r\n  const workspacePathStr = String(newConfig.workspacePath ?? existingRaw.workspacePath ?? '').trim();\r\n  const memoryLimit = Number.parseInt(newConfig.memoryLimit ?? existingRaw.memoryLimit, 10);\r\n  const memoryRecall = (newConfig.memoryRecall !== undefined)\r\n    ? (newConfig.memoryRecall !== false)\r\n    : (existingRaw.memoryRecall !== false);\r\n  const integrationMode = String(newConfig.integrationMode ?? existingRaw.integrationMode ?? 'off').toLowerCase() === 'nekocore'\r\n    ? 'nekocore'\r\n    : 'off';\r\n  const userCapabilities = (newConfig.capabilities && typeof newConfig.capabilities === 'object')\r\n    ? newConfig.capabilities\r\n    : ((newConfig._userCapabilities && typeof newConfig._userCapabilities === 'object')\r\n      ? newConfig._userCapabilities\r\n      : (existingRaw.capabilities && typeof existingRaw.capabilities === 'object' ? existingRaw.capabilities : undefined));",
+  "topics": [
+    "MA Memory Architect",
+    "core-config.js",
+    "BackEnd core"
+  ],
+  "summary": "// Merge new values with existing — new values win\r\n  const type = String(newConfig.type || existingRaw.type || '').toLowerCase().trim();\r\n  const endpoint = String(newConfig.endpoint || existingRaw.e",
+  "importance": 0.6,
+  "createdAt": 1774646382457,
+  "createdAtISO": "2026-03-27T21:19:42.457Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "BackEnd\\core\\core-config.js",
+  "accessCount": 0
+}

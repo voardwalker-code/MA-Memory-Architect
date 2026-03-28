@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646384305_815ad533",
+  "type": "semantic",
+  "content": "The web GUI at `http://localhost:3850` provides a full IDE-style workspace.\r\n\n### Menu Bar\r\n\nThe top menu bar provides dropdown menus:\r\n\n| Menu | Items |\r\n|------|-------|\r\n| **File** | New File, New Folder, Open File, Open Folder, Save, Save All, Settings |\r\n| **Edit** | Save, Save All |\r\n| **View** | Workspace, Blueprints, Projects, Activity, Terminal, Reset Layout |\r\n| **Terminal** | Toggles the terminal panel (direct click) |\r\n| **Help** | User Guide, GitHub |\r\n\n**File menu** actions are context-aware — they operate on whichever section you're currently viewing (workspace, project, etc.).\r\n\n### Toolbar\r\n- **Status dot** — Green = LLM configured, Red = not configured\r\n- **Status text** — Shows your provider/model (e.g., `openrouter/anthropic/claude-sonnet-4`)\r\n- **Mode pill** — Work / Chat mode toggle\r\n- **Activity button** — Opens the activity feed\r\n\n### Left Sidebar\r\n- **Chat** — Returns focus to the main conversation view\r\n- **Session** — Shows the current session summary and recent work\r\n- **Activity** — Opens the live activity feed and task telemetry\r\n- **Blueprints** — Opens the blueprint browser and editor\r\n- **Projects** — Shows project archives and lets you resume or close them\r\n- **Tasks** — Shows the current task workspace and editable plan\r\n- **Todos** — Provides a quick persistent scratch todo list in the browser\r\n- **Chores** — Shows and manages recurring chore entries\r\n- **Mode pill** — Mirrors the current Work/Chat mode",
+  "topics": [
+    "MA Memory Architect",
+    "USER-GUIDE.md",
+    "Documents"
+  ],
+  "summary": "The web GUI at `http://localhost:3850` provides a full IDE-style workspace.\r\n\n### Menu Bar\r\n\nThe top menu bar provides dropdown menus:\r\n\n| Menu | Items |\r\n|------|-------|\r\n| **File** | New File, New ",
+  "importance": 0.6,
+  "createdAt": 1774646384306,
+  "createdAtISO": "2026-03-27T21:19:44.306Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "Documents\\USER-GUIDE.md",
+  "accessCount": 0
+}

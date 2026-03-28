@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385722_7fcce7d1",
+  "type": "semantic",
+  "content": "### Tasks\r\n- [x] Make MA-Config/ma-config.json the default and primary runtime config source.\r\n- [x] Remove mandatory read/write dependency on ../Config/ma-config.json.\r\n- [x] Implement optional legacy import path (one-way migration) if needed.\r\n- [x] Ensure new config writes stay inside MA root by default.\r\n- [x] Add clear logging for config source selection.\r\n\n### Validation Gate\r\n- [x] MA runs with only local MA-Config present.\r\n- [x] No required config file operations outside MA root.\r\n- [x] Config updates via API/CLI persist locally and reload correctly.\r\n\n### Agent Continuation Message\r\nUse this exactly after Phase 2 is complete:\r\n\n```text\r\nPhase 2 complete. Config is local-first and standalone-safe. Proceed to Phase 3 to isolate optional integrations.\r\n```\r\n\n---\r\n\n## Phase 3: Optional Integration Boundary\r\n**Goal:** Keep integrations available but non-blocking and explicitly optional.\r\n\n### Tasks\r\n- [x] Identify integration-dependent features (NekoCore endpoints, bridge assumptions, external process assumptions).\r\n- [x] Add integration mode flag/config and default it to off.\r\n- [x] Make integration calls fail-safe with clear user-facing fallback messages.\r\n- [x] Ensure core flows continue when integration mode is off.\r\n- [x] Mark integration-dependent blueprint/skill content as optional integration profile.",
+  "topics": [
+    "MA Memory Architect",
+    "MA-Standalone-Implementation-Plan.md",
+    "MA Standalone Plan"
+  ],
+  "summary": "### Tasks\r\n- [x] Make MA-Config/ma-config.json the default and primary runtime config source.\r\n- [x] Remove mandatory read/write dependency on ../Config/ma-config.json.\r\n- [x] Implement optional legac",
+  "importance": 0.6,
+  "createdAt": 1774646385723,
+  "createdAtISO": "2026-03-27T21:19:45.723Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA Standalone Plan\\MA-Standalone-Implementation-Plan.md",
+  "accessCount": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385838_37692058",
+  "type": "semantic",
+  "content": "Before submitting, answer YES or NO:\r\n- Did I address the user's actual request? → must be YES\r\n- Are all facts sourced, not invented? → must be YES\r\n- Are outputs in workspace files? → must be YES for multi-sentence output\r\n- Is my summary under 5 sentences? → must be YES\r\n\nIf any answer is NO, fix it before submitting.",
+  "topics": [
+    "MA Memory Architect",
+    "quality-gate.md",
+    "MA-blueprints core"
+  ],
+  "summary": "Before submitting, answer YES or NO:\r\n- Did I address the user's actual request? → must be YES\r\n- Are all facts sourced, not invented? → must be YES\r\n- Are outputs in workspace files? → must be YES fo",
+  "importance": 0.6,
+  "createdAt": 1774646385839,
+  "createdAtISO": "2026-03-27T21:19:45.839Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-blueprints\\core\\quality-gate.md",
+  "accessCount": 0
+}

@@ -1,0 +1,21 @@
+# Layer 2 — Cognitive Pipeline
+
+## Pre-Requisite
+- Layer 1 tests pass: `node tests/test-runner.js 1`
+
+## Scope
+Fill in all NOT_IMPLEMENTED stubs in:
+1. `server/pipeline/turn-signals.js` — Deterministic signal extraction
+2. `server/pipeline/subconscious.js` — Phase 1A: memory retrieval + context
+3. `server/pipeline/dream-intuition.js` — Phase 1D: abstract associations
+4. `server/pipeline/conscious.js` — Phase 1C: full reasoning
+5. `server/pipeline/orchestrator.js` — Final: voice/review + pipeline runner
+
+## Instructions Per Module
+
+### turn-signals.js — `extractTurnSignals(message)`
+- **Subject**: First noun phrase (simple: first capitalized word or first word after "about"/"regarding")
+- **Event**: Detect question/request/statement/command from sentence structure
+- **Emotion**: Scan against EMOTION_LEXICON (already in stub). Return highest-confidence match
+- **Tension**: Scan against HIGH_TENSION keywords. Return 0.0-1.0 normalized score
+- Pure function. No async. No LLM calls. No side effects.

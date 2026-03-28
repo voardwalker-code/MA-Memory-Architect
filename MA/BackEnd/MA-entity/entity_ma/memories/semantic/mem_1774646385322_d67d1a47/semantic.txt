@@ -1,0 +1,27 @@
+const recent = Array.isArray(d.recentWork) ? d.recentWork.slice().reverse().slice(0, 6) : [];
+    recentEl.innerHTML = recent.length
+      ? recent.map(function(item) {
+          return '<div class="stack-card"><strong>' + escHtml(item.task || 'Untitled work') + '</strong><div class="meta">' + escHtml(item.date || '') + ' · ' + escHtml(item.status || '') + (item.files ? ' · ' + escHtml(item.files) : '') + '</div></div>';
+        }).join('')
+      : '<div class="side-empty">No recent work yet.</div>';
+
+    renderTaskEditor(d);
+    setTaskPlan(d.taskPlan || []);
+  } catch (e) {
+    summaryEl.innerHTML = '<div class="side-empty">Could not load session worklog.</div>';
+    recentEl.innerHTML = '<div class="side-empty">Retry from the Refresh button.</div>';
+  }
+}
+
+async function loadConversationHistory() {
+  const container = document.getElementById('session-conversations');
+  if (!container) return;
+  container.innerHTML = '<div class="side-empty">Loading conversations...</div>';
+  try {
+    const r = await fetch('/api/chat/sessions');
+    const d = await r.json();
+    const sessions = d.sessions || [];
+    if (!sessions.length) {
+      container.innerHTML = '<div class="side-empty">No conversations yet. Start chatting to create history.</div>';
+      return;
+    }

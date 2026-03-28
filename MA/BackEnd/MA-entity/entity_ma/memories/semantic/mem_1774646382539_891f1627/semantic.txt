@@ -1,0 +1,26 @@
+const fs   = require('fs');
+const path = require('path');
+
+// ── MIME type map ───────────────────────────────────────────────────────────
+// Maps file extensions to Content-Type values for static file serving.
+// Only the types MA actually serves are listed; anything else falls back to
+// 'application/octet-stream' in the static handler.
+const MIME = {
+  '.html':  'text/html',
+  '.css':   'text/css',
+  '.js':    'text/javascript',
+  '.json':  'application/json',
+  '.png':   'image/png',
+  '.svg':   'image/svg+xml',
+  '.ico':   'image/x-icon',
+  '.woff2': 'font/woff2',
+  '.md':    'text/plain'
+};
+
+// ── json(res, status, data) ─────────────────────────────────────────────────
+// Convenience: serialise `data` to JSON and write it to `res` with the given
+// HTTP status code.  Used by every API endpoint.
+function json(res, status, data) {
+  res.writeHead(status, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify(data));
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388849_12e3ebbf",
+  "type": "semantic",
+  "content": "All on `http://localhost:3847`:\r\n\n| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `/api/entities/create` | POST | Create tutor/TA entity |\r\n| `/api/entities/{id}/memories/inject` | POST | Inject knowledge and experience |\r\n| `/api/entities/{id}/cognitive/tick` | POST | Process memories |\r\n| `/api/entities/{id}/cognitive/state` | GET | Read evolved personality |\r\n\n## Memory Types\r\n\n- **Subject Knowledge** (semantic): Core concepts + how to explain them + common pitfalls\r\n- **Teaching Strategies** (semantic): Approaches for specific topics + alternative explanations\r\n- **Pedagogical Experience** (episodic): Teaching moments, breakthroughs, lessons learned\r\n- **Course Content** (semantic, TA mode): Weekly topics, assignment details, exam prep\r\n\n## Memory Quality Rules\r\n- First person from the tutor's perspective\r\n- Include HOW they explain concepts, not just WHAT the concepts are\r\n- Vary emotions — teaching involves joy, curiosity, pride, patience\r\n- Importance: 0.7-0.9 for core expertise, 0.5-0.7 for strategies, 0.3-0.5 for anecdotes",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills tutor-entity"
+  ],
+  "summary": "All on `http://localhost:3847`:\r\n\n| Endpoint | Method | Purpose |\r\n|----------|--------|---------|\r\n| `/api/entities/create` | POST | Create tutor/TA entity |\r\n| `/api/entities/{id}/memories/inject` |",
+  "importance": 0.6,
+  "createdAt": 1774646388849,
+  "createdAtISO": "2026-03-27T21:19:48.849Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\tutor-entity\\SKILL.md",
+  "accessCount": 0
+}

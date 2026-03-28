@@ -1,0 +1,53 @@
+| Class | Purpose |
+|-------|---------|
+| `card` | Card container with padding and border |
+| `card-hd` | Card header section |
+| `btn` | Base button style |
+| `bp` | Primary button (accent color) |
+| `bg` | Ghost/secondary button |
+| `flex` | Flexbox container |
+| `grid` | Grid container |
+| `text-xs-c` | Extra small text |
+| `text-sm-c` | Small text |
+| `hidden` | Visibility hidden |
+| `settings-container` | Settings-style layout |
+| `settings-section` | Settings section with padding |
+| `settings-section-header` | Section header with h2 + p |
+
+### Calling NekoCore OS APIs from App HTML
+
+For apps that need server data, use `fetch()`:
+```javascript
+// GET example
+var res = await fetch('/api/skills');
+var data = await res.json();
+
+// POST example
+var res = await fetch('/api/chat', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ message: 'hello' })
+});
+```
+
+Common API endpoints:
+- `GET /api/skills` — list entity skills
+- `GET /api/entity/current` — current entity info
+- `GET /api/memory/list` — list memories
+- `POST /api/chat` — send chat message
+- `GET /api/config` — system configuration
+- `GET /api/brain/status` — brain loop status
+- `GET /api/processes` — running processes
+
+Write the payload:
+```
+[TOOL:ws_write {"path":"client/apps/non-core/core/tab-{appId}.html"}]
+{complete HTML payload}
+[/TOOL]
+```
+
+---
+
+## Phase 4 — Interactive Pause
+
+Present the app design to the user:

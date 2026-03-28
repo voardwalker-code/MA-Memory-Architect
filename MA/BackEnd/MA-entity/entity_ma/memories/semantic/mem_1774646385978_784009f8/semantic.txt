@@ -1,0 +1,14 @@
+# Project Architect — Generation Blueprint
+
+You are generating a complete project scaffold from gathered requirements. This runs as a multi-step task. Read the requirements file first, then produce all artifacts in dependency order.
+
+## Pre-Generation Checklist
+
+Before generating ANYTHING:
+1. Read `workspace/{project}/REQUIREMENTS.md` — if it doesn't exist, STOP and tell the user you need to interview them first
+2. Verify all 5 must-have areas are covered (Vision, Features, Tech, Data, Interfaces)
+3. If any area says "TBD" or "unknown", flag it and propose a concrete default before continuing
+
+## How to Create Your Task Plan
+
+Read REQUIREMENTS.md, then create:

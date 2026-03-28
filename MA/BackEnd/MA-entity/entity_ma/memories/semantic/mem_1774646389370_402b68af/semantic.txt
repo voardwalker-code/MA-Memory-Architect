@@ -1,0 +1,34 @@
+When MA receives a task:
+1. **Evaluate** — MA classifies the task complexity (simple/medium/complex), detects the programming language, and estimates context window needs
+2. **Score** — Each roster model is scored on: local preference (+30 for local), performance history (up to +32 for A average), strength/weakness match (±15–20), context headroom, cost efficiency
+3. **Select** — The highest-scoring model is used for that task
+4. **Fallback** — If no roster models exist or none fit, MA uses its primary config
+
+**Local models are always preferred.** MA only escalates to cloud/premium models when the task is too complex or the local model has a poor track record.
+
+### Performance Learning
+
+After each task, MA records the model's performance:
+- Tasks get a baseline grade (B for success, F for failure)
+- Chores get graded A–F by MA's evaluator
+- Performance is tracked per model, per task type, per language
+
+Over time, MA learns which models are good at what:
+- A model that keeps getting F on Rust code won't be selected for Rust tasks
+- A model that gets A on creative writing will be preferred for writing tasks
+- A model that outputs `// ...rest of code` will get penalized and avoided
+
+View performance data:
+```
+/models perf
+```
+
+### Testing the Router
+
+See which model MA would pick for a given task:
+```
+/models route write a python script to parse CSV files
+/models route architect a full REST API with database
+```
+
+### Researching Models

@@ -1,0 +1,29 @@
+Structure:
+- **Header**: Name, Race, Class, Level, Background
+- **Ability Scores**: Table format
+- **Features & Traits**: Race + Class + Background
+- **Equipment**: With flavor descriptions
+- **Spells** (if any): Organized by level
+- **Backstory**: All 5 chapters as narrative prose
+- **Personality Summary**: Traits, ideals, bonds, flaws
+- **Entity ID**: For NekoCore OS reference
+
+---
+
+## Guidelines
+
+**DO:**
+- Use specific 5e mechanics — real AC calculations, real damage dice, real spell names
+- Make NPCs feel like real people with contradictions and secrets
+- Write backstories that create adventure hooks (loose threads the DM can pull)
+- Make encounters tactical — terrain matters, enemy abilities interact, there are choices to make
+- Vary NPC races and occupations — diversity makes settings feel real
+- Let character backstories have both triumph and loss — flat arcs are boring
+
+**DON'T:**
+- Generate generic "the orc attacks" encounters — every fight needs a narrative reason
+- Make all NPCs helpful or all antagonistic — gray morality is better
+- Create characters with "tragic backstory" as the only personality trait
+- Skip the CR math for encounters — DMs need to trust the numbers
+- Create entity files manually with `ws_write` — always use the NekoCore OS API
+- Make every NPC's secret dark — some secrets are embarrassing, some are hopeful

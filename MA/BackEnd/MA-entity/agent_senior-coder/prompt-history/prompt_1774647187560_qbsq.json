@@ -1,0 +1,13 @@
+{
+  "id": "prompt_1774647187560_qbsq",
+  "agentId": "senior-coder",
+  "task": "Pinpoint what's broken",
+  "prompt": "ORIGINAL REQUEST: \"No I want you to tell me whats not working and how to fix it\"\n\n► Step 7 of 8: Pinpoint what's broken\n\nCOMPLETED:\n  ✓ 1. **Gather Context** - Request details about your issue: — I need more context to help you. Please provide:\n\n1. **What are you working on?** (project name, framework, or codebase)\n2. **What's the error or issu\n  ✓ 2. What code/project are you working on? — To help you identify what's not working and how to fix it, I need you to provide:\n\n1. **The error message*",
+  "result": "Step 7 attempted to locate code files in the workspace to analyze the issue, but no code files were found. Common project files (index.html, app.js, main.py, src/index.js, server.js) do not exist in the workspace.",
+  "success": true,
+  "project": "",
+  "timestamp": "2026-03-27T21:33:07.560Z",
+  "tags": [
+    "code"
+  ]
+}

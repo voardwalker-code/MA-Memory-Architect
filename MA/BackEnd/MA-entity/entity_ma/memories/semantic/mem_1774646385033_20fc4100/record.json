@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646385033_20fc4100",
+  "type": "semantic",
+  "content": "async function _sseIngest(url, body, label) {\r\n  _openIngestProgress(label);\r\n  const btn2 = document.getElementById('ingest-folder-btn');\r\n  if (btn2) btn2.disabled = true;\r\n  const controller = new AbortController();\r\n  _ingestAbort = controller;\r\n  try {\r\n    const r = await fetch(url, {\r\n      method: 'POST',\r\n      headers: { 'Content-Type': 'application/json' },\r\n      body: JSON.stringify(body),\r\n      signal: controller.signal\r\n    });\r\n    if (!r.ok) {\r\n      let errMsg = 'Server returned ' + r.status;\r\n      try { const errBody = await r.json(); errMsg = errBody.error || errMsg; } catch (_) {}\r\n      _showIngestError(errMsg);\r\n      if (btn2) btn2.disabled = false;\r\n      return;\r\n    }\r\n    const reader = r.body.getReader();\r\n    const decoder = new TextDecoder();\r\n    let buffer = '';\r\n    let eventType = null;\r\n    while (true) {\r\n      const { done, value } = await reader.read();\r\n      if (done) break;\r\n      buffer += decoder.decode(value, { stream: true });\r\n      const lines = buffer.split('\\n');\r\n      buffer = lines.pop() || '';\r\n      for (const line of lines) {\r\n        if (line.startsWith('event: ')) { eventType = line.slice(7).trim(); }\r\n        else if (line.startsWith('data: ') && eventType) {\r\n          try {\r\n            const data = JSON.parse(line.slice(6));\r\n            if (eventType === 'progress') _updateIngestProgress(data);\r\n            else if (eventType === 'done') _finishIngestProgress(data);\r\n            else if (eventType === 'error') _showIngestError(data.error || 'Unknown error');\r\n          } catch (_) {}\r\n          eventType = null;\r\n        } else if (line === '') { eventType = null; }\r\n      }\r\n    }\r\n  } catch (e) {\r\n    if (e.name === 'AbortError') {\r\n      _showIngestStopped();\r\n    } else {\r\n      _showIngestError(e.message);\r\n    }\r\n  }\r\n  _ingestAbort = null;\r\n  if (btn2) btn2.disabled = false;\r\n}",
+  "topics": [
+    "MA Memory Architect",
+    "ma-ui-config.js",
+    "FrontEnd js"
+  ],
+  "summary": "async function _sseIngest(url, body, label) {\r\n  _openIngestProgress(label);\r\n  const btn2 = document.getElementById('ingest-folder-btn');\r\n  if (btn2) btn2.disabled = true;\r\n  const controller = new ",
+  "importance": 0.6,
+  "createdAt": 1774646385033,
+  "createdAtISO": "2026-03-27T21:19:45.033Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "FrontEnd\\js\\ma-ui-config.js",
+  "accessCount": 0
+}

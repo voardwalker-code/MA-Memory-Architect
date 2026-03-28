@@ -1,0 +1,33 @@
+try {
+    // Use SSE streaming endpoint for step progress
+    _lrAbortController = new AbortController();
+    _startLongRequestTimer();
+    const r = await fetch('/api/chat/stream', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload,
+      signal: _lrAbortController.signal
+    });
+
+    if (!r.ok) {
+      // Fallback: try regular endpoint
+      _clearLongRequestTimer();
+      hideTyping();
+      const r2 = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload });
+      const d = await r2.json();
+      if (d.error) { addSystem('Error: ' + d.error); }
+      else { handleChatResult(d); }
+      sending = false; sendBtn.disabled = false; inputEl.focus(); return;
+    }
+
+    const reader = r.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    let progressWidget = null;
+    let gotSteps = false;
+    let eventType = null;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });

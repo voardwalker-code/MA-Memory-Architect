@@ -1,0 +1,58 @@
+```
+  MA — Memory Architect
+  ────────────────────────────────────
+  Config loaded: openrouter/anthropic/claude-sonnet-4
+  Entity loaded: MA
+  Memory store ready
+  MA listening on http://localhost:3850
+```
+
+### 2. Configure an LLM
+
+**First time?** MA needs an LLM backend. You have two options:
+
+**Option A — Browser GUI:**
+1. Open `http://localhost:3850`
+2. The settings panel opens automatically if unconfigured
+3. Pick a provider (OpenRouter or Ollama)
+4. Enter your endpoint URL, API key, and model name
+5. Click **Save**
+
+**Option B — Terminal CLI:**
+1. Edit `MA-Config/ma-config.json` directly:
+```json
+{
+  "type": "openrouter",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "apiKey": "sk-or-your-key-here",
+  "model": "anthropic/claude-sonnet-4",
+  "maxTokens": 12288
+}
+```
+2. Restart MA
+
+**Using Ollama (local, no API key):**
+```json
+{
+  "type": "ollama",
+  "endpoint": "http://localhost:11434",
+  "apiKey": "",
+  "model": "llama3.1:8b",
+  "maxTokens": 8192
+}
+```
+
+**Ollama Model Discovery:**
+When you select Ollama as the provider in the GUI, the Model field switches from a text input to a dropdown listing all models on your local machine. Selecting a model auto-fills `maxTokens` from that model's actual context length.
+
+### 3. Start Chatting
+
+Open `http://localhost:3850` in your browser, or run:
+
+```bash
+node MA-cli.js
+```
+
+---
+
+## Browser GUI

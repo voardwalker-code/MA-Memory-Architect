@@ -1,0 +1,18 @@
+### Entry 006
+- Date: 2026-03-27
+- Phase: Phase 5 (Guardrails and Regression Prevention)
+- Owner/Agent: GitHub Copilot
+- Change Summary: Added standalone guardrail and smoke validation scripts; restored lifecycle launcher script for `start:bg`/`status`/`stop`.
+- Files Changed:
+  - MA-scripts/check-standalone-guardrails.js
+  - MA-scripts/smoke-standalone.js
+  - ma-start.js
+  - package.json
+- Reason: Prevent future regression to cross-app coupling and provide repeatable standalone startup validation.
+- Validation Performed:
+  - `npm.cmd run guardrails:standalone` passed.
+  - `npm.cmd run smoke:standalone` passed (boot + `/api/health`).
+  - `node ma-start.js`, `node ma-start.js --status`, `node ma-start.js --stop` all succeeded.
+- Result: Success (Phase 5 complete).
+- Risks/Notes: `ma-start.js` now owns a PID file at `MA-logs/ma-server.pid` and writes runtime logs to `MA-logs/ma-start.log`.
+- Follow-up: Proceed to Phase 6 (final release readiness and handoff).

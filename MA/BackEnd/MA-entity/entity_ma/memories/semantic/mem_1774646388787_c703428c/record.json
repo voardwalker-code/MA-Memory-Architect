@@ -1,0 +1,18 @@
+{
+  "id": "mem_1774646388787_c703428c",
+  "type": "semantic",
+  "content": "- **Missing files** → The file was deleted or never created\r\n- **Zero-byte files** → The file exists but is empty (corrupted write)\r\n- **Syntax errors** → JS file has invalid syntax\r\n- **Broken requires** → A JS file references a module that does not exist\r\n- **JSON parse failures** → Malformed JSON (often BOM issues)\r\n- **HTML tag mismatches** → Unclosed or mismatched HTML tags\r\n- **CSS brace mismatches** → Unclosed `{` or extra `}` in CSS\r\n\n### Step 3: Choose the repair strategy\r\n\n**For missing or zero-byte files (1-3 files):**\r\n\nRead the file from CORE_REGISTRY to understand what it should be, then rewrite it:\r\n```\r\n[TOOL:ws_read path=\"scripts/health-scan.js\"]\r\n```\r\nLook up the file's description in the registry, then write the correct content.\r\n\n**For missing or zero-byte files (many files):**\r\n\nTell the user to run the fixer:\r\n```\r\nThe quickest way to restore these files is the BIOS fixer.\r\nRun: python neko_fixer.py --repair\r\nThis will restore all missing and empty files from the embedded DNA.\r\n```\r\n\nIf the fixer does not exist yet, generate it first:\r\n```\r\n[TOOL:cmd_run cmd=\"node scripts/generate-fixer.js\"]\r\n```\r\n\n**For syntax/logic errors in a file:**\r\n\nRead the broken file, understand the error from the health scan output, then fix it:\r\n```\r\n[TOOL:ws_read path=\"server/services/chat-pipeline.js\"]\r\n```\r\nThen write the corrected version:\r\n```\r\n[TOOL:ws_write path=\"server/services/chat-pipeline.js\" content=\"...corrected content...\"]\r\n```",
+  "topics": [
+    "MA Memory Architect",
+    "SKILL.md",
+    "MA-skills self-repair"
+  ],
+  "summary": "- **Missing files** → The file was deleted or never created\r\n- **Zero-byte files** → The file exists but is empty (corrupted write)\r\n- **Syntax errors** → JS file has invalid syntax\r\n- **Broken requir",
+  "importance": 0.6,
+  "createdAt": 1774646388787,
+  "createdAtISO": "2026-03-27T21:19:48.787Z",
+  "chainId": null,
+  "archive": "MA Memory Architect",
+  "sourcePath": "MA-skills\\self-repair\\SKILL.md",
+  "accessCount": 0
+}

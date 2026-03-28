@@ -1,0 +1,1 @@
+// Extracted from ma-ui.js: workspace tree + IDE editor logic.

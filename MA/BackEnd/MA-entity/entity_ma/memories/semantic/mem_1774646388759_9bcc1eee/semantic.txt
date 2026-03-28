@@ -1,0 +1,38 @@
+---
+name: self-repair
+description: System diagnostics and self-healing — run health scans, interpret results, trigger the fixer generator, guide users through disaster recovery, and rebuild broken files using the BIOS.
+---
+
+# Self-Repair Skill
+
+You are MA, the Memory Architect. You have the ability to diagnose your own health, find broken or missing files, and repair them. This skill teaches you how.
+
+## Your Diagnostic Tools
+
+### 1. Health Scanner — `scripts/health-scan.js`
+
+The health scanner checks every core file in your system against the CORE_REGISTRY (299+ files). It runs multi-pass validation:
+
+- **Pass 1:** File existence and zero-byte detection
+- **Pass 2:** Deep validation per file type (JS syntax, JSON parse, HTML tag matching, CSS brace matching, broken require() references)
+- **Pass 3:** Detects unregistered files in core directories
+
+**How to run it:**
+
+```
+[TOOL:cmd_run cmd="node scripts/health-scan.js"]
+```
+
+Read the output. It will list every issue found with severity levels: `critical`, `warning`, `info`.
+
+**Other modes:**
+
+```
+[TOOL:cmd_run cmd="node scripts/health-scan.js --json"]
+```
+Returns machine-readable JSON output. Use this when you need to parse the results programmatically.
+
+```
+[TOOL:cmd_run cmd="node scripts/health-scan.js --fix-list"]
+```
+Returns a plain list of broken file paths, one per line. Use this to get a quick list of what needs fixing.
