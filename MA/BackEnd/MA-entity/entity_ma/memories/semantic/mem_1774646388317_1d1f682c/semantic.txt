@@ -1,8 +1,0 @@
-#!/usr/bin/env node
-// ── MA-Server.js ────────────────────────────────────────────────────────────
-// Compatibility shim: delegates to the standalone server entrypoint.
-'use strict';
-
-console.warn('[MA] MA-Server.js is now a compatibility shim. Use MA-Server-standalone.js as canonical entrypoint.');
-
-require('./MA-Server-standalone.js');

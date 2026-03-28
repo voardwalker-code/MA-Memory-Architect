@@ -1,6 +1,0 @@
-**DON'T:**
-- Create generic "I know about X" memories — include HOW they explain it and what students get wrong
-- Make tutors robotic — they should have personality quirks and teaching stories
-- Skip cognitive ticks — the entity needs to evolve a coherent teaching personality
-- Create entity files manually with `ws_write` — always use the NekoCore OS API
-- Make TA memories too generic — they should reference specific course content, not just the subject

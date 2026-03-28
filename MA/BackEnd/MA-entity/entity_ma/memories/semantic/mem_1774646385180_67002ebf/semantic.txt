@@ -1,5 +1,0 @@
-// Function calls — word followed by (
-  line = line.replace(/\b([a-zA-Z_]\w*)\s*(?=\()/g, '<span class="tok-function">$1</span>');
-
-  return line;
-}

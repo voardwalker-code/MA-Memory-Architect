@@ -1,7 +1,0 @@
-module.exports = {
-  AGENT_SCHEMA, PROMPT_ENTRY_SCHEMA,
-  createAgent, getAgent, updateAgent, deleteAgent,
-  listAgents, findAgentsByRole, findAgentsByCapability, getCatalogSummary,
-  recordPrompt, getPromptHistory, searchPromptHistory,
-  validateAgent, ENTITY_DIR
-};

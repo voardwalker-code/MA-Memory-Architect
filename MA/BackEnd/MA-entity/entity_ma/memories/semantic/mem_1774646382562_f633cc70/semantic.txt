@@ -1,1 +1,0 @@
-module.exports = { fetchUrl, fetchAndExtract, extractText, webSearch, formatSearchResults };

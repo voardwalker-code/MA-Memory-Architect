@@ -1,9 +1,0 @@
-Task (research): You do though in this application you have a workspace.. I dont understand I have not changed any of my code I only switched form a little ollam model to you.. Why can qwen see it but not you? Come on Sonnet.. You are my fav please work
-Result: Here's what I accomplished:
-
-Walked through a 5-step response to a frustrated user who couldn't understand why switching from a local Ollama model to Claude/Sonnet broke their workspace visibility — even though they hadn't changed any code.
-
-**What was addressed:**
-- Acknowledged their frustration honestly and validated that the confusion made sense
-- Explained clearly that Claude/Sonnet does not have automatic access to their workspace or files — only what's pasted into the chat
-- Diagnosed why

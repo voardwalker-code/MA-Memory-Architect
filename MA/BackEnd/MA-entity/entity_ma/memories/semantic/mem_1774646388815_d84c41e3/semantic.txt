@@ -1,6 +1,0 @@
-1. Run `node scripts/health-scan.js` to find what is broken
-2. Read the output and categorize the issues
-3. For small fixes (1-5 files): read each broken file, understand the problem, rewrite it
-4. For large damage (6+ files): tell the user to run `python neko_fixer.py --repair`
-5. Run the scanner again to verify 0 critical issues
-6. If the main UI was affected, tell the user to hard-refresh their browser

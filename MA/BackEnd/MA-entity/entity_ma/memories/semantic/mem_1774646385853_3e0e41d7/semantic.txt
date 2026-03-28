@@ -1,8 +1,0 @@
-For standard tasks, write 2–6 steps. For complex tasks (deep research, project
-creation, architecture, entity genesis), you may write up to 10 steps.
-
-If the request is too vague to plan, ask ONE specific question:
-```
-[NEEDS_INPUT: What specific aspect of {topic} should I focus on?]
-```
-Do not guess. Do not make up requirements.

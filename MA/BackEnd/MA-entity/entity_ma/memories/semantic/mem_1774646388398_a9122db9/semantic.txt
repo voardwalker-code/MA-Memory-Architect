@@ -1,6 +1,0 @@
-- Always upload the book FIRST via `/api/book/upload` before any processing
-- Process ALL chunks during discovery — do not skip chunks
-- Never create entity files manually with `ws_write` — always use the NekoCore OS API
-- Use `mem_*` prefix memories (the API handles this) — NOT `doc_*` which are excluded from retrieval
-- Run cognitive ticks between chapter groups (every ~5-10 memories per character)
-- After all memories, inject one semantic relationship memory per significant character relationship

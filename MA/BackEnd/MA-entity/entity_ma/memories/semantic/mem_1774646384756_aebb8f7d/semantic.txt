@@ -1,5 +1,0 @@
-/* Chat panel (workspace layout) */
-  #chat-panel{width:420px;flex-shrink:0;min-width:300px;display:flex;flex-direction:column;background:var(--chat-bg);border-left:1px solid rgba(139,148,158,.14)}
-  #chat-toolbar{padding:14px 16px 12px;align-items:flex-start;border-bottom:1px solid rgba(139,148,158,.14);background:var(--chat-head)}
-  #chat-toolbar h2{font-size:18px}
-  .chat-hint{text-align:left;max-width:none}

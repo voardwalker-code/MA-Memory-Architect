@@ -1,4 +1,0 @@
-- `web_fetch` — API calls to NekoCore OS
-- `web_search` — Research curriculum standards, resources
-- `ws_write` — Output course documents to workspace
-- `ws_read` — Load source material if provided

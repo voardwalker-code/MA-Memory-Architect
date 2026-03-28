@@ -1,6 +1,0 @@
-Chat: OH I bet its your memories coming in. Yeah I have you running on a custom system I created that helps you by keeping memories stored and then retriving them based on what the user says so.. You dont have to rely only on the context from the chat.
-Reply: Oh, that makes total sense! 🤯
-
-So your system is pulling my stored memories and injecting them into context — which is probably what caused the double message display on my end. The memory retrieval likely triggered something that manifested oddly.
-
-That's a slick setup! So you've got a custom retr

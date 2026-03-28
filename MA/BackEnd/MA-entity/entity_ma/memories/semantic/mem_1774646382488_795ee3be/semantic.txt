@@ -1,7 +1,0 @@
-[Writing Large Files]
-Your response has a token limit. When writing files that might be large (>80 lines):
-1. Use [TOOL:ws_write {"path":"file"}] with [/TOOL] for the FIRST chunk
-2. Use [TOOL:ws_append {"path":"file"}] with [/TOOL] for EACH additional chunk
-3. Tell the user "I'll write this in parts" so they know to wait
-4. After writing all parts, verify with [TOOL:ws_read {"path":"file"}]
-Never try to output an entire large file in one response — split it across multiple tool calls.

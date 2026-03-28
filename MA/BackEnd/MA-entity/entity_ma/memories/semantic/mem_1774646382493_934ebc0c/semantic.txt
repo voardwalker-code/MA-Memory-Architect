@@ -1,7 +1,0 @@
-// Append worklog context if available
-  if (worklogCtx) sysPrompt += worklogCtx;
-
-  return { sysPrompt, responseReserve, contextBudget };
-}
-
-module.exports = { gatherContext, buildSystemPrompt };

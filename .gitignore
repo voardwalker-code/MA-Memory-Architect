@@ -9,6 +9,24 @@ Thumbs.db
 
 # Application (see MA/)
 MA/node_modules/
-MA/MA-logs/
+MA/MA-logs/*
+!MA/MA-logs/.gitkeep
+MA/MA-logs/*.pid
+
+# Secrets & local LLM config
 MA/MA-Config/ma-config.json
+
+# Chat session transcripts (GUI history)
 MA/MA-Config/chat-sessions/
+
+# Sandboxed workspace — user projects stay local only (planning kit is an exception)
+MA/MA-workspace/*
+!MA/MA-workspace/.gitkeep
+!MA/MA-workspace/MA-Memory-Architect/
+!MA/MA-workspace/MA-Memory-Architect/**
+
+# Entity runtime data (memories, search indexes, project archives, agent prompt logs)
+MA/BackEnd/MA-entity/entity_ma/memories/
+MA/BackEnd/MA-entity/entity_ma/index/
+MA/BackEnd/MA-entity/entity_ma/archives/
+MA/BackEnd/MA-entity/**/prompt-history/

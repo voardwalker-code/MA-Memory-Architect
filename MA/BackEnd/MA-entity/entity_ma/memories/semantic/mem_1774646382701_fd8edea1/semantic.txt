@@ -1,6 +1,0 @@
-Chat: Hey Ma you there
-Reply: Hey! Yeah, I'm here. 👋
-
-I'm MA, your Memory Architect — I can help with memory storage and retrieval, research, coding, and general tasks. 
-
-What can I do for you today?

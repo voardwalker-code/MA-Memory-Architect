@@ -1,7 +1,0 @@
-Chat: Sorry work mode is active
-Reply: Ha! I love it. The classic "make a simple task unnecessarily complex for educational purposes" approach. 🤓
-
-Your directory structure is ready. Want me to scaffold out the rest of the files? I can create:
-
-- `src/generator.ts` - The "Hello World" factory
-- `src/formatter.ts` - Wraps it in styling lo

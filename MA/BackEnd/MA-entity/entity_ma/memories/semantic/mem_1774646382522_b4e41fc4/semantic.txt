@@ -1,1 +1,0 @@
-module.exports = { parseCommand, execCommand, getAvailableCommands, getWhitelist, whitelistAdd, whitelistRemove, whitelistReset };

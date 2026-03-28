@@ -1,9 +1,0 @@
-Chat: continue
-Reply: I need to see the project contents to continue. Could you share:
-
-1. The contents of `ARCHITECTURE.md`
-2. Directory listing of `plan/`
-3. Directory listing of `src/` (recursive)
-4. Directory listing of `tests/`
-
-With that I can map what exists against what's intended, identify gaps, and build a conc

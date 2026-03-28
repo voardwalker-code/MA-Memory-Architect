@@ -1,6 +1,0 @@
-function ingestFolder() {
-  const folderPath = document.getElementById('ingest-folder-path').value.trim();
-  if (!folderPath) { alert('Enter a folder path.'); return; }
-  const archive = document.getElementById('ingest-archive-name').value.trim() || undefined;
-  _sseIngest('/api/memory/ingest-folder', { folderPath, archive }, 'Ingesting folder...');
-}

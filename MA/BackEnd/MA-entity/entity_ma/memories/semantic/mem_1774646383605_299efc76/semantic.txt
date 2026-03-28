@@ -1,5 +1,0 @@
-if (isEntityTask) {
-      prompt += `Execute step ${i + 1} now. Use [TOOL:entity_create {...}] to create entities and [TOOL:entity_inject_memory {...}] to add memories. Use [TOOL:ws_write {"path":"file"}]\\ncontent\\n[/TOOL] for non-entity files (reports, registries, etc).`;
-    } else {
-      prompt += `Execute step ${i + 1} now. Write files with [TOOL:ws_write {"path":"file"}]\ncontent\n[/TOOL]`;
-    }

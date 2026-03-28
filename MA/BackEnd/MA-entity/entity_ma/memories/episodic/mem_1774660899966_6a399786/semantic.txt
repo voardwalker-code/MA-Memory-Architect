@@ -1,6 +1,0 @@
-Chat: Cant you see the file I attched to this message?
-Reply: Looks like there's just an **MA/** folder in the workspace right now. I don't see an attachment or the full "Project/MA-Memory-Architect" folder structure you mentioned — just "MA/" at the root.
-
-If you'd like me to work with a Memory-Architect project, could you:
-
-1. Share the attachment again, or

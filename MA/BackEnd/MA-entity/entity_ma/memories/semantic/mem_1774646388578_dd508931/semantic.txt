@@ -1,9 +1,0 @@
-## Memory Quality Rules
-- Write in first person, present tense for immediacy
-- Include sensory details — what the entity saw, heard, felt
-- Vary emotions across memories — not everything is dramatic
-- Let earlier memories inform later ones through cognitive state
-- Use `importance` 0.7-0.9 for formative events, 0.3-0.5 for everyday moments
-
-## Emotions Available
-joy, wonder, love, hope, pride, gratitude, sadness, fear, anger, grief, longing, nostalgia, curiosity, neutral, resignation, melancholic, determined, content
